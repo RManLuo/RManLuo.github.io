@@ -14,4 +14,27 @@
         <tag>杂记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Representation Learning for Attributed Multiplex Heterogeneous Network</title>
+    <url>/2020/05/05/Representation%20Learning%20for%20Attributed%20Multiplex%20Heterogeneous%20Network/</url>
+    <content><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>现有的方法主要专注于具有单一类型节点/边缘的网络，并且不能灵活处理大型网络。许多真实世界的网络包括数十亿个节点和多种类型的边，每个节点与不同的属性相关联。本文提出了一种<strong>带属性多通道异构图网络，</strong>本网路结构可以支持transductive和indective的学习。</p>
+<p><img src="http://image.rman.top/20200505150252.png" alt=""></p>
+<h2 id="相关工作："><a href="#相关工作：" class="headerlink" title="相关工作："></a>相关工作：</h2><p><img src="http://image.rman.top/20200505151154.png" alt=""></p>
+<h2 id="Transductive-Model-GATNE-T："><a href="#Transductive-Model-GATNE-T：" class="headerlink" title="Transductive Model: GATNE-T："></a>Transductive Model: GATNE-T：</h2><p>此处，模型通过边的种类，学习节点在不同边聚类下的表达。采用的是graph sage的聚集方法。</p>
+<p><img src="http://image.rman.top/image-20200505151637254.png" alt="image-20200505151637254"></p>
+<p>然后把节点的所有边种类信息拼接起来，然后用self-attention进行聚合。</p>
+<p><img src="http://image.rman.top/image-20200505151656320.png" alt="image-20200505151656320"></p>
+<h2 id="Inductive-Model-GATNE-I："><a href="#Inductive-Model-GATNE-I：" class="headerlink" title="Inductive Model: GATNE-I："></a>Inductive Model: GATNE-I：</h2><p>为了解决一些节点之间边不存在的问题，通过节点的属性和节点的种类来对节点进行嵌入。</p>
+<p><img src="http://image.rman.top/image-20200505151717535.png" alt="image-20200505151717535"></p>
+<h2 id="Meta-Random-walk"><a href="#Meta-Random-walk" class="headerlink" title="Meta-Random-walk:"></a>Meta-Random-walk:</h2><p>对不同种类的边进行不同的游走，然后用负采样进行训练，最后用于节点预测。</p>
+<p><img src="http://image.rman.top/image-20200505151728482.png" alt="image-20200505151728482"></p>
+]]></content>
+      <categories>
+        <category>论文笔记</category>
+      </categories>
+      <tags>
+        <tag>异构图</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
 </search>
