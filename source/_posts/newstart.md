@@ -9,3 +9,5 @@ categories:
 ---
 
  <center>开始一个新的生活吧</center>
+
+![](http://image.rman.top/bg-4cbb1d7.jpg)
