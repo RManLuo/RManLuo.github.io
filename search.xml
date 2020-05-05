@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>newstart</title>
-    <url>/2020/05/05/newstart/</url>
-    <content><![CDATA[ <center>开始一个新的生活吧</center>
-
-<p><img src="newstart.assets/bg-4cbb1d7.jpg" alt=""></p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>newstart</title>
+      <link href="/2020/05/05/newstart/"/>
+      <url>/2020/05/05/newstart/</url>
+      
+        <content type="html"><![CDATA[ <center>开始一个新的生活吧</center><p><img src="http://image.rman.top/bg-4cbb1d7.jpg" alt=""></p>]]></content>
+      
+      
       <categories>
-        <category>杂记</category>
+          
+          <category> 杂记 </category>
+          
       </categories>
-      <tags>
-        <tag>杂记</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 杂记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
