@@ -1,0 +1,13 @@
+class:
+  class_name: 友情链接
+  link_list:
+    1:
+      name: 一年又一年
+      link: https://iyn.me
+      avatar: https://iyn.me/i/content/uploadfile/201704/thum-ab0c1492240992_384x.jpg
+      descr: 一年又一年的blog
+    2:
+      name: Ter
+      link: https://tery.top/
+      avatar: https://s2.ax1x.com/2020/02/10/156xLq.jpg
+      descr: Ter的blog
