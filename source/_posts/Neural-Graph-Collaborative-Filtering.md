@@ -13,7 +13,7 @@ categories:
 
 传统的深度学习协同过滤，ID的嵌入是直接输入交互层，但是在NGCF中，其能捕获用户和物品之间的高阶关系。
 
-![计算机生成了可选文字: User-itemInteractionGraph High-orderConnectivityfor榄1 Figure1：Anillustrationoftheuser-iteminteractiongraph andthehigh-orderconnectivity.Thenode屿isthetarget usertoproviderecommendationsfor.](http://image.rman.top/20200506161540.png)
+![计算机生成了可选文字: User-itemInteractionGraph High-orderConnectivityfor榄1 Figure1：Anillustrationoftheuser-iteminteractiongraph andthehigh-orderconnectivity.Thenode屿isthetarget usertoproviderecommendationsfor.](http://image.rman.top/20200506225252.jpg)
 
  
 
@@ -27,27 +27,27 @@ Intuitively, the interacted items provide direct evidence on a user’s preferen
 
 ## Message Construction:
 
-![img](Neural-Graph-Collaborative-Filtering.assets/clip_image002.png)
+$e_i$,$e_u$ 做哈达玛积，然后通过$W_2$ 转换，然后和$e_1$ 通过$W_1$ 做转换之后相加。然后除以度数乘积进行归一化。
 
-![计算机生成了可选文字: MessageConstruction.Foraconnecteduser—itempair(http://image.rman.top/20200506161600.png),iWe definethemessagefrom》toas: （2） wheremue—iisthemessageembedding0．巳，theinformationtobe propagated).f(•)isthemessageencodingfunction,whichtakes embeddingseiandeuasInputandusesthecoeffcientpuito controlthedecayfactoroneachpropagationonedge》 Inthiswork,weImplement丆0as 1 Wiei+W2@@eu)), （3） d'xd where从了1，了2eRarethetrainableweightmatricestodistill usefulinformationforpropagation,and/isthetransformation size.Distinctfromconventionalgraphconvolutionnetworks[4，18， 29，41]thatconsiderthecontributionOfeionly,hereweadditionally encodetheinteractionbetweeneiandeuintothemessagebeing passedviaei@e，where@denotestheelement-wiseproduct. Thismakesthemessagedependentontheaffnitybetweeneiand e，巳g”passlngmoremessagesfromsimilaritems.Thisnot onlyIncreasesthemodelrepresentationability,butalsobooststhe performanceforrecommendation(evidencesInourexperiments Section4．4．2）．](file:///C:/Users/luoli/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png)
+![](http://image.rman.top/20200506225439.png)
 
 ## Message Aggregation:
 
 邻居信息相加聚合在加到用户自身上和用户相加通过激活函数。
 
-![计算机生成了可选文字: （1） (http://image.rman.top/20200506161604.png) =LeakyReLU国“一“+ （4） whereedenotestherepresentationofuserobtainedafter thefirstembeddingpropagationlayer.Theactivationfunction ofLeakyReLU[23]allowsmessagestoencodebothpositiveand smallnegativesignals.Notethatinadditiontothemessages propagatedfromneighborsNu,wetaketheself-connectionofu Intoconsideration:一榄 一从与ewhichretainstheinformation Oforiginalfeatures（从与istheweightmatrixsharedwiththeone usedinEquation（3））．Analogously,wecanobtaintherepresentation e，foritemibypropagatmginformationfromitsconnectedusers. Tosummarize,theadvantageoftheembeddingpropagationlayer liesInexplicitlyexploitmgthefirst-orderconnectivityInformation torelateuseranditemrepresentations.](file:///C:/Users/luoli/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+![clip_image004](http://image.rman.top/20200506225702.png)
 
 ## 多层次卷积：
 
 很典型的图卷积矩阵定义
 
-![计算机生成了可选文字: PropagationRuleinMatrixForm.Toofferaholisticview Ofembeddingpropagationandfacilitatebatchimplementation, weprovidethematrixformOfthelayer-wisepropagationrule (http://image.rman.top/20200506161609.png)E(l-l)w）+LE一1）@E(l-l)w whereEeR(N+M)><山aretherepresentationsforusersanditems （0） obtainedafter/stepsOfembeddingpropagation.EissetasEat （0） （0） theinitialmessage-passingiterationthatiseu =euande andIdenoteanidentitymatrlux.representstheLaplacianmatrix fortheuser-itemgraphwhichisformulatedas: =D¯AD¯朰andA= 0R RT0 （8） NxM whereReR istheuser-iteminteractionmatrlxand0isall- zeromatrix•AistheadjacencymatrixandDisthediagonaldegree matrix，wherethet-thdiagonalelementDtt=INtl;assuch,the nonzerooff-diagonalentry丽=1/INullNll,whichisequalto “，usedInEquation（3）．](file:///C:/Users/luoli/AppData/Local/Temp/msohtmlclip1/01/clip_image005.png)
+![clip_image005](http://image.rman.top/20200506225703.png)
 
 ## Model prediction:
 
 每一层都会得到用户u的表示，将其拼接得到用户最后的表示。
 
-![计算机生成了可选文字: terpropagatmgwith layers,weObtalllmultiperepresentations (http://image.rman.top/20200506161614.png) forusernamely{eu eu}．Sincetherepresentations obtainedindifferentlayersemphasizethemessagespassedover differentconnections,theyhavedifferentcontributionsinreflecting userpreferenc巳Assuchweconcatenatethemtoconstitutethe finalembeddlngforauser;wedothesameoperationonitems， concatenatingtheitemrepresentations{e e}learnedby differentlayerstogetthefinalitemembedding: u （0） u （0） （9）](file:///C:/Users/luoli/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)
+![clip_image006](http://image.rman.top/20200506225704.png)
 
 同理得到物品的表示，然后点积预测结果。
 
@@ -63,6 +63,6 @@ Pairwise。对于implicit feedback（如是否购买），BPR对每一个user建
 
  
 
-来自 <https://zhuanlan.zhihu.com/p/31841042> 
+来自 <[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)>
 
-![计算机生成了可选文字: Theobjectivefunctionisasfollows 2 LOSS @，i，力GO (http://image.rman.top/20200506161618.png) where0 一{，i，丿月@，i)e+，@，力eR-}denotesthepairwise](file:///C:/Users/luoli/AppData/Local/Temp/msohtmlclip1/01/clip_image007.png)
+![clip_image007](http://image.rman.top/20200506225705.png)
