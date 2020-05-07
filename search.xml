@@ -154,4 +154,28 @@
         <tag>杂记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>neo4j导入和创建多数据库</title>
+    <url>/2020/05/07/neo4j-import-and-create-db/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在玩neo4j，用来存储实验的图数据库，以前都是只用做一个数据库就好了。但是由于一个数据集的paper被review怼的惨不忍睹，只能多搞几个数据集来实验，于是就开始倒腾建立多个数据集的方法。</p>
+<h2 id="Neo4j-admin-import"><a href="#Neo4j-admin-import" class="headerlink" title="Neo4j-admin import"></a>Neo4j-admin import</h2><p>使用Neio4j-admin import导入csv</p>
+<p><code>neo4j-admin --database=xxx.db --nodes=users.csv --relationships=relations.csv</code></p>
+<p>–database：数据库名字，由于创建了多个数据库所以必须改名，如果出现数据库名字重复或者不为空可以执行<code>sudo rm -rf /var/lib/neo4j/data/databases/xx.db</code>清空</p>
+<p>–nodes：节点csv，<code>[name:ID]</code>，ID字段是必须的，是唯一索引，name是feature的名字，<code>:LABEL</code>是节点的标签，貌似可以用[name:ID(label)]替代:LABEL</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">movies.csv. </span><br><span class="line"></span><br><span class="line">movieId:ID,title,year:int,:LABEL</span><br><span class="line">tt0133093,&quot;The Matrix&quot;,1999,Movie</span><br><span class="line">tt0234215,&quot;The Matrix Reloaded&quot;,2003,Movie;Sequel</span><br><span class="line">tt0242653,&quot;The Matrix Revolutions&quot;,2003,Movie;Sequel</span><br></pre></td></tr></table></figure>
+
+<p>–relations：关系csv，必须包含<code>START_ID</code>, <code>END_ID</code> 和 <code>:TYPE</code>，分别是开始节点，结束节点，和边的种类</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">roles.csv. </span><br><span class="line"></span><br><span class="line">:START_ID,role,:END_ID,:TYPE</span><br><span class="line">keanu,&quot;Neo&quot;,tt0133093,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0234215,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0242653,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0133093,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0234215,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0242653,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0133093,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0234215,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0242653,ACTED_IN</span><br></pre></td></tr></table></figure>
+
+<h2 id="多个数据库并存"><a href="#多个数据库并存" class="headerlink" title="多个数据库并存"></a>多个数据库并存</h2><p>neo4j默认是导入<code>graph.db</code>，在有多个数据库的时候，可以通过创建符号链接的方式切换数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv graph.db graph1.db</span><br><span class="line">ln -s graph1.db graph.db</span><br><span class="line">ln -s graph2.db graph.db</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>neo4j</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rman.top/"/>
-  <updated>2020-05-06T14:58:35.542Z</updated>
+  <updated>2020-05-07T05:04:18.779Z</updated>
   <id>https://www.rman.top/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>neo4j导入和创建多数据库</title>
+    <link href="https://www.rman.top/2020/05/07/neo4j-import-and-create-db/"/>
+    <id>https://www.rman.top/2020/05/07/neo4j-import-and-create-db/</id>
+    <published>2020-05-07T04:49:08.000Z</published>
+    <updated>2020-05-07T05:04:18.779Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在玩neo4j，用来存储实验的图数据库，以前都是只用做一个数据库就好了。但是由于一个数据集的paper被review怼的惨不忍睹，只能多搞几个数据集来实验，于是就开始倒腾建立多个数据集的方法。</p><h2 id="Neo4j-admin-import"><a href="#Neo4j-admin-import" class="headerlink" title="Neo4j-admin import"></a>Neo4j-admin import</h2><p>使用Neio4j-admin import导入csv</p><p><code>neo4j-admin --database=xxx.db --nodes=users.csv --relationships=relations.csv</code></p><p>–database：数据库名字，由于创建了多个数据库所以必须改名，如果出现数据库名字重复或者不为空可以执行<code>sudo rm -rf /var/lib/neo4j/data/databases/xx.db</code>清空</p><p>–nodes：节点csv，<code>[name:ID]</code>，ID字段是必须的，是唯一索引，name是feature的名字，<code>:LABEL</code>是节点的标签，貌似可以用[name:ID(label)]替代:LABEL</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">movies.csv. </span><br><span class="line"></span><br><span class="line">movieId:ID,title,year:int,:LABEL</span><br><span class="line">tt0133093,&quot;The Matrix&quot;,1999,Movie</span><br><span class="line">tt0234215,&quot;The Matrix Reloaded&quot;,2003,Movie;Sequel</span><br><span class="line">tt0242653,&quot;The Matrix Revolutions&quot;,2003,Movie;Sequel</span><br></pre></td></tr></table></figure><p>–relations：关系csv，必须包含<code>START_ID</code>, <code>END_ID</code> 和 <code>:TYPE</code>，分别是开始节点，结束节点，和边的种类</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">roles.csv. </span><br><span class="line"></span><br><span class="line">:START_ID,role,:END_ID,:TYPE</span><br><span class="line">keanu,&quot;Neo&quot;,tt0133093,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0234215,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0242653,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0133093,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0234215,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0242653,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0133093,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0234215,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0242653,ACTED_IN</span><br></pre></td></tr></table></figure><h2 id="多个数据库并存"><a href="#多个数据库并存" class="headerlink" title="多个数据库并存"></a>多个数据库并存</h2><p>neo4j默认是导入<code>graph.db</code>，在有多个数据库的时候，可以通过创建符号链接的方式切换数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv graph.db graph1.db</span><br><span class="line">ln -s graph1.db graph.db</span><br><span class="line">ln -s graph2.db graph.db</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近在玩neo4j，用来存储实验的图数据库，以前都是只用做一个数据库就好了。但是由于一个数据集的paper被review怼的惨不忍睹，只能多
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="https://www.rman.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="neo4j" scheme="https://www.rman.top/tags/neo4j/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Neural Graph Collaborative Filtering</title>
     <link href="https://www.rman.top/2020/05/06/Neural-Graph-Collaborative-Filtering/"/>
     <id>https://www.rman.top/2020/05/06/Neural-Graph-Collaborative-Filtering/</id>
     <published>2020-05-06T08:19:06.956Z</published>
-    <updated>2020-05-06T14:58:35.542Z</updated>
+    <updated>2020-05-07T04:54:43.781Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Abstract："><a href="#Abstract：" class="headerlink" title="Abstract："></a>Abstract：</h1><p>传统的深度学习协同过滤，ID的嵌入是直接输入交互层，但是在NGCF中，其能捕获用户和物品之间的高阶关系。</p><p><img src="http://image.rman.top/20200506225252.jpg" alt="计算机生成了可选文字: User-itemInteractionGraph High-orderConnectivityfor榄1 Figure1：Anillustrationoftheuser-iteminteractiongraph andthehigh-orderconnectivity.Thenode屿isthetarget usertoproviderecommendationsfor."></p><h1 id="Method："><a href="#Method：" class="headerlink" title="Method："></a>Method：</h1><h2 id="假设："><a href="#假设：" class="headerlink" title="假设："></a>假设：</h2><p>Intuitively, the interacted items provide direct evidence on a user’s preference [16, 38]; analogously, the users that consume an item can be treated as the item’s features and used to measure the collaborative similarity of two items.</p><h2 id="Message-Construction"><a href="#Message-Construction" class="headerlink" title="Message Construction:"></a>Message Construction:</h2><p>$e_i$,$e_u$ 做哈达玛积，然后通过$W_2$ 转换，然后和$e_1$ 通过$W_1$ 做转换之后相加。然后除以度数乘积进行归一化。</p><p><img src="http://image.rman.top/20200506225439.png" alt=""></p><h2 id="Message-Aggregation"><a href="#Message-Aggregation" class="headerlink" title="Message Aggregation:"></a>Message Aggregation:</h2><p>邻居信息相加聚合在加到用户自身上和用户相加通过激活函数。</p><p><img src="http://image.rman.top/20200506225702.png" alt="clip_image004"></p><h2 id="多层次卷积："><a href="#多层次卷积：" class="headerlink" title="多层次卷积："></a>多层次卷积：</h2><p>很典型的图卷积矩阵定义</p><p><img src="http://image.rman.top/20200506225703.png" alt="clip_image005"></p><h2 id="Model-prediction"><a href="#Model-prediction" class="headerlink" title="Model prediction:"></a>Model prediction:</h2><p>每一层都会得到用户u的表示，将其拼接得到用户最后的表示。</p><p><img src="http://image.rman.top/20200506225704.png" alt="clip_image006"></p><p>同理得到物品的表示，然后点积预测结果。</p><p>Loss采用BPR loss</p><p>Pairwise。对于implicit feedback（如是否购买），BPR对每一个user建立一个偏序关系 </p><p> 。如图所示，user-item矩阵中，+表示用户购买了该商品，?表示没有购买。比如，对user 1来说，他购买了 </p><p>，没有购买 </p><p>，则对于他来说，2和3比1和4好，但2、3之间，1、4之间无法比较</p><p>来自 &lt;<a href="https://zhuanlan.zhihu.com/p/31841042" target="_blank" rel="noopener"><em>https://zhuanlan.zhihu.com/p/31841042</em></a>&gt;</p><p><img src="http://image.rman.top/20200506225705.png" alt="clip_image007"></p>]]></content>
     
