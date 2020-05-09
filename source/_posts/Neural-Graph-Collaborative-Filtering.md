@@ -7,6 +7,7 @@ tags:
 	- 论文
 categories:
 	- 论文笔记
+mathjax: true
 ---
 
 # Abstract：
