@@ -20,7 +20,7 @@
 <p> 。如图所示，user-item矩阵中，+表示用户购买了该商品，?表示没有购买。比如，对user 1来说，他购买了 </p>
 <p>，没有购买 </p>
 <p>，则对于他来说，2和3比1和4好，但2、3之间，1、4之间无法比较</p>
-<p>来自 &lt;<a href="https://zhuanlan.zhihu.com/p/31841042" target="_blank" rel="noopener"><em>https://zhuanlan.zhihu.com/p/31841042</em></a>&gt;</p>
+<p>来自 <a href="[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)">[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)</a></p>
 <p><img src="http://image.rman.top/20200506225705.png" alt="clip_image007"></p>
 ]]></content>
       <categories>
@@ -161,7 +161,7 @@
 <h2 id="Neo4j-admin-import"><a href="#Neo4j-admin-import" class="headerlink" title="Neo4j-admin import"></a>Neo4j-admin import</h2><p>使用Neio4j-admin import导入csv</p>
 <p><code>neo4j-admin --database=xxx.db --nodes=users.csv --relationships=relations.csv</code></p>
 <p>–database：数据库名字，由于创建了多个数据库所以必须改名，如果出现数据库名字重复或者不为空可以执行<code>sudo rm -rf /var/lib/neo4j/data/databases/xx.db</code>清空</p>
-<p>–nodes：节点csv，<code>[name:ID]</code>，ID字段是必须的，是唯一索引，name是feature的名字，<code>:LABEL</code>是节点的标签，貌似可以用[name:ID(label)]替代:LABEL</p>
+<p>–nodes：节点csv，<code>[name:ID]</code>，ID字段是必须的，是唯一索引，name是feature的名字，<code>:LABEL</code>是节点的标签，貌似可以用[name:ID(label)]替代:LABEL ，但是此时在import 的时候要在<code>--nodes:User=users.csv</code>明确label</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">movies.csv. </span><br><span class="line"></span><br><span class="line">movieId:ID,title,year:int,:LABEL</span><br><span class="line">tt0133093,&quot;The Matrix&quot;,1999,Movie</span><br><span class="line">tt0234215,&quot;The Matrix Reloaded&quot;,2003,Movie;Sequel</span><br><span class="line">tt0242653,&quot;The Matrix Revolutions&quot;,2003,Movie;Sequel</span><br></pre></td></tr></table></figure>
 
 <p>–relations：关系csv，必须包含<code>START_ID</code>, <code>END_ID</code> 和 <code>:TYPE</code>，分别是开始节点，结束节点，和边的种类</p>
@@ -177,6 +177,54 @@
       </categories>
       <tags>
         <tag>neo4j</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>torch.einsum 实现CIN</title>
+    <url>/2020/05/09/torch-einsum-%E5%AE%9E%E7%8E%B0CIN/</url>
+    <content><![CDATA[<p>研究了一下如何用pytorch实现CIN的操作。</p>
+<h2 id="CIN的数学原理"><a href="#CIN的数学原理" class="headerlink" title="CIN的数学原理"></a>CIN的数学原理</h2><p>假设总共有$m$个field，每个field的embedding是一个$D$维向量。</p>
+<p>压缩交互网络（Compressed Interaction Network， 简称CIN）隐向量是一个单元对象，因此我们将输入的原特征和神经网络中的隐层都分别组织成一个矩阵，记为$X_0$和$Xk$，CIN中每一层的神经元都是根据<strong>前一层的隐层</strong>以及<strong>原特征向量</strong>推算而来，其计算公式如下：</p>
+<script type="math/tex; mode=display">
+X^k_{h,*}=\sum ^{H_{k-1}}_{i=1}\sum ^{m}_{j=1}W^{k,h}_{ij}(X^{k-1}_{i,*}\circ X^{0}_{j,*})</script><p>其中，第k层隐层含有$H_k$条神经元向量。$\circ$是Hadamard product，即element-wise product，即，$ \left \langle a_1,a_2,a_3\right \rangle\circ \left \langle b_1,b_2,b_3\right \rangle=\left \langle a_1b_1,a_2b_2,a_3b_3 \right \rangle $.</p>
+<p>根据前一层隐层的状态$X^k$和原特征矩阵$X^0$，计算出一个中间结果$Z^{k+1}$，它是一个三维的张量。注意图中的$\bigotimes$是outer product，其实就是矩阵乘法咯，也就是一个mx1和一个nx1的向量的外积是一个mxn的矩阵：</p>
+<script type="math/tex; mode=display">
+u\bigotimes v=uv^T=\begin{bmatrix}
+u_1\\ 
+u_2\\ 
+u_3\\
+u_4
+\end{bmatrix}\begin{bmatrix}
+v_1 & v_2  & v_3  
+\end{bmatrix}=\begin{bmatrix}
+u_1v_1 &  u_1v_2& u_1v_3 \\ 
+u_2v_1 & u_2v_2 & u_2v_3\\ 
+u_3v_1 & u_3v_2 & u_3v_3\\ 
+u_4v_1 & u_4v_2 & u_4v_3
+\end{bmatrix}</script><p><img src="http://image.rman.top/20200509123153.png" alt="img"></p>
+<p>而图中的$D$维，其实就是左边的一行和右边的一行对应相乘。</p>
+<p><a href="https://daiwk.github.io/posts/dl-dl-ctr-models.html#cin" target="_blank" rel="noopener">https://daiwk.github.io/posts/dl-dl-ctr-models.html#cin</a></p>
+<h2 id="pytorch的实现"><a href="#pytorch的实现" class="headerlink" title="pytorch的实现"></a>pytorch的实现</h2><p>在pytorch的实现过程中主要使用的是<code>torch.einsum</code>操作</p>
+<p><a href="https://pytorch.org/docs/stable/torch.html?highlight=einsum#torch.einsum" target="_blank" rel="noopener">https://pytorch.org/docs/stable/torch.html?highlight=einsum#torch.einsum</a></p>
+<blockquote>
+<p><code>torch.``einsum</code>(<em>equation</em>, <em>*operands</em>) → Tensor<a href="https://pytorch.org/docs/stable/_modules/torch/functional.html#einsum" target="_blank" rel="noopener">[SOURCE]</a></p>
+<p>This function provides a way of computing multilinear expressions (i.e. sums of products) using the Einstein summation convention.</p>
+<ul>
+<li><p>Parameters</p>
+<p><strong>equation</strong> (<em>string</em>) – The equation is given in terms of lower case letters (indices) to be associated with each dimension of the operands and result. The left hand side lists the operands dimensions, separated by commas. There should be one index letter per tensor dimension. The right hand side follows after -&gt; and gives the indices for the output. If the -&gt; and right hand side are omitted, it implicitly defined as the alphabetically sorted list of all indices appearing exactly once in the left hand side. The indices not apprearing in the output are summed over after multiplying the operands entries. If an index appears several times for the same operand, a diagonal is taken. Ellipses … represent a fixed number of dimensions. If the right hand side is inferred, the ellipsis dimensions are at the beginning of the output.<strong>operands</strong> (<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" target="_blank" rel="noopener"><em>Tensor</em></a>) – The operands to compute the Einstein sum of.</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(a_tensor)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">        [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>],</span><br><span class="line">        [<span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>],</span><br><span class="line">        [<span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>]])</span><br><span class="line"> </span><br><span class="line">print(b_tensor)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]])</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 'ik, kj -&gt; ij'语义解释如下：</span></span><br><span class="line"><span class="comment"># 输入a_tensor: 2维数组，下标为ik,</span></span><br><span class="line"><span class="comment"># 输入b_tensor: 2维数组，下标为kj,</span></span><br><span class="line"><span class="comment"># 输出output：2维数组，下标为ij。</span></span><br><span class="line"><span class="comment"># 隐含语义：输入a,b下标中相同的k，是求和的下标，对应上面的例子2的公式</span></span><br><span class="line">output = torch.einsum(<span class="string">'ik, kj -&gt; ij'</span>, a_tensor, b_tensor)</span><br><span class="line"> </span><br><span class="line">print(output)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">130</span>, <span class="number">130</span>, <span class="number">130</span>, <span class="number">130</span>],</span><br><span class="line">        [<span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>],</span><br><span class="line">        [<span class="number">330</span>, <span class="number">330</span>, <span class="number">330</span>, <span class="number">330</span>],</span><br><span class="line">        [<span class="number">430</span>, <span class="number">430</span>, <span class="number">430</span>, <span class="number">430</span>]])</span><br></pre></td></tr></table></figure>
+<p>简而言之，可以用<code>ik, kj</code>来指代输入矩阵的各个维度，然后用<code>-&gt;</code>来定义行列的操作。</p>
+<h3 id="CIN实现"><a href="#CIN实现" class="headerlink" title="CIN实现"></a>CIN实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a=torch.randn(<span class="number">2</span>,<span class="number">30</span>,<span class="number">8</span>) <span class="comment"># (Batch size, feature number, feature dim)</span></span><br><span class="line">b=torch.randn(<span class="number">2</span>,<span class="number">30</span>,<span class="number">8</span>) <span class="comment"># (Batch size, feature number, feature dim)</span></span><br><span class="line">c=torch.einsum(<span class="string">'bhd,bmd-&gt;bhmd'</span>,a,b) <span class="comment"># b是batch size， h,m是各自的特征数量，d是特征纬度</span></span><br><span class="line">c.size()</span><br><span class="line"><span class="comment"># torch.Size([2, 31, 31, 8])</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pytorc</tag>
       </tags>
   </entry>
 </search>
