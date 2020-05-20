@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rman.top/"/>
-  <updated>2020-05-09T04:55:50.390Z</updated>
+  <updated>2020-05-20T10:03:49.925Z</updated>
   <id>https://www.rman.top/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GraphSAINT,一种无偏的图采样方法</title>
+    <link href="https://www.rman.top/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/"/>
+    <id>https://www.rman.top/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/</id>
+    <published>2020-05-20T09:46:47.000Z</published>
+    <updated>2020-05-20T10:03:49.925Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在现在的图卷积中，由于图的大小可能非常大，传统的在全图上进行图卷积的操作往往是不现实的。因此往往采用了图采样的方法。图采样大致会分为：Layer Sampling 和 Graph Sampling两种。但是这两种方法都存在着一些问题。</p><p>Layer Sampling：</p><pre><code>1. 邻居爆炸：在矩阵采样多层时，假设每层采样n个邻居，则会导致$n^2$级别的节点扩充速度。 2. 领接矩阵稀疏：在矩阵采样的过程中，会导致邻接矩阵稀疏化，丢失一些本来存在的边。 3. 时间耗费高：每一层卷积都要采样，这就导致计算的时间耗费。</code></pre><p><img src="http://image.rman.top/20200520175505.png" alt="image-20200520175459686"></p><p>Graph Sampling:</p><p>Graph Sampling是一种相对好的采样方法，可以在preprocess阶段提前采样图，并且可以进行mini batch的加速。但是这样的采样往往会丢失一些信息。</p><p>本文为了解决以上问题，提出了一种在图上进行Graph Sampling的相对较好的方法。</p><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在普通的Layer采样过程中，我们希望采样之后产生的偏差最小。这个偏差可以由如下的公式得出。</p><p><img src="http://image.rman.top/20200520175911.png" alt="image-20200520175904265"></p><p>我们希望如下的偏差最小，经过一系列复制的推导，在$P_e$等于如下值的时候，偏差达到最小。</p><p><img src="http://image.rman.top/20200520180025.png" alt="image-20200520180020725"></p><p>但是此种方法计算需要所有子图中边两端的聚合信息来求得计算量十分大，于是作者采用了如下的简化公式</p><p>边的采样概率等于两个节点的倒数之和，来进行Graph的采样</p><p><img src="http://image.rman.top/20200520180226.png" alt="image-20200520180224380"></p><p><img src="http://image.rman.top/20200520180244.png" alt="image-20200520180242533"></p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>在许多的大图中进行证明，不仅训练速度得到了优化，其准确率也有了提高。</p><p><img src="http://image.rman.top/20200520180315.png" alt="image-20200520180313379"></p><p>同时对比了Layer Sampling和Graph Sampling，证明了Graph Sampling在多层的时效果有一定的提高</p><p><img src="http://image.rman.top/20200520180348.png" alt="image-20200520180346597"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在现在的图卷积中，由于图的大小可能非常大，传统的在全图上进行图卷积的操作往往是不现实的。因此往往采用了图采样的方法。图采样大致会分为：Lay
+      
+    
+    </summary>
+    
+    
+      <category term="论文笔记" scheme="https://www.rman.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="图神经网络" scheme="https://www.rman.top/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="论文笔记" scheme="https://www.rman.top/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="图采样" scheme="https://www.rman.top/tags/%E5%9B%BE%E9%87%87%E6%A0%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>torch.einsum 实现CIN</title>
