@@ -1,225 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>GraphSAINT,一种无偏的图采样方法</title>
-      <link href="/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/"/>
-      <url>/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在现在的图卷积中，由于图的大小可能非常大，传统的在全图上进行图卷积的操作往往是不现实的。因此往往采用了图采样的方法。图采样大致会分为：Layer Sampling 和 Graph Sampling两种。但是这两种方法都存在着一些问题。</p><p>Layer Sampling：</p><pre><code>1. 邻居爆炸：在矩阵采样多层时，假设每层采样n个邻居，则会导致$n^2$级别的节点扩充速度。 2. 领接矩阵稀疏：在矩阵采样的过程中，会导致邻接矩阵稀疏化，丢失一些本来存在的边。 3. 时间耗费高：每一层卷积都要采样，这就导致计算的时间耗费。</code></pre><p><img src="http://image.rman.top/20200520175505.png" alt="image-20200520175459686"></p><p>Graph Sampling:</p><p>Graph Sampling是一种相对好的采样方法，可以在preprocess阶段提前采样图，并且可以进行mini batch的加速。但是这样的采样往往会丢失一些信息。</p><p>本文为了解决以上问题，提出了一种在图上进行Graph Sampling的相对较好的方法。</p><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在普通的Layer采样过程中，我们希望采样之后产生的偏差最小。这个偏差可以由如下的公式得出。</p><p><img src="http://image.rman.top/20200520175911.png" alt="image-20200520175904265"></p><p>我们希望如下的偏差最小，经过一系列复制的推导，在$P_e$等于如下值的时候，偏差达到最小。</p><p><img src="http://image.rman.top/20200520180025.png" alt="image-20200520180020725"></p><p>但是此种方法计算需要所有子图中边两端的聚合信息来求得计算量十分大，于是作者采用了如下的简化公式</p><p>边的采样概率等于两个节点的倒数之和，来进行Graph的采样</p><p><img src="http://image.rman.top/20200520180226.png" alt="image-20200520180224380"></p><p><img src="http://image.rman.top/20200520180244.png" alt="image-20200520180242533"></p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>在许多的大图中进行证明，不仅训练速度得到了优化，其准确率也有了提高。</p><p><img src="http://image.rman.top/20200520180315.png" alt="image-20200520180313379"></p><p>同时对比了Layer Sampling和Graph Sampling，证明了Graph Sampling在多层的时效果有一定的提高</p><p><img src="http://image.rman.top/20200520180348.png" alt="image-20200520180346597"></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Neural Graph Collaborative Filtering</title>
+    <url>/2020/05/06/Neural-Graph-Collaborative-Filtering/</url>
+    <content><![CDATA[<h1 id="Abstract："><a href="#Abstract：" class="headerlink" title="Abstract："></a>Abstract：</h1><p>传统的深度学习协同过滤，ID的嵌入是直接输入交互层，但是在NGCF中，其能捕获用户和物品之间的高阶关系。</p>
+<p><img src="http://image.rman.top/20200506225252.jpg" alt="计算机生成了可选文字: User-itemInteractionGraph High-orderConnectivityfor榄1 Figure1：Anillustrationoftheuser-iteminteractiongraph andthehigh-orderconnectivity.Thenode屿isthetarget usertoproviderecommendationsfor."></p>
+<h1 id="Method："><a href="#Method：" class="headerlink" title="Method："></a>Method：</h1><h2 id="假设："><a href="#假设：" class="headerlink" title="假设："></a>假设：</h2><p>Intuitively, the interacted items provide direct evidence on a user’s preference [16, 38]; analogously, the users that consume an item can be treated as the item’s features and used to measure the collaborative similarity of two items.</p>
+<h2 id="Message-Construction"><a href="#Message-Construction" class="headerlink" title="Message Construction:"></a>Message Construction:</h2><p>$e_i$,$e_u$ 做哈达玛积，然后通过$W_2$ 转换，然后和$e_1$ 通过$W_1$ 做转换之后相加。然后除以度数乘积进行归一化。</p>
+<p><img src="http://image.rman.top/20200506225439.png" alt=""></p>
+<h2 id="Message-Aggregation"><a href="#Message-Aggregation" class="headerlink" title="Message Aggregation:"></a>Message Aggregation:</h2><p>邻居信息相加聚合在加到用户自身上和用户相加通过激活函数。</p>
+<p><img src="http://image.rman.top/20200506225702.png" alt="clip_image004"></p>
+<h2 id="多层次卷积："><a href="#多层次卷积：" class="headerlink" title="多层次卷积："></a>多层次卷积：</h2><p>很典型的图卷积矩阵定义</p>
+<p><img src="http://image.rman.top/20200506225703.png" alt="clip_image005"></p>
+<h2 id="Model-prediction"><a href="#Model-prediction" class="headerlink" title="Model prediction:"></a>Model prediction:</h2><p>每一层都会得到用户u的表示，将其拼接得到用户最后的表示。</p>
+<p><img src="http://image.rman.top/20200506225704.png" alt="clip_image006"></p>
+<p>同理得到物品的表示，然后点积预测结果。</p>
+<p>Loss采用BPR loss</p>
+<p>Pairwise。对于implicit feedback（如是否购买），BPR对每一个user建立一个偏序关系 </p>
+<p> 。如图所示，user-item矩阵中，+表示用户购买了该商品，?表示没有购买。比如，对user 1来说，他购买了 </p>
+<p>，没有购买 </p>
+<p>，则对于他来说，2和3比1和4好，但2、3之间，1、4之间无法比较</p>
+<p>来自 <a href="[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)">[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)</a></p>
+<p><img src="http://image.rman.top/20200506225705.png" alt="clip_image007"></p>
+]]></content>
       <categories>
-          
-          <category> 论文笔记 </category>
-          
+        <category>论文笔记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 图神经网络 </tag>
-            
-            <tag> 论文笔记 </tag>
-            
-            <tag> 图采样 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>torch.einsum 实现CIN</title>
-      <link href="/2020/05/09/torch-einsum-%E5%AE%9E%E7%8E%B0CIN/"/>
-      <url>/2020/05/09/torch-einsum-%E5%AE%9E%E7%8E%B0CIN/</url>
-      
-        <content type="html"><![CDATA[<p>研究了一下如何用pytorch实现CIN的操作。</p><h2 id="CIN的数学原理"><a href="#CIN的数学原理" class="headerlink" title="CIN的数学原理"></a>CIN的数学原理</h2><p>假设总共有$m$个field，每个field的embedding是一个$D$维向量。</p><p>压缩交互网络（Compressed Interaction Network， 简称CIN）隐向量是一个单元对象，因此我们将输入的原特征和神经网络中的隐层都分别组织成一个矩阵，记为$X_0$和$Xk$，CIN中每一层的神经元都是根据<strong>前一层的隐层</strong>以及<strong>原特征向量</strong>推算而来，其计算公式如下：</p><script type="math/tex; mode=display">X^k_{h,*}=\sum ^{H_{k-1}}_{i=1}\sum ^{m}_{j=1}W^{k,h}_{ij}(X^{k-1}_{i,*}\circ X^{0}_{j,*})</script><p>其中，第k层隐层含有$H_k$条神经元向量。$\circ$是Hadamard product，即element-wise product，即，$ \left \langle a_1,a_2,a_3\right \rangle\circ \left \langle b_1,b_2,b_3\right \rangle=\left \langle a_1b_1,a_2b_2,a_3b_3 \right \rangle $.</p><p>根据前一层隐层的状态$X^k$和原特征矩阵$X^0$，计算出一个中间结果$Z^{k+1}$，它是一个三维的张量。注意图中的$\bigotimes$是outer product，其实就是矩阵乘法咯，也就是一个mx1和一个nx1的向量的外积是一个mxn的矩阵：</p><script type="math/tex; mode=display">u\bigotimes v=uv^T=\begin{bmatrix}u_1\\ u_2\\ u_3\\u_4\end{bmatrix}\begin{bmatrix}v_1 & v_2  & v_3  \end{bmatrix}=\begin{bmatrix}u_1v_1 &  u_1v_2& u_1v_3 \\ u_2v_1 & u_2v_2 & u_2v_3\\ u_3v_1 & u_3v_2 & u_3v_3\\ u_4v_1 & u_4v_2 & u_4v_3\end{bmatrix}</script><p><img src="http://image.rman.top/20200509123153.png" alt="img"></p><p>而图中的$D$维，其实就是左边的一行和右边的一行对应相乘。</p><p><a href="https://daiwk.github.io/posts/dl-dl-ctr-models.html#cin" target="_blank" rel="noopener">https://daiwk.github.io/posts/dl-dl-ctr-models.html#cin</a></p><h2 id="pytorch的实现"><a href="#pytorch的实现" class="headerlink" title="pytorch的实现"></a>pytorch的实现</h2><p>在pytorch的实现过程中主要使用的是<code>torch.einsum</code>操作</p><p><a href="https://pytorch.org/docs/stable/torch.html?highlight=einsum#torch.einsum" target="_blank" rel="noopener">https://pytorch.org/docs/stable/torch.html?highlight=einsum#torch.einsum</a></p><blockquote><p><code>torch.``einsum</code>(<em>equation</em>, <em>*operands</em>) → Tensor<a href="https://pytorch.org/docs/stable/_modules/torch/functional.html#einsum" target="_blank" rel="noopener">[SOURCE]</a></p><p>This function provides a way of computing multilinear expressions (i.e. sums of products) using the Einstein summation convention.</p><ul><li><p>Parameters</p><p><strong>equation</strong> (<em>string</em>) – The equation is given in terms of lower case letters (indices) to be associated with each dimension of the operands and result. The left hand side lists the operands dimensions, separated by commas. There should be one index letter per tensor dimension. The right hand side follows after -&gt; and gives the indices for the output. If the -&gt; and right hand side are omitted, it implicitly defined as the alphabetically sorted list of all indices appearing exactly once in the left hand side. The indices not apprearing in the output are summed over after multiplying the operands entries. If an index appears several times for the same operand, a diagonal is taken. Ellipses … represent a fixed number of dimensions. If the right hand side is inferred, the ellipsis dimensions are at the beginning of the output.<strong>operands</strong> (<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" target="_blank" rel="noopener"><em>Tensor</em></a>) – The operands to compute the Einstein sum of.</p></li></ul></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">print(a_tensor)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">        [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>],</span><br><span class="line">        [<span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>],</span><br><span class="line">        [<span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>]])</span><br><span class="line"> </span><br><span class="line">print(b_tensor)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]])</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 'ik, kj -&gt; ij'语义解释如下：</span></span><br><span class="line"><span class="comment"># 输入a_tensor: 2维数组，下标为ik,</span></span><br><span class="line"><span class="comment"># 输入b_tensor: 2维数组，下标为kj,</span></span><br><span class="line"><span class="comment"># 输出output：2维数组，下标为ij。</span></span><br><span class="line"><span class="comment"># 隐含语义：输入a,b下标中相同的k，是求和的下标，对应上面的例子2的公式</span></span><br><span class="line">output = torch.einsum(<span class="string">'ik, kj -&gt; ij'</span>, a_tensor, b_tensor)</span><br><span class="line"> </span><br><span class="line">print(output)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">130</span>, <span class="number">130</span>, <span class="number">130</span>, <span class="number">130</span>],</span><br><span class="line">        [<span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>],</span><br><span class="line">        [<span class="number">330</span>, <span class="number">330</span>, <span class="number">330</span>, <span class="number">330</span>],</span><br><span class="line">        [<span class="number">430</span>, <span class="number">430</span>, <span class="number">430</span>, <span class="number">430</span>]])</span><br></pre></td></tr></table></figure><p>简而言之，可以用<code>ik, kj</code>来指代输入矩阵的各个维度，然后用<code>-&gt;</code>来定义行列的操作。</p><h3 id="CIN实现"><a href="#CIN实现" class="headerlink" title="CIN实现"></a>CIN实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=torch.randn(<span class="number">2</span>,<span class="number">30</span>,<span class="number">8</span>) <span class="comment"># (Batch size, feature number, feature dim)</span></span><br><span class="line">b=torch.randn(<span class="number">2</span>,<span class="number">30</span>,<span class="number">8</span>) <span class="comment"># (Batch size, feature number, feature dim)</span></span><br><span class="line">c=torch.einsum(<span class="string">'bhd,bmd-&gt;bhmd'</span>,a,b) <span class="comment"># b是batch size， h,m是各自的特征数量，d是特征纬度</span></span><br><span class="line">c.size()</span><br><span class="line"><span class="comment"># torch.Size([2, 31, 31, 8])</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>推荐系统</tag>
+        <tag>图神经网络</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Graph U-Nets</title>
+    <url>/2020/05/05/Graph-U-Nets/</url>
+    <content><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>在传统图像领域，encoder-decoder结构，比如U-nets已经在许多图像像素领域有着许多成功的应用。然而在图像领域，由于池化和反池化操作在图领域的实现并没有自然的实现，导致这样的结构并没有在图网络中应用。本文提出了一种在图结构上<strong>池化和反池化</strong>的操作，池化层可以根据节点在可训练投影向量上的标量投影值，自适应地选择节点，形成较小的图。反池化层可以把池化层生成的数据恢复成带位置信息的原始结构。</p>
+<h1 id="Graph-Pooling-Layer："><a href="#Graph-Pooling-Layer：" class="headerlink" title="Graph Pooling Layer："></a>Graph Pooling Layer：</h1><p>图池化，首先有节点特征X，邻接矩阵A，通过一个P向量来训练节点之间的位置关系，然后通过SIGMOD(y)+TOP-K来提取top-K特征，提取完之后，保存idex，从X，A提取特征和邻接矩阵。</p>
+<p><img src="http://image.rman.top/clip_image001-1588664337461.png" alt="clip_image001-1588664337461"></p>
+<h1 id="Graph-Unpooling-Layer："><a href="#Graph-Unpooling-Layer：" class="headerlink" title="Graph Unpooling Layer："></a>Graph Unpooling Layer：</h1><p>学习distribution，把pool过之后的K<em>C矩阵，和选定的节点idx，恢复成原始的N</em>C矩阵。</p>
+<p><img src="http://image.rman.top/clip_image002.png" alt="计算机生成了可选文字: X十1=distribute(ONxc,Xc,idx）： （3）"></p>
+<p>只把选定位置的点设为k<em>C的特征，N</em>C的其他位置设为0</p>
+]]></content>
       <categories>
-          
-          <category> python </category>
-          
+        <category>论文笔记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> pytorc </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>neo4j导入和创建多数据库</title>
-      <link href="/2020/05/07/neo4j-import-and-create-db/"/>
-      <url>/2020/05/07/neo4j-import-and-create-db/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在玩neo4j，用来存储实验的图数据库，以前都是只用做一个数据库就好了。但是由于一个数据集的paper被review怼的惨不忍睹，只能多搞几个数据集来实验，于是就开始倒腾建立多个数据集的方法。</p><h2 id="Neo4j-admin-import"><a href="#Neo4j-admin-import" class="headerlink" title="Neo4j-admin import"></a>Neo4j-admin import</h2><p>使用Neio4j-admin import导入csv</p><p><code>neo4j-admin --database=xxx.db --nodes=users.csv --relationships=relations.csv</code></p><p>–database：数据库名字，由于创建了多个数据库所以必须改名，如果出现数据库名字重复或者不为空可以执行<code>sudo rm -rf /var/lib/neo4j/data/databases/xx.db</code>清空</p><p>–nodes：节点csv，<code>[name:ID]</code>，ID字段是必须的，是唯一索引，name是feature的名字，<code>:LABEL</code>是节点的标签，貌似可以用[name:ID(label)]替代:LABEL ，但是此时在import 的时候要在<code>--nodes:User=users.csv</code>明确label</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">movies.csv. </span><br><span class="line"></span><br><span class="line">movieId:ID,title,year:int,:LABEL</span><br><span class="line">tt0133093,&quot;The Matrix&quot;,1999,Movie</span><br><span class="line">tt0234215,&quot;The Matrix Reloaded&quot;,2003,Movie;Sequel</span><br><span class="line">tt0242653,&quot;The Matrix Revolutions&quot;,2003,Movie;Sequel</span><br></pre></td></tr></table></figure><p>–relations：关系csv，必须包含<code>START_ID</code>, <code>END_ID</code> 和 <code>:TYPE</code>，分别是开始节点，结束节点，和边的种类</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">roles.csv. </span><br><span class="line"></span><br><span class="line">:START_ID,role,:END_ID,:TYPE</span><br><span class="line">keanu,&quot;Neo&quot;,tt0133093,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0234215,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0242653,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0133093,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0234215,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0242653,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0133093,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0234215,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0242653,ACTED_IN</span><br></pre></td></tr></table></figure><h2 id="多个数据库并存"><a href="#多个数据库并存" class="headerlink" title="多个数据库并存"></a>多个数据库并存</h2><p>neo4j默认是导入<code>graph.db</code>，在有多个数据库的时候，可以通过创建符号链接的方式切换数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv graph.db graph1.db</span><br><span class="line">ln -s graph1.db graph.db</span><br><span class="line">ln -s graph2.db graph.db</span><br></pre></td></tr></table></figure><p><img src="http://image.rman.top/20200507130538.png" alt="image-20200507130527694"></p>]]></content>
-      
-      
+      <tags>
+        <tag>图神经网络</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Representation Learning for Attributed Multiplex Heterogeneous Network</title>
+    <url>/2020/05/05/Representation%20Learning%20for%20Attributed%20Multiplex%20Heterogeneous%20Network/</url>
+    <content><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>现有的方法主要专注于具有单一类型节点/边缘的网络，并且不能灵活处理大型网络。许多真实世界的网络包括数十亿个节点和多种类型的边，每个节点与不同的属性相关联。本文提出了一种<strong>带属性多通道异构图网络，</strong>本网路结构可以支持transductive和indective的学习。</p>
+<p><img src="http://image.rman.top/20200505150252.png" alt=""></p>
+<h2 id="相关工作："><a href="#相关工作：" class="headerlink" title="相关工作："></a>相关工作：</h2><p><img src="http://image.rman.top/20200505151154.png" alt=""></p>
+<h2 id="Transductive-Model-GATNE-T："><a href="#Transductive-Model-GATNE-T：" class="headerlink" title="Transductive Model: GATNE-T："></a>Transductive Model: GATNE-T：</h2><p>此处，模型通过边的种类，学习节点在不同边聚类下的表达。采用的是graph sage的聚集方法。</p>
+<p><img src="http://image.rman.top/image-20200505151637254.png" alt="image-20200505151637254"></p>
+<p>然后把节点的所有边种类信息拼接起来，然后用self-attention进行聚合。</p>
+<p><img src="http://image.rman.top/image-20200505151656320.png" alt="image-20200505151656320"></p>
+<h2 id="Inductive-Model-GATNE-I："><a href="#Inductive-Model-GATNE-I：" class="headerlink" title="Inductive Model: GATNE-I："></a>Inductive Model: GATNE-I：</h2><p>为了解决一些节点之间边不存在的问题，通过节点的属性和节点的种类来对节点进行嵌入。</p>
+<p><img src="http://image.rman.top/image-20200505151717535.png" alt="image-20200505151717535"></p>
+<h2 id="Meta-Random-walk"><a href="#Meta-Random-walk" class="headerlink" title="Meta-Random-walk:"></a>Meta-Random-walk:</h2><p>对不同种类的边进行不同的游走，然后用负采样进行训练，最后用于节点预测。</p>
+<p><img src="http://image.rman.top/image-20200505151728482.png" alt="image-20200505151728482"></p>
+]]></content>
       <categories>
-          
-          <category> 数据库 </category>
-          
+        <category>论文笔记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> neo4j </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Neural Graph Collaborative Filtering</title>
-      <link href="/2020/05/06/Neural-Graph-Collaborative-Filtering/"/>
-      <url>/2020/05/06/Neural-Graph-Collaborative-Filtering/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Abstract："><a href="#Abstract：" class="headerlink" title="Abstract："></a>Abstract：</h1><p>传统的深度学习协同过滤，ID的嵌入是直接输入交互层，但是在NGCF中，其能捕获用户和物品之间的高阶关系。</p><p><img src="http://image.rman.top/20200506225252.jpg" alt="计算机生成了可选文字: User-itemInteractionGraph High-orderConnectivityfor榄1 Figure1：Anillustrationoftheuser-iteminteractiongraph andthehigh-orderconnectivity.Thenode屿isthetarget usertoproviderecommendationsfor."></p><h1 id="Method："><a href="#Method：" class="headerlink" title="Method："></a>Method：</h1><h2 id="假设："><a href="#假设：" class="headerlink" title="假设："></a>假设：</h2><p>Intuitively, the interacted items provide direct evidence on a user’s preference [16, 38]; analogously, the users that consume an item can be treated as the item’s features and used to measure the collaborative similarity of two items.</p><h2 id="Message-Construction"><a href="#Message-Construction" class="headerlink" title="Message Construction:"></a>Message Construction:</h2><p>$e_i$,$e_u$ 做哈达玛积，然后通过$W_2$ 转换，然后和$e_1$ 通过$W_1$ 做转换之后相加。然后除以度数乘积进行归一化。</p><p><img src="http://image.rman.top/20200506225439.png" alt=""></p><h2 id="Message-Aggregation"><a href="#Message-Aggregation" class="headerlink" title="Message Aggregation:"></a>Message Aggregation:</h2><p>邻居信息相加聚合在加到用户自身上和用户相加通过激活函数。</p><p><img src="http://image.rman.top/20200506225702.png" alt="clip_image004"></p><h2 id="多层次卷积："><a href="#多层次卷积：" class="headerlink" title="多层次卷积："></a>多层次卷积：</h2><p>很典型的图卷积矩阵定义</p><p><img src="http://image.rman.top/20200506225703.png" alt="clip_image005"></p><h2 id="Model-prediction"><a href="#Model-prediction" class="headerlink" title="Model prediction:"></a>Model prediction:</h2><p>每一层都会得到用户u的表示，将其拼接得到用户最后的表示。</p><p><img src="http://image.rman.top/20200506225704.png" alt="clip_image006"></p><p>同理得到物品的表示，然后点积预测结果。</p><p>Loss采用BPR loss</p><p>Pairwise。对于implicit feedback（如是否购买），BPR对每一个user建立一个偏序关系 </p><p> 。如图所示，user-item矩阵中，+表示用户购买了该商品，?表示没有购买。比如，对user 1来说，他购买了 </p><p>，没有购买 </p><p>，则对于他来说，2和3比1和4好，但2、3之间，1、4之间无法比较</p><p>来自 <a href="[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)">[*https://zhuanlan.zhihu.com/p/31841042*](https://zhuanlan.zhihu.com/p/31841042)</a></p><p><img src="http://image.rman.top/20200506225705.png" alt="clip_image007"></p>]]></content>
-      
-      
+      <tags>
+        <tag>论文</tag>
+        <tag>异构图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyG Graph sage 源码分析</title>
+    <url>/2020/05/06/PyG-Graph-sage-souce/</url>
+    <content><![CDATA[<h2 id="PyG-Graph-sage-源码分析"><a href="#PyG-Graph-sage-源码分析" class="headerlink" title="PyG Graph sage 源码分析"></a>PyG Graph sage 源码分析</h2><ol>
+<li>Neighbor sampler</li>
+</ol>
+<p>NeighborSampler！</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NeighborSampler(data, size, num_hops, batch_size&#x3D;1, shuffle&#x3D;False, drop_last&#x3D;False, bipartite&#x3D;True, add_self_loops&#x3D;False, flow&#x3D;&#39;source_to_target&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>该方法返回一个生成器，主要需要的参数有data数据、采样邻居数（或比例）、采样跳数、bs等。其中bipartite参数指定返回的数据形式：</p>
+<ul>
+<li>bipartite=True     返回DataFlow 数据形式</li>
+<li>bipartite=False     返回Data 数据形式（实际上是Data形式的subgraph）</li>
+</ul>
+<p>在 <a href="https://link.zhihu.com/?target=https%3A//github.com/rusty1s/pytorch_geometric/blob/a8f32aaff8608e497f112f700d1fd8ca0cb9ae18/test/data/test_sampler.py">https://github.com/rusty1s/pytorch_geometric/blob/a8f32aaff8608e497f112f700d1fd8ca0cb9ae18/test/data/test_sampler.py</a> 中我们可以看到两种方法的使用例子。</p>
+<ol>
+<li>bipartite</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Neighborloader &#x3D; NeighborSampler(Cora[0], size&#x3D;[25, 10], num_hops&#x3D;2, batch_size&#x3D;1,</span><br><span class="line">             shuffle&#x3D;True, add_self_loops&#x3D;True,)</span><br><span class="line"> for ner in Neighborloader(Cora[0].train_mask):</span><br><span class="line">   print(ner)</span><br><span class="line"> #输出: DataFlow(1&lt;-4&lt;-9)</span><br></pre></td></tr></table></figure>
+
+<p>即 layer 0有9个点，layer 1有4个点，layer 2有1个点（目标）</p>
+<p>hoop设置两跳，ner里于是有了两个Block数据：、</p>
+<p>ner[0], ner[1]<br> # 输出: Block(n_id=[9], res_n_id=[4], e_id=None, edge_index=[2, 18], size=[2]),<br> # Block(n_id=[4], res_n_id=[1], e_id=None, edge_index=[2, 4], size=[2]))</p>
+<ul>
+<li>n_id是二分图中节点(从0开始)到原图的id映射</li>
+<li>res_n_id是二分图中向其他层连接的节点id</li>
+<li>edge_index二分图中的边</li>
+</ul>
+<p>具体来看：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ner[0].n_id, ner[0].res_n_id</span><br><span class="line"> \# 输出: (tensor([ 109, 2481, 234, 826, 2287, 114, 2506, 610, 2288]),</span><br><span class="line"> tensor([5, 8, 7, 6]),</span><br></pre></td></tr></table></figure>
+
+<p>也就是说这一层ner[0] 26个节点编号：[ 109, 2481, 234, 826, 2287, 114, 2506, 610, 2288]</p>
+<p>其中第[5, 8, 7, 6]（即[ 114, 2288, 610, 2506]）是和下一层ner[1] 相连接的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ner[1].n_id, ner[1].res_n_id</span><br><span class="line"> # 输出:(tensor([ 114, 2288, 610, 2506]),</span><br><span class="line"> tensor([0]),</span><br></pre></td></tr></table></figure>
+<p>batch&gt;1时也就是采样一个包含batch个目标点的二分图。</p>
+<p>因此我们在训练时要先输入layer 0进行训练，然后再此基础上对layer 1进行训练，最终得到layer 1的res_n_id的输出。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def forward_data_flow(self, x, edge_weight, data_flow):</span><br><span class="line">   block &#x3D; data_flow[0]</span><br><span class="line">   weight &#x3D; None if block.e_id is None else edge_weight[block.e_id]</span><br><span class="line">   x &#x3D; relu(</span><br><span class="line">       self.conv1((x, None), block.edge_index, weight, block.size))</span><br><span class="line">   block &#x3D; data_flow[1]</span><br><span class="line">   weight &#x3D; None if block.e_id is None else edge_weight[block.e_id]</span><br><span class="line">   x &#x3D; relu(</span><br><span class="line">       self.conv2((x, None), block.edge_index, weight, block.size))</span><br><span class="line">   return x</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>subgraph</li>
+</ol>
+<p>subgraph模型上与不使用NeighborSampler的无异，唯一区别是Data中的变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ner[1].n_id, ner[1].res_n_id</span><br><span class="line"> \# 输出:Data(b_id&#x3D;[1], e_id&#x3D;[20], edge_index&#x3D;[2, 20], n_id&#x3D;[19], sub_b_id&#x3D;[1])</span><br><span class="line"> ner.b_id, ner.sub_b_id, ner.n_id</span><br><span class="line"> \# 输出:(tensor([100]),</span><br><span class="line"> tensor([18]),</span><br><span class="line"> tensor([ 95, 2073, 2054,  6, 2074, 2072, 315, 2576, 1416, 734, 2311, 1628,</span><br><span class="line">     1841, 1680, 408, 2056, 1602, 1204, 100]))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>n_id是子图中节点(从0开始)到原图的id映射</li>
+<li>b_id是目标点</li>
+<li>sub_b_id是子图中目标点的id</li>
+</ul>
+<p>batch&gt;1时也就是采样一个包含batch个目标点的子图。</p>
+<p>我们在训练时放入采样的子图，只取目标点sub_b_id作为模型输出即可，其他不变。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">out &#x3D; model(data.x[subdata.n_id], subdata.edge_index, weight)</span><br><span class="line">out &#x3D; out[subdata.sub_b_id]</span><br></pre></td></tr></table></figure>
+
+
+<p>来自 <a href="https://zhuanlan.zhihu.com/p/113862170" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113862170</a> </p>
+<ol>
+<li>在使用过程中，逐层输入block的node和index，通过聚合函数，会自动把输出的层聚合成下一个hop的node数量，</li>
+<li>TODO：neighbor     sampler的分析，到时候motif sampler要用</li>
+</ol>
+]]></content>
       <categories>
-          
-          <category> 论文笔记 </category>
-          
+        <category>python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 推荐系统 </tag>
-            
-            <tag> 图神经网络 </tag>
-            
-            <tag> 论文 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>PyG Graph sage 源码分析</title>
-      <link href="/2020/05/06/PyG-Graph-sage-souce/"/>
-      <url>/2020/05/06/PyG-Graph-sage-souce/</url>
-      
-        <content type="html"><![CDATA[<h2 id="PyG-Graph-sage-源码分析"><a href="#PyG-Graph-sage-源码分析" class="headerlink" title="PyG Graph sage 源码分析"></a>PyG Graph sage 源码分析</h2><ol><li>Neighbor sampler</li></ol><p>NeighborSampler！</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NeighborSampler(data, size, num_hops, batch_size&#x3D;1, shuffle&#x3D;False, drop_last&#x3D;False, bipartite&#x3D;True, add_self_loops&#x3D;False, flow&#x3D;&#39;source_to_target&#39;)</span><br></pre></td></tr></table></figure><p>该方法返回一个生成器，主要需要的参数有data数据、采样邻居数（或比例）、采样跳数、bs等。其中bipartite参数指定返回的数据形式：</p><ul><li>bipartite=True     返回DataFlow 数据形式</li><li>bipartite=False     返回Data 数据形式（实际上是Data形式的subgraph）</li></ul><p>在 <a href="https://link.zhihu.com/?target=https%3A//github.com/rusty1s/pytorch_geometric/blob/a8f32aaff8608e497f112f700d1fd8ca0cb9ae18/test/data/test_sampler.py">https://github.com/rusty1s/pytorch_geometric/blob/a8f32aaff8608e497f112f700d1fd8ca0cb9ae18/test/data/test_sampler.py</a> 中我们可以看到两种方法的使用例子。</p><ol><li>bipartite</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Neighborloader &#x3D; NeighborSampler(Cora[0], size&#x3D;[25, 10], num_hops&#x3D;2, batch_size&#x3D;1,</span><br><span class="line">             shuffle&#x3D;True, add_self_loops&#x3D;True,)</span><br><span class="line"> for ner in Neighborloader(Cora[0].train_mask):</span><br><span class="line">   print(ner)</span><br><span class="line"> #输出: DataFlow(1&lt;-4&lt;-9)</span><br></pre></td></tr></table></figure><p>即 layer 0有9个点，layer 1有4个点，layer 2有1个点（目标）</p><p>hoop设置两跳，ner里于是有了两个Block数据：、</p><p>ner[0], ner[1]<br> # 输出: Block(n_id=[9], res_n_id=[4], e_id=None, edge_index=[2, 18], size=[2]),<br> # Block(n_id=[4], res_n_id=[1], e_id=None, edge_index=[2, 4], size=[2]))</p><ul><li>n_id是二分图中节点(从0开始)到原图的id映射</li><li>res_n_id是二分图中向其他层连接的节点id</li><li>edge_index二分图中的边</li></ul><p>具体来看：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ner[0].n_id, ner[0].res_n_id</span><br><span class="line"> \# 输出: (tensor([ 109, 2481, 234, 826, 2287, 114, 2506, 610, 2288]),</span><br><span class="line"> tensor([5, 8, 7, 6]),</span><br></pre></td></tr></table></figure><p>也就是说这一层ner[0] 26个节点编号：[ 109, 2481, 234, 826, 2287, 114, 2506, 610, 2288]</p><p>其中第[5, 8, 7, 6]（即[ 114, 2288, 610, 2506]）是和下一层ner[1] 相连接的：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ner[1].n_id, ner[1].res_n_id</span><br><span class="line"> # 输出:(tensor([ 114, 2288, 610, 2506]),</span><br><span class="line"> tensor([0]),</span><br></pre></td></tr></table></figure><p>batch&gt;1时也就是采样一个包含batch个目标点的二分图。</p><p>因此我们在训练时要先输入layer 0进行训练，然后再此基础上对layer 1进行训练，最终得到layer 1的res_n_id的输出。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def forward_data_flow(self, x, edge_weight, data_flow):</span><br><span class="line">   block &#x3D; data_flow[0]</span><br><span class="line">   weight &#x3D; None if block.e_id is None else edge_weight[block.e_id]</span><br><span class="line">   x &#x3D; relu(</span><br><span class="line">       self.conv1((x, None), block.edge_index, weight, block.size))</span><br><span class="line">   block &#x3D; data_flow[1]</span><br><span class="line">   weight &#x3D; None if block.e_id is None else edge_weight[block.e_id]</span><br><span class="line">   x &#x3D; relu(</span><br><span class="line">       self.conv2((x, None), block.edge_index, weight, block.size))</span><br><span class="line">   return x</span><br></pre></td></tr></table></figure><ol start="2"><li>subgraph</li></ol><p>subgraph模型上与不使用NeighborSampler的无异，唯一区别是Data中的变量：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ner[1].n_id, ner[1].res_n_id</span><br><span class="line"> \# 输出:Data(b_id&#x3D;[1], e_id&#x3D;[20], edge_index&#x3D;[2, 20], n_id&#x3D;[19], sub_b_id&#x3D;[1])</span><br><span class="line"> ner.b_id, ner.sub_b_id, ner.n_id</span><br><span class="line"> \# 输出:(tensor([100]),</span><br><span class="line"> tensor([18]),</span><br><span class="line"> tensor([ 95, 2073, 2054,  6, 2074, 2072, 315, 2576, 1416, 734, 2311, 1628,</span><br><span class="line">     1841, 1680, 408, 2056, 1602, 1204, 100]))</span><br></pre></td></tr></table></figure><ul><li>n_id是子图中节点(从0开始)到原图的id映射</li><li>b_id是目标点</li><li>sub_b_id是子图中目标点的id</li></ul><p>batch&gt;1时也就是采样一个包含batch个目标点的子图。</p><p>我们在训练时放入采样的子图，只取目标点sub_b_id作为模型输出即可，其他不变。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out &#x3D; model(data.x[subdata.n_id], subdata.edge_index, weight)</span><br><span class="line">out &#x3D; out[subdata.sub_b_id]</span><br></pre></td></tr></table></figure><p>来自 <a href="https://zhuanlan.zhihu.com/p/113862170" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113862170</a> </p><ol><li>在使用过程中，逐层输入block的node和index，通过聚合函数，会自动把输出的层聚合成下一个hop的node数量，</li><li>TODO：neighbor     sampler的分析，到时候motif sampler要用</li></ol>]]></content>
-      
-      
+      <tags>
+        <tag>pytorch</tag>
+        <tag>pytorch geometric</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>newstart</title>
+    <url>/2020/05/05/newstart/</url>
+    <content><![CDATA[ <center>开始一个新的生活吧</center>
+
+<p><img src="http://image.rman.top/bg-4cbb1d7.jpg" alt=""></p>
+]]></content>
       <categories>
-          
-          <category> python </category>
-          
+        <category>杂记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> pytorch </tag>
-            
-            <tag> pytorch geometric </tag>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Graph U-Nets</title>
-      <link href="/2020/05/05/Graph-U-Nets/"/>
-      <url>/2020/05/05/Graph-U-Nets/</url>
-      
-        <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>在传统图像领域，encoder-decoder结构，比如U-nets已经在许多图像像素领域有着许多成功的应用。然而在图像领域，由于池化和反池化操作在图领域的实现并没有自然的实现，导致这样的结构并没有在图网络中应用。本文提出了一种在图结构上<strong>池化和反池化</strong>的操作，池化层可以根据节点在可训练投影向量上的标量投影值，自适应地选择节点，形成较小的图。反池化层可以把池化层生成的数据恢复成带位置信息的原始结构。</p><h1 id="Graph-Pooling-Layer："><a href="#Graph-Pooling-Layer：" class="headerlink" title="Graph Pooling Layer："></a>Graph Pooling Layer：</h1><p>图池化，首先有节点特征X，邻接矩阵A，通过一个P向量来训练节点之间的位置关系，然后通过SIGMOD(y)+TOP-K来提取top-K特征，提取完之后，保存idex，从X，A提取特征和邻接矩阵。</p><p><img src="http://image.rman.top/clip_image001-1588664337461.png" alt="clip_image001-1588664337461"></p><h1 id="Graph-Unpooling-Layer："><a href="#Graph-Unpooling-Layer：" class="headerlink" title="Graph Unpooling Layer："></a>Graph Unpooling Layer：</h1><p>学习distribution，把pool过之后的K<em>C矩阵，和选定的节点idx，恢复成原始的N</em>C矩阵。</p><p><img src="http://image.rman.top/clip_image002.png" alt="计算机生成了可选文字: X十1=distribute(ONxc,Xc,idx）： （3）"></p><p>只把选定位置的点设为k<em>C的特征，N</em>C的其他位置设为0</p>]]></content>
-      
-      
+      <tags>
+        <tag>杂记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>neo4j导入和创建多数据库</title>
+    <url>/2020/05/07/neo4j-import-and-create-db/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在玩neo4j，用来存储实验的图数据库，以前都是只用做一个数据库就好了。但是由于一个数据集的paper被review怼的惨不忍睹，只能多搞几个数据集来实验，于是就开始倒腾建立多个数据集的方法。</p>
+<h2 id="Neo4j-admin-import"><a href="#Neo4j-admin-import" class="headerlink" title="Neo4j-admin import"></a>Neo4j-admin import</h2><p>使用Neio4j-admin import导入csv</p>
+<p><code>neo4j-admin --database=xxx.db --nodes=users.csv --relationships=relations.csv</code></p>
+<p>–database：数据库名字，由于创建了多个数据库所以必须改名，如果出现数据库名字重复或者不为空可以执行<code>sudo rm -rf /var/lib/neo4j/data/databases/xx.db</code>清空</p>
+<p>–nodes：节点csv，<code>[name:ID]</code>，ID字段是必须的，是唯一索引，name是feature的名字，<code>:LABEL</code>是节点的标签，貌似可以用[name:ID(label)]替代:LABEL ，但是此时在import 的时候要在<code>--nodes:User=users.csv</code>明确label</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">movies.csv. </span><br><span class="line"></span><br><span class="line">movieId:ID,title,year:int,:LABEL</span><br><span class="line">tt0133093,&quot;The Matrix&quot;,1999,Movie</span><br><span class="line">tt0234215,&quot;The Matrix Reloaded&quot;,2003,Movie;Sequel</span><br><span class="line">tt0242653,&quot;The Matrix Revolutions&quot;,2003,Movie;Sequel</span><br></pre></td></tr></table></figure>
+
+<p>–relations：关系csv，必须包含<code>START_ID</code>, <code>END_ID</code> 和 <code>:TYPE</code>，分别是开始节点，结束节点，和边的种类</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">roles.csv. </span><br><span class="line"></span><br><span class="line">:START_ID,role,:END_ID,:TYPE</span><br><span class="line">keanu,&quot;Neo&quot;,tt0133093,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0234215,ACTED_IN</span><br><span class="line">keanu,&quot;Neo&quot;,tt0242653,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0133093,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0234215,ACTED_IN</span><br><span class="line">laurence,&quot;Morpheus&quot;,tt0242653,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0133093,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0234215,ACTED_IN</span><br><span class="line">carrieanne,&quot;Trinity&quot;,tt0242653,ACTED_IN</span><br></pre></td></tr></table></figure>
+
+<h2 id="多个数据库并存"><a href="#多个数据库并存" class="headerlink" title="多个数据库并存"></a>多个数据库并存</h2><p>neo4j默认是导入<code>graph.db</code>，在有多个数据库的时候，可以通过创建符号链接的方式切换数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv graph.db graph1.db</span><br><span class="line">ln -s graph1.db graph.db</span><br><span class="line">ln -s graph2.db graph.db</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://image.rman.top/20200507130538.png" alt="image-20200507130527694"></p>
+]]></content>
       <categories>
-          
-          <category> 论文笔记 </category>
-          
+        <category>数据库</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 图神经网络 </tag>
-            
-            <tag> 论文 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Representation Learning for Attributed Multiplex Heterogeneous Network</title>
-      <link href="/2020/05/05/Representation%20Learning%20for%20Attributed%20Multiplex%20Heterogeneous%20Network/"/>
-      <url>/2020/05/05/Representation%20Learning%20for%20Attributed%20Multiplex%20Heterogeneous%20Network/</url>
-      
-        <content type="html"><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>现有的方法主要专注于具有单一类型节点/边缘的网络，并且不能灵活处理大型网络。许多真实世界的网络包括数十亿个节点和多种类型的边，每个节点与不同的属性相关联。本文提出了一种<strong>带属性多通道异构图网络，</strong>本网路结构可以支持transductive和indective的学习。</p><p><img src="http://image.rman.top/20200505150252.png" alt=""></p><h2 id="相关工作："><a href="#相关工作：" class="headerlink" title="相关工作："></a>相关工作：</h2><p><img src="http://image.rman.top/20200505151154.png" alt=""></p><h2 id="Transductive-Model-GATNE-T："><a href="#Transductive-Model-GATNE-T：" class="headerlink" title="Transductive Model: GATNE-T："></a>Transductive Model: GATNE-T：</h2><p>此处，模型通过边的种类，学习节点在不同边聚类下的表达。采用的是graph sage的聚集方法。</p><p><img src="http://image.rman.top/image-20200505151637254.png" alt="image-20200505151637254"></p><p>然后把节点的所有边种类信息拼接起来，然后用self-attention进行聚合。</p><p><img src="http://image.rman.top/image-20200505151656320.png" alt="image-20200505151656320"></p><h2 id="Inductive-Model-GATNE-I："><a href="#Inductive-Model-GATNE-I：" class="headerlink" title="Inductive Model: GATNE-I："></a>Inductive Model: GATNE-I：</h2><p>为了解决一些节点之间边不存在的问题，通过节点的属性和节点的种类来对节点进行嵌入。</p><p><img src="http://image.rman.top/image-20200505151717535.png" alt="image-20200505151717535"></p><h2 id="Meta-Random-walk"><a href="#Meta-Random-walk" class="headerlink" title="Meta-Random-walk:"></a>Meta-Random-walk:</h2><p>对不同种类的边进行不同的游走，然后用负采样进行训练，最后用于节点预测。</p><p><img src="http://image.rman.top/image-20200505151728482.png" alt="image-20200505151728482"></p>]]></content>
-      
-      
+      <tags>
+        <tag>neo4j</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>torch.einsum 实现CIN</title>
+    <url>/2020/05/09/torch-einsum-%E5%AE%9E%E7%8E%B0CIN/</url>
+    <content><![CDATA[<p>研究了一下如何用pytorch实现CIN的操作。</p>
+<h2 id="CIN的数学原理"><a href="#CIN的数学原理" class="headerlink" title="CIN的数学原理"></a>CIN的数学原理</h2><p>假设总共有$m$个field，每个field的embedding是一个$D$维向量。</p>
+<p>压缩交互网络（Compressed Interaction Network， 简称CIN）隐向量是一个单元对象，因此我们将输入的原特征和神经网络中的隐层都分别组织成一个矩阵，记为$X_0$和$Xk$，CIN中每一层的神经元都是根据<strong>前一层的隐层</strong>以及<strong>原特征向量</strong>推算而来，其计算公式如下：</p>
+<script type="math/tex; mode=display">
+X^k_{h,*}=\sum ^{H_{k-1}}_{i=1}\sum ^{m}_{j=1}W^{k,h}_{ij}(X^{k-1}_{i,*}\circ X^{0}_{j,*})</script><p>其中，第k层隐层含有$H_k$条神经元向量。$\circ$是Hadamard product，即element-wise product，即，$ \left \langle a_1,a_2,a_3\right \rangle\circ \left \langle b_1,b_2,b_3\right \rangle=\left \langle a_1b_1,a_2b_2,a_3b_3 \right \rangle $.</p>
+<p>根据前一层隐层的状态$X^k$和原特征矩阵$X^0$，计算出一个中间结果$Z^{k+1}$，它是一个三维的张量。注意图中的$\bigotimes$是outer product，其实就是矩阵乘法咯，也就是一个mx1和一个nx1的向量的外积是一个mxn的矩阵：</p>
+<script type="math/tex; mode=display">
+u\bigotimes v=uv^T=\begin{bmatrix}
+u_1\\ 
+u_2\\ 
+u_3\\
+u_4
+\end{bmatrix}\begin{bmatrix}
+v_1 & v_2  & v_3  
+\end{bmatrix}=\begin{bmatrix}
+u_1v_1 &  u_1v_2& u_1v_3 \\ 
+u_2v_1 & u_2v_2 & u_2v_3\\ 
+u_3v_1 & u_3v_2 & u_3v_3\\ 
+u_4v_1 & u_4v_2 & u_4v_3
+\end{bmatrix}</script><p><img src="http://image.rman.top/20200509123153.png" alt="img"></p>
+<p>而图中的$D$维，其实就是左边的一行和右边的一行对应相乘。</p>
+<p><a href="https://daiwk.github.io/posts/dl-dl-ctr-models.html#cin" target="_blank" rel="noopener">https://daiwk.github.io/posts/dl-dl-ctr-models.html#cin</a></p>
+<h2 id="pytorch的实现"><a href="#pytorch的实现" class="headerlink" title="pytorch的实现"></a>pytorch的实现</h2><p>在pytorch的实现过程中主要使用的是<code>torch.einsum</code>操作</p>
+<p><a href="https://pytorch.org/docs/stable/torch.html?highlight=einsum#torch.einsum" target="_blank" rel="noopener">https://pytorch.org/docs/stable/torch.html?highlight=einsum#torch.einsum</a></p>
+<blockquote>
+<p><code>torch.``einsum</code>(<em>equation</em>, <em>*operands</em>) → Tensor<a href="https://pytorch.org/docs/stable/_modules/torch/functional.html#einsum" target="_blank" rel="noopener">[SOURCE]</a></p>
+<p>This function provides a way of computing multilinear expressions (i.e. sums of products) using the Einstein summation convention.</p>
+<ul>
+<li><p>Parameters</p>
+<p><strong>equation</strong> (<em>string</em>) – The equation is given in terms of lower case letters (indices) to be associated with each dimension of the operands and result. The left hand side lists the operands dimensions, separated by commas. There should be one index letter per tensor dimension. The right hand side follows after -&gt; and gives the indices for the output. If the -&gt; and right hand side are omitted, it implicitly defined as the alphabetically sorted list of all indices appearing exactly once in the left hand side. The indices not apprearing in the output are summed over after multiplying the operands entries. If an index appears several times for the same operand, a diagonal is taken. Ellipses … represent a fixed number of dimensions. If the right hand side is inferred, the ellipsis dimensions are at the beginning of the output.<strong>operands</strong> (<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" target="_blank" rel="noopener"><em>Tensor</em></a>) – The operands to compute the Einstein sum of.</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(a_tensor)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">        [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>],</span><br><span class="line">        [<span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>],</span><br><span class="line">        [<span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>]])</span><br><span class="line"> </span><br><span class="line">print(b_tensor)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]])</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 'ik, kj -&gt; ij'语义解释如下：</span></span><br><span class="line"><span class="comment"># 输入a_tensor: 2维数组，下标为ik,</span></span><br><span class="line"><span class="comment"># 输入b_tensor: 2维数组，下标为kj,</span></span><br><span class="line"><span class="comment"># 输出output：2维数组，下标为ij。</span></span><br><span class="line"><span class="comment"># 隐含语义：输入a,b下标中相同的k，是求和的下标，对应上面的例子2的公式</span></span><br><span class="line">output = torch.einsum(<span class="string">'ik, kj -&gt; ij'</span>, a_tensor, b_tensor)</span><br><span class="line"> </span><br><span class="line">print(output)</span><br><span class="line"> </span><br><span class="line">tensor([[<span class="number">130</span>, <span class="number">130</span>, <span class="number">130</span>, <span class="number">130</span>],</span><br><span class="line">        [<span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>, <span class="number">230</span>],</span><br><span class="line">        [<span class="number">330</span>, <span class="number">330</span>, <span class="number">330</span>, <span class="number">330</span>],</span><br><span class="line">        [<span class="number">430</span>, <span class="number">430</span>, <span class="number">430</span>, <span class="number">430</span>]])</span><br></pre></td></tr></table></figure>
+<p>简而言之，可以用<code>ik, kj</code>来指代输入矩阵的各个维度，然后用<code>-&gt;</code>来定义行列的操作。</p>
+<h3 id="CIN实现"><a href="#CIN实现" class="headerlink" title="CIN实现"></a>CIN实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a=torch.randn(<span class="number">2</span>,<span class="number">30</span>,<span class="number">8</span>) <span class="comment"># (Batch size, feature number, feature dim)</span></span><br><span class="line">b=torch.randn(<span class="number">2</span>,<span class="number">30</span>,<span class="number">8</span>) <span class="comment"># (Batch size, feature number, feature dim)</span></span><br><span class="line">c=torch.einsum(<span class="string">'bhd,bmd-&gt;bhmd'</span>,a,b) <span class="comment"># b是batch size， h,m是各自的特征数量，d是特征纬度</span></span><br><span class="line">c.size()</span><br><span class="line"><span class="comment"># torch.Size([2, 31, 31, 8])</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-          
-          <category> 论文笔记 </category>
-          
+        <category>python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 论文 </tag>
-            
-            <tag> 异构图 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>newstart</title>
-      <link href="/2020/05/05/newstart/"/>
-      <url>/2020/05/05/newstart/</url>
-      
-        <content type="html"><![CDATA[ <center>开始一个新的生活吧</center><p><img src="http://image.rman.top/bg-4cbb1d7.jpg" alt=""></p>]]></content>
-      
-      
+      <tags>
+        <tag>python</tag>
+        <tag>pytorc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GraphSAINT,一种无偏的图采样方法</title>
+    <url>/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在现在的图卷积中，由于图的大小可能非常大，传统的在全图上进行图卷积的操作往往是不现实的。因此往往采用了图采样的方法。图采样大致会分为：Layer Sampling 和 Graph Sampling两种。但是这两种方法都存在着一些问题。</p>
+<p>Layer Sampling：</p>
+<pre><code>1. 邻居爆炸：在矩阵采样多层时，假设每层采样n个邻居，则会导致$n^2$级别的节点扩充速度。
+ 2. 领接矩阵稀疏：在矩阵采样的过程中，会导致邻接矩阵稀疏化，丢失一些本来存在的边。
+ 3. 时间耗费高：每一层卷积都要采样，这就导致计算的时间耗费。
+</code></pre><p><img src="http://image.rman.top/20200520175505.png" alt="image-20200520175459686"></p>
+<p>Graph Sampling:</p>
+<p>Graph Sampling是一种相对好的采样方法，可以在preprocess阶段提前采样图，并且可以进行mini batch的加速。但是这样的采样往往会丢失一些信息。</p>
+<p>本文为了解决以上问题，提出了一种在图上进行Graph Sampling的相对较好的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在普通的Layer采样过程中，我们希望采样之后产生的偏差最小。这个偏差可以由如下的公式得出。</p>
+<p><img src="http://image.rman.top/20200520175911.png" alt="image-20200520175904265"></p>
+<p>我们希望如下的偏差最小，经过一系列复制的推导，在$P_e$等于如下值的时候，偏差达到最小。</p>
+<p><img src="http://image.rman.top/20200520180025.png" alt="image-20200520180020725"></p>
+<p>但是此种方法计算需要所有子图中边两端的聚合信息来求得计算量十分大，于是作者采用了如下的简化公式</p>
+<p>边的采样概率等于两个节点的倒数之和，来进行Graph的采样</p>
+<p><img src="http://image.rman.top/20200520180226.png" alt="image-20200520180224380"></p>
+<p><img src="http://image.rman.top/20200520180244.png" alt="image-20200520180242533"></p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>在许多的大图中进行证明，不仅训练速度得到了优化，其准确率也有了提高。</p>
+<p><img src="http://image.rman.top/20200520180315.png" alt="image-20200520180313379"></p>
+<p>同时对比了Layer Sampling和Graph Sampling，证明了Graph Sampling在多层的时效果有一定的提高</p>
+<p><img src="http://image.rman.top/20200520180348.png" alt="image-20200520180346597"></p>
+]]></content>
       <categories>
-          
-          <category> 杂记 </category>
-          
+        <category>论文笔记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 杂记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>图神经网络</tag>
+        <tag>论文笔记</tag>
+        <tag>图采样</tag>
+      </tags>
+  </entry>
 </search>
