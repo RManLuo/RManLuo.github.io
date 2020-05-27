@@ -1,5 +1,5 @@
 ---
-title: AddGraph: Anomaly Detection in Dynamic Graph Using Attention-based Temporal GCN
+title: AddGraph, Anomaly Detection in Dynamic Graph Using Attention-based Temporal GCN
 date: 2020-05-26 21:12:16
 tags:
 	- 论文笔记
