@@ -8,7 +8,7 @@ tags:
 categories:
 	- 论文笔记
 cover: http://image.rman.top/20200526211438.png
-mathjax:
+mathjax: true
 typora-copy-images-to: upload
 ---
 
