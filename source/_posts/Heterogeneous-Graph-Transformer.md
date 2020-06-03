@@ -43,7 +43,7 @@ $\mathcal{E}$：边
 
 $\mathcal{A}$：邻接矩阵
 
-$\mathcal{E}$：边的种类
+$\mathcal{R}$：边的种类
 
 Meta Relation：
 
@@ -105,7 +105,9 @@ For a pari of nodes $e=(s, t)$, we calculate its multi-head Message by:
 
 给定一个源节点$s$和一个目标节点$t$，在一个时间$T$内，相对的time gap$\bigtriangleup T(t,s)=T(t)-T(s)$作为其在时间上的encoding $RTE(\bigtriangleup(t,s))$. 但是由于这种方法不一定能cover所有的时间，所以作者还是借助了传统transformer的正弦函数，配合$\bigtriangleup$来构建时序的encoding。这样做融合了离散和连续两个时间戳表示方法。
 
-![image-20200603094904750](http://image.rman.top/20200603094904.png)
+![image-20200603131657531](http://image.rman.top/20200603131657.png)
+
+![image-20200603131717886](http://image.rman.top/20200603131717.png)
 
 ### HGSampling
 
