@@ -547,7 +547,7 @@ aside:
     description:
   card_announcement:
     enable: true
-    content: Wellcome to my blog, I am Raymond Luo(RMan) a new beginer in Graph Learning and Deep Learning. Fell free to leave comment or email me to have a discussion with me.
+    content: 欢迎来到我的Blog，我是Raymond Luo，这里是我记录学习和生活的地方，欢迎留下评论与我讨论。
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all

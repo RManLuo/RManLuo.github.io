@@ -115,7 +115,7 @@ For a pari of nodes $e=(s, t)$, we calculate its multi-head Message by:
 
 <img src="http://image.rman.top/20200603095308.png" alt="image-20200603095308068" style="zoom:67%;" />
 
-#### Inductivev Timestamp Assignment
+#### Inductive Timestamp Assignment
 
 在异构图中，一个节点往往可能会有多个timestamp，作者要解决选择给节点加入什么时刻的timestamp，解决方法也很直接：
 
