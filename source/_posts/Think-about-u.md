@@ -2,7 +2,7 @@
 title: Cant stop thinking about u
 date: 2020-06-11 23:09:16
 tags:
-	- 杂记
+	- Girl
 categories:
 	- 杂记
 cover: http://image.rman.top/20200612001029.jpg

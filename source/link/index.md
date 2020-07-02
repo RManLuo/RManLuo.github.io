@@ -10,7 +10,7 @@ type: "link"
 
 * Blog名字：RMan的Blog
 * Blog地址：https://rman.top
-* Blog头像：https://www.rman.top/img/%E5%A4%B4%E5%83%8F.png
+* Blog头像：http://image.rman.top/20200621150310.png
 * Blog 简介： 神经网络炼丹师
 
 **如果需要交换友链,请留言**
