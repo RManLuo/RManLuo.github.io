@@ -2,9 +2,9 @@
 title: MixHop:Higher-Order Graph Convolutional Architectures via Sparsified Neighborhood Mixing
 date: 2020-07-12 22:46:42
 tags:
-	- MixHop
-categories:
 	- 图神经网络
+categories:
+	- 论文
 cover: https://i.loli.net/2020/07/12/AjLE6a7vSWctzKo.png
 mathjax: true
 typora-copy-images-to: upload
