@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rman.top/"/>
-  <updated>2020-07-12T15:31:24.813Z</updated>
+  <updated>2020-07-12T15:50:05.107Z</updated>
   <id>https://www.rman.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.rman.top/2020/07/12/MixHop/"/>
     <id>https://www.rman.top/2020/07/12/MixHop/</id>
     <published>2020-07-12T14:46:42.000Z</published>
-    <updated>2020-07-12T15:31:24.813Z</updated>
+    <updated>2020-07-12T15:50:05.107Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>现有的基于半监督的图神经网络算法，不能很好的学习到不同跳的邻居特征。本文提出了一种可以重复的表达不同距离的邻居用户特征的算法。</p><p>原始GCN不同层卷积都用相同的权重，不能捕获不同层的信息差异性，本文证明了对不同层采用不同的信息传递权重能捕获不同层之间的信息差异性。</p><p><img src="https://i.loli.net/2020/07/12/AjLE6a7vSWctzKo.png" alt="image-20200712155849920"></p><h2 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h2><ol><li>提出了Delta Operators，并证明了传统的GCN模型没有能学到这样的表达</li><li>提出了MixHop，通过利用多次邻接矩阵，作者证明MixHop能够学习到更广泛的邻居特征，同时也不会增加模型的内存。</li></ol><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol><li>传统GNN一次只能卷积一次邻居</li><li>在降低邻接矩阵求特征值的复杂度之后丢失了一些信息</li></ol><h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><p><img src="https://i.loli.net/2020/07/12/JimeNKEWn1fryz6.png" alt="image-20200701164504476"></p><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p><img src="https://i.loli.net/2020/07/12/5Lxob2O7ZPyQqlc.png" alt="image-20200701164046322"></p><h3 id="Delta-Operation"><a href="#Delta-Operation" class="headerlink" title="Delta Operation"></a>Delta Operation</h3><p><img src="https://i.loli.net/2020/07/12/B2LTf38YxpEzw6O.png" alt="image-20200712163255272"></p><p>这是一个在不同距离的节点特征之间收集特征的操作。一个模型能够学习到两跳的信息的前提是其存在一组参数和一个injective mapping $f$，可以使得网络的输出可以给定任何邻接矩阵$A$和特征$X$。</p><h3 id="MixHop-Graph-Convolution-Layer"><a href="#MixHop-Graph-Convolution-Layer" class="headerlink" title="MixHop Graph Convolution Layer"></a>MixHop Graph Convolution Layer</h3><p><img src="https://i.loli.net/2020/07/12/qpWdNDobikMjAxE.png" alt="image-20200712174307445"></p><p>和传统GCN重复乘以A不同，本文在一次操作里乘多次A，一次性获得多跳的信息。并且和传统GCN的每层权重矩阵W相同不一样，这里每一跳都有各自的权重矩阵W。最后将其拼接起来。</p><h3 id="模型的表示能力"><a href="#模型的表示能力" class="headerlink" title="模型的表示能力"></a>模型的表示能力</h3><h4 id="证明1：传统GCN不能表达two-hop-Delta-Operators"><a href="#证明1：传统GCN不能表达two-hop-Delta-Operators" class="headerlink" title="证明1：传统GCN不能表达two-hop Delta Operators"></a>证明1：传统GCN不能表达two-hop Delta Operators</h4><p>通过构造$C<em>{1,2}$来证明$W^<em>$是任意两行都是相等的，从而证明$AW^</em>$的rank为1，又证明$AW^*=f$，从而$f$不可能是injective（单射）的，因为任意两行相等，所以对多个不同的两行的$C</em>{xy}$都产生相同的输出。</p><p><img src="https://i.loli.net/2020/07/12/QVyI78tN6wCzJnH.png" alt="image-20200712215522230" style="zoom:50%;" /></p><p><img src="../../../../../../Desktop/MixHop.assets/image-20200712215535565.png" alt="image-20200712215535565" style="zoom:50%;" /></p><h4 id="证明2：证明MixHop具有two-hop性质"><a href="#证明2：证明MixHop具有two-hop性质" class="headerlink" title="证明2：证明MixHop具有two-hop性质"></a>证明2：证明MixHop具有two-hop性质</h4><p>通过拼接操作，再加上合理构造的$W$，可以产生two-hop形式的函数。因此可以证明构造的方式是合理的，能捕获two-hop性质。</p><p><img src="https://i.loli.net/2020/07/12/Wvdc1zZUN3SyIm2.png" alt="image-20200712221022566" style="zoom:50%;" /></p><h3 id="模型参数"><a href="#模型参数" class="headerlink" title="模型参数"></a>模型参数</h3><p>作者针对不同层的$W$，认为不同层的信息重要程度是不一样的，于是作者先用统一的特征维度n进行预训练。然后再训练完之后通过L2正则化，和阈值筛选出新的维度大小，然后再重新训练。通过这个操作，作者认为能表现出不同hop特征的重要程度（这难道不是一个attention就能解决的吗？？）</p><p><img src="https://i.loli.net/2020/07/12/HjBlSMD1ARYKxiW.png" alt="image-20200712224115002" style="zoom:50%;" /></p>]]></content>
     
@@ -36,7 +36,7 @@
     </summary>
     
     
-      <category term="论文" scheme="https://www.rman.top/categories/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文笔记" scheme="https://www.rman.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="图神经网络" scheme="https://www.rman.top/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
