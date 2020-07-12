@@ -4,7 +4,7 @@ date: 2020-07-08 19:59:27
 tags:
 	- 生物信息
 categories:
-	- 数据库
+	- 复习
 cover:
 mathjax: false
 ---
