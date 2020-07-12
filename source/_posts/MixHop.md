@@ -4,7 +4,7 @@ date: 2020-07-12 22:46:42
 tags:
 	- 图神经网络
 categories:
-	- 论文
+	- 论文笔记
 cover: https://i.loli.net/2020/07/12/AjLE6a7vSWctzKo.png
 mathjax: true
 typora-copy-images-to: upload
