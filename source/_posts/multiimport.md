@@ -1,5 +1,5 @@
 ---
-title: MultiImport: Inferring Node Importance in a Knowledge Graph from Multiple Input Signals
+title: 'MultiImport: Inferring Node Importance in a Knowledge Graph from Multiple Input Signals'
 date: 2020-07-13 10:23:02
 tags:
 	- Graph Embedding
