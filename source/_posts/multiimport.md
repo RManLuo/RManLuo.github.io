@@ -5,7 +5,7 @@ tags:
 	- Graph Embedding
 categories:
 	- 论文笔记
-cover:
+cover: https://i.loli.net/2020/07/13/NsITkGRnEt86lLu.png
 mathjax: true
 typora-copy-images-to: upload
 ---
