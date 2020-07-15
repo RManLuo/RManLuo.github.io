@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rman.top/"/>
-  <updated>2020-07-13T09:57:07.120Z</updated>
+  <updated>2020-07-15T17:17:01.015Z</updated>
   <id>https://www.rman.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hey~Girl!</title>
+    <link href="https://www.rman.top/2020/07/16/Hey-Girl/"/>
+    <id>https://www.rman.top/2020/07/16/Hey-Girl/</id>
+    <published>2020-07-15T17:14:53.000Z</published>
+    <updated>2020-07-15T17:17:01.015Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://image.rman.top/blogimage-20200716010439659.png" alt="image-20200716010439659" /><br /><img src="http://image.rman.top/blogimage-20200716010451408.png" alt="image-20200716010451408" /><br /><img src="http://image.rman.top/blogimage-20200716010458558.png" alt="image-20200716010458558" /><br /><img src="http://image.rman.top/blogimage-20200716010552521.png" alt="image-20200716010552521" /><br /><img src="http://image.rman.top/blogimage-20200716010607035.png" alt="image-20200716010607035" /></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://image.rman.top/blogimage-20200716010439659.png&quot; alt=&quot;image-20200716010439659&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;http://image.rman.top/b
+      
+    
+    </summary>
+    
+    
+      <category term="杂记" scheme="https://www.rman.top/categories/%E6%9D%82%E8%AE%B0/"/>
+    
+    
+      <category term="Girl" scheme="https://www.rman.top/tags/Girl/"/>
+    
+  </entry>
   
   <entry>
     <title>MultiImport: Inferring Node Importance in a Knowledge Graph from Multiple Input Signals</title>
