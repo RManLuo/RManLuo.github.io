@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AddGraph, Anomaly Detection in Dynamic Graph Using Attention-based Temporal GCN | RMan's Blog</title><meta name="description" content="Introduction:异常检测常见的领域就是在电商。比如异常的用户会通过对目标商品以及流行商品做大量的相同操作，比如同时点击目标商品和流行商品，从而增加了目标商品和流行商品的相似性。从而在推荐系统里增加了评分。这篇文章是针对动态图的异常检测，异常检测 对于下流任务很重要。 和传统的图方法相比，GCN能够自动的传播从邻居节点的信息，从而扩散节点的异常概率。GCN在异常检测方面主要的问题在于没有考"><meta name="keywords" content="论文笔记,异常检测,动态图"><meta name="author" content="Raymond Luo"><meta name="copyright" content="Raymond Luo"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="AddGraph, Anomaly Detection in Dynamic Graph Using Attention-based Temporal GCN"><meta name="twitter:description" content="Introduction:异常检测常见的领域就是在电商。比如异常的用户会通过对目标商品以及流行商品做大量的相同操作，比如同时点击目标商品和流行商品，从而增加了目标商品和流行商品的相似性。从而在推荐系统里增加了评分。这篇文章是针对动态图的异常检测，异常检测 对于下流任务很重要。 和传统的图方法相比，GCN能够自动的传播从邻居节点的信息，从而扩散节点的异常概率。GCN在异常检测方面主要的问题在于没有考"><meta name="twitter:image" content="http://image.rman.top/20200526211438.png"><meta property="og:type" content="article"><meta property="og:title" content="AddGraph, Anomaly Detection in Dynamic Graph Using Attention-based Temporal GCN"><meta property="og:url" content="https://www.rman.top/2020/05/26/AddGraph/"><meta property="og:site_name" content="RMan's Blog"><meta property="og:description" content="Introduction:异常检测常见的领域就是在电商。比如异常的用户会通过对目标商品以及流行商品做大量的相同操作，比如同时点击目标商品和流行商品，从而增加了目标商品和流行商品的相似性。从而在推荐系统里增加了评分。这篇文章是针对动态图的异常检测，异常检测 对于下流任务很重要。 和传统的图方法相比，GCN能够自动的传播从邻居节点的信息，从而扩散节点的异常概率。GCN在异常检测方面主要的问题在于没有考"><meta property="og:image" content="http://image.rman.top/20200526211438.png"><meta property="article:published_time" content="2020-05-26T13:12:16.000Z"><meta property="article:modified_time" content="2020-05-27T07:41:53.944Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script><!-- hexo-inject:begin --><!-- hexo-inject:end -->var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://www.rman.top/2020/05/26/AddGraph/"><link rel="prev" title="An Attention-based Graph Neural Network for Heterogeneous Structural Learning" href="https://www.rman.top/2020/05/27/An-Attention-based-Graph-Neural-Network-for-HIN/"><link rel="next" title="GraphSAINT,一种无偏的图采样方法" href="https://www.rman.top/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://www.rman.top/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="RMan's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="http://image.rman.top/20200621150310.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">15</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Definition"><span class="toc-number">2.</span> <span class="toc-text">Problem Definition:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Framework"><span class="toc-number">3.</span> <span class="toc-text">Framework</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图卷积"><span class="toc-number">3.1.</span> <span class="toc-text">图卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带Attention机制的GRU门"><span class="toc-number">3.2.</span> <span class="toc-text">带Attention机制的GRU门</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(http://image.rman.top/20200526211438.png)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">RMan's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">AddGraph, Anomaly Detection in Dynamic Graph Using Attention-based Temporal GCN</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-26 21:12:16"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-26</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-27 15:41:53"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-27</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h2><p>异常检测常见的领域就是在电商。比如异常的用户会通过对目标商品以及流行商品做大量的相同操作，比如同时点击目标商品和流行商品，从而增加了目标商品和流行商品的相似性。从而在推荐系统里增加了评分。这篇文章是针对动态图的异常检测，异常检测 对于下流任务很重要。 和传统的图方法相比，GCN能够自动的传播从邻居节点的信息，从而扩散节点的异常概率。GCN在异常检测方面主要的问题在于没有考虑时间特征（不能在动态图上忽略的）目前的一些工作 CAD [Sricharan and Das, 2014] and Netwalk [Yu et al., 2018] 把 graph embedding方法应用到动态图，但是不能 捕捉节点的 “长期模式”和“短期模式”。 主要贡献：</p>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><ol>
+<li>提出AddGraph框架，提出一个attention-based     GRU的GCN框架，获得短时和长时特征。</li>
+<li>受到知识图谱的启发，引入一个negative     sampling 和margin loss来检测异常边</li>
+</ol>
+<h2 id="Problem-Definition"><a href="#Problem-Definition" class="headerlink" title="Problem Definition:"></a>Problem Definition:</h2><p>$T$是最大的时间步长，图的集合${G^t}^T_{t=1}$,每个$G^t$代表着一个时间点子图，$A^t\in\mathbb{R}^{m\times n}$，代表每个时间点的邻接矩阵。$e = (i,j,w）\in E^t$意味着在时刻t，i和j之间存在一个权重为w的边吗，本文的目的是训练一个函数$f$，使得能对$e\in E, f(e)$能输出一个异常边的概率。</p>
+<h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p><img src="http://image.rman.top/20200526212959.png" alt="image-20200526212959877"></p>
+<h3 id="图卷积"><a href="#图卷积" class="headerlink" title="图卷积"></a>图卷积</h3><p>在每个时间 $t$, 我们都可对$G^t$借助$A^t$来使用GCN进行卷积，获得每个节点的隐藏层信息$H^{t-1}\in \mathbb{R}^{n \times d}$ ，同时对每层卷积层$GCN_L$计算方式如下，其实就是一个普通的卷积加了一个非线性变化。：</p>
+<script type="math/tex; mode=display">
+Z^0=H^{t-1}\\
+Z^l=ReLU(A^tZ^{L-1}W^{L-1})\\
+Current^t=ReLU(A^tZ^{L-1}W^{L-1})</script><h3 id="带Attention机制的GRU门"><a href="#带Attention机制的GRU门" class="headerlink" title="带Attention机制的GRU门"></a>带Attention机制的GRU门</h3><p><img src="http://image.rman.top/20200526215357.png" alt="image-20200526215357841"></p>
+<p>$h_i^t$是$i$-th节点的t时间段的隐藏状态，$w$是窗口的大小，沿着w的纬度做了一个attention，得到每一个时间$t$的权重表达，简单记为</p>
+<script type="math/tex; mode=display">
+Short^t_i=CAB(h_i^{t-w},\cdots,h_i^{t-1})</script><p>$Current^t$是当前节点在图中的表达，$Short_t$是每个节点历史信息的表达。为了平衡这两个信息，采用了如下的门机制来融合这两个信息。</p>
+<p><img src="http://image.rman.top/20200526220304.png" alt="image-20200526220302071"></p>
+<p>注：这个CAB等于是在传统的门机制基础上，加入了<strong>历史一段时间的记忆</strong>，然后和当前状态一起进入GRU更新。</p>
+<p>预测方程：</p>
+<script type="math/tex; mode=display">
+f(i,j,w)=w\cdot\sigma(\beta\cdot(||a\odot h_i+b\odot h_j||_2^2-\mu))</script><p>$h_i,h_j$是两个节点在$t$的hidden特征。</p>
+<p>Loss 采用的Margin loss，希望正例的得分小于负例的得分。</p>
+<p><img src="http://image.rman.top/20200527101154.png" alt="image-20200527101145153"></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Raymond Luo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.rman.top/2020/05/26/AddGraph/">https://www.rman.top/2020/05/26/AddGraph/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.rman.top" target="_blank">RMan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><a class="post-meta__tags" href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/">异常检测</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E5%9B%BE/">动态图</a></div><div class="post_share"><div class="social-share" data-image="https://images.pexels.com/photos/3689772/pexels-photo-3689772.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/05/27/An-Attention-based-Graph-Neural-Network-for-HIN/"><img class="prev_cover" src="http://image.rman.top/20200527165006.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">An Attention-based Graph Neural Network for Heterogeneous Structural Learning</div></div></a></div><div class="next-post pull_right"><a href="/2020/05/20/GraphSAINT%E4%B8%80%E7%A7%8D%E6%97%A0%E5%81%8F%E7%9A%84%E5%9B%BE%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/"><img class="next_cover" src="http://image.rman.top/20200520174856.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GraphSAINT,一种无偏的图采样方法</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/20/GraphSAINT一种无偏的图采样方法/" title="GraphSAINT,一种无偏的图采样方法"><img class="relatedPosts_cover" src="http://image.rman.top/20200520174856.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-20</div><div class="relatedPosts_title">GraphSAINT,一种无偏的图采样方法</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: '8Wh5fbiJUnFviwNhxnzhodpz-9Nh9j0Va',
+  appKey: '0tzdCgIUr5gsLlSoPwrrKRXe',
+  notify: true,
+  verify: false,
+  placeholder: 'Please leave your footprints',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-CN',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: "",
+  enableQQ: false,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Raymond Luo</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>粤ICP备20032004号</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body></html>
