@@ -5,7 +5,7 @@ tags:
 	- 图神经网络
 categories:
 	- 论文笔记
-cover:
+cover: http://image.rman.top/blogimage-20200717163846413.png
 mathjax: true
 typora-copy-images-to: upload
 ---
