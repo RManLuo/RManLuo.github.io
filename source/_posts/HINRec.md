@@ -10,8 +10,6 @@ cover: http://image.rman.top/blogimage-20200722164149329.png
 mathjax: true
 ---
 
-# An Efficient Neighborhood-based Interaction Model for Recommendation on Heterogeneous Graph
-
 ## Abstract
 
 ### Problem
