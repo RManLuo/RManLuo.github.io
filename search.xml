@@ -2715,7 +2715,7 @@ p(\theta)=\mathcal{N}(\theta|0,\lambda^{-1}I)</script><p>$p(\mathcal{G}|\theta)$
   <entry>
     <title>An Efficient Neighborhood-based Interaction Model for Recommendation on Heterogeneous Graph</title>
     <url>/2020/07/23/HINRec/</url>
-    <content><![CDATA[<h1 id="An-Efficient-Neighborhood-based-Interaction-Model-for-Recommendation-on-Heterogeneous-Graph"><a href="#An-Efficient-Neighborhood-based-Interaction-Model-for-Recommendation-on-Heterogeneous-Graph" class="headerlink" title="An Efficient Neighborhood-based Interaction Model for Recommendation on Heterogeneous Graph"></a>An Efficient Neighborhood-based Interaction Model for Recommendation on Heterogeneous Graph</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
 <li><p>Most existing HIN-based methods rely on explicit path reachability to leverage path-based semantic relatedness between users and items, e.g., metapath-based similarities. These methods are hard to use and integrate since path connections are sparse or noisy, and are often of different lengths.</p>
 <p>现有的方法，依赖于物品和用户之间的语义构成的路径，比如metapath的相似度。这些方法在遇到路径很稀少、充满噪音或长度不一致时会导致表示能力的下降。</p>
 </li>
