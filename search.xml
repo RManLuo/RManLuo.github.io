@@ -2770,7 +2770,7 @@ e'_i=M_{\phi_i}\cdot e_i</script><p>where $e_i$ and $e’_i$ are the original an
 <script type="math/tex; mode=display">
 H[\mathcal{N}_{\rho}(s),\mathcal{N}_{\rho}(t)]_l=H[\mathcal{N}_{\rho}(s)]_l\odot H[\mathcal{N}_{\rho}(t)]_l</script><p><img src="../../../../../../Desktop/An Efficient Neighborhood-based Interaction Model for Recommendation on Heterogeneous Graph.assets/image-20200722173900365.png" alt="image-20200722173900365" style="zoom:50%;" /></p>
 <p>By using the fast Fourier transformation (FFT) and $\mathcal{F}^{-1}$</p>
-<p><img src="HINRec.assets/image-20200722173955344.png" alt="image-20200722173955344"></p>
+<p><img src="http://image.rman.top/blogimage-20200722173955344.png" alt="image-20200722173955344"></p>
 <h3 id="Aggregation-Module"><a href="#Aggregation-Module" class="headerlink" title="Aggregation Module"></a>Aggregation Module</h3><h4 id="Node-Element-level-Attention"><a href="#Node-Element-level-Attention" class="headerlink" title="Node/Element-level Attention"></a>Node/Element-level Attention</h4><p><img src="http://image.rman.top/blogimage-20200723105412155.png" alt="image-20200723105412155"></p>
 <p>After the interaction module, the author adopt the self-attention to learn the weight among various  kinds of nodes in metapath $\rho$</p>
 <p><img src="http://image.rman.top/blogimage-20200723105430848.png" alt="image-20200723105430848"></p>
