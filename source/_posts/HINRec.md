@@ -142,7 +142,7 @@ For each metapath aggregate the information with soft attention.
 
 ### Five questions
 
-![image-20200723112136779](HINRec.assets/image-20200723112136779.png)
+![image-20200723112136779](http://image.rman.top/blogimage-20200723112136779.png)
 
 ### Datasets
 
