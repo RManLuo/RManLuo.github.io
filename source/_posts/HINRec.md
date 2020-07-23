@@ -104,7 +104,7 @@ $$
 
 By using the fast Fourier transformation (FFT) and $\mathcal{F}^{-1}$
 
-![image-20200722173955344](HINRec.assets/image-20200722173955344.png)
+![image-20200722173955344](http://image.rman.top/blogimage-20200722173955344.png)
 
 ### Aggregation Module
 
