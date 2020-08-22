@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rman.top/"/>
-  <updated>2020-08-14T07:28:55.440Z</updated>
+  <updated>2020-08-22T12:23:42.528Z</updated>
   <id>https://www.rman.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redundancy-Free Computation for Graph Neural Networks</title>
+    <link href="https://www.rman.top/2020/08/22/Redundancy-Free-Computation-for-Graph-Neural-Networks/"/>
+    <id>https://www.rman.top/2020/08/22/Redundancy-Free-Computation-for-Graph-Neural-Networks/</id>
+    <published>2020-08-22T12:20:26.000Z</published>
+    <updated>2020-08-22T12:23:42.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Redundancy-Free-Computation-for-Graph-Neural-Networks"><a href="#Redundancy-Free-Computation-for-Graph-Neural-Networks" class="headerlink" title="Redundancy-Free Computation for Graph Neural Networks"></a>Redundancy-Free Computation for Graph Neural Networks</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><ul><li><p>To avoid redundant computations：减少冗余计算</p></li><li><p>HAGs are functionally equivalent to standard GNN-graphs：性能不变</p></li><li><p>An agnostic method：对所有模型都适用</p><p><img src="http://image.rman.top/blogimage-20200821163547510.png" alt="image-20200821163547510"></p></li></ul><p>对邻居上重合的的vector进行聚合，然后再传递。</p><h2 id="HAGs"><a href="#HAGs" class="headerlink" title="HAGs"></a>HAGs</h2><p>把聚合的点和原来的点聚合，生成一张新图</p><p><img src="http://image.rman.top/blogimage-20200821163906650.png" alt="image-20200821163906650"></p><h2 id="Existing-GNNs"><a href="#Existing-GNNs" class="headerlink" title="Existing GNNs"></a>Existing GNNs</h2><ul><li>没有顺序：GCN</li><li>有顺序：LSTM聚合</li></ul><h2 id="Aggregation-Nodes"><a href="#Aggregation-Nodes" class="headerlink" title="Aggregation Nodes"></a>Aggregation Nodes</h2><p><img src="http://image.rman.top/blogimage-20200821164422651.png" alt="image-20200821164422651"></p><ul><li><p>如果是原图的属性，就用节点的隐藏向量</p></li><li><p>如果是聚合节点，就用聚合向量。</p></li></ul><p><img src="http://image.rman.top/blogimage-20200821164632482.png" alt="image-20200821164632482"></p><h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p><img src="http://image.rman.top/blogimage-20200821165644760.png" alt="image-20200821165644760"></p><h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p><img src="http://image.rman.top/blogimage-20200821165855440.png" alt="image-20200821165855440"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Redundancy-Free-Computation-for-Graph-Neural-Networks&quot;&gt;&lt;a href=&quot;#Redundancy-Free-Computation-for-Graph-Neural-Networks&quot; class=&quot;heade
+      
+    
+    </summary>
+    
+    
+      <category term="论文笔记" scheme="https://www.rman.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="图神经网络" scheme="https://www.rman.top/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="图数据库" scheme="https://www.rman.top/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>MultiSage: Empowering GCN with Contextualized Multi-Embeddings onWeb-Scale Multipartite Networks</title>

@@ -2946,4 +2946,42 @@ the final MultiSage embedding <span class="katex"><span class="katex-mathml"><ma
         <tag>图神经网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Redundancy-Free Computation for Graph Neural Networks</title>
+    <url>/2020/08/22/Redundancy-Free-Computation-for-Graph-Neural-Networks/</url>
+    <content><![CDATA[<h1 id="Redundancy-Free-Computation-for-Graph-Neural-Networks"><a href="#Redundancy-Free-Computation-for-Graph-Neural-Networks" class="headerlink" title="Redundancy-Free Computation for Graph Neural Networks"></a>Redundancy-Free Computation for Graph Neural Networks</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><ul>
+<li><p>To avoid redundant computations：减少冗余计算</p>
+</li>
+<li><p>HAGs are functionally equivalent to standard GNN-graphs：性能不变</p>
+</li>
+<li><p>An agnostic method：对所有模型都适用</p>
+<p><img src="http://image.rman.top/blogimage-20200821163547510.png" alt="image-20200821163547510"></p>
+</li>
+</ul>
+<p>对邻居上重合的的vector进行聚合，然后再传递。</p>
+<h2 id="HAGs"><a href="#HAGs" class="headerlink" title="HAGs"></a>HAGs</h2><p>把聚合的点和原来的点聚合，生成一张新图</p>
+<p><img src="http://image.rman.top/blogimage-20200821163906650.png" alt="image-20200821163906650"></p>
+<h2 id="Existing-GNNs"><a href="#Existing-GNNs" class="headerlink" title="Existing GNNs"></a>Existing GNNs</h2><ul>
+<li>没有顺序：GCN</li>
+<li>有顺序：LSTM聚合</li>
+</ul>
+<h2 id="Aggregation-Nodes"><a href="#Aggregation-Nodes" class="headerlink" title="Aggregation Nodes"></a>Aggregation Nodes</h2><p><img src="http://image.rman.top/blogimage-20200821164422651.png" alt="image-20200821164422651"></p>
+<ul>
+<li><p>如果是原图的属性，就用节点的隐藏向量</p>
+</li>
+<li><p>如果是聚合节点，就用聚合向量。</p>
+</li>
+</ul>
+<p><img src="http://image.rman.top/blogimage-20200821164632482.png" alt="image-20200821164632482"></p>
+<h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p><img src="http://image.rman.top/blogimage-20200821165644760.png" alt="image-20200821165644760"></p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p><img src="http://image.rman.top/blogimage-20200821165855440.png" alt="image-20200821165855440"></p>
+]]></content>
+      <categories>
+        <category>论文笔记</category>
+      </categories>
+      <tags>
+        <tag>图神经网络</tag>
+        <tag>图数据库</tag>
+      </tags>
+  </entry>
 </search>
