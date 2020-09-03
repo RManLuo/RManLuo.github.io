@@ -2984,4 +2984,143 @@ the final MultiSage embedding <span class="katex"><span class="katex-mathml"><ma
         <tag>图数据库</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Heterogeneous Deep Graph Infomax</title>
+    <url>/2020/09/03/HDGI/</url>
+    <content><![CDATA[<h1 id="Heterogeneous-Deep-Graph-Infomax"><a href="#Heterogeneous-Deep-Graph-Infomax" class="headerlink" title="Heterogeneous Deep Graph Infomax"></a>Heterogeneous Deep Graph Infomax</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Inspired by the emerging mutual information-based learning algorithm, This paper propose an <strong>unsupervised</strong> graph neural network Heterogeneous Deep Graph Infomax (HDGI) for heterogeneous graph representation learning.</p>
+<p>Author utilized the <strong>meta-path</strong> to model the structure information involving semantics in Heterogeneous graph and apply the <strong>graph convolution</strong> module and <strong>semantic-attention</strong> module to capture the individual node local representation.</p>
+<p>By maximizing the local-global mutual information, HDGI effectively learns highlevel node representations based on the diverse information in heterogeneous graphs</p>
+<h2 id="Unsupervised-graph-representation-learning"><a href="#Unsupervised-graph-representation-learning" class="headerlink" title="Unsupervised graph representation learning"></a>Unsupervised graph representation learning</h2><ul>
+<li>Matrix factorization: capture the global graph information by factorizing the affinity matrix, which ignore the node attributes and local neighborhood relationships.</li>
+<li>Edge-based method: capture the local and high-order neighborhood information by edges connections or random-walk paths, which only preserve limited order node proximity and lack a mechanism<br>to preserve the global graph structure.</li>
+<li>DGI(Deep graph infomax): maximizes the mutual information between graph patch representations and the corresponding high-level summaries of graphs. It has shown competitive performance even compared with supervised graph neural networks in benchmark homogeneous graphs.</li>
+</ul>
+<h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h2><ul>
+<li>This paper presents the first model to apply mutual information maximization to representation learning in heterogeneous graphs.</li>
+<li>HDGI, is a novel unsupervised graph neural network. It handles graph heterogeneity by utilizing an attention mechanism on meta-paths and deals with the unsupervised settings by applying mutual information maximization.</li>
+<li>HDGI are effective for both node classification and clustering tasks. Moreover, its performance can also beat state-of-the-art GNN models, where they have the additional supervised label information.</li>
+</ul>
+<h2 id="Mutual-information"><a href="#Mutual-information" class="headerlink" title="Mutual information"></a>Mutual information</h2><p>Mutual information is a quantity that measures a relationship between two random variables that are sampled simultaneously.</p>
+<p><img src="http://image.rman.top/blogimage-20200903141813565.png" alt="image-20200903141813565"></p>
+<p>In order to maximize the <strong>MI</strong>, we need maximize the $\frac{p(y|x)}{p(y)}$, which means $p(y|x)$ is bigger than $p(y)$. For each input $x$, the encoder can find a feature $y$ that can well represent $x$.</p>
+<h2 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h2><p>Heterogenous graph: $\mathcal{G}=(\mathcal{V},\mathcal{E})$</p>
+<p>Node type mapping function: $\phi:\mathcal{V}\to\mathcal{T},\phi(v)\in \mathcal{T}$</p>
+<p>Edge type mapping function:$\psi:\mathcal{E}\to\mathcal{R},\psi(e)\in \mathcal{R}$</p>
+<p>$\mathcal{T}+\mathcal{R}&gt;2$</p>
+<p>Metapath: $\Phi=v<em>1 \mathop{\to}\limits^{R_1}\cdots \mathop{\to}\limits^{R</em>{n-1}}v_n$</p>
+<p>Given a metapath $\Phi<em>i$, if there exists a metapath instance between $v_i,j_j$, then $A</em>{ij}^{\Phi_i}=1$ where $A^{\phi_i}$ is the adjacent matrix of metapath $\Phi_i$.</p>
+<p><strong>Problem definition</strong>: Given a $\mathcal{G}$ and the initial feature matrix $X$, the representation $H\in\mathbb{R}^{|V|\times d}$ which contains both structure and node attributes information.</p>
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><p><img src="http://image.rman.top/blogimage-20200903143747045.png" alt="image-20200903143747045"></p>
+<h3 id="Meta-path-based-local-representation-encoder"><a href="#Meta-path-based-local-representation-encoder" class="headerlink" title="Meta-path based local representation encoder"></a>Meta-path based local representation encoder</h3><p>The first step is meta-path specific node representation learning which encodes nodes in terms of each meta-path based adjacency matrix respectively.</p>
+<script type="math/tex; mode=display">
+H^{\Phi_i}=a_{\Phi_i}(X,A^{\Phi_i})</script><p>Two kinds of encoder are considered in this work.</p>
+<p><strong>GCN:</strong></p>
+<p><img src="http://image.rman.top/blogimage-20200903144133410.png" alt="image-20200903144133410"></p>
+<p>Where $A^{\widetilde{\Phi_i}}=A^{\Phi_i}+I$</p>
+<p><strong>GAT:</strong></p>
+<p><img src="http://image.rman.top/blogimage-20200903144328223.png" alt="image-20200903144328223"></p>
+<h3 id="Heterogeneous-graph-node-representation-learning"><a href="#Heterogeneous-graph-node-representation-learning" class="headerlink" title="Heterogeneous graph node representation learning"></a>Heterogeneous graph node representation learning</h3><p>After the meta-path representation, We need to aggregate the more general representations of the nodes.</p>
+<p><img src="http://image.rman.top/blogimage-20200903144505589.png" alt="image-20200903144505589"></p>
+<p>The importance of each meta-path is calculated as:</p>
+<p><img src="http://image.rman.top/blogimage-20200903144558452.png" alt="image-20200903144558452"></p>
+<p><img src="http://image.rman.top/blogimage-20200903144606672.png" alt="image-20200903144606672"></p>
+<p>The final representation $H$ is obtained by:</p>
+<p><img src="http://image.rman.top/blogimage-20200903144645308.png" alt="image-20200903144645308"></p>
+<h3 id="Global-Representation-Encoder"><a href="#Global-Representation-Encoder" class="headerlink" title="Global Representation Encoder"></a>Global Representation Encoder</h3><p><strong>Averaging encoder function.</strong></p>
+<p><img src="http://image.rman.top/blogimage-20200903145114044.png" alt="image-20200903145114044"></p>
+<p><strong>Pooling encoder function</strong></p>
+<p><img src="http://image.rman.top/blogimage-20200903145143071.png" alt="image-20200903145143071"></p>
+<p>Each node’s vector is independently fed through a fully connected layer. An elementwise max-pooling operator is applied to summary the information from the nodes set</p>
+<p><strong>Set2vec encoder function</strong></p>
+<p>Author randomly permutate of the node’s neighbors on an unordered set and feed to the LSTM</p>
+<h3 id="HDGI-Learning"><a href="#HDGI-Learning" class="headerlink" title="HDGI Learning"></a>HDGI Learning</h3><p><strong>Mutual information based discriminator</strong></p>
+<p>Belghazi et al. proved that the KL-divergence admits the Donsker-Varadhan representation and the f-divergence representation as dual representations:</p>
+<p><img src="http://image.rman.top/blogimage-20200903150208248.png" alt="image-20200903150208248"></p>
+<p>$\mathbb{P}_{xy}$ is the joint distribution and $\mathbb{P}_x\otimes \mathbb{P}_Y$ is the product of margins, $T_w$ is a deep neural network based discriminator.</p>
+<p>Author estimate and maximize the mutual information by training an discriminator $D$ to distinguish positive sample set $Pos={[\vec{h<em>n},\vec{s}]}^N</em>{n=1}$ with negative sample set $Neg={[\vec{ \widetilde{h<em>m}},\vec{s}]}^M</em>{m=1}$.</p>
+<p>The sample $(\vec{h_i},\vec{s})$ is the positive node belongs to graph, and $(\vec{ \widetilde{h_m}},\vec{s})$ is the generated fake node.</p>
+<p>The discriminator $D$ is a bilinear layer:</p>
+<script type="math/tex; mode=display">
+D(\vec{h_i})=\sigma(\vec{h_i}^{\top}W_D\vec{s})</script><p><strong>Loss function:</strong></p>
+<p><img src="http://image.rman.top/blogimage-20200903151118784.png" alt="image-20200903151118784"></p>
+<p><strong>Negative samples generator:</strong></p>
+<p><img src="http://image.rman.top/blogimage-20200903151241338.png" alt="image-20200903151241338"></p>
+<p>Keep the graph structure unchanged and shuffle the feature of each node in the graph.</p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><h3 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset:"></a>Dataset:</h3><p><img src="http://image.rman.top/blogimage-20200903151508638.png" alt="image-20200903151508638"></p>
+<h3 id="Node-classification"><a href="#Node-classification" class="headerlink" title="Node classification"></a>Node classification</h3><p><img src="http://image.rman.top/blogimage-20200903151542175.png" alt="image-20200903151542175"></p>
+<h3 id="Node-clustering-task"><a href="#Node-clustering-task" class="headerlink" title="Node clustering task"></a>Node clustering task</h3><p><img src="http://image.rman.top/blogimage-20200903152412935.png" alt="image-20200903152412935"></p>
+<h3 id="Ablation-experiment"><a href="#Ablation-experiment" class="headerlink" title="Ablation experiment"></a>Ablation experiment</h3><p><img src="http://image.rman.top/blogimage-20200903152517415.png" alt="image-20200903152517415"></p>
+<h3 id="Some-discovery"><a href="#Some-discovery" class="headerlink" title="Some discovery :"></a>Some discovery :</h3><p>The HDGI is highly depend on the initial feature $X$, when the $X$ is random initiated the performance of HDGI decreased dramatically.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Classification (feat)</th>
+<th></th>
+<th>Classification (no feat)</th>
+<th></th>
+<th>Cluster (feat)</th>
+<th></th>
+<th>Cluster (no feat)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Micro F1</td>
+<td>Macro F1</td>
+<td>Micro F1</td>
+<td>Macro F1</td>
+<td>NMI</td>
+<td>ARI</td>
+<td>NMI</td>
+<td>ARI</td>
+</tr>
+<tr>
+<td>HAN</td>
+<td>0.9329</td>
+<td>0.9336</td>
+<td>0.8547</td>
+<td>0.8506</td>
+<td>0.2691</td>
+<td>0.2193</td>
+<td>0.6305</td>
+<td>0.6956</td>
+</tr>
+<tr>
+<td>HGT</td>
+<td>0.8224</td>
+<td>0.8175</td>
+<td>0.8298</td>
+<td>0.8265</td>
+<td>0.4944</td>
+<td>0.4782</td>
+<td>0.4548</td>
+<td>0.4104</td>
+</tr>
+<tr>
+<td>HDGI-C</td>
+<td>0.8273</td>
+<td>0.8156</td>
+<td>0.4969</td>
+<td>0.2246</td>
+<td>0.0056</td>
+<td>0.0038</td>
+<td>0.0202</td>
+<td>0.0530</td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
+      <categories>
+        <category>论文笔记</category>
+      </categories>
+      <tags>
+        <tag>异构图</tag>
+        <tag>图表示学习</tag>
+      </tags>
+  </entry>
 </search>
