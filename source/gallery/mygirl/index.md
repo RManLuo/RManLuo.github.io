@@ -36,5 +36,12 @@ typora-copy-images-to: upload
 ![微信图片_202008101333072](http://image.rman.top/blog微信图片_202008101333072.jpg)
 ![微信图片_202008101333073](http://image.rman.top/blog微信图片_202008101333073.jpg)
 ![微信图片_202008101333074](http://image.rman.top/blog微信图片_202008101333074.jpg)
+![_DSC3102-编辑](http://image.rman.top/blog_DSC3102-编辑.jpg)
+![_DSC3130-编辑](http://image.rman.top/blog_DSC3130-编辑.jpg)
+
+![_DSC3315-编辑](http://image.rman.top/blog_DSC3315-编辑.jpg)
+
+![_DSC3429-编辑](http://image.rman.top/blog_DSC3429-编辑.jpg)
+
 {% endgallery %}
 
