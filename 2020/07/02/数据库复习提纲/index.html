@@ -1,0 +1,1784 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据库复习提纲 | RMan's Blog</title><meta name="description" content="简介本文是本人基于哈尔滨工业大学数据库系统整个课程的总结和复习提纲  绪论 2020年6月4日 9:15 数据库定义：·     相互关联关系的数据的集合 Table:·     Table中描述了一批互有关联关系的数据。  数据库构成：·     数据库（DB）：Database：一组关联关系数据集合 ·     数据库管理系统（DBMS）：Database management system："><meta name="keywords" content="数据库"><meta name="author" content="Raymond Luo"><meta name="copyright" content="Raymond Luo"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="数据库复习提纲"><meta name="twitter:description" content="简介本文是本人基于哈尔滨工业大学数据库系统整个课程的总结和复习提纲  绪论 2020年6月4日 9:15 数据库定义：·     相互关联关系的数据的集合 Table:·     Table中描述了一批互有关联关系的数据。  数据库构成：·     数据库（DB）：Database：一组关联关系数据集合 ·     数据库管理系统（DBMS）：Database management system："><meta name="twitter:image" content="https://images.pexels.com/photos/3873378/pexels-photo-3873378.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"><meta property="og:type" content="article"><meta property="og:title" content="数据库复习提纲"><meta property="og:url" content="https://www.rman.top/2020/07/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/"><meta property="og:site_name" content="RMan's Blog"><meta property="og:description" content="简介本文是本人基于哈尔滨工业大学数据库系统整个课程的总结和复习提纲  绪论 2020年6月4日 9:15 数据库定义：·     相互关联关系的数据的集合 Table:·     Table中描述了一批互有关联关系的数据。  数据库构成：·     数据库（DB）：Database：一组关联关系数据集合 ·     数据库管理系统（DBMS）：Database management system："><meta property="og:image" content="https://images.pexels.com/photos/3873378/pexels-photo-3873378.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"><meta property="article:published_time" content="2020-07-02T02:35:05.000Z"><meta property="article:modified_time" content="2020-07-02T03:25:59.378Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script><!-- hexo-inject:begin --><!-- hexo-inject:end -->var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://www.rman.top/2020/07/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/"><link rel="prev" title="生物信息学复习提纲" href="https://www.rman.top/2020/07/08/bioinfo/"><link rel="next" title="Finally Meet My Girl" href="https://www.rman.top/2020/06/23/Finally-Meet-My-Girl/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://www.rman.top/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="RMan's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="http://image.rman.top/20200621150310.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">29</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">26</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库定义："><span class="toc-number">2.</span> <span class="toc-text">数据库定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">3.</span> <span class="toc-text">Table:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库构成："><span class="toc-number">4.</span> <span class="toc-text">数据库构成：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例化和抽象化："><span class="toc-number">5.</span> <span class="toc-text">实例化和抽象化：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库管理系统的功能：（DBAP）"><span class="toc-number">6.</span> <span class="toc-text">数据库管理系统的功能：（DBAP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库语言："><span class="toc-number">7.</span> <span class="toc-text">数据库语言：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS功能："><span class="toc-number">8.</span> <span class="toc-text">DBMS功能：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS的三个层次："><span class="toc-number">9.</span> <span class="toc-text">DBMS的三个层次：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模式（schema）："><span class="toc-number">10.</span> <span class="toc-text">模式（schema）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图（view）："><span class="toc-number">11.</span> <span class="toc-text">视图（view）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两层映像："><span class="toc-number">12.</span> <span class="toc-text">两层映像：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据模型：模式-与-模式的结构"><span class="toc-number">13.</span> <span class="toc-text">数据模型：模式 与 模式的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三大经典数据模型："><span class="toc-number">14.</span> <span class="toc-text">三大经典数据模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系模型的构成："><span class="toc-number">15.</span> <span class="toc-text">关系模型的构成：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系模型的三要素："><span class="toc-number">16.</span> <span class="toc-text">关系模型的三要素：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系代数："><span class="toc-number">17.</span> <span class="toc-text">关系代数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系的定义："><span class="toc-number">18.</span> <span class="toc-text">关系的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系模式与关系："><span class="toc-number">19.</span> <span class="toc-text">关系模式与关系：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系的特性："><span class="toc-number">20.</span> <span class="toc-text">关系的特性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系第一范式："><span class="toc-number">21.</span> <span class="toc-text">关系第一范式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#候选键："><span class="toc-number">22.</span> <span class="toc-text">候选键：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主码："><span class="toc-number">23.</span> <span class="toc-text">主码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主属性："><span class="toc-number">24.</span> <span class="toc-text">主属性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外码："><span class="toc-number">25.</span> <span class="toc-text">外码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系模型的完整性："><span class="toc-number">26.</span> <span class="toc-text">关系模型的完整性：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关系代数的基本操作"><span class="toc-number"></span> <span class="toc-text">关系代数的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并相容性："><span class="toc-number">1.</span> <span class="toc-text">并相容性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并操作："><span class="toc-number">2.</span> <span class="toc-text">并操作：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#差运算："><span class="toc-number">3.</span> <span class="toc-text">差运算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广义笛卡尔积："><span class="toc-number">4.</span> <span class="toc-text">广义笛卡尔积：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择："><span class="toc-number">5.</span> <span class="toc-text">选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系运算的优先级："><span class="toc-number">6.</span> <span class="toc-text">关系运算的优先级：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#投影操作："><span class="toc-number">7.</span> <span class="toc-text">投影操作：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交操作："><span class="toc-number">8.</span> <span class="toc-text">交操作：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">9.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#等值连接："><span class="toc-number">10.</span> <span class="toc-text">等值连接：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自然连接："><span class="toc-number">11.</span> <span class="toc-text">自然连接：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系代数的基本思路："><span class="toc-number">12.</span> <span class="toc-text">关系代数的基本思路：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#除运算："><span class="toc-number">13.</span> <span class="toc-text">除运算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外连接："><span class="toc-number">14.</span> <span class="toc-text">外连接：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P-t-递归构造："><span class="toc-number">15.</span> <span class="toc-text">P(t)递归构造：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元组演算的等价性："><span class="toc-number">16.</span> <span class="toc-text">元组演算的等价性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">17.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元组演算公式实现关系代数："><span class="toc-number">18.</span> <span class="toc-text">元组演算公式实现关系代数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系域演算："><span class="toc-number">19.</span> <span class="toc-text">关系域演算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QBE操作框架："><span class="toc-number">20.</span> <span class="toc-text">QBE操作框架：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系运算的安全性：不产生无限关系和无穷验证的运算被称为是安全的"><span class="toc-number">21.</span> <span class="toc-text">关系运算的安全性：不产生无限关系和无穷验证的运算被称为是安全的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全约束有限集合DOM："><span class="toc-number">22.</span> <span class="toc-text">安全约束有限集合DOM：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全元组演算表达式："><span class="toc-number">23.</span> <span class="toc-text">安全元组演算表达式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三种关系运算："><span class="toc-number">24.</span> <span class="toc-text">三种关系运算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL"><span class="toc-number">25.</span> <span class="toc-text">DDL:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DML"><span class="toc-number">26.</span> <span class="toc-text">DML:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DCL"><span class="toc-number">27.</span> <span class="toc-text">DCL:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据库"><span class="toc-number">28.</span> <span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Table："><span class="toc-number">29.</span> <span class="toc-text">创建Table：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Insert："><span class="toc-number">30.</span> <span class="toc-text">Insert：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Select"><span class="toc-number">31.</span> <span class="toc-text">Select:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多表联合查询："><span class="toc-number">32.</span> <span class="toc-text">多表联合查询：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量增加数据命令："><span class="toc-number">33.</span> <span class="toc-text">批量增加数据命令：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete："><span class="toc-number">34.</span> <span class="toc-text">Delete：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update"><span class="toc-number">35.</span> <span class="toc-text">Update:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alter："><span class="toc-number">36.</span> <span class="toc-text">Alter：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Drop："><span class="toc-number">37.</span> <span class="toc-text">Drop：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#not-in-子查询："><span class="toc-number">38.</span> <span class="toc-text">(not) in 子查询：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">39.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exists子查询："><span class="toc-number">40.</span> <span class="toc-text">Exists子查询：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果计算："><span class="toc-number">41.</span> <span class="toc-text">结果计算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组："><span class="toc-number">42.</span> <span class="toc-text">分组：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#union-intersect-except"><span class="toc-number">43.</span> <span class="toc-text">union|intersect|except</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空值的处理"><span class="toc-number">44.</span> <span class="toc-text">空值的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接运算："><span class="toc-number">45.</span> <span class="toc-text">连接运算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图："><span class="toc-number">46.</span> <span class="toc-text">视图：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库完整性："><span class="toc-number">47.</span> <span class="toc-text">数据库完整性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系模型中的完整性要求："><span class="toc-number">48.</span> <span class="toc-text">关系模型中的完整性要求：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整性约束条件："><span class="toc-number">49.</span> <span class="toc-text">完整性约束条件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按约束对象分类："><span class="toc-number">50.</span> <span class="toc-text">按约束对象分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按约束来源分类："><span class="toc-number">51.</span> <span class="toc-text">按约束来源分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按约束状态分类："><span class="toc-number">52.</span> <span class="toc-text">按约束状态分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL语言的完整性："><span class="toc-number">53.</span> <span class="toc-text">SQL语言的完整性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Table-定义完整性约束："><span class="toc-number">54.</span> <span class="toc-text">Create Table 定义完整性约束：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Col-constr列约束"><span class="toc-number">55.</span> <span class="toc-text">Col_constr列约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-constr-表约束"><span class="toc-number">56.</span> <span class="toc-text">Table_constr 表约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#撤销、增加约束："><span class="toc-number">57.</span> <span class="toc-text">撤销、增加约束：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#断言："><span class="toc-number">58.</span> <span class="toc-text">断言：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触发器："><span class="toc-number">59.</span> <span class="toc-text">触发器：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的安全性："><span class="toc-number">60.</span> <span class="toc-text">数据库的安全性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS的安全机制："><span class="toc-number">61.</span> <span class="toc-text">DBMS的安全机制：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的自主安全控制："><span class="toc-number">62.</span> <span class="toc-text">数据库的自主安全控制：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#控制方法："><span class="toc-number">62.1.</span> <span class="toc-text">控制方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL的关系级别："><span class="toc-number">63.</span> <span class="toc-text">SQL的关系级别：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#收回权力："><span class="toc-number">64.</span> <span class="toc-text">收回权力：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自主安全性控制："><span class="toc-number">65.</span> <span class="toc-text">自主安全性控制：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强制安全性机制："><span class="toc-number">66.</span> <span class="toc-text">强制安全性机制：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#访问规则："><span class="toc-number">66.1.</span> <span class="toc-text">访问规则：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全性级别："><span class="toc-number">67.</span> <span class="toc-text">安全性级别：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量的声明与使用："><span class="toc-number">68.</span> <span class="toc-text">变量的声明与使用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序与数据库的连接和断开："><span class="toc-number">69.</span> <span class="toc-text">程序与数据库的连接和断开：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL执行的提交与撤销："><span class="toc-number">70.</span> <span class="toc-text">SQL执行的提交与撤销：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的执行："><span class="toc-number">71.</span> <span class="toc-text">事务的执行：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的特性：ACID"><span class="toc-number">72.</span> <span class="toc-text">事务的特性：ACID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检索单行结果与多行结果获取："><span class="toc-number">73.</span> <span class="toc-text">检索单行结果与多行结果获取：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游标Cursor："><span class="toc-number">73.1.</span> <span class="toc-text">游标Cursor：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可滚动游标Cursor"><span class="toc-number">73.2.</span> <span class="toc-text">可滚动游标Cursor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库记录的删除："><span class="toc-number">74.</span> <span class="toc-text">数据库记录的删除：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库记录的更新："><span class="toc-number">75.</span> <span class="toc-text">数据库记录的更新：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据记录的插入："><span class="toc-number">76.</span> <span class="toc-text">数据记录的插入：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态错误捕获："><span class="toc-number">77.</span> <span class="toc-text">状态错误捕获：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQLCA："><span class="toc-number">78.</span> <span class="toc-text">SQLCA：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态SQL执行方式："><span class="toc-number">79.</span> <span class="toc-text">动态SQL执行方式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据字典："><span class="toc-number">80.</span> <span class="toc-text">数据字典：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据模型和概念模型："><span class="toc-number">81.</span> <span class="toc-text">数据模型和概念模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-R模型："><span class="toc-number">82.</span> <span class="toc-text">E-R模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实体与实例："><span class="toc-number">83.</span> <span class="toc-text">实体与实例：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性："><span class="toc-number">84.</span> <span class="toc-text">属性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-3"><span class="toc-number">85.</span> <span class="toc-text"> </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字-码"><span class="toc-number">85.1.</span> <span class="toc-text">关键字&#x2F;码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系："><span class="toc-number">86.</span> <span class="toc-text">联系：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#联系的元-度："><span class="toc-number">86.1.</span> <span class="toc-text">联系的元&#x2F;度：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#角色"><span class="toc-number">86.2.</span> <span class="toc-text">角色:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系的种类："><span class="toc-number">87.</span> <span class="toc-text">联系的种类：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#联系的基数："><span class="toc-number">87.1.</span> <span class="toc-text">联系的基数：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-R图的表示（chen方法）："><span class="toc-number">88.</span> <span class="toc-text">E-R图的表示（chen方法）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运用ER图建模的步骤："><span class="toc-number">89.</span> <span class="toc-text">运用ER图建模的步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-R模型（Crow’s-foot方法）："><span class="toc-number">90.</span> <span class="toc-text">E-R模型（Crow’s foot方法）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计中的抽象："><span class="toc-number">91.</span> <span class="toc-text">数据库设计中的抽象：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#型与值："><span class="toc-number">92.</span> <span class="toc-text">型与值：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据模型："><span class="toc-number">93.</span> <span class="toc-text">数据模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建模的不同层次："><span class="toc-number">94.</span> <span class="toc-text">建模的不同层次：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDEF1x中的重要概念："><span class="toc-number"></span> <span class="toc-text">IDEF1x中的重要概念：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#独立实体："><span class="toc-number">1.</span> <span class="toc-text">独立实体：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从属实体："><span class="toc-number">2.</span> <span class="toc-text">从属实体：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性：-1"><span class="toc-number">3.</span> <span class="toc-text">属性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系：-1"><span class="toc-number">4.</span> <span class="toc-text">联系：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-R图向关系模式的转换："><span class="toc-number"></span> <span class="toc-text">E-R图向关系模式的转换：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复合属性的转换："><span class="toc-number">1.</span> <span class="toc-text">复合属性的转换：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多值属性："><span class="toc-number">2.</span> <span class="toc-text">多值属性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系的转换："><span class="toc-number">3.</span> <span class="toc-text">联系的转换：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#弱实体的转换："><span class="toc-number">4.</span> <span class="toc-text">弱实体的转换：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛化与具体化："><span class="toc-number">5.</span> <span class="toc-text">泛化与具体化：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多元联系的转换："><span class="toc-number">6.</span> <span class="toc-text">多元联系的转换：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDEF1X图转换成关系模式："><span class="toc-number"></span> <span class="toc-text">IDEF1X图转换成关系模式：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#范式数据库设计："><span class="toc-number"></span> <span class="toc-text">范式数据库设计：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数依赖的定义："><span class="toc-number">1.</span> <span class="toc-text">函数依赖的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数依赖的特性："><span class="toc-number">2.</span> <span class="toc-text">函数依赖的特性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部分函数依赖和完全函数依赖："><span class="toc-number">3.</span> <span class="toc-text">部分函数依赖和完全函数依赖：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传递函数依赖："><span class="toc-number">4.</span> <span class="toc-text">传递函数依赖：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#候选键：-1"><span class="toc-number">5.</span> <span class="toc-text">候选键：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外来键："><span class="toc-number">6.</span> <span class="toc-text">外来键：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑蕴含："><span class="toc-number">7.</span> <span class="toc-text">逻辑蕴含：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包："><span class="toc-number">8.</span> <span class="toc-text">闭包：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阿姆斯特朗公理："><span class="toc-number">9.</span> <span class="toc-text">阿姆斯特朗公理：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引理："><span class="toc-number">9.1.</span> <span class="toc-text">引理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引理2："><span class="toc-number">9.2.</span> <span class="toc-text">引理2：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性闭包："><span class="toc-number">10.</span> <span class="toc-text">属性闭包：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引理：-1"><span class="toc-number">11.</span> <span class="toc-text">引理：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#覆盖："><span class="toc-number">12.</span> <span class="toc-text">覆盖：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-4"><span class="toc-number">13.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求属性闭包的方法："><span class="toc-number">14.</span> <span class="toc-text">求属性闭包的方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引理：-2"><span class="toc-number">14.1.</span> <span class="toc-text">引理：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小覆盖："><span class="toc-number">15.</span> <span class="toc-text">最小覆盖：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1NF-（不含多值属性）"><span class="toc-number">16.</span> <span class="toc-text">1NF:（不含多值属性）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2NF-（没有非主属性对候选键的部分依赖）"><span class="toc-number">17.</span> <span class="toc-text">2NF:（没有非主属性对候选键的部分依赖）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3NF-（没有候选键的传递函数依赖）"><span class="toc-number">18.</span> <span class="toc-text">3NF:（没有候选键的传递函数依赖）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boyce-Codd范式：（所有函数依赖都包含候选键）"><span class="toc-number">19.</span> <span class="toc-text">Boyce-Codd范式：（所有函数依赖都包含候选键）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多值依赖："><span class="toc-number">20.</span> <span class="toc-text">多值依赖：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4NF-已经是BC范式，并且不包含多值依赖关系。"><span class="toc-number">21.</span> <span class="toc-text">4NF:(已经是BC范式，并且不包含多值依赖关系。)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W4NF"><span class="toc-number">22.</span> <span class="toc-text">W4NF:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模式分解："><span class="toc-number">23.</span> <span class="toc-text">模式分解：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引理1："><span class="toc-number">23.1.</span> <span class="toc-text">引理1：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无损连接分解："><span class="toc-number">24.</span> <span class="toc-text">无损连接分解：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无损连接性检验算法："><span class="toc-number">25.</span> <span class="toc-text">无损连接性检验算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无损连接的特性："><span class="toc-number">26.</span> <span class="toc-text">无损连接的特性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保持依赖分解："><span class="toc-number">27.</span> <span class="toc-text">保持依赖分解：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无损连接分解成BCNF算法"><span class="toc-number">28.</span> <span class="toc-text">无损连接分解成BCNF算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系模式分解成成3NF"><span class="toc-number">29.</span> <span class="toc-text">关系模式分解成成3NF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#既保持依赖，又保持无损连接的分解"><span class="toc-number">30.</span> <span class="toc-text">既保持依赖，又保持无损连接的分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无损连接分解成4NF"><span class="toc-number">31.</span> <span class="toc-text">无损连接分解成4NF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接依赖："><span class="toc-number">32.</span> <span class="toc-text">连接依赖：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5NF：（按照候选键连接）"><span class="toc-number">33.</span> <span class="toc-text">5NF：（按照候选键连接）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本章总结："><span class="toc-number">34.</span> <span class="toc-text">本章总结：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储体系："><span class="toc-number">35.</span> <span class="toc-text">存储体系：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统对数据的组织："><span class="toc-number">36.</span> <span class="toc-text">操作系统对数据的组织：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-5"><span class="toc-number">37.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存管理："><span class="toc-number">38.</span> <span class="toc-text">内存管理：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘结构："><span class="toc-number">39.</span> <span class="toc-text">磁盘结构：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAID技术："><span class="toc-number">40.</span> <span class="toc-text">RAID技术：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS数据存储的映射关系："><span class="toc-number">41.</span> <span class="toc-text">DBMS数据存储的映射关系：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库记录和磁盘块的记录："><span class="toc-number">42.</span> <span class="toc-text">数据库记录和磁盘块的记录：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据组织与存储方法："><span class="toc-number">43.</span> <span class="toc-text">数据组织与存储方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件组方法："><span class="toc-number">43.1.</span> <span class="toc-text">文件组方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Oracle数据库的数据组织："><span class="toc-number">44.</span> <span class="toc-text">Oracle数据库的数据组织：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引："><span class="toc-number">45.</span> <span class="toc-text">索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引文件："><span class="toc-number">46.</span> <span class="toc-text">索引文件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-6"><span class="toc-number">47.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的定义："><span class="toc-number">48.</span> <span class="toc-text">索引的定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稠密索引："><span class="toc-number">49.</span> <span class="toc-text">稠密索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稀疏索引："><span class="toc-number">50.</span> <span class="toc-text">稀疏索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主索引："><span class="toc-number">51.</span> <span class="toc-text">主索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#辅助索引："><span class="toc-number">52.</span> <span class="toc-text">辅助索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#聚簇索引："><span class="toc-number">53.</span> <span class="toc-text">聚簇索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非聚簇索引："><span class="toc-number">54.</span> <span class="toc-text">非聚簇索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒排索引："><span class="toc-number">55.</span> <span class="toc-text">倒排索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-树索引："><span class="toc-number">56.</span> <span class="toc-text">B+树索引：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树的存储约定："><span class="toc-number">56.1.</span> <span class="toc-text">B+树的存储约定：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#叶子节点和非叶子节点："><span class="toc-number">56.2.</span> <span class="toc-text">叶子节点和非叶子节点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-7"><span class="toc-number">56.3.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用B-树建立键属性的稠密索引："><span class="toc-number">56.4.</span> <span class="toc-text">用B+树建立键属性的稠密索引：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树建立稀疏索引："><span class="toc-number">56.5.</span> <span class="toc-text">B+树建立稀疏索引：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树建立非键属性稠密索引："><span class="toc-number">56.6.</span> <span class="toc-text">B+树建立非键属性稠密索引：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树建立非键属性的稠密索引："><span class="toc-number">56.7.</span> <span class="toc-text">B+树建立非键属性的稠密索引：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树的节点键值插入与节点分裂过程示意："><span class="toc-number">56.8.</span> <span class="toc-text">B+树的节点键值插入与节点分裂过程示意：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-树分裂的条件："><span class="toc-number">57.</span> <span class="toc-text">B+树分裂的条件：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树键值删除的过程："><span class="toc-number">57.1.</span> <span class="toc-text">B+树键值删除的过程：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需要合并"><span class="toc-number">58.</span> <span class="toc-text">需要合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-树删除键值规则："><span class="toc-number">59.</span> <span class="toc-text">B+树删除键值规则：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B树："><span class="toc-number">60.</span> <span class="toc-text">B树：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#散列索引："><span class="toc-number">61.</span> <span class="toc-text">散列索引：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的三大类操作"><span class="toc-number">62.</span> <span class="toc-text">数据库的三大类操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接操作的逻辑实现算法："><span class="toc-number">63.</span> <span class="toc-text">连接操作的逻辑实现算法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑算法："><span class="toc-number">63.1.</span> <span class="toc-text">逻辑算法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理算法的考量："><span class="toc-number">63.2.</span> <span class="toc-text">物理算法的考量：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法比较："><span class="toc-number">63.3.</span> <span class="toc-text">算法比较：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代器构造查询实现算法："><span class="toc-number">64.</span> <span class="toc-text">迭代器构造查询实现算法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器："><span class="toc-number">64.1.</span> <span class="toc-text">迭代器：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一趟扫描算法："><span class="toc-number">65.</span> <span class="toc-text">一趟扫描算法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关系的读取：完整的读取一个关系"><span class="toc-number">65.1.</span> <span class="toc-text">关系的读取：完整的读取一个关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去重操作："><span class="toc-number">65.2.</span> <span class="toc-text">去重操作：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组聚集："><span class="toc-number">65.3.</span> <span class="toc-text">分组聚集：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合上的操作和包上的操作：交、并、差"><span class="toc-number">65.4.</span> <span class="toc-text">集合上的操作和包上的操作：交、并、差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于索引的选择算法："><span class="toc-number">66.</span> <span class="toc-text">基于索引的选择算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两阶段多路归并排序TPMMS："><span class="toc-number">67.</span> <span class="toc-text">两阶段多路归并排序TPMMS：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于散列的两趟扫描算法："><span class="toc-number">68.</span> <span class="toc-text">基于散列的两趟扫描算法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dinstinct"><span class="toc-number">68.1.</span> <span class="toc-text">Dinstinct</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组计算"><span class="toc-number">68.2.</span> <span class="toc-text">分组计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合上的并、交、差"><span class="toc-number">68.3.</span> <span class="toc-text">集合上的并、交、差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于散列的连接操作"><span class="toc-number">68.4.</span> <span class="toc-text">基于散列的连接操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询优化："><span class="toc-number">69.</span> <span class="toc-text">查询优化：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑优化、语法优化："><span class="toc-number">70.</span> <span class="toc-text">逻辑优化、语法优化：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑优化的策略："><span class="toc-number">70.1.</span> <span class="toc-text">逻辑优化的策略：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理优化、执行优化："><span class="toc-number">71.</span> <span class="toc-text">物理优化、执行优化：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系代数操作次序的等价性："><span class="toc-number">72.</span> <span class="toc-text">关系代数操作次序的等价性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系代数查询优化算法："><span class="toc-number">73.</span> <span class="toc-text">关系代数查询优化算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理层查询优化："><span class="toc-number">74.</span> <span class="toc-text">物理层查询优化：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代价估算："><span class="toc-number">75.</span> <span class="toc-text">代价估算：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务处理技术"><span class="toc-number">76.</span> <span class="toc-text">事务处理技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的宏观性："><span class="toc-number">77.</span> <span class="toc-text">事务的宏观性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的微观性："><span class="toc-number">78.</span> <span class="toc-text">事务的微观性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的特性：ACID-1"><span class="toc-number">79.</span> <span class="toc-text">事务的特性：ACID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务调度："><span class="toc-number">80.</span> <span class="toc-text">事务调度：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发调度的正确性："><span class="toc-number">81.</span> <span class="toc-text">并发调度的正确性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可串行性："><span class="toc-number">82.</span> <span class="toc-text">可串行性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冲突："><span class="toc-number">83.</span> <span class="toc-text">冲突：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冲突可串行性："><span class="toc-number">84.</span> <span class="toc-text">冲突可串行性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冲突可串行性的判别算法："><span class="toc-number">85.</span> <span class="toc-text">冲突可串行性的判别算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于封锁的控制并发手段："><span class="toc-number">86.</span> <span class="toc-text">基于封锁的控制并发手段：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的类型："><span class="toc-number">87.</span> <span class="toc-text">锁的类型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0级协议：加锁、解锁的时机"><span class="toc-number">88.</span> <span class="toc-text">0级协议：加锁、解锁的时机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1级协议："><span class="toc-number">89.</span> <span class="toc-text">1级协议：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2级协议："><span class="toc-number">90.</span> <span class="toc-text">2级协议：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3级协议："><span class="toc-number">91.</span> <span class="toc-text">3级协议：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL隔离性级别："><span class="toc-number">92.</span> <span class="toc-text">SQL隔离性级别：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#封锁粒度："><span class="toc-number">93.</span> <span class="toc-text">封锁粒度：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两段封锁协议："><span class="toc-number">94.</span> <span class="toc-text">两段封锁协议：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于时间戳的并发控制方法："><span class="toc-number">95.</span> <span class="toc-text">基于时间戳的并发控制方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于时间戳的并发控制："><span class="toc-number">96.</span> <span class="toc-text">基于时间戳的并发控制：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调度规则"><span class="toc-number">97.</span> <span class="toc-text">调度规则:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调度规则2："><span class="toc-number">98.</span> <span class="toc-text">调度规则2：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于有效性确认的并发控制方法："><span class="toc-number">99.</span> <span class="toc-text">基于有效性确认的并发控制方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于有效性确认的调度器："><span class="toc-number">99.1.</span> <span class="toc-text">基于有效性确认的调度器：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有效性确认："><span class="toc-number">100.</span> <span class="toc-text">有效性确认：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的故障及其影响："><span class="toc-number">101.</span> <span class="toc-text">数据库的故障及其影响：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库故障恢复"><span class="toc-number">102.</span> <span class="toc-text">数据库故障恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务故障的恢复："><span class="toc-number">103.</span> <span class="toc-text">事务故障的恢复：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统故障的恢复："><span class="toc-number">104.</span> <span class="toc-text">系统故障的恢复：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检查点："><span class="toc-number">104.1.</span> <span class="toc-text">检查点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统故障的恢复：-1"><span class="toc-number">104.2.</span> <span class="toc-text">系统故障的恢复：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#介质故障的恢复："><span class="toc-number">105.</span> <span class="toc-text">介质故障的恢复：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志："><span class="toc-number">106.</span> <span class="toc-text">日志：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缓冲区处理策略："><span class="toc-number">106.1.</span> <span class="toc-text">缓冲区处理策略：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓冲区处理策略与日志-恢复策略的关系："><span class="toc-number">106.2.</span> <span class="toc-text">缓冲区处理策略与日志&#x2F;恢复策略的关系：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Undo型日志和其故障恢复："><span class="toc-number">107.</span> <span class="toc-text">Undo型日志和其故障恢复：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检查点：-1"><span class="toc-number">107.1.</span> <span class="toc-text">检查点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redo型日志和其故障恢复："><span class="toc-number">108.</span> <span class="toc-text">Redo型日志和其故障恢复：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#非静止检查点："><span class="toc-number">108.1.</span> <span class="toc-text">非静止检查点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Undo-Redo结合型日志极其故障恢复："><span class="toc-number">109.</span> <span class="toc-text">Undo&#x2F;Redo结合型日志极其故障恢复：</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://images.pexels.com/photos/3873378/pexels-photo-3873378.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">RMan's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">数据库复习提纲</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-02 10:35:05"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-07-02</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-02 11:25:59"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-07-02</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%A4%8D%E4%B9%A0/">复习</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文是本人基于哈尔滨工业大学数据库系统整个课程的总结和复习提纲</p>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><hr>
+<p>绪论</p>
+<p>2020年6月4日</p>
+<p>9:15</p>
+<h2 id="数据库定义："><a href="#数据库定义：" class="headerlink" title="数据库定义："></a>数据库定义：</h2><p>·     相互关联关系的数据的集合</p>
+<h2 id="Table"><a href="#Table" class="headerlink" title="Table:"></a>Table:</h2><p>·     Table中描述了一批互有关联关系的数据。</p>
+<p><img src="http://image.rman.top/blog20200702104926.jpg" alt="Tab | e 的 构 成 暨 关 于 Tab | e 的 常 用 木 语  E  满 一 0 一 韉 一  蕓 吕  表 标 以 鵂 式 ）  名 “ 三 四 五 弄 四 ． 三 四  轰 内 客 （ 值 ）  关 壓  Table 中 描述 了 ． 批 相 有 关 联 的 数 据 = = k 系 "></p>
+<h2 id="数据库构成："><a href="#数据库构成：" class="headerlink" title="数据库构成："></a>数据库构成：</h2><p>·     数据库（DB）：Database：一组关联关系数据集合</p>
+<p>·     数据库管理系统（DBMS）：Database management system：管理数据的软件</p>
+<p>·     数据库应用（DBAP）：Data base Application：完成某一功能的应用</p>
+<p>·     数据库管理员（DBA）：Database Administrator：管理数据库的人</p>
+<p>·     计算机基本系统</p>
+<p><img src="https://i.loli.net/2020/07/02/6vhUEPkcMWLRXgO.jpg" alt="%&#39;/Databa  Tablet:  DBMS  Oracle  &amp;Sybase  YESQL server  DBAP 1  DBAP 2  DBAP 3  DBAP "></p>
+<h2 id="实例化和抽象化："><a href="#实例化和抽象化：" class="headerlink" title="实例化和抽象化："></a>实例化和抽象化：</h2><p>把数据库的构成实例化成各个具体的应用。</p>
+<h2 id="数据库管理系统的功能：（DBAP）"><a href="#数据库管理系统的功能：（DBAP）" class="headerlink" title="数据库管理系统的功能：（DBAP）"></a>数据库管理系统的功能：（DBAP）</h2><p>·     数据库定义：定义数据库中Table的名称、标题、标题内属性和属性值的要求</p>
+<p>o  DBMS提供DDL语言给用户定义数据库</p>
+<p>o  用户使用DDL创建表格式</p>
+<p>o  DBMS解析DDL并执行</p>
+<p>·     数据库执行：对表中数据库进行增删查改等操作</p>
+<p>·     数据库控制：控制数据库数据的访问</p>
+<p>o  DBMS提供DCL语言给用户</p>
+<p>o  用户使用DCL进行控制</p>
+<p>o  DBMS解析DCL</p>
+<p>·     数据库维护：数据库转存，恢复，重组，性能监控</p>
+<h2 id="数据库语言："><a href="#数据库语言：" class="headerlink" title="数据库语言："></a>数据库语言：</h2><p>·     DDL：用于定义数据格式</p>
+<p>·     DML：数据库内容操作</p>
+<p>·     DCL：数据库控制语言</p>
+<p>·     数据库各种操作执行。</p>
+<h2 id="DBMS功能："><a href="#DBMS功能：" class="headerlink" title="DBMS功能："></a>DBMS功能：</h2><p>·     语言编译器</p>
+<p>·     查询优化</p>
+<p>·     数据存储与索引</p>
+<p>·     通讯控制</p>
+<p>·     事物控制</p>
+<p>·     故障恢复</p>
+<p>·     安全性控制</p>
+<p>·     完整性控制</p>
+<p>数据库系统的标准结构</p>
+<p>2020年6月4日</p>
+<p>10:46</p>
+<h2 id="DBMS的三个层次："><a href="#DBMS的三个层次：" class="headerlink" title="DBMS的三个层次："></a>DBMS的三个层次：</h2><p>·     外部层次（用户层次）：某一个用户能看到和处理的数据，全局数据的某一个部分</p>
+<p>·     概念层次（逻辑层次）：从全局角度管理和理解数据</p>
+<p>·     内部层次（物理层次）：存储在介质上的数据，存储路径、方式、索引等。</p>
+<h2 id="模式（schema）："><a href="#模式（schema）：" class="headerlink" title="模式（schema）："></a>模式（schema）：</h2><p>·     对数据库中的数据进行一种结构性描述</p>
+<p>·     所观察到的结构信息</p>
+<h2 id="视图（view）："><a href="#视图（view）：" class="headerlink" title="视图（view）："></a>视图（view）：</h2><p>·     某一种表现形式下的数据</p>
+<p><strong>外模式、外视图：用户所看到数据库的局部描述</strong></p>
+<p><strong>概念模式、概念视图：从全局理解结构描述、关联约束</strong></p>
+<p><strong>内模式、内视图：数据在介质上的结构描述，含有存储路径，存储方式，索引方式等。</strong></p>
+<h2 id="两层映像："><a href="#两层映像：" class="headerlink" title="两层映像："></a>两层映像：</h2><p>·     <strong>E-C Mapping**</strong>：**将外模式映射为概念模式，支持数据视图向外部视图转换，便于用户观察</p>
+<p>·     <strong>C-I Mapping**</strong>：**将概念模式映射成内模式，方便计算机的存储</p>
+<p><img src="https://i.loli.net/2020/07/02/Rliz1Xr53xNKYa4.jpg" alt="user An  HL •OSL  Host  O•t• Sublanguage  HL •DSL  Mapping  Host Language  Data SubLangu•ge  (Ext•rnal) View A  Stor•d Databas••• "></p>
+<p><strong>逻辑数据独立性：</strong>当概念模式变化时，可以不改外部模式，只改EC mapping</p>
+<p><strong>物理数据独立性：</strong>当内部模式电话，可以不改概念模式，只改CI mapping</p>
+<h2 id="数据模型：模式-与-模式的结构"><a href="#数据模型：模式-与-模式的结构" class="headerlink" title="数据模型：模式 与 模式的结构"></a>数据模型：模式 与 模式的结构</h2><p>·     规定模式统一方式的模型</p>
+<p>·     数据模型是对模式本身的抽象，模式是对数据本身结构形式的抽象</p>
+<p><strong>关系模型：</strong>所有的模式都可为抽象表的形式，而每一个具体的模式都拥有不同的列名的具体的表，这种表形式的数据有哪些操作和约束</p>
+<p><img src="http://image.rman.top/blogclip_image008.jpg" alt="img"></p>
+<p><strong>模式</strong>：对数据的抽象</p>
+<p><strong>数据模型：</strong>对模式的抽象</p>
+<h2 id="三大经典数据模型："><a href="#三大经典数据模型：" class="headerlink" title="三大经典数据模型："></a>三大经典数据模型：</h2><p>·     关系模型：<strong>表</strong>的形式组织</p>
+<p>·     层次模型：<strong>树</strong>的形式组织数据</p>
+<p>·     网状模型：<strong>图</strong>的形式组织数据</p>
+<p><strong>第一代数据库：</strong>基于网状模型或者层次模型的数据库系</p>
+<p><strong>第二代数据库：</strong>基于关系模型的数据库系统</p>
+<p>关系模型的简述</p>
+<p>2020年6月4日</p>
+<p>11:13</p>
+<h2 id="关系模型的构成："><a href="#关系模型的构成：" class="headerlink" title="关系模型的构成："></a>关系模型的构成：</h2><p>·     描述DB各种数据的节本结构形式</p>
+<p>·     描述Table与Table之间可能发生的操作（关系运算）</p>
+<p>·     秒后苏这些操作所应该遵循的约束条件（完整性约束）</p>
+<h2 id="关系模型的三要素："><a href="#关系模型的三要素：" class="headerlink" title="关系模型的三要素："></a>关系模型的三要素：</h2><p>·     基本结构</p>
+<p>·     基本操作：并、差、乘积、选择、投影、交、连接、除</p>
+<p><img src="http://image.rman.top/blogclip_image010.jpg" alt="img"></p>
+<p>·     完整性约束：实体完整性、参照完整性、用户自定义的完整性</p>
+<h2 id="关系代数："><a href="#关系代数：" class="headerlink" title="关系代数："></a>关系代数：</h2><p>·     基于集合的运算，一次一个集合</p>
+<p><img src="clip_image012.jpg" alt="img"></p>
+<h2 id="关系的定义："><a href="#关系的定义：" class="headerlink" title="关系的定义："></a>关系的定义：</h2><p><img src="clip_image014.jpg" alt="img"></p>
+<p><strong>域：</strong>定义列的取值范围。</p>
+<p>·     一组值的集合，拥有相同数据类型</p>
+<p>·     集合中元素的个数成为<strong>基数</strong></p>
+<p><strong>笛卡尔积：</strong></p>
+<p>·     一组域可能构成的全部的元素组合</p>
+<p>·     笛卡尔积的每一个元素称为一个<strong>元组</strong></p>
+<p><img src="clip_image016.jpg" alt="img"></p>
+<p>·     <img src="clip_image018.jpg" alt="img"></p>
+<p><strong>关系：</strong></p>
+<p>·     一组域的笛卡尔积的子集</p>
+<p><img src="clip_image020.jpg" alt="img"></p>
+<p>·     笛卡尔积中具有<strong>某一方面意义</strong>的那些元组被称为一个<strong>关系</strong></p>
+<p>·     由于关系的不同列可能来自同一个域，为了区分需要为每一个列起一个名字，该名字则为<strong>属性名</strong></p>
+<p><strong>关系模式：</strong></p>
+<p><img src="clip_image022.jpg" alt="img"></p>
+<p>n：关系的<strong>度</strong></p>
+<p>基数：关系中元组的数目</p>
+<p><img src="clip_image024.jpg" alt="img"></p>
+<h2 id="关系模式与关系："><a href="#关系模式与关系：" class="headerlink" title="关系模式与关系："></a>关系模式与关系：</h2><p>·     同一关系模式下可以由多种关系</p>
+<p>·     关系模式是关系的结构，关系是关系模式某一个时刻的数据</p>
+<p>·     关系模式是稳定的，而关系是某一个时刻的值，是随时间变化的</p>
+<p><img src="clip_image026.jpg" alt="img"></p>
+<h2 id="关系的特性："><a href="#关系的特性：" class="headerlink" title="关系的特性："></a>关系的特性：</h2><p>·     列是同质的：每一列的分量来自统一域，是同一类型的数据</p>
+<p>·     不同的列可以来自同一个域，所以需要为每一个属性赋予不同的属性名</p>
+<p>·     关系是以内容来区分的，而不是属性在关系的位置来区分：行列互换无关性</p>
+<p>·     关系中不能有两个相同的元素，但是在现实应用中，Table可能不能完全遵守此特性。</p>
+<h2 id="关系第一范式："><a href="#关系第一范式：" class="headerlink" title="关系第一范式："></a>关系第一范式：</h2><p>·     属性不可再分特性</p>
+<p><img src="clip_image028.jpg" alt="img"></p>
+<h2 id="候选键："><a href="#候选键：" class="headerlink" title="候选键："></a>候选键：</h2><p>·     关系中的一个属性组，其值能唯一标识一个元组，若工该属性组中去掉任何一个属性，它就不具有这个性质了，这样的属性组成为候选码（候选键）</p>
+<p>·     关系中可能有多组候选码：（name, address）</p>
+<h2 id="主码："><a href="#主码：" class="headerlink" title="主码："></a>主码：</h2><p>·     当有多个候选码时，可以选定一个作为主码</p>
+<p>·     DBMS以主码为主要线索管理关系总的各个元组</p>
+<h2 id="主属性："><a href="#主属性：" class="headerlink" title="主属性："></a>主属性：</h2><p>·     包含在任一候选码中的属性，被称为主属性，其他属性称为非主属性。</p>
+<p>·     简单：候选码只包含一个属性</p>
+<p>·     极端：所有属性构成主属性</p>
+<h2 id="外码："><a href="#外码：" class="headerlink" title="外码："></a>外码：</h2><p>·     关系R中的一个属性组，他不是R的候选码，但它与另一个关系S的候选码相对应，则称这个属性组为R的<strong>外码</strong>或<strong>外键</strong></p>
+<h2 id="关系模型的完整性："><a href="#关系模型的完整性：" class="headerlink" title="关系模型的完整性："></a>关系模型的完整性：</h2><p>·     <strong>主码完整性：</strong>关系主码中的属性值不能为空值</p>
+<p>o  DBMS的结构保证</p>
+<p>·     <strong>参照完整性：</strong>如果关系R1的外码与关系R2的主码相对应，则R1中的每一个元组的Fk值都等于R2中某一个元组的Pk值或者空</p>
+<p>o  DBMS的结构保证</p>
+<p>·     <strong>用户自定义完整性：</strong>用户根据具体环境定义的完整性约束</p>
+<p>o  DBMS的支持用户自定义约束</p>
+<p>关系代数</p>
+<p>2020年6月4日</p>
+<p>14:48</p>
+<p>基于集合，提供了一系列的关系代数操作：并、差、笛卡尔积（广义积）</p>
+<p>集合操作：并、交、差、笛卡尔积</p>
+<p>纯关系操作：投影、选择、连接、除</p>
+<p><strong>五种基本操作：</strong>并、差、广义积、选择、投影</p>
+<p><img src="clip_image030.jpg" alt="img"></p>
+<h1 id="关系代数的基本操作"><a href="#关系代数的基本操作" class="headerlink" title="关系代数的基本操作"></a>关系代数的基本操作</h1><h2 id="并相容性："><a href="#并相容性：" class="headerlink" title="并相容性："></a>并相容性：</h2><p>·     关系R和关系S存在相容性，当且仅当两个关系的对应属性域相同</p>
+<h2 id="并操作："><a href="#并操作：" class="headerlink" title="并操作："></a>并操作：</h2><p>·     <img src="clip_image032.jpg" alt="img"></p>
+<p>·     <img src="clip_image034.jpg" alt="img"></p>
+<h2 id="差运算："><a href="#差运算：" class="headerlink" title="差运算："></a>差运算：</h2><p>·     <img src="clip_image036.jpg" alt="img"></p>
+<h2 id="广义笛卡尔积："><a href="#广义笛卡尔积：" class="headerlink" title="广义笛卡尔积："></a>广义笛卡尔积：</h2><p>·     <img src="clip_image038.jpg" alt="img"></p>
+<p><img src="clip_image040.jpg" alt="img"></p>
+<h2 id="选择："><a href="#选择：" class="headerlink" title="选择："></a>选择：</h2><p>·     给定一个关系R，同时给定一个选择的条件condition，选择运算结果也是一个关系，他从关系R中选择出满足给定条件的元组构成。</p>
+<p>·     <img src="clip_image042.jpg" alt="img"></p>
+<h2 id="关系运算的优先级："><a href="#关系运算的优先级：" class="headerlink" title="关系运算的优先级："></a>关系运算的优先级：</h2><p><img src="clip_image044.jpg" alt="img"></p>
+<h2 id="投影操作："><a href="#投影操作：" class="headerlink" title="投影操作："></a>投影操作：</h2><p>·     <img src="clip_image046.jpg" alt="img"></p>
+<p>·     如果投影之后出现重复的元组，要去掉</p>
+<p><strong>投影操作选的是列，选择操作选定是行</strong></p>
+<h2 id="交操作："><a href="#交操作：" class="headerlink" title="交操作："></a>交操作：</h2><p>·     <img src="clip_image048.jpg" alt="img"></p>
+<p>·     <img src="clip_image050.jpg" alt="img"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="clip_image052.jpg" alt="img"></h2><p>·     <img src="clip_image054.jpg" alt="img"></p>
+<p><img src="clip_image056.jpg" alt="img"></p>
+<p>·     t是关系R中的元组，s是关系S中的元组</p>
+<p>·     属性A和属性B有可比性。</p>
+<p>·     <img src="clip_image058.jpg" alt="img"></p>
+<p>·     <strong>更名操作：</strong>自己和自己连接，用于需要在一个表上进行多个条件过滤操作的时候</p>
+<h2 id="等值连接："><a href="#等值连接：" class="headerlink" title="等值连接："></a>等值连接：</h2><p>·     <img src="clip_image060.jpg" alt="img"></p>
+<h2 id="自然连接："><a href="#自然连接：" class="headerlink" title="自然连接："></a>自然连接：</h2><p>·     关系R和关系S的笛卡尔积中选取相同属性B上值相等的元组构成</p>
+<p>·     <img src="clip_image062.jpg" alt="img"></p>
+<p>·     两个关系肯定有相同的属性组B，所以是一种特殊的等值连接。所有的相同属性都必须相等。</p>
+<p>·     <strong>在结果中去掉重复的属性列。**</strong>（会消除冗余）**</p>
+<h2 id="关系代数的基本思路："><a href="#关系代数的基本思路：" class="headerlink" title="关系代数的基本思路："></a>关系代数的基本思路：</h2><p>·     检查是否涉及多个表，如果不涉及，则可以直接采用并、交、差、选择和投影</p>
+<p>·     如果涉及多个表：</p>
+<p>o  是否能使用自然连接</p>
+<p>o  如果不能，则使用等值或者theta连接</p>
+<p>o  如果还不能则使用广义笛卡尔积</p>
+<p>·     连接完成之后，可以继续使用选择、投影等运算，即数据库的选投联操作</p>
+<h2 id="除运算："><a href="#除运算：" class="headerlink" title="除运算："></a>除运算：</h2><p>·     用于求解：查询。。。。全部的/所有的</p>
+<p>·     给定关系R和关系S，如果可以进行关系R与关系S的除运算，当且仅当：属性集S是属性R的真子集。</p>
+<p>·     <img src="clip_image064.jpg" alt="img"></p>
+<p>·     <img src="clip_image066.jpg" alt="img"></p>
+<p>·     <img src="clip_image068.jpg" alt="img"></p>
+<p>·     <img src="clip_image070.jpg" alt="img"></p>
+<h2 id="外连接："><a href="#外连接：" class="headerlink" title="外连接："></a>外连接：</h2><p>·     两个关系R和S进行连接如果关系R或者S中的元组在另一个关系中找不到相匹配的元组，为了避免该元组信息丢失，从而将该元组与S或R中的假定存在的全为空值的元组进行连接，并放入关系结果中。</p>
+<p>·     <img src="clip_image072.jpg" alt="img"></p>
+<p>·     左外连接：自然连接+左侧失配</p>
+<p>·     右外连接：自然连接+右侧失配</p>
+<p>·     全外连接：自然连接+两侧表中失配的元组</p>
+<p><img src="clip_image074.jpg" alt="img"></p>
+<p>关系模型演算</p>
+<p>2020年6月5日</p>
+<p>10:39</p>
+<p><strong>关系元组演算</strong>：以元组变量作为谓词变量的基本对象</p>
+<p><strong>关系域演算</strong>：是以域变量作为谓词变量的基本对象</p>
+<p><img src="clip_image076.jpg" alt="img"></p>
+<p>上式表示：所有使谓词P为真的元组t的集合</p>
+<p>·     t是元组变量</p>
+<p>·     <img src="clip_image078.jpg" alt="img"></p>
+<p>·     t[A]表示元组t的分量，即t在属性A上的值</p>
+<p>·     P是与谓词逻辑相等的公式，P(t)表示以元组t为变量的公式</p>
+<h2 id="P-t-递归构造："><a href="#P-t-递归构造：" class="headerlink" title="P(t)递归构造："></a>P(t)递归构造：</h2><p>·     <img src="clip_image080.jpg" alt="img"></p>
+<p>·     <img src="clip_image082.jpg" alt="img"></p>
+<p>·     <img src="clip_image084.jpg" alt="img"></p>
+<p>·     <img src="clip_image086.jpg" alt="img"></p>
+<p>·     <img src="clip_image088.jpg" alt="img"></p>
+<p>·     <img src="clip_image090.jpg" alt="img"></p>
+<p>·     <img src="clip_image092.jpg" alt="img"></p>
+<p>·     <strong>公式只限于以上形式</strong></p>
+<p><img src="clip_image094.jpg" alt="img"></p>
+<p><img src="clip_image096.jpg" alt="img"></p>
+<p><img src="clip_image098.jpg" alt="img"></p>
+<p><img src="clip_image100.jpg" alt="img"></p>
+<p><img src="clip_image102.jpg" alt="img"></p>
+<p><img src="clip_image104.jpg" alt="img"></p>
+<h2 id="元组演算的等价性："><a href="#元组演算的等价性：" class="headerlink" title="元组演算的等价性："></a>元组演算的等价性：</h2><p><img src="clip_image106.jpg" alt="img"></p>
+<p><img src="clip_image108.jpg" alt="img"></p>
+<p><img src="clip_image110.jpg" alt="img"></p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h2><h2 id="元组演算公式实现关系代数："><a href="#元组演算公式实现关系代数：" class="headerlink" title="元组演算公式实现关系代数："></a>元组演算公式实现关系代数：</h2><p><img src="clip_image112.jpg" alt="img"></p>
+<h2 id="关系域演算："><a href="#关系域演算：" class="headerlink" title="关系域演算："></a>关系域演算：</h2><p><img src="clip_image114.jpg" alt="img"></p>
+<p><img src="clip_image116.jpg" alt="img"></p>
+<p>·     <img src="clip_image118.jpg" alt="img"></p>
+<p>·     <img src="clip_image120.jpg" alt="img"></p>
+<p>·     <img src="clip_image122.jpg" alt="img"></p>
+<p>·     <img src="clip_image124.jpg" alt="img"></p>
+<p>·     <img src="clip_image126.jpg" alt="img"></p>
+<p>·     <img src="clip_image128.jpg" alt="img"></p>
+<p>·     <img src="clip_image130.jpg" alt="img"></p>
+<p>域是某一列的取值范围，元组则是一个具体的关系行</p>
+<p>元组是一行行的扫描，域是以列为单位，对每一个列进行扫描</p>
+<p>元组演算是以元组为变量，以元组为基本单位，先找到元组，然后再找到元组分量，进行谓词判断。</p>
+<p><img src="clip_image132.jpg" alt="img"></p>
+<h2 id="QBE操作框架："><a href="#QBE操作框架：" class="headerlink" title="QBE操作框架："></a>QBE操作框架：</h2><p><img src="clip_image134.jpg" alt="img"></p>
+<p>示例元素P，表示输出的集合标志，可以用.X,.Y来进行其子集的过滤</p>
+<p><img src="clip_image136.jpg" alt="img"></p>
+<p><img src="clip_image138.jpg" alt="img"></p>
+<h2 id="关系运算的安全性：不产生无限关系和无穷验证的运算被称为是安全的"><a href="#关系运算的安全性：不产生无限关系和无穷验证的运算被称为是安全的" class="headerlink" title="关系运算的安全性：不产生无限关系和无穷验证的运算被称为是安全的"></a>关系运算的安全性：不产生无限关系和无穷验证的运算被称为是安全的</h2><p>\1.  关系代数是一种集合运算，是安全的</p>
+<p><img src="clip_image140.jpg" alt="img"></p>
+<p>\2.  关系演算不一定是安全的</p>
+<p><img src="clip_image142.jpg" alt="img"></p>
+<h2 id="安全约束有限集合DOM："><a href="#安全约束有限集合DOM：" class="headerlink" title="安全约束有限集合DOM："></a>安全约束有限集合DOM：</h2><p>·     <img src="clip_image144.jpg" alt="img"></p>
+<p>·     DOM只是一个约束谓词的范围，不是最小集合。</p>
+<h2 id="安全元组演算表达式："><a href="#安全元组演算表达式：" class="headerlink" title="安全元组演算表达式："></a>安全元组演算表达式：</h2><p>·     <img src="clip_image146.jpg" alt="img"></p>
+<p><img src="clip_image148.jpg" alt="img"></p>
+<p>·     <img src="clip_image150.jpg" alt="img"></p>
+<p><img src="clip_image152.jpg" alt="img"></p>
+<p>·     <img src="clip_image154.jpg" alt="img"></p>
+<p><img src="clip_image156.jpg" alt="img"></p>
+<h2 id="三种关系运算："><a href="#三种关系运算：" class="headerlink" title="三种关系运算："></a>三种关系运算：</h2><p>·     关系代数—以集合为对象的操作，集合到集合</p>
+<p>·     元组演算—以元组为对象的操作，取出关系的每一个元组进行验证</p>
+<p>·     域演算—以域变量为对象的操作思维，取出域的每一个变量进行验证看是否满足条件</p>
+<p>·     三种运算是等价的</p>
+<p>·     三种运算都是非过程性的：域&gt;元组&gt;关系</p>
+<p>·     三种运算都是抽象的，但都是衡量数据库语言的完备性的基础</p>
+<p>SQL语言概述</p>
+<p>2020年6月5日</p>
+<p>16:11</p>
+<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL:"></a>DDL:</h2><p>·     Create</p>
+<p>·     Alter</p>
+<p>·     Drop</p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML:"></a>DML:</h2><p>·     Insert</p>
+<p>·     Delete</p>
+<p>·     Update</p>
+<p>·     Select</p>
+<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL:"></a>DCL:</h2><p>·     Grant</p>
+<p>·     Revoke</p>
+<p>交互式SQL-&gt;嵌入式SQL-&gt;动态SQL</p>
+<p>理解查询需求-&gt;用SQL精确表示</p>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>Create database database name</p>
+<h2 id="创建Table："><a href="#创建Table：" class="headerlink" title="创建Table："></a>创建Table：</h2><p>Create table 表名（列名 数据类型 [Primary key|Unique] [Not null] [, 列名 数据类型 [Not null]])</p>
+<p>·     Primary Key：主键约束，一个表稚嫩给一个</p>
+<p>·     Unique：候选键约束，可以有多个</p>
+<p>·     Not null：非空约束，不允许为空</p>
+<p><strong>数据类型：</strong></p>
+<p><img src="clip_image158.jpg" alt="img"></p>
+<p><img src="clip_image160.jpg" alt="img"></p>
+<h2 id="Insert："><a href="#Insert：" class="headerlink" title="Insert："></a>Insert：</h2><p>Insert into 表名[(列名 [, 列名]…] </p>
+<p>Values (值, [, 值],…)</p>
+<p><img src="clip_image162.jpg" alt="img"></p>
+<p><img src="clip_image164.jpg" alt="img"></p>
+<h2 id="Select"><a href="#Select" class="headerlink" title="Select:"></a>Select:</h2><p>Select 列名 [[, 列名]..]</p>
+<p> from 表名</p>
+<p> [where 条件</p>
+<p><img src="clip_image166.jpg" alt="img"></p>
+<p><strong>唯一性：</strong></p>
+<p>通过关键词<strong>DISTINCT</strong>保证结果的唯一性</p>
+<p><strong>排序问题：</strong></p>
+<p>使用order by 列名 [asc|desc]</p>
+<p><strong>模糊查询：</strong></p>
+<p>列名 [not] like “字符串”</p>
+<p>·     % 匹配零个或者多个字符</p>
+<p>·     _ 匹配单个字符</p>
+<p>·     \ 转义符</p>
+<p><img src="clip_image168.jpg" alt="img"></p>
+<h2 id="多表联合查询："><a href="#多表联合查询：" class="headerlink" title="多表联合查询："></a>多表联合查询：</h2><p><strong>多表笛卡尔积</strong></p>
+<p>Select 列名 [[,列名]..]</p>
+<p>From 表名1，表名2</p>
+<p>Where 检索条件;</p>
+<p><img src="clip_image170.jpg" alt="img"></p>
+<p><strong>重名处理：</strong></p>
+<p> select 列名 as 列别名 [[, 列名 as 列别名]…]</p>
+<p> from 表名 as 表别名1, 表名2 as 表别名2</p>
+<p>Where 检索条件。</p>
+<p><img src="clip_image172.jpg" alt="img"></p>
+<h2 id="批量增加数据命令："><a href="#批量增加数据命令：" class="headerlink" title="批量增加数据命令："></a>批量增加数据命令：</h2><p>Insert into 表名[(列名 [, 列名]…] </p>
+<p>子查询</p>
+<p><img src="clip_image174.jpg" alt="img"></p>
+<h2 id="Delete："><a href="#Delete：" class="headerlink" title="Delete："></a>Delete：</h2><p>Delete from 表名 [where 条件]</p>
+<p><img src="clip_image176.jpg" alt="img"></p>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update:"></a>Update:</h2><p>Update 表名</p>
+<p>Set 列名=表达式| (子查询)</p>
+<p>[[, 列名=表达式|子查询]]</p>
+<p>[where 条件表达式]</p>
+<p><img src="clip_image178.jpg" alt="img"></p>
+<h2 id="Alter："><a href="#Alter：" class="headerlink" title="Alter："></a>Alter：</h2><p>Alter table tablename</p>
+<p>[add {column datatype}]</p>
+<p>[drop {约束}]</p>
+<p>[modify {column datatype, ….]</p>
+<p><img src="clip_image180.jpg" alt="img"></p>
+<h2 id="Drop："><a href="#Drop：" class="headerlink" title="Drop："></a>Drop：</h2><p>Drop table 表名</p>
+<p><img src="clip_image182.jpg" alt="img"></p>
+<p>Drop database 数据库名</p>
+<p>SQL复杂查询</p>
+<p>2020年6月8日</p>
+<p>11:30</p>
+<h2 id="not-in-子查询："><a href="#not-in-子查询：" class="headerlink" title="(not) in 子查询："></a>(not) in 子查询：</h2><p>表达式 [not] in （子查询）</p>
+<p><img src="clip_image184.jpg" alt="img"></p>
+<p><strong>非相关子查询：内层查询和外层查询独立</strong></p>
+<p><img src="clip_image186.jpg" alt="img"></p>
+<p><strong>相关子查询：内层查询需要外层查询的变量</strong></p>
+<p><img src="clip_image188.jpg" alt="img"></p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="clip_image190.jpg" alt="img"></h2><p>表示与“某一个”比较还是“所有”比较</p>
+<p><img src="clip_image192.jpg" alt="img"></p>
+<p><img src="clip_image194.jpg" alt="img"></p>
+<p>与Not in等价的是&lt;&gt; all</p>
+<p><img src="clip_image196.jpg" alt="img"></p>
+<h2 id="Exists子查询："><a href="#Exists子查询：" class="headerlink" title="Exists子查询："></a>Exists子查询：</h2><p>[not] Exists （子查询）</p>
+<p>子查询结果中有无元组存在</p>
+<p><img src="clip_image198.jpg" alt="img"></p>
+<p><img src="clip_image200.jpg" alt="img"></p>
+<h2 id="结果计算："><a href="#结果计算：" class="headerlink" title="结果计算："></a>结果计算：</h2><p>Select from where语句中，select子句后面不仅可以是列名，也可以是一些计算表达式或者聚集函数。</p>
+<p>使用计算表达式作为一列</p>
+<p><img src="clip_image202.jpg" alt="img"></p>
+<p><strong>聚集函数：</strong></p>
+<p>SQL提供了五个作用在简单列值集合上的内置聚集函数，分别是：</p>
+<p>COUNT、SUM、AVG、MAX、MIN</p>
+<p><img src="clip_image204.jpg" alt="img"></p>
+<p><img src="clip_image206.jpg" alt="img"></p>
+<h2 id="分组："><a href="#分组：" class="headerlink" title="分组："></a>分组：</h2><p>SQL可以将检索到的元组按照某一条件进行分类，具有相同条件值的元组划分到一个组合</p>
+<p>或一个集合中。</p>
+<p>Group by (…)</p>
+<p><img src="clip_image208.jpg" alt="img"></p>
+<p><strong>分组过滤：</strong></p>
+<p>若要对集合进行分组条件过滤，即满足条件的集合、分组留下，不满足的去掉。</p>
+<p><strong>Having</strong> <strong>子句，又称为分组过滤子句，需要group by子句的支持。</strong></p>
+<p><img src="clip_image210.jpg" alt="img"></p>
+<p><strong>对分组检查用Having子句，对每一行检查用where子句</strong></p>
+<h2 id="union-intersect-except"><a href="#union-intersect-except" class="headerlink" title="union|intersect|except"></a>union|intersect|except</h2><p>(子查询) {union [ALL]| intersect [ALL] | exccept [ALL] 子查询} </p>
+<p>默认自动删除重复元组，若要保留重复元组，则要带ALL</p>
+<p><img src="clip_image212.jpg" alt="img"></p>
+<h2 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h2><p>空值的检测： is [not] null</p>
+<p>测试指定的列是否是空值。</p>
+<p><img src="clip_image214.jpg" alt="img"></p>
+<p>·     空值不满足除了 is [not] null 之外任何查找条件</p>
+<p>·     如果null 参与算数运算，则该算数表达式的值为null</p>
+<p>·     如果null 参与比较运算，则结果可以视false</p>
+<p>·     如果null参与聚集运算，那么除了count(*)之外的其他聚集函数都忽略null</p>
+<h2 id="连接运算："><a href="#连接运算：" class="headerlink" title="连接运算："></a>连接运算：</h2><p><img src="clip_image216.jpg" alt="img"></p>
+<p>连接类型：</p>
+<p>·     Inner join：</p>
+<p>·     Left outer join</p>
+<p>·     Right outer join</p>
+<p>·     Full outer join</p>
+<p>连接条件：</p>
+<p>·     Natural：自然连接</p>
+<p>·     On &lt;连接条件&gt;：theta连接，满足on的的条件</p>
+<p>·     Using (col_1,col_2,… col_n)：col1-coln是两个连接关系的公共属性的子集，元组在col1-coln上的取值相等，且col1-coln只出现一次。</p>
+<h2 id="视图："><a href="#视图：" class="headerlink" title="视图："></a>视图：</h2><p>对应概念模式的数据在SQL中被称为基本表(Table)，而对应外模式的数据被称为视图(view),视图不仅包含外模式，而且包含其E-C映像。</p>
+<p>Create view view_name [(列名 [, 列名]…)]</p>
+<p> as 子查询 [with check option]</p>
+<p><img src="clip_image218.jpg" alt="img"></p>
+<p><strong>使用视图：</strong></p>
+<p>定义好视图，可以像table一样，在SQL各种语句中使用</p>
+<p><strong>视图的更新：</strong></p>
+<p>视图不保存数据，所以对视图的更新最终都要反映到对基本表的更新上，而有时视图的定义是不可逆的，比如使用聚集函数</p>
+<p>·     包含聚集函数，不能更新</p>
+<p>·     使用unique，distinct不能更新</p>
+<p>·     使用group by 不能更新</p>
+<p>·     使用计算表达式，不能更新</p>
+<p>·     视图由单个表构成，<strong>但没有主键</strong>，不能更新</p>
+<p>数据库完整性的概念及分类</p>
+<p>2020年6月8日</p>
+<p>16:37</p>
+<h2 id="数据库完整性："><a href="#数据库完整性：" class="headerlink" title="数据库完整性："></a>数据库完整性：</h2><p><strong>是指DBMS应保证DB在任何情况下的正确性、有效性和一致性</strong></p>
+<p>·     广义完整性：语义完整性、并发控制、安全控制、DB故障恢复</p>
+<p>·     狭义完整性：语义完整性、DBMS通常有专门的完整性管理机制与程序来处理语义完整性问题。</p>
+<h2 id="关系模型中的完整性要求："><a href="#关系模型中的完整性要求：" class="headerlink" title="关系模型中的完整性要求："></a>关系模型中的完整性要求：</h2><p>·     实体完整性</p>
+<p>·     参照完整性</p>
+<p>·     用户自定义完整性</p>
+<p><img src="clip_image220.jpg" alt="img"></p>
+<h2 id="完整性约束条件："><a href="#完整性约束条件：" class="headerlink" title="完整性约束条件："></a>完整性约束条件：</h2><p><img src="clip_image222.jpg" alt="img"></p>
+<p>O: 数据集合，约束的对象</p>
+<p>P: 谓词条件，什么样的约束</p>
+<p>A: 触发条件，什么时候检查</p>
+<p>R: 响应动作，不满足的情况怎么办。</p>
+<h2 id="按约束对象分类："><a href="#按约束对象分类：" class="headerlink" title="按约束对象分类："></a>按约束对象分类：</h2><p>·     域完整性约束条件</p>
+<p>o  施加在某一列上，对给定列上所有要更新的某一后选值是否可以接受进行约束条件判断</p>
+<p>·     关系完整性约束条件</p>
+<p>o  施加在Table上，对给定的table上所有要更新的某一候选元组是否可以接受进行约束条件判断，或者是对一个关系中的若干元组和另一个关系中的若干元组之间的联系进行约束条件判断。</p>
+<h2 id="按约束来源分类："><a href="#按约束来源分类：" class="headerlink" title="按约束来源分类："></a>按约束来源分类：</h2><p>·     结构约束：</p>
+<p>o  来自于模型的约束，比如函数依赖约束，主键约束，外键约束</p>
+<p>·     内容约束：</p>
+<p>o  来自于用户的约束，如用户自定义完整性，关心元组或属性的取值范围。</p>
+<h2 id="按约束状态分类："><a href="#按约束状态分类：" class="headerlink" title="按约束状态分类："></a>按约束状态分类：</h2><p>·     静态约束：</p>
+<p>o  要求DB在任一时刻都应该满足约束</p>
+<p>·     动态约束</p>
+<p>o  要求DB从一个状态到另一状态时满足的约束</p>
+<h2 id="SQL语言的完整性："><a href="#SQL语言的完整性：" class="headerlink" title="SQL语言的完整性："></a>SQL语言的完整性：</h2><p>·     静态约束：</p>
+<p>o  列完整性：域完整性</p>
+<p>o  表完整性：关系完整性约束</p>
+<p>·     动态约束：</p>
+<p>o  触发器</p>
+<p><img src="clip_image224.jpg" alt="img"></p>
+<h2 id="Create-Table-定义完整性约束："><a href="#Create-Table-定义完整性约束：" class="headerlink" title="Create Table 定义完整性约束："></a>Create Table 定义完整性约束：</h2><p><img src="clip_image226.jpg" alt="img"></p>
+<h2 id="Col-constr列约束"><a href="#Col-constr列约束" class="headerlink" title="Col_constr列约束"></a>Col_constr列约束</h2><p><img src="clip_image228.jpg" alt="img"></p>
+<p><img src="clip_image230.jpg" alt="img"></p>
+<h2 id="Table-constr-表约束"><a href="#Table-constr-表约束" class="headerlink" title="Table_constr 表约束"></a>Table_constr 表约束</h2><p><img src="clip_image232.jpg" alt="img"></p>
+<p><img src="clip_image234.jpg" alt="img"></p>
+<p><img src="clip_image236.jpg" alt="img"></p>
+<p><strong>check**</strong>中的条件可以是select-From-Where内任何的Where 后的语句，包含子查询**</p>
+<p><img src="clip_image238.jpg" alt="img"></p>
+<p><strong>列约束只涉及到一列，表约束涉及到多个列</strong></p>
+<h2 id="撤销、增加约束："><a href="#撤销、增加约束：" class="headerlink" title="撤销、增加约束："></a>撤销、增加约束：</h2><p><img src="clip_image240.jpg" alt="img"></p>
+<p><img src="clip_image242.jpg" alt="img"></p>
+<h2 id="断言："><a href="#断言：" class="headerlink" title="断言："></a>断言：</h2><p>·     断言是一个谓词表达式，它表达了希望数据库总能满足的条件</p>
+<p>·     表约束和列约束就是一些特殊的断言</p>
+<p>Create assertion <assertion-name> CHECK <predicate></p>
+<p>·     当一个断言创建后，系统将检查其有效性，并且在每一个更新中测试更新是否违反该断言。</p>
+<p><img src="clip_image244.jpg" alt="img"></p>
+<h2 id="触发器："><a href="#触发器：" class="headerlink" title="触发器："></a>触发器：</h2><p>·     当某一事件发生的时候，对该事件产生的结果，检查条件，如果满足条件，则执行后面的程序段，条件或程序段中引用的变量可用coor_name_def</p>
+<p><img src="clip_image246.jpg" alt="img"></p>
+<p><strong>事件：Before| After {Insert|UPdate|Delete}</strong></p>
+<p>·     当一个事件发生之前或之后，after触发</p>
+<p>·     操作发生，执行触发器操作需要处理的组值，更新之前或更新之后的值，这两个值由corr_name_def的使用来区分</p>
+<p>Corr_name_def的定义：</p>
+<p><img src="clip_image248.jpg" alt="img"></p>
+<p><img src="clip_image250.jpg" alt="img"></p>
+<p><img src="clip_image252.jpg" alt="img"></p>
+<h2 id="数据库的安全性："><a href="#数据库的安全性：" class="headerlink" title="数据库的安全性："></a>数据库的安全性：</h2><p>·     私人信息保护</p>
+<p>·     信息公开和非公开</p>
+<p>·     最小数据访问策略</p>
+<p>·     数据安全级别</p>
+<p>·     数据库系统的安全级别</p>
+<h2 id="DBMS的安全机制："><a href="#DBMS的安全机制：" class="headerlink" title="DBMS的安全机制："></a>DBMS的安全机制：</h2><p>·     自主安全性控制：存取控制</p>
+<p>o  权限在用户之间传递，使用户自主管理数据库安全性</p>
+<p>·     强制安全性：</p>
+<p>o  对用户进行强制分类，使得不同类别用户能够访问不同类别的数据</p>
+<p>·     推断控制机制</p>
+<p>o  防止通过历史信息，推断出不该被知道的信息</p>
+<p>o  防止通过公开信息推断出私密信息</p>
+<p>·     数据加密存储机制</p>
+<h2 id="数据库的自主安全控制："><a href="#数据库的自主安全控制：" class="headerlink" title="数据库的自主安全控制："></a>数据库的自主安全控制：</h2><p>·     自主安全性是通过授权机制来实现的</p>
+<p>·     DBMS允许用户自定义一些安全性控制规则</p>
+<p>·     当有DB访问操作时，DBMS自动按照安全性控制规则进行检查，检查通过则允许访问，不通过则不允许。</p>
+<p><img src="clip_image254.jpg" alt="img"></p>
+<p>AccessRule ::= (S, O, t, P)</p>
+<p>·     S: 请求主体</p>
+<p>·     O：访问对象</p>
+<p>·     t：访问权利</p>
+<p>·     P：谓词，</p>
+<p>理解：S这个用户，对O这个访问对象，在P这个条件下，拥有t这个权利。</p>
+<p><img src="clip_image256.jpg" alt="img"></p>
+<h3 id="控制方法："><a href="#控制方法：" class="headerlink" title="控制方法："></a>控制方法：</h3><p><strong>1.</strong>  <strong>存储矩阵：</strong></p>
+<p><img src="clip_image258.jpg" alt="img"></p>
+<p><strong>2.</strong>  <strong>视图：</strong></p>
+<p>·     <strong>通过视图，可以限制用户对于关系中某些数据项的存取</strong></p>
+<p>·     <strong>通过视图，可以将数据访问对象与谓词结合起来，限制用户对关系中某些元组的存取。</strong></p>
+<p>·     <strong>在视图定义之后便成为了一个新的数据对象</strong></p>
+<p>·     <strong>视图可以定义条件P。</strong></p>
+<p><img src="clip_image260.jpg" alt="img"></p>
+<h2 id="SQL的关系级别："><a href="#SQL的关系级别：" class="headerlink" title="SQL的关系级别："></a>SQL的关系级别：</h2><p>\1.  select：读</p>
+<p>\2.  Modify：更新</p>
+<p>\3.  Create：创建</p>
+<p>Grant {all PRIVILEGES| privilege, {privilege…}}</p>
+<p>On [TABLE] tablename | viewname</p>
+<p>To {public |user-id {, user-id…}}</p>
+<p>[with GRANT Option]</p>
+<p>·     User-id: 用户账号，由DBA创建的合法账户</p>
+<p>·     Public：允许所有有效用户使用授权的权利</p>
+<p>·     Privilege：</p>
+<p>·     SELECT| INSERT| UPDATE| DELETE| ALL PRIVILEDGES</p>
+<h2 id="收回权力："><a href="#收回权力：" class="headerlink" title="收回权力："></a>收回权力：</h2><p>·     Revoke {all privileges | priv {, priv}} on tablename |viewname FROM {public |user {, user…}}</p>
+<h2 id="自主安全性控制："><a href="#自主安全性控制：" class="headerlink" title="自主安全性控制："></a>自主安全性控制：</h2><p>·     水平传播：授权者再授权</p>
+<p>·     垂直传播：授权者传播给被授权者，再传播给另一个被授权用户</p>
+<p>如果用户从多个用户处获得授权，则当其中某一个用户被收回权利时，该用户可能还存在其他用户授予的权利。</p>
+<h2 id="强制安全性机制："><a href="#强制安全性机制：" class="headerlink" title="强制安全性机制："></a>强制安全性机制：</h2><p>·     强制安全性通过对数据对象进行安全性分级</p>
+<p>·     从而实现不同级别用户访问不同级别数据的一种机制</p>
+<h3 id="访问规则："><a href="#访问规则：" class="headerlink" title="访问规则："></a>访问规则：</h3><p>·     用户s不能读取数据对象O，除非Level(S) &gt;= Level(O)</p>
+<p>·     用户s不能写数据对象，除非Level(S) &lt;= Level(O) ：高级别用户不允许改低级别数据，如果高级别用户进行修改了，低级别用户就无法读取了。</p>
+<h2 id="安全性级别："><a href="#安全性级别：" class="headerlink" title="安全性级别："></a>安全性级别：</h2><p><img src="clip_image262.jpg" alt="img"></p>
+<p>关系中的每一个元组都带有安全性的分级</p>
+<p>嵌入式SQL语言</p>
+<p>2020年6月16日</p>
+<p>8:51</p>
+<p>以下嵌入式SQL以C语言为例</p>
+<h2 id="变量的声明与使用："><a href="#变量的声明与使用：" class="headerlink" title="变量的声明与使用："></a>变量的声明与使用：</h2><p><img src="clip_image264.jpg" alt="img"></p>
+<p>Exec sql select Sname, Sage into :vSname, :vSage from Student where Sname=:specName</p>
+<h2 id="程序与数据库的连接和断开："><a href="#程序与数据库的连接和断开：" class="headerlink" title="程序与数据库的连接和断开："></a>程序与数据库的连接和断开：</h2><p>Exec sql connect to target-server as connect-name user user-name</p>
+<p>Exec sql disconnect connect-name</p>
+<h2 id="SQL执行的提交与撤销："><a href="#SQL执行的提交与撤销：" class="headerlink" title="SQL执行的提交与撤销："></a>SQL执行的提交与撤销：</h2><p>Exec sql commit work</p>
+<p>Exec sql rollback work</p>
+<h2 id="事务的执行："><a href="#事务的执行：" class="headerlink" title="事务的执行："></a>事务的执行：</h2><p>是一个存取或者改变数据库内容的程序的一次执行，或者说一条或多条SQL语句的一次执行被看作是一个事务。</p>
+<p>Begin Transaction</p>
+<p>Exec sql</p>
+<p>….</p>
+<p>Exec sql commit work | exec sql rollback work</p>
+<p>End Transaction</p>
+<p>一个事务的结束是需要程序员通过commit或rollback确认。</p>
+<p><img src="clip_image266.jpg" alt="img"></p>
+<h2 id="事务的特性：ACID"><a href="#事务的特性：ACID" class="headerlink" title="事务的特性：ACID"></a>事务的特性：ACID</h2><p>·     原子特性Atomicity：DBMS能够保证事务的一组更新操作是原子不可分的，对DB而言，要么全做，要么全不做</p>
+<p>·     一致性Consistency：DBMS保证事务的操作状态是正确的，符合一致性操作规则</p>
+<p>·     隔离性Isolation：DBMS保证并发执行的多个事务之间互相不受影响，例如事务T1和T2即使并发执行，也相当于或者先执行了T1再执行了T2，或者反之</p>
+<p>·     持久性Durability：DBMS保证已经提交事务的影响是持久的，被撤销事务的影响是可恢复的。</p>
+<p>具有ACID特性的若干数据库基本操作的组合被称为事务。</p>
+<h2 id="检索单行结果与多行结果获取："><a href="#检索单行结果与多行结果获取：" class="headerlink" title="检索单行结果与多行结果获取："></a>检索单行结果与多行结果获取：</h2><p>单行结果可以直接将结果传送到宿主变量中</p>
+<p><img src="clip_image268.jpg" alt="img"></p>
+<p>多行结果，则需要使用游标Cursor</p>
+<p>·     游标是指向某检索记录集的指针</p>
+<p>·     通过移动指针，每次读一行，处理一行，再读一行，直至处理完毕。</p>
+<h3 id="游标Cursor："><a href="#游标Cursor：" class="headerlink" title="游标Cursor："></a>游标Cursor：</h3><p>游标需要先定义再使用，接着一条条处理，最后再关闭</p>
+<p>Exec sql declare cur_student cursor for </p>
+<p>Select Sno, Sname, Sclass from Student where Sclass=’035101’</p>
+<p>Exec sql open cur_sutdent</p>
+<p>Exec sql fetch cur_student into :vSno, :vSname, :vSclass</p>
+<p>游标可以定义一次，多次打开，多次关闭。</p>
+<h3 id="可滚动游标Cursor"><a href="#可滚动游标Cursor" class="headerlink" title="可滚动游标Cursor"></a>可滚动游标Cursor</h3><p>在fetch的时候可以自定义移动的行。</p>
+<p><img src="clip_image270.jpg" alt="img"></p>
+<h2 id="数据库记录的删除："><a href="#数据库记录的删除：" class="headerlink" title="数据库记录的删除："></a>数据库记录的删除：</h2><p>Exec SQL DELETE FROM tablename [corr_name] where search_condition | Where current of cursor_name</p>
+<p><img src="clip_image272.jpg" alt="img"></p>
+<h2 id="数据库记录的更新："><a href="#数据库记录的更新：" class="headerlink" title="数据库记录的更新："></a>数据库记录的更新：</h2><p><img src="clip_image274.jpg" alt="img"></p>
+<h2 id="数据记录的插入："><a href="#数据记录的插入：" class="headerlink" title="数据记录的插入："></a>数据记录的插入：</h2><p><img src="clip_image276.jpg" alt="img"></p>
+<h2 id="状态错误捕获："><a href="#状态错误捕获：" class="headerlink" title="状态错误捕获："></a>状态错误捕获：</h2><p>·     设置SQL通信区</p>
+<p>·     设置状态捕获语句</p>
+<p>·     状态处理语句</p>
+<h2 id="SQLCA："><a href="#SQLCA：" class="headerlink" title="SQLCA："></a>SQLCA：</h2><p>·     SQLCA是被声明的C语言结果形式的内存区，用于和SQL进行数据交互</p>
+<p><strong>状态捕获语句：</strong></p>
+<p>Exec sql whenever condition action</p>
+<p>Whenever 是一个条件陷阱，该条语句会对后面所有由Exec SQL语句所引起的对数据库系统调用自动检查他是否满足条件condition</p>
+<p>·     SQLERROR：检查是否有SQL语句出错</p>
+<p>·     NOTFOUND：执行某一SQL语句后，没有相应的结果记录出现</p>
+<p>·     SQLWARNING：不是错误，但是要引起注意</p>
+<p>如果满足condition，则要进行一些动作：</p>
+<p>·     CONTINUE：忽略条件或错误，继续执行</p>
+<p>·     GOTO标号：转移到标号所指示的语句，去进行相应的处理</p>
+<p>·     STOP：终止程序运行，撤销当前的工作、断开数据库的连接</p>
+<p>·     DO函数、CALL函数：调用宿主程序的函数进行处理，函数返回后从引发该condition exec SQL语句之后的语句继续执行。</p>
+<p>状态捕获的Whenever的作用范围是其后的所有Exec SQL语句，一直到程序中出现另一条相同条件的Whenever语句为止，后面的将覆盖前面的</p>
+<p>动态SQL</p>
+<p>2020年6月16日</p>
+<p>11:03</p>
+<p>动态SQL特点：SQL语句可以在程序中动态构造，形成一个字符串，如上例的sqltext，然后再交给DBMS执行，交给DBMS执行时仍旧可以传递变量。</p>
+<h2 id="动态SQL执行方式："><a href="#动态SQL执行方式：" class="headerlink" title="动态SQL执行方式："></a>动态SQL执行方式：</h2><p>·     立即执行语句：</p>
+<p>o  Exec sql execute immediate :host-variable;</p>
+<p>·     Prepare-Execute-Using语句：</p>
+<p>o  Prepare语句先编译，编译后的SQL语句运行动态参数，EXECUTE语句，用USING语句将动态参数值传递给编译好的SQL语句</p>
+<p>o  EXEC SQL PREPARE sql_temp FROM :host-variable</p>
+<p>o  EXEC SQL EXECUTE sql_temp USING :cond-variable</p>
+<p>·     <img src="clip_image278.jpg" alt="img"></p>
+<h2 id="数据字典："><a href="#数据字典：" class="headerlink" title="数据字典："></a>数据字典：</h2><p>·     是系统的一些表或者视图的集合，这些表或视图存储了数据库中各类对象的定义信息，这些对象包括用Create定义的表、列、索引、视图、权限、约束等，这些信息又称为数据库的元数据—关于数据的数据</p>
+<p><strong>数据字典的内容构成：information_schema?</strong></p>
+<p>·     数据字典常存储的是数据库和表的元数据，即模式本身的信息</p>
+<p>o  与关系相关的信息</p>
+<p>·     关系名字</p>
+<p>·     每一个关系的属性名及其类型</p>
+<p>·     视图的名字及其定义</p>
+<p>·     完整性约束</p>
+<p>o  账户信息</p>
+<p>o  统计与描述的信息</p>
+<p>o  物理文件组织信息</p>
+<p>·     关系如何存储</p>
+<p>·     关系的物理位置</p>
+<p><strong>数据字典的结构：</strong></p>
+<p><img src="clip_image280.jpg" alt="img"></p>
+<p><strong>模式的含义：</strong></p>
+<p>·     模式指的是某一用户所设计和使用的表、索引和其他与数据库有关对象的集合，因此完整的表名应该是：<strong>模式名：表名</strong>，这样可以做到允许不同用户使用相同的表名而不会混淆。</p>
+<p><img src="clip_image282.jpg" alt="img"></p>
+<p><strong>SQLDA**</strong>：**</p>
+<p>·     是一个描述符区域，是一个内存数据结构，内科装载关系模式的定义信息，如列的数目，每一列的名字和类型等等。</p>
+<p>·     通过读取SQLDA信息可以进行更为复杂的动态SQL的处理。</p>
+<p>·     不同的DBMS提供的SQLDA格式并不是一致的。</p>
+<p><strong>ODBC**</strong>：**</p>
+<p>·     是一种标准的，不同的应用程序与不同数据库服务器之间通讯的标准。</p>
+<p>·     应用程序调用ODBCAPI时，ODBC API会调用具体的DBMS Driver库函数，交由DBMS Driver库函数则与数据库服务器通讯，执行相应的请求动作，并返回检索结果。</p>
+<p><strong>JDBC**</strong>：**</p>
+<p>·     Java版本的ODBC</p>
+<p>数据建模与数据库设计</p>
+<p>2020年6月16日</p>
+<p>16:33</p>
+<h2 id="数据模型和概念模型："><a href="#数据模型和概念模型：" class="headerlink" title="数据模型和概念模型："></a>数据模型和概念模型：</h2><p>·     数据模型：数据的存储模型，存储于计算机中</p>
+<p>·     概念模型：抽象模型，独立与计算机系统，E-R模型，O-O模型</p>
+<p>数据建模就是抽象：理解-区分-命名-表达</p>
+<h2 id="E-R模型："><a href="#E-R模型：" class="headerlink" title="E-R模型："></a>E-R模型：</h2><p>·     世界是由一组对象实体和这些对象之间关系构成。 </p>
+<h2 id="实体与实例："><a href="#实体与实例：" class="headerlink" title="实体与实例："></a>实体与实例：</h2><p>·     实体：客观存在并可相互区分的事物</p>
+<p>·     实体有类和个体的概念（实体的型，实例）</p>
+<p><img src="clip_image284.jpg" alt="img"></p>
+<h2 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h2><p><strong>实体用属性来刻画：</strong></p>
+<p>·     <strong>属性：</strong>实体具有的某一方面特性</p>
+<p><strong>实例用值来刻画：</strong></p>
+<p>·     每一个实例都有具体的值</p>
+<p><img src="clip_image286.jpg" alt="img"></p>
+<h2 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h2><h3 id="关键字-码"><a href="#关键字-码" class="headerlink" title="关键字/码"></a>关键字/码</h3><p>·     实体能够用其值唯一区分开每个实例的属性或属性组合。</p>
+<h2 id="联系："><a href="#联系：" class="headerlink" title="联系："></a>联系：</h2><p>·     指的是一个实体实例和其他实体实例之间所可能发生的联系。</p>
+<h3 id="联系的元-度："><a href="#联系的元-度：" class="headerlink" title="联系的元/度："></a>联系的元/度：</h3><p>·     参与发生联系的实体数目</p>
+<p><img src="clip_image288.jpg" alt="img"></p>
+<p>一元联系：联系在同一个实体中产生</p>
+<p><img src="clip_image290.jpg" alt="img"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色:"></a>角色:</h3><p>·     实体在联系中的作用称为实体的角色</p>
+<p>·     当同一实体的不同实例参与一个联系时，为区分各个实例参与联系的方式</p>
+<p><img src="clip_image292.jpg" alt="img"></p>
+<h2 id="联系的种类："><a href="#联系的种类：" class="headerlink" title="联系的种类："></a>联系的种类：</h2><p>·     一对一：实体A只能和实体B一个实例产生关系。</p>
+<p>·     一对多：实体A能和实体B多个实例发生关系。</p>
+<p>·     多对多：实体A能和实体B的多个实例发生联系。</p>
+<h3 id="联系的基数："><a href="#联系的基数：" class="headerlink" title="联系的基数："></a>联系的基数：</h3><p>·     实体实例之间的联系数量，即一个实体的实例通过一个联系能与另一个实体中相关联的实例的数目。</p>
+<p>·     （1：1），（1：m），（m：n)几种情况</p>
+<p>·     实体之间的联系常采用最小基数和最大基数来表示（MinCard…MaxCard）</p>
+<p>·     <img src="clip_image294.jpg" alt="img"></p>
+<p>·     完全参与联系：最小基数为1</p>
+<p>·     部分参与联系：最小基数为0，可能不产生联系。</p>
+<h2 id="E-R图的表示（chen方法）："><a href="#E-R图的表示（chen方法）：" class="headerlink" title="E-R图的表示（chen方法）："></a>E-R图的表示（chen方法）：</h2><p>·     实体：矩形框</p>
+<p>·     属性：椭圆</p>
+<p>o  多值属性：双线椭圆</p>
+<p>o  导出属性：虚线椭圆</p>
+<p>·     关键字：下划线</p>
+<p>·     连接实体和属性：直线</p>
+<p>·     联系：菱形框</p>
+<p>·     连接实体与联系：直线</p>
+<p>·     连接联系和属性：直线</p>
+<p>·     复合关键字：标有相同数字</p>
+<p>·     多组关键字：标有不同数字</p>
+<p><img src="clip_image296.jpg" alt="img"></p>
+<p>·     1：1联系：箭头直线，由联系指向实体</p>
+<p>·     1：m联系：指向1端为箭头直线，指向多端为无箭头直线</p>
+<p>·     m：n联系：无箭头直线</p>
+<p>·     完全参与联系：双直线</p>
+<p>·     部分参与联系：单直线</p>
+<p><img src="clip_image298.jpg" alt="img"></p>
+<p>·     也可用直线边上标记数字来表示</p>
+<p><img src="clip_image300.jpg" alt="img"></p>
+<h2 id="运用ER图建模的步骤："><a href="#运用ER图建模的步骤：" class="headerlink" title="运用ER图建模的步骤："></a>运用ER图建模的步骤：</h2><p>\1.  理解需求，寻找实体：</p>
+<p>a.  能用一个个、一件件、一串串等叠词形容的，而不是一个、一件</p>
+<p>\2.  用属性刻画每一个实体</p>
+<p>a.  至少给出重要的属性</p>
+<p>\3.  确定每一个实体的关键字/码</p>
+<p>\4.  数据建模的重点是分析实体之间的联系</p>
+<p>\5.  检查是否覆盖了需求</p>
+<h2 id="E-R模型（Crow’s-foot方法）："><a href="#E-R模型（Crow’s-foot方法）：" class="headerlink" title="E-R模型（Crow’s foot方法）："></a>E-R模型（Crow’s foot方法）：</h2><p>·     实体：矩形框</p>
+<p>·     属性：实体框的横线下面</p>
+<p>·     关键字：属性下加下划线</p>
+<p><img src="clip_image302.jpg" alt="img"></p>
+<p>·     联系：菱形框，也可以省略只用关系名表示</p>
+<p><img src="clip_image304.jpg" alt="img"></p>
+<p>·     基数表示：</p>
+<p><img src="clip_image306.jpg" alt="img"></p>
+<p><img src="clip_image308.jpg" alt="img"></p>
+<h2 id="数据库设计中的抽象："><a href="#数据库设计中的抽象：" class="headerlink" title="数据库设计中的抽象："></a>数据库设计中的抽象：</h2><p>·     现实世界-信息世界-计算机世界</p>
+<p>·     现实-观念-实现</p>
+<h2 id="型与值："><a href="#型与值：" class="headerlink" title="型与值："></a>型与值：</h2><p>·     型：对一系列值的抽象</p>
+<p><img src="clip_image310.jpg" alt="img"></p>
+<p>·     型与型的型：将可无限拓展的内容，或内容暂无法枚举的情况，抽象为可有限描述的概念</p>
+<p><img src="clip_image312.jpg" alt="img"></p>
+<p>·     类似的概念：</p>
+<p>o  模式：数据</p>
+<p>o  数据模型：模式</p>
+<p>o  模式：实例</p>
+<p>o  类：对象</p>
+<p>o  实体：实例</p>
+<h2 id="数据模型："><a href="#数据模型：" class="headerlink" title="数据模型："></a>数据模型：</h2><p>·     不同范围的人对现实事物的描述和抽象可能是不同的</p>
+<p>·     数据模型是一组相互关联且严格定义的概念集合</p>
+<p>·     表达计算机世界的模型成为<strong>数据模型</strong>，表达信息世界的模型称概念数据模型，简称<strong>概念模型。</strong></p>
+<h2 id="建模的不同层次："><a href="#建模的不同层次：" class="headerlink" title="建模的不同层次："></a>建模的不同层次：</h2><p>·     模型与元模型，模型（型）与实例（值）</p>
+<p><img src="clip_image314.jpg" alt="img"></p>
+<p>IDEF1x数据建模方法</p>
+<p>2020年6月17日</p>
+<p>9:22</p>
+<h1 id="IDEF1x中的重要概念："><a href="#IDEF1x中的重要概念：" class="headerlink" title="IDEF1x中的重要概念："></a>IDEF1x中的重要概念：</h1><p>IDEF又可以被看成是一个特殊的E-R图表示方法。</p>
+<p>·     实体：</p>
+<p>o  独立实体-强实体</p>
+<p>o  从属实体-若实体</p>
+<p>·     联系：</p>
+<p>o  可标定连接联系</p>
+<p>o  非标定连接联系</p>
+<p>o  分类联系</p>
+<p>o  非确定联系</p>
+<p>·     属性：</p>
+<p>o  属性</p>
+<p>o  主码</p>
+<p>o  候选码</p>
+<p>o  外来码</p>
+<h2 id="独立实体："><a href="#独立实体：" class="headerlink" title="独立实体："></a>独立实体：</h2><p>·     一个实体的实例都被唯一的标识而不决定于它与其他实体的联系</p>
+<p><img src="clip_image316.jpg" alt="img"></p>
+<h2 id="从属实体："><a href="#从属实体：" class="headerlink" title="从属实体："></a>从属实体：</h2><p>·     一个实体的实例的唯一标识需要依赖于该实体与其他实体的联系</p>
+<p>·     从属实体需要从其他实体继承属性作为关键字的一部分。</p>
+<p>·     主关键字包含了外来属性的实体为从属实体。</p>
+<p><img src="clip_image318.jpg" alt="img"></p>
+<p>·     独立实体：直角方形框，从属实体：圆角方形框。</p>
+<p>·     独立实体没有外键，从属实体有外键。</p>
+<h2 id="属性：-1"><a href="#属性：-1" class="headerlink" title="属性："></a>属性：</h2><p>·     表示一类现实或抽象是服务的一种特征或性质</p>
+<p>关键字：能够唯一确定实体的每一个实例的关键字。</p>
+<p><img src="clip_image320.jpg" alt="img"></p>
+<p>外来关键字：是其他实体的关键字</p>
+<p>·     存在一个联系，只能有一个外来关键字</p>
+<p>·     被继承属性只能是主关键字所包含的属性</p>
+<h2 id="联系：-1"><a href="#联系：-1" class="headerlink" title="联系："></a>联系：</h2><p>·     标定联系：子实体的实例都是由它与父实体的联系而确定的，<strong>父实体的主关键字</strong>是<strong>子实体主关键字</strong>的一部分。（1对多）</p>
+<p><img src="clip_image322.jpg" alt="img"></p>
+<p>·     非标定联系：子实体的实例能够被唯一标识而无需依赖与其实体的联系，父实体的主关键字不是子实体的主关键字。（一对多）</p>
+<p><img src="clip_image324.jpg" alt="img"></p>
+<p>·     非确定联系：实体之间的多对多联系</p>
+<p>o  非确定联系是通过引入<strong>相交实体</strong>来进行</p>
+<p><img src="clip_image326.jpg" alt="img"></p>
+<p>·     分类联系：一个实体实例是由一个一般实体和多个分类实体实例构成的（有点类似对象继承的感觉）</p>
+<p><img src="clip_image328.jpg" alt="img"></p>
+<p>·     具体化：</p>
+<p>o  实体的实例集中，某些实例子集具有区别于该实例集内其他实例的特性，可以根据这些差异特性对该实例集进行分组、分类。</p>
+<p>·     泛化：</p>
+<p>o  若干个实体，具有共有的性质，可以合成一个较高层次的实体。</p>
+<p>·     具体化和泛化的表示：</p>
+<p>o  具体化和泛化在E-R图中用标记为ISA的三角形来表示</p>
+<p><img src="clip_image330.jpg" alt="img"></p>
+<p>·     完全分类：一个父类只能是子类的一种</p>
+<p>·     非完全分类联系：子类分类不一定是全部的父类可能性</p>
+<p><img src="clip_image332.jpg" alt="img"></p>
+<p><img src="clip_image334.jpg" alt="img"></p>
+<p>需求分析</p>
+<p>2020年6月17日</p>
+<p>14:32</p>
+<h1 id="E-R图向关系模式的转换："><a href="#E-R图向关系模式的转换：" class="headerlink" title="E-R图向关系模式的转换："></a>E-R图向关系模式的转换：</h1><p>·     E-R图的实体转换为关系</p>
+<p>·     E-R图的属性转为关系的属性</p>
+<p>·     E-R图的关键字转换为关系的关键字</p>
+<p><img src="clip_image336.jpg" alt="img"></p>
+<h2 id="复合属性的转换："><a href="#复合属性的转换：" class="headerlink" title="复合属性的转换："></a>复合属性的转换：</h2><p>·     将分量属性作为符合属性所在实体的属性</p>
+<p>·     将符合属性本身作为所在实体的属性</p>
+<p><img src="clip_image338.jpg" alt="img"></p>
+<h2 id="多值属性："><a href="#多值属性：" class="headerlink" title="多值属性："></a>多值属性：</h2><p>·     将多值属性与所在实体的关键字一起组成一个新的关系</p>
+<h2 id="联系的转换："><a href="#联系的转换：" class="headerlink" title="联系的转换："></a>联系的转换：</h2><p>·     一对一联系：</p>
+<p>o  若联系的双方均部分参与（0…1)，则将联系定义为一个新的属性，属性为参与双方的关键字属性</p>
+<p><img src="clip_image340.jpg" alt="img"></p>
+<p>o  若联系一方全部参与（1…1)，则将联系另一方的关键字作为全部参与另一方的属性</p>
+<p><img src="clip_image342.jpg" alt="img"></p>
+<p>·     一对多联系：</p>
+<p>o  将单方参与实体的关键字作为多方参与实体对应关系的属性</p>
+<p><img src="clip_image344.jpg" alt="img"></p>
+<p>·     多对多联系：</p>
+<p>o  将联系定义为新的关系，属性作为参与双方实体的关键字</p>
+<p><img src="clip_image346.jpg" alt="img"></p>
+<h2 id="弱实体的转换："><a href="#弱实体的转换：" class="headerlink" title="弱实体的转换："></a>弱实体的转换：</h2><p>·     所对应关系的关键字由弱实体本身的区分属性再加上所依赖的强实体的关键字构成</p>
+<p><img src="clip_image348.jpg" alt="img"></p>
+<p>·     弱实体（从属实体）与强实体（独立实体）之间的联系已经在弱实体集所对应的关系中表现出来了</p>
+<h2 id="泛化与具体化："><a href="#泛化与具体化：" class="headerlink" title="泛化与具体化："></a>泛化与具体化：</h2><p>·     高层实体和底层实体分辨转为不同的关系。</p>
+<p>·     底层实体所对应的关系包含高层实体的关键字。</p>
+<p><img src="clip_image350.jpg" alt="img"></p>
+<p>·     如果泛化实例是具体化的实体实例的全部，即对每一个高层实体实例至少属于一个低层实体，则可以不为高层实体建立关系，但低层实体所对应的关系应包含上层实体的所有属性。</p>
+<h2 id="多元联系的转换："><a href="#多元联系的转换：" class="headerlink" title="多元联系的转换："></a>多元联系的转换：</h2><p>·     多元联系可以通过继承参与联系的各个实体的关键字而形成新的关系</p>
+<p>·     也可新增一个区分属性作为关键字</p>
+<p>·     多元联系需要分析参与联系的实体的最小基数和最大基数</p>
+<p>·     是否允许参与联系的多实体中有一个或多个实体不参与</p>
+<p><img src="clip_image352.jpg" alt="img"></p>
+<p><img src="clip_image354.jpg" alt="img"></p>
+<h1 id="IDEF1X图转换成关系模式："><a href="#IDEF1X图转换成关系模式：" class="headerlink" title="IDEF1X图转换成关系模式："></a>IDEF1X图转换成关系模式：</h1><p>·     IDEF1X图只需要将实体转换成关系模式即可，而其联系的信息已经融入相关实体的关系描述中了</p>
+<p>·     对IDEF1x图的分类联系，可以如E-R图的泛化和具体化一样进行相关的处理</p>
+<p>·     对IDEF1X图的复合属性和多值属性，则如前面一样相关处理</p>
+<p><img src="clip_image356.jpg" alt="img"></p>
+<h1 id="范式数据库设计："><a href="#范式数据库设计：" class="headerlink" title="范式数据库设计："></a>范式数据库设计：</h1><p>需要分析数据库设计中的属性依存关系</p>
+<p><strong>数据库设计理论：</strong></p>
+<p>·     函数依赖理论</p>
+<p>·     关系范式理论</p>
+<p>·     模式分解理论</p>
+<p><img src="clip_image358.jpg" alt="img"></p>
+<p>函数依赖</p>
+<p>2020年6月17日</p>
+<p>16:33</p>
+<h2 id="函数依赖的定义："><a href="#函数依赖的定义：" class="headerlink" title="函数依赖的定义："></a>函数依赖的定义：</h2><p>·     <img src="clip_image360.jpg" alt="img"></p>
+<p>·     <img src="clip_image362.jpg" alt="img"></p>
+<p>·     <img src="clip_image364.jpg" alt="img"></p>
+<h2 id="函数依赖的特性："><a href="#函数依赖的特性：" class="headerlink" title="函数依赖的特性："></a>函数依赖的特性：</h2><p><img src="clip_image366.jpg" alt="img"></p>
+<h2 id="部分函数依赖和完全函数依赖："><a href="#部分函数依赖和完全函数依赖：" class="headerlink" title="部分函数依赖和完全函数依赖："></a>部分函数依赖和完全函数依赖：</h2><p><img src="clip_image368.jpg" alt="img"></p>
+<p><img src="clip_image370.jpg" alt="img"></p>
+<p>否则称为部分函数依赖于x，记为</p>
+<p><img src="clip_image372.jpg" alt="img"></p>
+<p><img src="clip_image374.jpg" alt="img"></p>
+<p>（如果有不需要的关键字，那就是部分函数依赖）</p>
+<h2 id="传递函数依赖："><a href="#传递函数依赖：" class="headerlink" title="传递函数依赖："></a>传递函数依赖：</h2><p><img src="clip_image376.jpg" alt="img"></p>
+<p><img src="clip_image378.jpg" alt="img"></p>
+<h2 id="候选键：-1"><a href="#候选键：-1" class="headerlink" title="候选键："></a>候选键：</h2><p>设K为R(U)的属性或属性组合，若</p>
+<p><img src="clip_image380.jpg" alt="img"></p>
+<p>则称K为R(U)上的候选键。</p>
+<p>·     唯一性：</p>
+<p>·     最小性：</p>
+<p>·     任一候选键都可以作为R的主键</p>
+<p>·     包含任意候选键中的属性称为主属性，其他属性称为非主属性。</p>
+<p>·     <img src="clip_image382.jpg" alt="img"></p>
+<p><img src="clip_image384.jpg" alt="img"></p>
+<h2 id="外来键："><a href="#外来键：" class="headerlink" title="外来键："></a>外来键：</h2><p>若R(U)中的属性或属性组合X并非R的候选键，但是X却是另一关系的候选键，则称X为R的外来键</p>
+<p><img src="clip_image386.jpg" alt="img"></p>
+<h2 id="逻辑蕴含："><a href="#逻辑蕴含：" class="headerlink" title="逻辑蕴含："></a>逻辑蕴含：</h2><p><img src="clip_image388.jpg" alt="img"></p>
+<p><img src="clip_image390.jpg" alt="img"></p>
+<h2 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h2><p><img src="clip_image392.jpg" alt="img"></p>
+<p><img src="clip_image394.jpg" alt="img"></p>
+<p>·     小集合，大闭包</p>
+<p>·     包含了平凡的函数依赖</p>
+<h2 id="阿姆斯特朗公理："><a href="#阿姆斯特朗公理：" class="headerlink" title="阿姆斯特朗公理："></a>阿姆斯特朗公理：</h2><p>设R(U)是属性集U={A1, A2,…,An}上的一个关系模式，F为R(U)的一组函数依赖，记为R(U,F)</p>
+<p>·     <img src="clip_image396.jpg" alt="img"></p>
+<p>·     <img src="clip_image398.jpg" alt="img"></p>
+<p>·     <img src="clip_image400.jpg" alt="img"></p>
+<p><img src="clip_image402.jpg" alt="img"></p>
+<h3 id="引理："><a href="#引理：" class="headerlink" title="引理："></a>引理：</h3><p>·     <img src="clip_image404.jpg" alt="img"></p>
+<p>·     <img src="clip_image406.jpg" alt="img"></p>
+<p>·     <img src="clip_image408.jpg" alt="img"></p>
+<p><img src="clip_image410.jpg" alt="img"></p>
+<h3 id="引理2："><a href="#引理2：" class="headerlink" title="引理2："></a>引理2：</h3><p><img src="clip_image412.jpg" alt="img"></p>
+<h2 id="属性闭包："><a href="#属性闭包：" class="headerlink" title="属性闭包："></a>属性闭包：</h2><p><img src="clip_image414.jpg" alt="img"></p>
+<h2 id="引理：-1"><a href="#引理：-1" class="headerlink" title="引理："></a>引理：</h2><p><img src="clip_image416.jpg" alt="img"></p>
+<p><img src="clip_image418.jpg" alt="img"></p>
+<h2 id="覆盖："><a href="#覆盖：" class="headerlink" title="覆盖："></a>覆盖：</h2><p><img src="clip_image420.jpg" alt="img"></p>
+<p><img src="clip_image422.jpg" alt="img"></p>
+<p>证明两个函数依赖集相等，其实等价于求这两者的属性闭包相等</p>
+<p><img src="clip_image424.jpg" alt="img"></p>
+<h2 id="-4"><a href="#-4" class="headerlink" title=" "></a> </h2><h2 id="求属性闭包的方法："><a href="#求属性闭包的方法：" class="headerlink" title="求属性闭包的方法："></a>求属性闭包的方法：</h2><p><img src="clip_image426.jpg" alt="img"></p>
+<h3 id="引理：-2"><a href="#引理：-2" class="headerlink" title="引理："></a>引理：</h3><p>每个函数依赖集F可被一个其右端至多有一个属性的函数依赖集G覆盖</p>
+<p><img src="clip_image428.jpg" alt="img"></p>
+<h2 id="最小覆盖："><a href="#最小覆盖：" class="headerlink" title="最小覆盖："></a>最小覆盖：</h2><p>若F满足以下条件，则称F为最小覆盖或者最小依赖集</p>
+<p>\1.  F中每一个函数依赖的右部是单个属性</p>
+<p>\2.  <img src="clip_image430.jpg" alt="img"></p>
+<p>\3.  <img src="clip_image432.jpg" alt="img"></p>
+<p><img src="clip_image434.jpg" alt="img"></p>
+<p><img src="clip_image436.jpg" alt="img"></p>
+<p><strong>最小函数依赖集的求解</strong></p>
+<p> <strong>一、定义</strong></p>
+<p><strong>最小函数依赖集</strong>也称为<strong>极小函数依赖集</strong>、<strong>最小覆盖</strong>；如果函数依赖集 <strong><em>F\</em></strong> 满足下列条件，则称 <strong><em>F\</em></strong> 为一个最小依赖集。</p>
+<p><strong><em>1.\</em></strong>  <strong><em>F\</em></strong> 中任意函数依赖的右部仅含有一个属性</p>
+<p><strong><em>2.\</em></strong>  <strong><em>F\</em></strong> 中不存在这样的函数依赖<strong>X**</strong>→<strong>**A,</strong>使得 <strong><em>F\</em></strong> 与 <strong><em>F\</em> - {X**</strong>→<strong>**A}</strong>等价，即 <strong><em>F\</em></strong> 中的函数依赖均不能由 <em>F</em> 中其他函数依赖导出</p>
+<p><strong><em>3.\</em></strong>  <strong><em>F\</em></strong> 中不存在这样的函数依赖<strong>X**</strong>→<strong><strong>A</strong></strong>，<strong>**X</strong>有真子集 <strong>Z</strong> 使得 <strong><em>F\</em> - {X**</strong>→<strong>**A}</strong> <strong>∪</strong> <strong>{Z**</strong>→<strong>**A}</strong>与 <strong><em>F\</em></strong> 等价，即 <strong><em>F\</em></strong> 中各函数依赖左部均为最小属性集（不存在冗余属性）</p>
+<p> <strong>二、算法步骤：</strong></p>
+<p>·     将 <strong><em>F\</em></strong> 中的所有函数依赖的右边化为单一属性</p>
+<p>·     去掉 <strong><em>F\</em></strong> 中的所有函数依赖左边的冗余属性（只针对<strong><em>F\</em></strong>中左部不是单一属性的函数依赖）</p>
+<p>·     去掉 <strong><em>F\</em></strong> 中的所有冗余的函数依赖</p>
+<p><strong>三、例子说明</strong></p>
+<p>假设<strong>R<U , \*F\*></strong> <strong>，**</strong>U = ABCD<strong>**，</strong>函数依赖集<strong><em>F**</em></strong>={A<strong><strong>→</strong></strong>BD<strong><strong>，</strong></strong>AB<strong><strong>→</strong></strong>C<strong><strong>，</strong></strong>C<strong><strong>→</strong></strong>D}<strong>，求：*</strong>F*** 最小函数依赖集</p>
+<p>第一步：将<strong><em>F\</em></strong>中的所有函数依赖的右边化为单一属性：</p>
+<p>因为<strong><em>F\</em></strong> <strong>= {A**</strong>→<strong><strong>BD</strong></strong>，<strong><strong>AB</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>，函数依赖右边化为单一属性得：<strong><em>F\</em></strong> <strong>= {A**</strong>→<strong><strong>B</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>D</strong></strong>，<strong><strong>AB</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>；</p>
+<p>第二步：去掉<strong><em>F\</em></strong>中的所有函数依赖左边的冗余属性（只针对F中左部不是单一属性的函数依赖）</p>
+<p><strong>F={A**</strong>→<strong><strong>B</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>D</strong></strong>，<strong><strong>AB</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>中只有函数依赖<strong>AB**</strong>→<strong>**C</strong>左部不是单一属性，所以要对其进行去掉左边冗余属性的处理<strong>：</strong></p>
+<p>\1.  先看<strong>A</strong>是不是冗余属性<strong>：</strong>因为<strong>BF+ ={ B }</strong>不包含<strong>A**</strong>，<strong>所以</strong>A<strong>属性不冗余     </strong>//<strong>这里应该注意的是，要看哪一个属性是否是冗余属性，则求该函数依赖左部除要查看的属性外的其他属性的集关于 *</strong>F*** 的闭包是否包含要查看属性</p>
+<p>\2.  再看<strong>B</strong>是不是冗余属性：因为<strong>AF+ ={A**</strong>，<strong><strong>B</strong></strong>，<strong><strong>C</strong></strong>，<strong>**D}</strong> 包含的<strong>B</strong>，所以<strong>B</strong>属性冗余</p>
+<p> 　因此只将函数依赖<strong>AB**</strong>→<strong>**C</strong>左部<strong>B</strong>属性去掉，所以<strong>F={A**</strong>→<strong><strong>B</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>D</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>。</p>
+<p>第三步：去掉 <strong><em>F\</em></strong> 中的所有冗余的函数依赖</p>
+<p>依据引理：设<strong><em>F\</em></strong>为属性集<strong>U</strong>上的一组函数依赖，<strong>X</strong>，<strong>Y</strong> <strong>⊆</strong> <strong>U**</strong>，<strong><strong>X</strong></strong>→<strong>**Y</strong> 能由 <strong><em>F\</em></strong> 根据<strong>Armstrong</strong>公理导出的充分必要条件是<strong>Y**</strong>⊆<strong> </strong>XF+<strong> 。即判断 *</strong>F*<strong> 中一个函数依赖</strong>X<strong><strong>→</strong></strong>Y<strong>是否冗余，则只需要判定 </strong>Y<strong> 是否为的</strong>XF+** 子集。</p>
+<p> 因为有<strong><em>F**</em></strong>={A<strong><strong>→</strong></strong>B<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>D<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>C<strong><strong>，</strong></strong>C<strong><strong>→</strong></strong>D}<strong>**：</strong></p>
+<p>\1.  先看判断函数依赖<strong>A**</strong>→<strong>**D</strong>是否冗余，则把函数依赖<strong>A**</strong>→<strong>**D</strong>从<strong><em>F**</em></strong>={A<strong><strong>→</strong></strong>B<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>D<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>C<strong><strong>，</strong></strong>C<strong><strong>→</strong></strong>D}<strong>中去掉后得*</strong>F*<strong><strong>={A</strong></strong>→<strong><strong>B</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>，求得<strong>AF+ = { A**</strong>，<strong><strong>B</strong></strong>，<strong><strong>C</strong></strong>，<strong>**D}</strong> 包含了<strong>D</strong>，所以为函数依赖<strong>A**</strong>→<strong>**D</strong>冗余，所以应该从<strong><em>F**</em></strong>={A<strong><strong>→</strong></strong>B<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>D<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>C<strong><strong>，</strong></strong>C<strong><strong>→</strong></strong>D}<strong>中去掉函数依赖</strong>A<strong><strong>→</strong></strong>D<strong>，得*</strong>F*<strong><strong>={A</strong></strong>→<strong><strong>B</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong></p>
+<p>\2.  再从<strong><em>F**</em></strong>={A<strong><strong>→</strong></strong>B<strong><strong>，</strong></strong>A<strong><strong>→</strong></strong>C<strong><strong>，</strong></strong>C<strong><strong>→</strong></strong>D}<strong>依次判断每一个函数依赖是否冗余，直至所有冗余的函数依赖都被消除。本例子中经过第1步后已消除 *</strong>F*<strong> 中的所有冗余函数依赖了，因此原*</strong>F*<strong><strong>={A</strong></strong>→<strong><strong>BD</strong></strong>，<strong><strong>AB</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>的最小函数依赖集为 <strong><em>F\</em> ={A**</strong>→<strong><strong>B</strong></strong>，<strong><strong>A</strong></strong>→<strong><strong>C</strong></strong>，<strong><strong>C</strong></strong>→<strong>**D}</strong>。</p>
+<p> <strong>注意点：</strong></p>
+<p><strong><em>1.\</em></strong>  <strong><em>F**</em></strong>的最小依赖集<strong>*</strong>F*<strong> </strong>m<strong> </strong>不一定是唯一的，它与对个函数依赖<strong>**FDi</strong> <strong>及**</strong>X<strong><strong>→</strong></strong>A<strong><strong>中个属性的处置的顺序有关。在本例子中在去掉</strong></strong>F<strong><strong>中的冗余的函数依赖时（绿色字体那一步）若不是首先判断</strong></strong>A<strong><strong>→</strong></strong>D<strong>**是否冗余，而是首先判断其它函数依赖是否冗余，那么所得的最小函数依赖就可能不同了</strong></p>
+<p><strong>2.</strong>  <strong>要搞清楚在判断一个函数依赖**</strong>X<strong><strong>→</strong></strong>A<strong><strong>是否为冗余时，是求</strong></strong>X<strong>**关于上一步所求得的新的函数依赖集</strong> <strong><em>F\</em></strong> <strong>的闭包**</strong>XF+<strong> </strong>，然后在判断<strong><strong>A</strong></strong>是否包含在该<strong>**XF+</strong> </p>
+<p>来自 <a href="[*https://www.cnblogs.com/xiaolu266/p/8041073.html*](https://www.cnblogs.com/xiaolu266/p/8041073.html)">[*https://www.cnblogs.com/xiaolu266/p/8041073.html*](https://www.cnblogs.com/xiaolu266/p/8041073.html)</a></p>
+<p><strong>求最小函数依赖集分三步**</strong>:**</p>
+<p>1.将F中的所有依赖右边化为单一元素</p>
+<p>此题fd={abd-&gt;e,ab-&gt;g,b-&gt;f,c-&gt;j,cj-&gt;i,g-&gt;h};已经满足</p>
+<p>2.去掉F中的所有依赖左边的冗余属性.</p>
+<p>作法是属性中去掉其中的一个,看看是否依然可以推导</p>
+<p>此题:abd-&gt;e,去掉a,则(bd)+不含e,故不能去掉,同理b,d都不是冗余属性</p>
+<p>ab-&gt;g,也没有</p>
+<p>cj-&gt;i,因为c+={c,j,i}其中包含i所以j是冗余的.cj-&gt;i将成为c-&gt;i</p>
+<p>F={abd-&gt;e,ab-&gt;g,b-&gt;f,c-&gt;j,c-&gt;i,g-&gt;h};</p>
+<p>3.去掉F中所有冗余依赖关系.</p>
+<p>做法为从F中去掉某关系,如去掉(X-&gt;Y),然后在F中求X+,如果Y在X+中,则表明x-&gt;是多余的.需要去掉.</p>
+<p>此题如果F去掉abd-&gt;e,F将等于{ab-&gt;g,b-&gt;f,c-&gt;j,c-&gt;i,g-&gt;h},而(abd)+={a,d,b,f,g,h},其中不包含e.所有不是多余的.</p>
+<p>同理(ab)+={a,b,f}也不包含g,故不是多余的.</p>
+<p>b+={b}不多余,c+={c,i}不多余</p>
+<p>c-&gt;i,g-&gt;h多不能去掉.</p>
+<p>所以所求最小函数依赖集为 F={abd-&gt;e,ab-&gt;g,b-&gt;f,c-&gt;j,c-&gt;i,g-&gt;h};</p>
+<p>来自 <a href="[*https://www.cnblogs.com/wangyige/p/6786047.html*](https://www.cnblogs.com/wangyige/p/6786047.html)">[*https://www.cnblogs.com/wangyige/p/6786047.html*](https://www.cnblogs.com/wangyige/p/6786047.html)</a></p>
+<p>关系范数</p>
+<p>2020年6月19日</p>
+<p>15:19</p>
+<h2 id="1NF-（不含多值属性）"><a href="#1NF-（不含多值属性）" class="headerlink" title="1NF:（不含多值属性）"></a>1NF:（不含多值属性）</h2><p><img src="clip_image438.jpg" alt="img"></p>
+<p><img src="clip_image440.jpg" alt=": Star( name, address(street. city) )  FÉINF "></p>
+<p><strong>不符合1NF的处理：</strong></p>
+<p>·     将1NF转换为1NF</p>
+<p><img src="clip_image442.jpg" alt=": Star( name. address(street. city) )  Star( name, address) Star ( name. street city ) "></p>
+<p>·     引入新的数据模型处理：面向对象的数据模型</p>
+<p><img src="clip_image444.jpg" alt="img"></p>
+<h2 id="2NF-（没有非主属性对候选键的部分依赖）"><a href="#2NF-（没有非主属性对候选键的部分依赖）" class="headerlink" title="2NF:（没有非主属性对候选键的部分依赖）"></a>2NF:（没有非主属性对候选键的部分依赖）</h2><p><img src="clip_image446.jpg" alt="img"></p>
+<p><img src="clip_image448.jpg" alt=". se:&quot;. SN.•RZ. SD:nn. CN:N. G•.n.  S#.SN.  : csg,CN) . : SNOSD.  SN, SD). Ra(Sg. CN. G). , 2.e2NF. "></p>
+<p>第二范式消除了非主属性对候选键的部分依赖</p>
+<p><strong>判断模式是否属于第二范式：</strong></p>
+<p>\1.  找出候选键和非主属性</p>
+<p>\2.  判断是否存在部分依赖</p>
+<p><img src="clip_image450.jpg" alt="学 生 ( 学 号 ′ 姓 名 . 班 級 . 号 . 深 名 . 成 . 教 師 . 教 師 各 )  ロ 蹊 造 健 : ( 学 号 . 深 号 ) ー は リ : 非 主 属 性 : 姓 名 、 深 程 名  ロ 部 分 依 最 : ( 学 号 . 深 号 ) ー な 深 程 名 : ( 学 号 . 深 号 ) ー な 姓 名  ・ 員 工 ( 員 工 姓 名 . 出 生 日 財 鉄 系 用 活 . 最 后 学 厖 並 学 校 一 培 Ⅶ  日 期 . 培 汎 内 容 )  ロ 健 : { 員 工 日 . 培 Ⅶ 日 期 } 亠 U : 非 主 属 性 : 性 名 . 出 生 日 期  ロ 部 分 依 飆 : ( 員 工 円 . 培 Ⅶ 日 期 ) - な { 﨡 名 . 出 生 日 期 ) :  囲 も ( 号 ′ 名 . 出 版 日 期 . 出 版 社 . 事 号 . 房 同 号 )  ロ : 事 号 - 、 U : 非 主 属 性 : 強 外 買 他 属 性  ロ 无 部 分 依 : 第 号 - 、 毎 ー 个 属 性 . "></p>
+<h2 id="3NF-（没有候选键的传递函数依赖）"><a href="#3NF-（没有候选键的传递函数依赖）" class="headerlink" title="3NF:（没有候选键的传递函数依赖）"></a>3NF:（没有候选键的传递函数依赖）</h2><p><img src="clip_image452.jpg" alt="img"></p>
+<p><strong>第三范式没有传递函数依赖</strong></p>
+<p><img src="clip_image454.jpg" alt=": Store(Sid, Pid, Did, Mgr)  , Did:GüE. Mgr:en.  : (Sid. Pid) Did. (Sid. Did).Mgr  Re : (Sid.Pid) , Mgr.  Pid»Did. (Sid, Didy»Mgr ,  WA B Pid. Did), Did. Mgr),  ae3NF. "></p>
+<p>第三范式消除了非主属性的传递依赖</p>
+<p><strong>判断模式是否属于第三范式：</strong></p>
+<p>\1.  找到候选键</p>
+<p>\2.  有无传递依赖</p>
+<p>\3.  有无部分依赖</p>
+<p><img src="clip_image456.jpg" alt="・ 学 生 ( 学 号 . 系 号 . 系 主 任 )  ロ 載 : 学 号 、 U : 非 主 属 性 : 系 主 任  ロ 倍 道 依 : 学 号 今 系 号 . 系 号 今 系 主 任  ロ 无 部 分 依 報  所 以 : 滿 足 第 2NF 但 不 満 足 第 3NF.  ・ 員 工 ( 員 工 碼 . 姓 名 . 部 冂 . 部 冂 理 )  ロ 健 : 員 工 円 コ ・ U : ヨ E 主 属 性 : 部 ロ 理  ロ 倍 通 依 : 工 円 今 部 ロ . 部 冂 今 部 冂 理  ロ 无 部 分 依  所 以 : 足 第 2NF 但 不 満 足 第 3NF. "></p>
+<p>关系模式满足第三范式则一定能满足第二范式。</p>
+<p><strong>将关系模式分解成3NF：</strong></p>
+<p>分解规则：</p>
+<p>将每一个函数依赖单独组成一个关系。</p>
+<p><img src="clip_image458.jpg" alt=": R(A, B, C, D, E, F. G)  C*E. E*FG )  RI(A.B).  R12(A. F, G)) "></p>
+<h2 id="Boyce-Codd范式：（所有函数依赖都包含候选键）"><a href="#Boyce-Codd范式：（所有函数依赖都包含候选键）" class="headerlink" title="Boyce-Codd范式：（所有函数依赖都包含候选键）"></a>Boyce-Codd范式：（所有函数依赖都包含候选键）</h2><p><img src="clip_image460.jpg" alt="img"></p>
+<p><strong>模式上的所有函数依赖都含有候选键，没有不依赖于候选键的函数依赖</strong></p>
+<p><img src="clip_image462.jpg" alt="示 例 ． 邮 编 （ 城 市 ， 街 道 ， 政 编 黝  甬 数 依 赖 ： { 城 市 ， 街 道 } 乛 鄒 政 编 码 ： 邮 政 编 码 一 城 市 ，  》 候 选 踺 ： { 喊 市 ． 街 0 } 一 、 U  》 因 不 候 选 ： 政 编 码 城 市 ： 所 以 不 满 足 B （ NF  因 无 传 递 铱 隸 ， 所 以 認 足 第 3 范 式 ：  示 例 ： 选 谭 （ 学 号 ． 课 程 号 。 緻 獅 编 号 ）  假 设 規 定 ， 师 只 开 一 冂 则 有 ： { 学 号 ． 课 程 号 产 师 号 ： 师 号  一 课 程 号 ． 0 \ 咳 模 式 满 足 第 3 范 式 但 不 满 足 ％ y （ e ． （ 。 dd 范 式 ． "></p>
+<p><img src="clip_image464.jpg" alt="img"></p>
+<p><strong>满足BCNF的一定满足第三范式，不满足第三范式的一定不满足BCNF</strong></p>
+<p><img src="clip_image466.jpg" alt=": , iRR(U.F) cBCNF . , ,  . YA. . AA. Agy, Y .X.  EA«Y. . "></p>
+<p><strong>关系模式分解成BCNF：</strong></p>
+<p><img src="clip_image468.jpg" alt="可 以 出 , RI 「 F :  也 可 以 和 R2 合  F; R3 EBCNF; R4 CBCNF;  p=(R12(C.D,E).R3(E,F.G).R4(A.B.C)) "></p>
+<h2 id="多值依赖："><a href="#多值依赖：" class="headerlink" title="多值依赖："></a>多值依赖：</h2><p><img src="clip_image470.jpg" alt="img"></p>
+<p>对于元组t,s，交换属性Y之后，仍然会出现在关系中</p>
+<p><img src="clip_image472.jpg" alt="img"></p>
+<p><strong>多值依赖的特性：</strong></p>
+<p><img src="clip_image474.jpg" alt="多 值 依 赖 的 持 性  1 ） 0 观 地 ． 对 于 × 焓 定 值 ， Y 有 一 组 喳 与 之 对 瓯 （ 0 或 n 个 ） 且 这 组 Y 值 不 以  任 何 方 式 与 U ． X ． Y 中 属 性 值 相 以 ， 有 X 一 、 一 》 Y ．  2 ） 若 交 换 t,s 的 Y 億 而 得 到 的 新 元 组 仍 在 冲 ．  3 ） × ， Y 不 不 相 交 ． u ． v 可 以 与 t.s 相 同 ·  4 ） 函 数 賴 是 多 的 依 隸 的 特 例 · "></p>
+<p><img src="clip_image476.jpg" alt=": R N&amp;ZC, пЮДт. НВ*ЯН. ПТ.  С , ЖАС "></p>
+<h2 id="4NF-已经是BC范式，并且不包含多值依赖关系。"><a href="#4NF-已经是BC范式，并且不包含多值依赖关系。" class="headerlink" title="4NF:(已经是BC范式，并且不包含多值依赖关系。)"></a>4NF:(已经是BC范式，并且不包含多值依赖关系。)</h2><p><img src="clip_image478.jpg" alt="img"></p>
+<p>当一个表中的非主属性互相独立时（3NF），这些非主属性不应该有多值。若有多值就违反了第四范式。定义比较抽象，可以参照下面的例子理解。</p>
+<p><strong>第四范式消除了非主属性对候选键以外属性的多值依赖，如果有多值依赖则一定依赖于候选键。</strong></p>
+<p><img src="clip_image480.jpg" alt="img"></p>
+<p><img src="clip_image482.jpg" alt=": iQRe4NF, . У-х  = . . ХОВИ.  . ЕХ“У . ИХ..У . "></p>
+<p><img src="clip_image484.jpg" alt="img"></p>
+<h2 id="W4NF"><a href="#W4NF" class="headerlink" title="W4NF:"></a>W4NF:</h2><p><img src="clip_image486.jpg" alt="i2R(U)e3NF. 若 R 上 的 任 何 互 补 多 值 依 隸 × 一 ， 一 》 Y （ × U ， Y × ） 和  X 。 一 ， （ U 一 X 一 Y ） 中 老 有 一 个 是 函 依 隸 ， 则 称 R 是 弱 第 四 范 式 的 ， 记 力  RcW4NF.  淺 ： W4NF 不 —ENBCNF. 反 之 有 胳 “ "></p>
+<p>模式分解</p>
+<p>2020年6月19日</p>
+<p>20:02</p>
+<h2 id="模式分解："><a href="#模式分解：" class="headerlink" title="模式分解："></a>模式分解：</h2><p><img src="clip_image488.jpg" alt="img"></p>
+<p><img src="clip_image490.jpg" alt="img"></p>
+<p>·     R与p在数据内容方面是否等价：分解的无损连接性</p>
+<p>·     R与p在数据依赖方面是否等价：分解的保持依赖性</p>
+<h3 id="引理1："><a href="#引理1：" class="headerlink" title="引理1："></a>引理1：</h3><p><img src="clip_image492.jpg" alt="img"></p>
+<p><strong>有损连接</strong></p>
+<p><img src="clip_image494.jpg" alt="img"></p>
+<h2 id="无损连接分解："><a href="#无损连接分解：" class="headerlink" title="无损连接分解："></a>无损连接分解：</h2><p><img src="clip_image496.jpg" alt="img"></p>
+<p><strong>大的关系模式分解成小的关系分解，在小的关系模式进行连接的情况下查询是相等的。</strong></p>
+<h2 id="无损连接性检验算法："><a href="#无损连接性检验算法：" class="headerlink" title="无损连接性检验算法："></a>无损连接性检验算法：</h2><p><img src="clip_image498.jpg" alt="img"></p>
+<p><img src="clip_image500.jpg" alt="img"></p>
+<p><strong>简单判定定理：</strong></p>
+<p><img src="clip_image502.jpg" alt="img"></p>
+<h2 id="无损连接的特性："><a href="#无损连接的特性：" class="headerlink" title="无损连接的特性："></a>无损连接的特性：</h2><p><img src="clip_image504.jpg" alt="img"></p>
+<p>·     无损连接分解的无损分解仍然是无损分解</p>
+<p>·     无损连接分解加上一个分解仍然是无损连接分解</p>
+<h2 id="保持依赖分解："><a href="#保持依赖分解：" class="headerlink" title="保持依赖分解："></a>保持依赖分解：</h2><p><img src="clip_image506.jpg" alt="img"></p>
+<p><img src="clip_image508.jpg" alt="img"></p>
+<p>·     保持依赖的分解可能不是无损连接的。</p>
+<p>·     无损连接的分解可能不是保持依赖的。</p>
+<p><img src="clip_image510.jpg" alt="img"></p>
+<p><img src="clip_image512.jpg" alt="img"></p>
+<p>如果F上的每一个函数依赖都在其分解后的某一个关系上成立，则这个分解是保持依赖的（这是一个充分条件）。</p>
+<p>如果上述判断失败，并不能断言分解不是保持依赖的，还要使用下面的通用方法来做进一步判断。</p>
+<p>该方法的表述如下：</p>
+<p>算法二：</p>
+<p>对F上的每一个α→β使用下面的过程：</p>
+<p>result:=α;</p>
+<p>while(result发生变化)do</p>
+<p>  for each 分解后的Ri</p>
+<p>​    t=(result∩Ri)+ ∩Ri</p>
+<p>​    result=result∪t</p>
+<p>这里的属性闭包是在函数依赖集F下计算出来的。如果result中包含了β的所有属性，则函数依赖α→β。分解是保持依赖的当且仅当上述过程中F的所有依赖都被保持。</p>
+<p>下面给出一个例题，2006年5月系分上午43题：</p>
+<p>●设关系模式R<U, F>，其中U=｛A, B, C, D, E｝，F＝{A→BC，C→D，BC→E，E→A｝，则分解ρ={R1（ABCE），R2（CD）｝满足 （43） 。</p>
+<p>（43） A．具有无损连接性、保持函数依赖</p>
+<p>​       B．不具有无损连接性、保持函数依赖</p>
+<p>​       C．具有无损连接性、不保持函数依赖</p>
+<p>​       D．不具有无损连接性、不保持函数依赖</p>
+<p>先做无损链接的判断。R1∩R2={C}，计算C+。</p>
+<p>Result=C</p>
+<p>由于C→D，C∈result，所以result=result∪D=CD</p>
+<p>可见C是R2的超码，该分解是一个无损分解。</p>
+<p>再做保持依赖的判断。</p>
+<p>A→BC，BC→E， E→A都在R1上成立（也就是说每一个函数依赖左右两边的属性都在R1中），C→D在R2上成立，因此给分解是保持依赖的。</p>
+<p>选A。</p>
+<p>再看一个复杂点的例题。2007年5月数工40-41题。</p>
+<p>●给定关系模式R<U, F>，U=｛A, B, C, D, E｝，F＝{B→A，D→A，A→E，AC→B｝，其候选关键字为</p>
+<p>（40） ，则分解ρ={R1（ABCE），R2（CD）｝满足 （41） 。</p>
+<p>（40） A．ABD</p>
+<p>​        B．ABE</p>
+<p>​       C．ACD</p>
+<p>​       D．CD</p>
+<p>（41） A．具有无损连接性、保持函数依赖</p>
+<p>​       B．不具有无损连接性、保持函数依赖</p>
+<p>​       C．具有无损连接性、不保持函数依赖</p>
+<p>​       D．不具有无损连接性、不保持函数依赖</p>
+<p>看见了吧，和前面一题多么的相像！</p>
+<p>对于第一问，分别计算ABCD四个选项的闭包，</p>
+<p>（ABD）+ = { ABDE }</p>
+<p>（ABE）+ = { ABE }</p>
+<p>（ACD）+ = { ABCDE }</p>
+<p>（CD）+ = { ABCDE }</p>
+<p>选D。</p>
+<p>再看第二问。</p>
+<p>先做无损链接的判断。R1∩R2={C}，计算C+。</p>
+<p>result=C</p>
+<p>因此C既不是R1也不是R2的超码，该分解不具有无损分解性。</p>
+<p>再做保持依赖的判断。</p>
+<p>B→A，A→E，AC→B在R1上成立，D→A在R1和R2上都不成立，因此需做进一步判断。</p>
+<p>由于B→A，A→E，AC→B都是被保持的（因为它们的元素都在R1中），因此我们要判断的是D→A是不是也被保持。</p>
+<p>对于D→A应用算法二：</p>
+<p>result=D</p>
+<p>对R1，result∩R1=ф（空集，找不到空集的符号，就用这个表示吧），t=ф，result=D</p>
+<p>再对R2，result∩R2=D，D+ =ADE ，t=D+ ∩R2=D，result=D</p>
+<p>一个循环后result未发生变化，因此最后result=D，并未包含A，所以D→A未被保持，该分解不是保持依赖的。</p>
+<p>选D。</p>
+<p>来自 <a href="[*http://www.blogjava.net/RiKeR/articles/153733.html*](http://www.blogjava.net/RiKeR/articles/153733.html)">[*http://www.blogjava.net/RiKeR/articles/153733.html*](http://www.blogjava.net/RiKeR/articles/153733.html)</a></p>
+<p>·     左端属性必须是某一个关系模式的属性。</p>
+<p>·     求关于G的属性闭包结果属性也必须是此关系模式的属性。</p>
+<h2 id="无损连接分解成BCNF算法"><a href="#无损连接分解成BCNF算法" class="headerlink" title="无损连接分解成BCNF算法"></a>无损连接分解成BCNF算法</h2><p>分解规则：</p>
+<p>·     将左侧不含候选键的函数依赖单独组成一个关系，将包含候选键的组成一关系</p>
+<p><img src="clip_image514.jpg" alt="img"></p>
+<p><img src="clip_image516.jpg" alt="img"></p>
+<h2 id="关系模式分解成成3NF"><a href="#关系模式分解成成3NF" class="headerlink" title="关系模式分解成成3NF"></a>关系模式分解成成3NF</h2><p>分解规则：</p>
+<p>·     将每一个函数依赖单独组成一个关系</p>
+<p><img src="clip_image518.jpg" alt="img"></p>
+<p><img src="clip_image520.jpg" alt="img"></p>
+<h2 id="既保持依赖，又保持无损连接的分解"><a href="#既保持依赖，又保持无损连接的分解" class="headerlink" title="既保持依赖，又保持无损连接的分解"></a>既保持依赖，又保持无损连接的分解</h2><p><img src="clip_image522.jpg" alt="img"></p>
+<p><img src="clip_image524.jpg" alt="img"></p>
+<p><img src="clip_image526.jpg" alt="img"></p>
+<h2 id="无损连接分解成4NF"><a href="#无损连接分解成4NF" class="headerlink" title="无损连接分解成4NF"></a>无损连接分解成4NF</h2><p><img src="clip_image528.jpg" alt="img"></p>
+<h2 id="连接依赖："><a href="#连接依赖：" class="headerlink" title="连接依赖："></a>连接依赖：</h2><p><img src="clip_image530.jpg" alt="img"></p>
+<p>·     多值依赖是连接依赖的特例， 2-JD多值依赖</p>
+<h2 id="5NF：（按照候选键连接）"><a href="#5NF：（按照候选键连接）" class="headerlink" title="5NF：（按照候选键连接）"></a>5NF：（按照候选键连接）</h2><p><img src="clip_image532.jpg" alt="img"></p>
+<p><strong>第五范式消除了不按候选键连接的连接依赖，（R的无损连接分解中各个模式必有一个候选键），但其语义背景抽象。</strong></p>
+<h2 id="本章总结："><a href="#本章总结：" class="headerlink" title="本章总结："></a>本章总结：</h2><p><img src="clip_image534.jpg" alt="img"></p>
+<p>数据库的存储体系</p>
+<p>2020年6月20日</p>
+<p>15:35</p>
+<h2 id="存储体系："><a href="#存储体系：" class="headerlink" title="存储体系："></a>存储体系：</h2><p>·     将不同性价比的存储器组织在一起，满足高速度、大容量、低价格的需求</p>
+<p>·     CPU与内存直接交换信息，按存储单元进行访问</p>
+<p>·     外存按存储块进行访问，其信息需先装入内存，才能被CPU处理</p>
+<p><img src="clip_image536.jpg" alt="img"></p>
+<h2 id="操作系统对数据的组织："><a href="#操作系统对数据的组织：" class="headerlink" title="操作系统对数据的组织："></a>操作系统对数据的组织：</h2><p>·     FAT-目录-磁盘块</p>
+<p>·     FAT（文件分配表）</p>
+<p><img src="clip_image538.jpg" alt="img"></p>
+<h2 id="-5"><a href="#-5" class="headerlink" title=" "></a> </h2><h2 id="内存管理："><a href="#内存管理：" class="headerlink" title="内存管理："></a>内存管理：</h2><p>·     一条记录的地址=存储单元地址=内存地址=页面：页面偏移量</p>
+<p>·     页面（page）=块（Block）</p>
+<p>·     内存页面的分配</p>
+<p>·     内存页面的置换</p>
+<p><img src="clip_image540.jpg" alt="img"></p>
+<h2 id="磁盘结构："><a href="#磁盘结构：" class="headerlink" title="磁盘结构："></a>磁盘结构：</h2><p>磁盘读写单位：簇Cluster/块Block连续的若干个扇区</p>
+<p>算的时候不能算圆盘，只能算盘面</p>
+<p><img src="clip_image542.jpg" alt="img"></p>
+<p>盘面：磁道：扇区</p>
+<p><strong>物理存取算法考虑的关键：</strong></p>
+<p>·     降低I/O次数</p>
+<p>·     降低排队等待时间</p>
+<p>·     降低寻道、旋转延迟时间：</p>
+<p>o  同一磁道连续块存储</p>
+<p>o  同一柱面不同磁道并行块存储</p>
+<p>o  多个磁盘并行块存储</p>
+<h2 id="RAID技术："><a href="#RAID技术：" class="headerlink" title="RAID技术："></a>RAID技术：</h2><p>·     并行处理：并行读取多个磁盘</p>
+<p>o  <strong>比特级拆分：</strong>以字节拆分  </p>
+<p>o  <strong>块集拆分：</strong>以块为单位并行</p>
+<p>·     可靠性：奇偶校验</p>
+<p>o  <strong>扇区、块读写校验</strong>：对扇区、块进行校验</p>
+<p>o  <strong>磁盘间读写校验：</strong>对多个磁盘间共同构成的信息读写做校验</p>
+<h2 id="DBMS数据存储的映射关系："><a href="#DBMS数据存储的映射关系：" class="headerlink" title="DBMS数据存储的映射关系："></a>DBMS数据存储的映射关系：</h2><p>·     逻辑中表的每一条记录都有一个映射表，用来记录存储的磁盘号。</p>
+<p>·     数据库通过操作系统先占用磁盘块，然后通过自己的映射表来保存记录和对应的磁盘块。</p>
+<p>·     通过内存缓存磁盘块。</p>
+<p><img src="clip_image544.jpg" alt="img"></p>
+<p>查询操作-文件管理-缓存区交互-磁盘管理</p>
+<p><img src="clip_image546.jpg" alt="img"></p>
+<h2 id="数据库记录和磁盘块的记录："><a href="#数据库记录和磁盘块的记录：" class="headerlink" title="数据库记录和磁盘块的记录："></a>数据库记录和磁盘块的记录：</h2><p><img src="clip_image548.jpg" alt="img"></p>
+<p>·     定长记录：按长度区分</p>
+<p>·     变长记录：按照标志区分</p>
+<p><img src="clip_image550.jpg" alt="img"></p>
+<p>·     记录的跨块存储：靠着指针连接</p>
+<p>·     数据库所占磁盘块的分配方法：</p>
+<p>o  连续分配：数据块被分配到连续的磁盘块上</p>
+<p>o  链接分配：数据块中包含指向下一个数据块的指针</p>
+<p>o  按簇分配：簇是若干连续的磁盘块，簇之间靠指针进行连接。</p>
+<h2 id="数据组织与存储方法："><a href="#数据组织与存储方法：" class="headerlink" title="数据组织与存储方法："></a>数据组织与存储方法：</h2><p>·     <strong>数据组织：</strong>指的是数据组织成记录、块和访问结构的方式，包括把记录和块存储在磁盘上的方式，以及记录和块之间相互联系的方法。</p>
+<p>·     <strong>存取方法：</strong>指的是对文件所采取的存取防范。</p>
+<h3 id="文件组方法："><a href="#文件组方法：" class="headerlink" title="文件组方法："></a>文件组方法：</h3><p>·     无序记录文件：（堆文件）</p>
+<p>o  特点：可以存储于任意空间位置，磁盘存储的记录是无序</p>
+<p>o  新记录总插入到尾部，在删除记录所在位置标记为删除</p>
+<p>o  新增记录可以利用那些被删除的记录。</p>
+<p>o  数据库需要定时进行数据库重组，移走被删除的记录。</p>
+<p>o  按照输入顺序进行排序存储</p>
+<p>·     有序存储：</p>
+<p>o  记录按照属性或者属性组值顺序插入，磁盘上存储的记录是有序的，检索效率很高。</p>
+<p>o  但是更新效率很低，需要移动其他记录，为插入记录留出空间。</p>
+<p>o  改进措施是可以将未来插入的元组预留空间，或者使用一个临时的无序文件，保留新增记录。但是当溢出文件较大时性能会受到影响。</p>
+<p><img src="clip_image552.jpg" alt="img"></p>
+<p>o  数据库重组：将溢出文件重组排序到主文件中。</p>
+<p>·     散列文件：</p>
+<p>o  特点：按照记录的某些属性或者属性组的值，根据散列函数来计算其存放的位置：桶号</p>
+<p>o  用于散列函数计算的属性通常被称为散列字段，散列字段通常采用关系中的主码，所以又称为散列码。</p>
+<p><img src="clip_image554.jpg" alt="img"></p>
+<p>·     不同的记录可能被放到同一个桶，桶内需要顺序查找。</p>
+<p>·     聚簇文件：</p>
+<p>·     将相同或者属性值相似的记录存放于连续的磁盘块簇中</p>
+<p>·     多表聚簇：将若干个相互关联的Table存储于一个文件中，这可以提高多表查询下的查询速度。</p>
+<p>·     <img src="clip_image556.jpg" alt="img"></p>
+<p><img src="clip_image558.jpg" alt="img"></p>
+<p>增删改需求：无序记录文件、散列记录文件。</p>
+<p>检索需求：有序记录文件。</p>
+<p>在性能下降之后使用数据库重组。</p>
+<h2 id="Oracle数据库的数据组织："><a href="#Oracle数据库的数据组织：" class="headerlink" title="Oracle数据库的数据组织："></a>Oracle数据库的数据组织：</h2><p>·     每个数据库分成一个或多个表空间</p>
+<p>·     分为SYSTEM表空间和用户表空间，SYSTEM表空间用于存储数据字典的管理，用户表空间可以由用户创建</p>
+<p>·     每个表空间由一个或者多个操作系统文件构成。</p>
+<p>·     一个表可以存在一个文件中也可以存储在多个文件中，在进入DBMS后由DBMS进行组织</p>
+<p>数据库索引</p>
+<p>2020年6月23日</p>
+<p>14:20</p>
+<h2 id="索引："><a href="#索引：" class="headerlink" title="索引："></a>索引：</h2><p>·     所以是定义在存储表基础之上，有助于无需检查所有记录而快速定位所需记录的一种辅助存储结构，由一系列存储在磁盘上的索引项组成，每一索引项又由两部分组成：</p>
+<p>o  索引字段：由Table中的某些列的值组成，索引中通常存储了索引字段的每一个值。</p>
+<p>o  行指针：指向Table中包含索引字段值的记录在磁盘上的存储位置。</p>
+<p>·     存储索引项为索引文件，相对应存储表又称为主文件。</p>
+<h2 id="索引文件："><a href="#索引文件：" class="headerlink" title="索引文件："></a>索引文件：</h2><p>·     索引文件是一种辅助存储结构，其存在与否不改变存储表的物理存储结构，然而其存在可以显著提高存储表的访问速度。索引文件也有多种组织方式：</p>
+<p>o  排序索引文件：按照索引字段的某一种顺序组织存储</p>
+<p>o  散列索引文件：按照索引字段值使用散列函数分配散列桶的方式索引</p>
+<p>·     在一个表上可以针对不同的属性或者属性组合建立不同的索引文件，可以建立多个索引文件。索引字段的值可以是Table中任何一个属性的值或者多个属性值的组合值</p>
+<p>·     索引文件比主文件小很多，通过检索一个小的索引文件，可以快速定位，然后再针对性读取非常大的主文件，</p>
+<p>·     有索引的时候，必须同步更新索引文件和主文件。</p>
+<p>·     索引技术可以使得检索效率大幅度提高，但也增加了存储空间</p>
+<p>·     衡量索引性能的好坏：</p>
+<p>o  访问时间</p>
+<p>o  插入时间</p>
+<p>o  删除时间</p>
+<p>o  空间负载</p>
+<p>o  支持存储的有效性：是否支持多属性，属性索引的范围…</p>
+<p>·     索引字段：</p>
+<p>o  字段、排序字段、索引字段</p>
+<p>o  码，主码，表键：具有唯一性和最小性</p>
+<p>o  排序码：对主文件进行排序的那些属性或者属性组</p>
+<p>o  索引码：索引字段，不一定具有唯一性</p>
+<p>o  搜索码：在主文件中查找记录的属性或属性集</p>
+<h2 id="-6"><a href="#-6" class="headerlink" title=" "></a> </h2><h2 id="索引的定义："><a href="#索引的定义：" class="headerlink" title="索引的定义："></a>索引的定义：</h2><p>Create [unique] INDEX indexname </p>
+<p>ON tablename ( colname [asc|desc] {, colname [asc|desc]…})</p>
+<p><img src="clip_image560.jpg" alt="img"></p>
+<p><strong>删除索引：</strong></p>
+<p>Drop INDEX indexname</p>
+<h2 id="稠密索引："><a href="#稠密索引：" class="headerlink" title="稠密索引："></a>稠密索引：</h2><p>·     对主文件中<strong>每一个</strong>记录，都有一个索引项和它对于，指明该记录所在位置</p>
+<p><img src="clip_image562.jpg" alt="img"></p>
+<p>·     候选键属性索引：</p>
+<p>o  每一条索引对应一条记录</p>
+<p><img src="clip_image564.jpg" alt="img"></p>
+<p>·     非候选键索引：</p>
+<p>o  索引文件中的索引字段值是不重复的，主文件按照索引字段排序，且索引字段不是候选键。</p>
+<p>o  <img src="clip_image566.jpg" alt="img"></p>
+<p>o  索引字段可以有重复：</p>
+<p><img src="clip_image568.jpg" alt="img"></p>
+<p>o  引入中间层：</p>
+<p><img src="clip_image570.jpg" alt="img"></p>
+<h2 id="稀疏索引："><a href="#稀疏索引：" class="headerlink" title="稀疏索引："></a>稀疏索引：</h2><p>·     对于主文件中的<strong>部分</strong>记录，都有索引项和它对应</p>
+<p><img src="clip_image572.jpg" alt="img"></p>
+<p>·     索引中不存在搜索码的值，不代表主文件中没有对应搜索码的记录</p>
+<p>·     定位索引字段为K记录的值：</p>
+<p>o  首先找相邻的小于K的最大索引字段值所对应的索引项</p>
+<p>o  从该项所对应的记录开始顺序对Table进行检索，一旦找到比他大的值就结束查找</p>
+<p>·     稀疏索引要求主文件必须按照索引字段属性排序</p>
+<p>·     索引项可以不指向记录指针，而是指向记录所在存储块的指针</p>
+<p><img src="clip_image574.jpg" alt="img"></p>
+<h2 id="主索引："><a href="#主索引：" class="headerlink" title="主索引："></a>主索引：</h2><p>·     对每一个存储块有一个索引项，索引项的综述和存储表所占的存储块数目相同，存储表的每一个存储块的低一些记录，又称为锚记录或者成为块锚</p>
+<p>·     主索引的索引字段值为块锚的索引字段值，而指针指向所在的存储块</p>
+<p>·     <img src="clip_image576.jpg" alt="img"></p>
+<h2 id="辅助索引："><a href="#辅助索引：" class="headerlink" title="辅助索引："></a>辅助索引：</h2><p>·     是定义在主文件的任一个或者多个非排序字段上的辅助存储结构。</p>
+<p>·     辅助对一个非排序字段上的每一个不同值有一个索引项：索引字段即是该字段的不同值，而指针则包含该记录的块活该记录本身</p>
+<p>·     当非排序字段为索引字段时，如该字段值不唯一，则需要采用一个链表结构来保存字段值记录的所有位置。</p>
+<p><img src="clip_image578.jpg" alt="img"></p>
+<p>·     辅助索引是一个稠密索引</p>
+<p>·     一个主文件仅可以有一个主索引，但可以有多个辅助索引</p>
+<p>·     主索引通常建立在主码/排序码上，辅助索引建立与其他属性上</p>
+<p>·     可以利用主索引重新组织文件数据，但辅助索引不能改变主文件数据</p>
+<p>·     主索引指向块地址，辅助索引不能仅指向块地址。</p>
+<p><img src="clip_image580.jpg" alt="img"></p>
+<h2 id="聚簇索引："><a href="#聚簇索引：" class="headerlink" title="聚簇索引："></a>聚簇索引：</h2><p>·     索引中临近的记录在主文件中也是临近存储的</p>
+<h2 id="非聚簇索引："><a href="#非聚簇索引：" class="headerlink" title="非聚簇索引："></a>非聚簇索引：</h2><p>·     索引中临近的记录在主文件中不一定是临近存储的</p>
+<p><img src="clip_image582.jpg" alt="img"></p>
+<p>·     如果主文件的某一排序字段不是主码，则该字段上每一个记录取值便不唯一，此时该字段被称为聚簇字段，聚簇索引通常是定义在聚簇字段上的。</p>
+<p>·     聚簇索引通常是对聚簇字段上的每一个不同值有一个索引项</p>
+<p>·     主文件只有一个聚簇索引文件，但可以有多个非聚簇索引文件</p>
+<p>·     主索引通常是是聚簇索引，辅助索引通常是非聚簇索引</p>
+<h2 id="倒排索引："><a href="#倒排索引：" class="headerlink" title="倒排索引："></a>倒排索引：</h2><p><img src="clip_image584.jpg" alt="img"></p>
+<p><img src="clip_image586.jpg" alt="img"></p>
+<h2 id="B-树索引："><a href="#B-树索引：" class="headerlink" title="B+树索引："></a>B+树索引：</h2><p>是一种以树型数据结构来组织索引项的多级索引</p>
+<p><img src="clip_image588.jpg" alt="img"></p>
+<p>叶子节点指向索引块，或者是数据块中记录的指针</p>
+<p><img src="clip_image590.jpg" alt="img"></p>
+<p>·     能够自动保持与主文件大小相适应的树的层次。</p>
+<p>·     每个索引块的指针利用率都在50%-100%之间。</p>
+<h3 id="B-树的存储约定："><a href="#B-树的存储约定：" class="headerlink" title="B+树的存储约定："></a>B+树的存储约定：</h3><p>一个块中存放n个索引项</p>
+<p><img src="clip_image592.jpg" alt="img"></p>
+<p><img src="clip_image594.jpg" alt="img"></p>
+<h3 id="叶子节点和非叶子节点："><a href="#叶子节点和非叶子节点：" class="headerlink" title="叶子节点和非叶子节点："></a>叶子节点和非叶子节点：</h3><p>·     非叶节点的指针指向索引块，叶子节点指针指向主文件的数据块或数据记录。</p>
+<p>·     叶节点的最后一个指针可能不同于其他指针—始终指向其下一个数据块。</p>
+<p><strong>非叶节点：</strong></p>
+<p><img src="clip_image596.jpg" alt="img"></p>
+<p><strong>叶子节点：</strong></p>
+<p><img src="clip_image598.jpg" alt="img"></p>
+<p>一个索引块实际使用的索引指针个数d，满足：</p>
+<p><img src="clip_image600.jpg" alt="img"></p>
+<p>根节点至少两个指针被使用。</p>
+<p><img src="clip_image602.jpg" alt="img"></p>
+<p>索引字段值：有可能重复出现于叶子节点和非叶子节点</p>
+<p>·     指向主文件的指针仅可能出现于叶节点</p>
+<p>·     所有叶结点即可覆盖所有键值索引</p>
+<p>·     索引字段中在叶节点中按顺序排列。</p>
+<p>B+树仅有叶结点块的集合就是主文件的完整索引，其他每一层都是索引的索引</p>
+<h3 id="-7"><a href="#-7" class="headerlink" title=" "></a> </h3><h3 id="用B-树建立键属性的稠密索引："><a href="#用B-树建立键属性的稠密索引：" class="headerlink" title="用B+树建立键属性的稠密索引："></a>用B+树建立键属性的稠密索引：</h3><p>·     索引字段是主文件的主键，索引是稠密的，主文件可以按照主键排序，也可也不按照主键排序，指针指向的是记录。</p>
+<p><img src="clip_image604.jpg" alt="img"></p>
+<h3 id="B-树建立稀疏索引："><a href="#B-树建立稀疏索引：" class="headerlink" title="B+树建立稀疏索引："></a>B+树建立稀疏索引：</h3><p>·     索引字段是指向的数据块。</p>
+<p><img src="clip_image606.jpg" alt="img"></p>
+<h3 id="B-树建立非键属性稠密索引："><a href="#B-树建立非键属性稠密索引：" class="headerlink" title="B+树建立非键属性稠密索引："></a>B+树建立非键属性稠密索引：</h3><p>·     索引字段是主文件的非键属性，索引是稠密的，主文件按照<strong>非键属性排序</strong></p>
+<p>·     索引文件的索引字段是无重复的，指针指向的是记录</p>
+<p>·     然后再磁盘块上顺序访问，直到访问到不同属性的记录</p>
+<p><img src="clip_image608.jpg" alt="img"></p>
+<h3 id="B-树建立非键属性的稠密索引："><a href="#B-树建立非键属性的稠密索引：" class="headerlink" title="B+树建立非键属性的稠密索引："></a>B+树建立非键属性的稠密索引：</h3><p>·     索引字段是非键属性，主文件不按照此非键属性排序</p>
+<p>·     索引文件的索引字段是有重复的，指针指向的是记录。</p>
+<p>·     B+树中就会有多个重复索引</p>
+<p><img src="clip_image610.jpg" alt="img"></p>
+<h3 id="B-树的节点键值插入与节点分裂过程示意："><a href="#B-树的节点键值插入与节点分裂过程示意：" class="headerlink" title="B+树的节点键值插入与节点分裂过程示意："></a>B+树的节点键值插入与节点分裂过程示意：</h3><p><img src="clip_image612.jpg" alt="img"></p>
+<p><img src="clip_image614.jpg" alt="img"></p>
+<p><img src="clip_image616.jpg" alt="img"></p>
+<h2 id="B-树分裂的条件："><a href="#B-树分裂的条件：" class="headerlink" title="B+树分裂的条件："></a>B+树分裂的条件：</h2><p>·     当节点全满的时候就需要分裂</p>
+<p>·     由叶子节点像根节点逐层处理</p>
+<p>o  自动保持与主文件大小相适应的树的层次</p>
+<p>o  每个索引块的指针利用率都在50%-100%</p>
+<p>·     指针要指向正确的块。</p>
+<h3 id="B-树键值删除的过程："><a href="#B-树键值删除的过程：" class="headerlink" title="B+树键值删除的过程："></a>B+树键值删除的过程：</h3><p><strong>无需合并</strong></p>
+<p><img src="clip_image618.jpg" alt="img"></p>
+<h2 id="需要合并"><a href="#需要合并" class="headerlink" title="需要合并"></a>需要合并</h2><p><img src="clip_image620.jpg" alt="img"></p>
+<p><img src="clip_image622.jpg" alt="img"></p>
+<p><img src="clip_image624.jpg" alt="img"></p>
+<h2 id="B-树删除键值规则："><a href="#B-树删除键值规则：" class="headerlink" title="B+树删除键值规则："></a>B+树删除键值规则：</h2><p>·     当指针数目少于规定数目</p>
+<p>·     由叶节点向根节点逐层处理</p>
+<p>·     指针的调整：调整指针指向正确的位置</p>
+<h2 id="B树："><a href="#B树：" class="headerlink" title="B树："></a>B树：</h2><p>·     索引字段值仅出现一次或者在叶节点或者非叶节点</p>
+<p>·     指向主文件的指针出现于叶节点或非叶节点（中间查询到了就直接退出）</p>
+<p>·     所有节点才能覆盖所有键值的索引</p>
+<p><img src="clip_image626.jpg" alt="img"></p>
+<p>B树索引块和属性块的个数求法：</p>
+<p>已知存储块大小为4096字节，在整型属性(一个整型数值占有4个字节)上建立B树索引，一个指针占有8个字节，则该非叶结点存储块最多能有<strong>__</strong>个索引项和<strong>__</strong>个指针。</p>
+<p>设属性格式为n</p>
+<p>4n+8(2n+2)&lt;=4096</p>
+<p>n=204， 410；</p>
+<h2 id="散列索引："><a href="#散列索引：" class="headerlink" title="散列索引："></a>散列索引：</h2><p><strong>散列：</strong></p>
+<p>·     有M个桶，每个桶都是有相同容量的存储地（可以是内存页，也可以是磁盘块）。</p>
+<p>·     散列函数h(k)，可以将键值k映射到{0，1，…., M-1}中的某一个值。</p>
+<p>·     将具有键值k的记录，存储在编号k的桶中。</p>
+<p><strong>目标：</strong></p>
+<p>·     选择一个合适的散列函数，将record集合中的每一个关键字k均匀映射到M个桶中。</p>
+<p><strong>散列索引：</strong></p>
+<p>·     内存数据可以采用散列确定存储页，主文件可以采用散列确定存储块，索引也可以采用散列确定索引项的存储块。</p>
+<p>·     M个桶，一个桶可以是一个存储块，也可以是若干个连续的存储块。</p>
+<p><img src="clip_image628.jpg" alt="img"></p>
+<p><strong>散列索引的目标：</strong></p>
+<p>·     最好没有溢出桶，每个散列值仅有一个桶，读写每一个键值都只读写一个存储块。</p>
+<p><strong>均匀分布：</strong></p>
+<p>·     设置合理的散列函数，使得每个桶的数据成为具有某种特征值h(k)的数据的集合</p>
+<p><strong>桶的数目M的确定：</strong></p>
+<p>·     当键值多余数倍的桶的数目时，每个散列值都可能多于一个桶，形成一个主桶和多个溢出桶的列表，此时需要二次检索，先散列找到主桶号，然后根据链表逐一找到每一个溢出桶。</p>
+<p>一趟扫描算法</p>
+<p>2020年6月26日</p>
+<p>14:49</p>
+<h2 id="数据库的三大类操作"><a href="#数据库的三大类操作" class="headerlink" title="数据库的三大类操作"></a>数据库的三大类操作</h2><p>·     一次单一元组的操作：Select，Project</p>
+<p>·     整个关系的一元操作：Distince, Group By, Sorting</p>
+<p>·     整个关系的二元操作：</p>
+<p>o  集合上的操作：交、并、差</p>
+<p>o  包上的操作：交、并、差</p>
+<p>o  积、连接：Project，Join</p>
+<h2 id="连接操作的逻辑实现算法："><a href="#连接操作的逻辑实现算法：" class="headerlink" title="连接操作的逻辑实现算法："></a>连接操作的逻辑实现算法：</h2><h3 id="逻辑算法："><a href="#逻辑算法：" class="headerlink" title="逻辑算法："></a>逻辑算法：</h3><p><img src="clip_image630.jpg" alt="img"></p>
+<h3 id="物理算法的考量："><a href="#物理算法的考量：" class="headerlink" title="物理算法的考量："></a>物理算法的考量：</h3><p>·     关系是存储在磁盘上的，磁盘是以磁盘块为操作单位的，首先要先被装载进内存中，然后再进行操作。</p>
+<p><img src="clip_image632.jpg" alt="img"></p>
+<p><strong>基本算法：</strong></p>
+<p>拆分成4层循环，外层是磁盘块的读写。</p>
+<p><img src="clip_image634.jpg" alt="img"></p>
+<p><strong>全主存实现算法：</strong></p>
+<p><img src="clip_image636.jpg" alt="img"></p>
+<p><img src="clip_image638.jpg" alt="img"></p>
+<p><strong>半主存实现算法：</strong></p>
+<p><img src="clip_image640.jpg" alt="img"></p>
+<p><img src="clip_image642.jpg" alt="img"></p>
+<p><strong>大关系实现算法：</strong></p>
+<p><img src="clip_image644.jpg" alt="img"></p>
+<p><img src="clip_image646.jpg" alt="img"></p>
+<p><img src="clip_image648.jpg" alt="img"></p>
+<p><img src="clip_image650.jpg" alt="img"></p>
+<h3 id="算法比较："><a href="#算法比较：" class="headerlink" title="算法比较："></a>算法比较：</h3><p><img src="clip_image652.jpg" alt="img"></p>
+<h2 id="迭代器构造查询实现算法："><a href="#迭代器构造查询实现算法：" class="headerlink" title="迭代器构造查询实现算法："></a>迭代器构造查询实现算法：</h2><p><img src="clip_image654.jpg" alt="img"></p>
+<h3 id="迭代器："><a href="#迭代器：" class="headerlink" title="迭代器："></a>迭代器：</h3><p>·     迭代的读取集合中的每一个元素，而封装其读取细节。</p>
+<p>定义了一个迭代器：</p>
+<p>·     包括Open，GetNext，Close三个函数</p>
+<p><strong>R**</strong>的迭代器**</p>
+<p><img src="clip_image656.jpg" alt="img"></p>
+<p><strong>Union**</strong>（R,S）**</p>
+<p><img src="clip_image658.jpg" alt="img"></p>
+<p><strong>Selection(R)</strong></p>
+<p><img src="clip_image660.jpg" alt="img"></p>
+<p><strong>Projection(Selection (R))</strong></p>
+<p><img src="clip_image662.jpg" alt="img"></p>
+<p><strong>Join**</strong>（R,S）:**</p>
+<p><img src="clip_image664.jpg" alt="img"></p>
+<h2 id="一趟扫描算法："><a href="#一趟扫描算法：" class="headerlink" title="一趟扫描算法："></a>一趟扫描算法：</h2><h3 id="关系的读取：完整的读取一个关系"><a href="#关系的读取：完整的读取一个关系" class="headerlink" title="关系的读取：完整的读取一个关系"></a>关系的读取：完整的读取一个关系</h3><p><img src="clip_image666.jpg" alt="img"></p>
+<p>·     聚簇关系：关系的元组集中存放</p>
+<p>o  TableScan（R）:表空间扫描算法</p>
+<p>·     扫描结果未排序：B( R )</p>
+<p>o  SortTableScan( R ):</p>
+<p>·     扫描结果排序：3B( R )</p>
+<p>·     非聚簇关系：关系的元组不一定集中存放</p>
+<p>o  扫描结果未排序：T（R）</p>
+<p>o  扫描结果排序：T（R）+2B （R）</p>
+<h3 id="去重操作："><a href="#去重操作：" class="headerlink" title="去重操作："></a>去重操作：</h3><p>·     需要内存中保存已处理的元组。</p>
+<p>·     当新元组到达时，需与之前处理过的元组进行比较。</p>
+<p>·     建立不同的内存数据结构，来保存之前处理过的数据，以便快速处理整个关系上的操作。</p>
+<p>·     复杂性：B( R )</p>
+<p>·     应用复杂性：B(&amp;( R )) &lt;=M</p>
+<p><img src="clip_image668.jpg" alt="img"></p>
+<h3 id="分组聚集："><a href="#分组聚集：" class="headerlink" title="分组聚集："></a>分组聚集：</h3><p>·     需要在内存中保存所有的分组</p>
+<p>·     保存每个分组上的聚集信息</p>
+<p>·     复杂性：B( R )</p>
+<p>·     应用复杂性：所有的分组数量应该能在内存中完整保存。</p>
+<p><img src="clip_image670.jpg" alt="img"></p>
+<h3 id="集合上的操作和包上的操作：交、并、差"><a href="#集合上的操作和包上的操作：交、并、差" class="headerlink" title="集合上的操作和包上的操作：交、并、差"></a>集合上的操作和包上的操作：交、并、差</h3><p>·     扫描一个关系，然后再扫描另一个关系</p>
+<p>·     集合上的操作还需要去重复，包上的操作需要计数每个元组出现的次数。</p>
+<p>·     复杂性：B(R )+ B(S )</p>
+<p>·     应用复杂性：min(B(R ), B(S ))&lt;=M</p>
+<p><img src="clip_image672.jpg" alt="img"></p>
+<h2 id="基于索引的选择算法："><a href="#基于索引的选择算法：" class="headerlink" title="基于索引的选择算法："></a>基于索引的选择算法：</h2><p>·     选择条件中有涉及到索引属性时，可以使用索引，辅助快速检索</p>
+<p>·     在某些属性上存在索引，可能在多个属性上都存在索引</p>
+<p><img src="clip_image674.jpg" alt="img"></p>
+<p><img src="clip_image676.jpg" alt="img"></p>
+<p><img src="clip_image678.jpg" alt="img"></p>
+<p>两趟扫描算法</p>
+<p>2020年6月27日</p>
+<p>7:24</p>
+<p>当内存远远小于元组的块数时，则需要两趟排序算法。</p>
+<p><strong>第一趟：</strong></p>
+<p>·     划分子集，并使得子集具有某种特性，如有序或相同散列值等。</p>
+<p><strong>第二趟：</strong></p>
+<p>·     处理全局性内容的操作，形成结果关系。如多子集间的归并排序，相同散列值子集的操作等。</p>
+<p>大数据集上的操作可否等于（子集上操作）的并集 ？</p>
+<p>例如：元组在某一子集上无重复即可 相当于在全集上无重复。</p>
+<h2 id="两阶段多路归并排序TPMMS："><a href="#两阶段多路归并排序TPMMS：" class="headerlink" title="两阶段多路归并排序TPMMS："></a>两阶段多路归并排序TPMMS：</h2><p>·     内排序问题：待排序数据可以一次性装入内存</p>
+<p>·     外排序问题：待排序数据不能一次性装入内存</p>
+<p>·     <img src="clip_image680.jpg" alt="img"></p>
+<p><img src="clip_image682.jpg" alt="img"></p>
+<p><img src="clip_image684.jpg" alt="img"></p>
+<p><img src="clip_image686.jpg" alt="img"></p>
+<p><img src="clip_image688.jpg" alt="img"></p>
+<p>·     <img src="clip_image690.jpg" alt="img"></p>
+<p>·     <img src="clip_image692.jpg" alt="img"></p>
+<p>算法的条件：</p>
+<p>·     <img src="clip_image694.jpg" alt="img"></p>
+<p>·     <img src="clip_image696.jpg" alt="img"></p>
+<p>·     <img src="clip_image698.jpg" alt="img"></p>
+<p><strong>当更大规模的数据集排序时，可采用多趟排序</strong></p>
+<p><img src="clip_image700.jpg" alt="img"></p>
+<p><img src="clip_image702.jpg" alt="img"></p>
+<h2 id="基于散列的两趟扫描算法："><a href="#基于散列的两趟扫描算法：" class="headerlink" title="基于散列的两趟扫描算法："></a>基于散列的两趟扫描算法：</h2><p>大数据集上的操作 可以转换为某个子集上的操作</p>
+<p>第一趟散列的目的是使数据子集具有某一种特性(如具有相同的散列值)，而第二趟散列的目的是提高数据处理的速度。</p>
+<p><img src="clip_image704.jpg" alt="img"></p>
+<h3 id="Dinstinct"><a href="#Dinstinct" class="headerlink" title="Dinstinct"></a>Dinstinct</h3><p><img src="clip_image706.jpg" alt="img"></p>
+<p><img src="clip_image708.jpg" alt="img"></p>
+<h3 id="分组计算"><a href="#分组计算" class="headerlink" title="分组计算"></a>分组计算</h3><p><img src="clip_image710.jpg" alt="img"></p>
+<p><img src="clip_image712.jpg" alt="img"></p>
+<h3 id="集合上的并、交、差"><a href="#集合上的并、交、差" class="headerlink" title="集合上的并、交、差"></a>集合上的并、交、差</h3><p><img src="clip_image714.gif" alt="这里写图片描述"></p>
+<p><img src="clip_image716.jpg" alt="img"></p>
+<h3 id="基于散列的连接操作"><a href="#基于散列的连接操作" class="headerlink" title="基于散列的连接操作"></a>基于散列的连接操作</h3><p><img src="clip_image718.jpg" alt="img"></p>
+<p><img src="clip_image720.jpg" alt="img"></p>
+<p>查询优化</p>
+<p>2020年6月27日</p>
+<p>10:39</p>
+<h2 id="查询优化："><a href="#查询优化：" class="headerlink" title="查询优化："></a>查询优化：</h2><p>·     语义优化：利用模型的语义以及完整性，优化查询</p>
+<p>·     语法优化：逻辑层优化，利用语法结构，优化操作执行顺序</p>
+<p>·     执行优化：物理层优化，存取路径和执行算法的选择与执行次序优化</p>
+<h2 id="逻辑优化、语法优化："><a href="#逻辑优化、语法优化：" class="headerlink" title="逻辑优化、语法优化："></a>逻辑优化、语法优化：</h2><p><strong>基本思想：</strong></p>
+<p>·     改变关系代数的操作次序，尽可能早做选择和投影</p>
+<p>·     关系代数的基本操作中哪些能交换次序</p>
+<p>·     次序改变前后两个表达式等价</p>
+<p>·     关系代数表达式等价变化定理</p>
+<h3 id="逻辑优化的策略："><a href="#逻辑优化的策略：" class="headerlink" title="逻辑优化的策略："></a>逻辑优化的策略：</h3><p>·     尽可能早做选择和投影：减少中间结果</p>
+<p>·     把选择与投影串联起来：只用做一次扫描</p>
+<p>·     把投影与前或后的二元运算结合起来：在用关系时去掉一些无关属性</p>
+<p>·     把某些选择与其前的笛卡尔积合并成一个连接：当RxS前有选择运算且其中有条件是R、S属性间相比较运算时，可将其转换为连接运算，可以节省时间。</p>
+<h2 id="物理优化、执行优化："><a href="#物理优化、执行优化：" class="headerlink" title="物理优化、执行优化："></a>物理优化、执行优化：</h2><p>为每个关系代数操作选取优化的执行层程序，形成物理查询计划</p>
+<p><strong>基本思想：</strong></p>
+<p>·     获取数据库的相关信息（定期统计）。</p>
+<p>·     选取相应的执行层例行程序。</p>
+<p>·     依据相关信息进行代价估算，并选择代价最少的例行程序以及确定相应的参数。</p>
+<h2 id="关系代数操作次序的等价性："><a href="#关系代数操作次序的等价性：" class="headerlink" title="关系代数操作次序的等价性："></a>关系代数操作次序的等价性：</h2><p>基本关系代数：并、差、积、选择、投影。</p>
+<p><img src="clip_image722.jpg" alt="img"></p>
+<p>（同名属性，顺序不同）</p>
+<p><strong>定理L1:连接与连接，积与积的交换律</strong></p>
+<p><strong>考虑把哪个关系装入内存</strong></p>
+<p><img src="clip_image724.jpg" alt="img"></p>
+<p><strong>定理L2：连接与连接，积与积的结合律</strong></p>
+<p><strong>考虑把哪个关系先计算</strong></p>
+<p><img src="clip_image726.jpg" alt="img"></p>
+<p><strong>定理L3：投影串接律</strong></p>
+<p>·     <strong>投影运算可以向下或向上移动</strong></p>
+<p>·     <strong>先做更多属性的投影，然后再做更少属性的投影，这时候更少属性的投影就没有意义了。</strong></p>
+<p><img src="clip_image728.jpg" alt="img"></p>
+<p><strong>定理L4：选择串接律</strong></p>
+<p><img src="clip_image730.jpg" alt="img"></p>
+<p><strong>定理L5：选择和投影交换律</strong></p>
+<p><strong>条件F需要只涉及投影的属性，如果不满足则需要扩展属性达到F中的全部属性</strong></p>
+<p><img src="clip_image732.jpg" alt="img"></p>
+<p><strong>定理L6：选择和积的交换律</strong></p>
+<p><strong>尽可能的早做选择</strong></p>
+<p><img src="clip_image734.jpg" alt="img"></p>
+<p><strong>定理L7：投影和积的交换律</strong></p>
+<p><img src="clip_image736.jpg" alt="img"></p>
+<p><strong>定理L8：选择和并的交换律</strong></p>
+<p><img src="clip_image738.jpg" alt="img"></p>
+<p><strong>定理L9：选择和差的交换律</strong></p>
+<p><img src="clip_image740.jpg" alt="img"></p>
+<p><strong>定理L9：投影和并的交换律</strong></p>
+<p><img src="clip_image742.jpg" alt="img"></p>
+<h2 id="关系代数查询优化算法："><a href="#关系代数查询优化算法：" class="headerlink" title="关系代数查询优化算法："></a>关系代数查询优化算法：</h2><p><img src="clip_image744.jpg" alt="img"></p>
+<p><strong>例子：</strong></p>
+<p><img src="clip_image746.jpg" alt="img"></p>
+<p><img src="clip_image748.jpg" alt="img"></p>
+<p>这一步的构造思路是把\Pi TITLE 和F3一起根据L3构造</p>
+<p><img src="clip_image750.jpg" alt="img"></p>
+<p><img src="clip_image752.jpg" alt="img"></p>
+<p><strong>乘积操作和其后选择操作构成连接</strong></p>
+<p><img src="clip_image754.jpg" alt="img"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><img src="clip_image756.jpg" alt="img"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>七、非SPJ优化</strong></p>
+<p>1.GROUP BY优化</p>
+<p>1) 分组转换技术：对分组操作、聚集操作与连接操作的位置进行交换</p>
+<p>a) 分组操作下移：GROUP BY操作可能较大幅度减少关系元组的个数，如果能够对某个关系先进行分组操作，然后再进行表之间的连接，很可能提高连接效率。这种优化方式是把分组操作提前执行。下移的含义，是在查询树上，让分组操作尽量靠近叶子节点，使得分组操作的节点低于一些选择操作。</p>
+<p>b) 分组操作上移：如果连接操作能够过滤掉大部分元组，则先进行连接操作，后进行GROUP BY操作，可能提高分组操作的效率。这种优化方式是把分组操作置后执行。上移的含义和下移相反。</p>
+<p>2) MySQL的GROUP BY优化：MySQL对于GROUP BY的处理，通常采用的方式是扫描整个表、创建一个临时表以执行分组操作。MySQL不支持分组转换技术。<strong>对于GROUP BY的优化，尽量利用索引。</strong></p>
+<p>利用索引的条件：分组子句中的列对象源自同一个BTREE索引(不支持利用HASH索引进行优化)的全部或前缀部分的部分有序的键(分组使用的索引列与索引建立的顺序不匹配则不能使用索引)。　　　　 </p>
+<p>2.ORDER BY优化</p>
+<p>ORDER BY 如果操作的列不是主键或索引等，会创建一个临时表(Using temporary、Using flesort)</p>
+<p>1) 排序消除：优化器在生成执行计划前，将语句中没有必要的排序操作消除(如利用索引)，避免在执行计划中出现排序操作或由排序导致的操作(如在索引列上排序，可以利用索引消除排序操作)</p>
+<p>2) 排序下推：把排序操作尽量下推到基表中，有序的基表进行连接后的结果符合排序的语义，这样能避免在最终的大的连接结果集上执行排序操作。</p>
+<p>3.DISTINCT优化</p>
+<p>DISTINCT操作的列，如果该列有索引(唯一性约束)或者为主键，则直接使用索引排序；否则会使用一张临时表(Using temporary)，先去重，再排序(可以看到输出结果是根据该列排好序的)。</p>
+<p>1) DISTINCT消除：如果表中存在主键、唯一约束、索引等，则可以消除查询语句中的DISTINCT </p>
+<p>2) DISTINCT推入：生成含DISTINCT的反半连接查询执行计划时，先进行反半连接再进行DISTINCT操作；也许先执行DISTINCT操作再执行反半连接，可能更优。</p>
+<p>3) DISTINCT迁移：对连接操作的结果执行DISTINCT，可能把DISTINCT移到一个子查询中优先进行</p>
+<p><strong>总结：GROUP BY / ORDER BY / DISTINCT 优化尽量利用索引、主键、唯一性约束，这样可以不创建临时表。</strong></p>
+<p>4.LIMIT优化</p>
+<p>1) LIMIT对单表扫描的影响：如果索引扫描可用且花费低于全表扫描，则用索引扫描实现LIMIT(LIMIT取出很少量的行，否则优化器更倾向于使用全表扫描)</p>
+<p>2) LIMIT对排序的影响：如果LIMIT和ORDER BY子句协同使用，当取到LIMIT设定个数的有序元组数后，后续的排序操作将不再进行。</p>
+<p>3) LIMIT对去重的影响：如果LIMIT和DISTINCT子句协同使用，当取到LIMIT设定个数的唯一元组数后，后续的去重操作将不再进行。</p>
+<p>4) LIMIT受分组的影响：如果LIMIT和GROUP BY子句协同使用，GROUP BY按索引有序计算每个组的总数的过程中，LIMIT操作不必计数直到下一个分组开始。</p>
+<p>5) LIMIT 0：直接返回空结果集。</p>
+<p>6) MYSQL支持对不带HAVING的子句进行优化。</p>
+<p>5.常见的一些优化规则</p>
+<p>1) 在索引键上执行排序操作，通常利用索引的有序性按序读取数据而不进行排序。</p>
+<p>2) 选择率低于10%时，利用索引的效果通常比读取表数据的效果好。</p>
+<p>3) 当表的数据量较少时，全表扫描可能优于其它方式(如索引)。</p>
+<p>来自 <a href="[*https://www.cnblogs.com/chiangchou/p/mysql-6.html*](https://www.cnblogs.com/chiangchou/p/mysql-6.html)">[*https://www.cnblogs.com/chiangchou/p/mysql-6.html*](https://www.cnblogs.com/chiangchou/p/mysql-6.html)</a></p>
+<h2 id="物理层查询优化："><a href="#物理层查询优化：" class="headerlink" title="物理层查询优化："></a>物理层查询优化：</h2><p>物理查询运算符</p>
+<p>·     获取关系元组的操作</p>
+<p>·     关系操作的各种实现算法</p>
+<p>·     迭代器构造—流水化、物化</p>
+<p><img src="clip_image758.jpg" alt="img"></p>
+<p>DBMS提供了一些命令用于收集这些信息，但是这些信息需要DBA进行手动的统计。</p>
+<p><img src="clip_image760.jpg" alt="img"></p>
+<p><img src="clip_image762.jpg" alt="img"></p>
+<h2 id="代价估算："><a href="#代价估算：" class="headerlink" title="代价估算："></a>代价估算：</h2><p><strong>投影运算的估计</strong></p>
+<p><img src="clip_image764.jpg" alt="img"></p>
+<p><strong>选择运算的估计</strong></p>
+<p><img src="clip_image766.jpg" alt="img"></p>
+<p><img src="clip_image768.jpg" alt="img"></p>
+<p><img src="clip_image770.jpg" alt="img"></p>
+<p><strong>连接运算：</strong></p>
+<p><img src="clip_image772.jpg" alt="img"></p>
+<p><strong>总结：</strong></p>
+<p><img src="clip_image774.jpg" alt="img"></p>
+<p>并发控制</p>
+<p>2020年6月27日</p>
+<p>17:22</p>
+<h2 id="事务处理技术"><a href="#事务处理技术" class="headerlink" title="事务处理技术"></a>事务处理技术</h2><p>·     事物是数据库管理系统提供的控制数据操作的一组手段，通过这一手段，应用程序员将一系列的数据库操作组合在一起作为一个整体进行操作和控制以便数据库管理系统能够提供一致性状态转换的保证</p>
+<h2 id="事务的宏观性："><a href="#事务的宏观性：" class="headerlink" title="事务的宏观性："></a>事务的宏观性：</h2><p>·     一个存取或改变数据库内容的程序的一次执行，或者说一条或多条SQL语句的一次执行被看作是一个事物</p>
+<p>·     事物一般由程序员提出，因此有开始和结束，结束前需要提交或者撤销</p>
+<h2 id="事务的微观性："><a href="#事务的微观性：" class="headerlink" title="事务的微观性："></a>事务的微观性：</h2><p>·     对数据库的一系列基本操作的整体执行</p>
+<h2 id="事务的特性：ACID-1"><a href="#事务的特性：ACID-1" class="headerlink" title="事务的特性：ACID"></a>事务的特性：ACID</h2><p>·     <strong>原子性</strong>：DBMS保证事务的一组更新操作是原子不可分的</p>
+<p>·     <strong>一致性：</strong>DBMS保证事务的操作状态是正确的，符合一致性的操作规则，不能出现三种典型的不一致性</p>
+<p>·     <strong>隔离性</strong>：BDMS保证并发执行的多个事务之间互相不受到影响</p>
+<p>·     <strong>持久性：</strong>DBMS保证已提交的事务的影响是持久的，而可撤销的事务影响是可恢复的</p>
+<p>具有ACID的一组操作被称为事务。</p>
+<h2 id="事务调度："><a href="#事务调度：" class="headerlink" title="事务调度："></a>事务调度：</h2><p>·     一组事务的基本步骤（读、写、其他控制操作如加锁、解锁）的一种执行顺序称为这组事务的一个调度，并发（或并行）调度：多个事务从宏观上看是并行的，但其微观上基本操作则是交叉执行的。</p>
+<h2 id="并发调度的正确性："><a href="#并发调度的正确性：" class="headerlink" title="并发调度的正确性："></a>并发调度的正确性：</h2><p>·     当且仅当一个并发调度下 得到的新数据库结果与分别串行运行这些事务得到的结果一致</p>
+<h2 id="可串行性："><a href="#可串行性：" class="headerlink" title="可串行性："></a>可串行性：</h2><p>·     如果不管数据库的初始状态如何，一个调度对数据库的状态影响都和某个串行调度相同，则我们说这个调度是可串行化的。</p>
+<p>·     <strong>可串行化调度一定是正确的并行调度，但是正确的并行调度不一定都是可串行化的调度。</strong></p>
+<p>·     <strong>并行调度的正确性是结果上的，不考虑过程如何。而可串行性是指形式上的正确性。</strong></p>
+<h2 id="冲突："><a href="#冲突：" class="headerlink" title="冲突："></a>冲突：</h2><p>·     调度中一对连续的工作，如果他们满足：顺讯交换，那么涉及的事务至少有一个事务的行为会改变。</p>
+<p>o  同一个事务的任何两个操作都是冲突的。</p>
+<p><img src="clip_image776.jpg" alt="img"></p>
+<p>o  不同事物对同一个元素的两个写操作是冲突的。</p>
+<p><img src="clip_image778.jpg" alt="img"></p>
+<p>o  不同事物对同一个元素的一读一写是冲突的。</p>
+<p><img src="clip_image780.jpg" alt="img"></p>
+<h2 id="冲突可串行性："><a href="#冲突可串行性：" class="headerlink" title="冲突可串行性："></a>冲突可串行性：</h2><p>·     如果一个调度，通过交换相邻两个无冲突的操作哦能够转换到某一个串行调度，则称此调度为冲突可串行化调度。</p>
+<p>·     <strong>冲突可串行新是比可串行性更严格的概念</strong></p>
+<p>·     <strong>满足冲突可串行性一定满足可串行性，反之不然</strong></p>
+<p><img src="clip_image782.jpg" alt="img"></p>
+<h2 id="冲突可串行性的判别算法："><a href="#冲突可串行性的判别算法：" class="headerlink" title="冲突可串行性的判别算法："></a>冲突可串行性的判别算法：</h2><p>·     构造一个前驱图</p>
+<p>·     <img src="clip_image784.jpg" alt="img"></p>
+<p>·     测试检查：如果此有向图没有环，则冲突是可串行化的</p>
+<p><img src="clip_image786.jpg" alt="img"></p>
+<h2 id="基于封锁的控制并发手段："><a href="#基于封锁的控制并发手段：" class="headerlink" title="基于封锁的控制并发手段："></a>基于封锁的控制并发手段：</h2><p>锁 是一种控制并发的手段：</p>
+<p>·     每一个数据元素都有唯一的锁</p>
+<p>·     每一事务读写数据元素前，要获得所</p>
+<p>·     如果被其他事务持有元素的锁，则要等待</p>
+<p>·     事务处理完之后要释放锁。</p>
+<p>锁 本身不能保证冲突可串行性</p>
+<p>锁 为调度提供了控制的手段，但如何用锁仍需要说明</p>
+<h2 id="锁的类型："><a href="#锁的类型：" class="headerlink" title="锁的类型："></a>锁的类型：</h2><p>·     排他锁：</p>
+<p>o  只有一个事务可以读、写，其他任何事务都能不能对该事务进行读、写</p>
+<p>·     共享锁：</p>
+<p>o  所有事务可以读，但任何事务都不能写。</p>
+<p>·     更新锁：</p>
+<p>o  初始读，以后升级为可写</p>
+<p>·     增量锁I</p>
+<p>o  增量更新，例如A=A+x</p>
+<p>o  区分增量更新和其他类型的更新</p>
+<p><img src="clip_image788.jpg" alt="img"></p>
+<p><img src="clip_image788.jpg" alt="img"></p>
+<h2 id="0级协议：加锁、解锁的时机"><a href="#0级协议：加锁、解锁的时机" class="headerlink" title="0级协议：加锁、解锁的时机"></a>0级协议：加锁、解锁的时机</h2><p><img src="clip_image790.jpg" alt="img"></p>
+<h2 id="1级协议："><a href="#1级协议：" class="headerlink" title="1级协议："></a>1级协议：</h2><p><img src="clip_image792.jpg" alt="img"></p>
+<h2 id="2级协议："><a href="#2级协议：" class="headerlink" title="2级协议："></a>2级协议：</h2><p><img src="clip_image794.jpg" alt="img"></p>
+<h2 id="3级协议："><a href="#3级协议：" class="headerlink" title="3级协议："></a>3级协议：</h2><p><img src="clip_image796.jpg" alt="img"></p>
+<h2 id="SQL隔离性级别："><a href="#SQL隔离性级别：" class="headerlink" title="SQL隔离性级别："></a>SQL隔离性级别：</h2><p>·     读未提交：0级协议</p>
+<p>·     读已提交：1级协议</p>
+<p>·     可重复读：2级协议</p>
+<p>·     可串行化：3级协议</p>
+<p><img src="clip_image798.jpg" alt="img"></p>
+<p>幻读：</p>
+<p><img src="clip_image800.jpg" alt="img"></p>
+<h2 id="封锁粒度："><a href="#封锁粒度：" class="headerlink" title="封锁粒度："></a>封锁粒度：</h2><p>·     封锁粒度：是指封锁数据对象的大小</p>
+<p>·     粒度单位：属性值-元组-元组集合-整个关系-整个DB-某个索引项-整个索引</p>
+<p>·     由前往后：并发度小，封锁开销小</p>
+<h2 id="两段封锁协议："><a href="#两段封锁协议：" class="headerlink" title="两段封锁协议："></a>两段封锁协议：</h2><p>·     <strong>读写数据之前都要获得锁</strong>，每个事物中所有的封锁请求都要先于任何一个解锁请求</p>
+<p>·     两阶段：加锁段，解锁段，加锁段中不能有解锁操作，解锁段中不能有加锁操作。</p>
+<p><img src="clip_image802.jpg" alt="img"></p>
+<p><img src="clip_image804.jpg" alt="img"></p>
+<h2 id="基于时间戳的并发控制方法："><a href="#基于时间戳的并发控制方法：" class="headerlink" title="基于时间戳的并发控制方法："></a>基于时间戳的并发控制方法：</h2><p><strong>时间戳：</strong></p>
+<p>·     一种基于时间的标志，将某一时刻转换成的一个数值。</p>
+<p>·     时间戳具有唯一性和传递性。</p>
+<p><strong>事务的时间戳：</strong></p>
+<p>·     事务T启动时，系统将该时时刻赋予为T</p>
+<p>·     时间戳可以表征一系列事物执行的先后次序，时间戳小的事务先执行，时间戳大的事务后执行</p>
+<p>·     利用时间戳，可以不用锁，来实现并发控制。</p>
+<h2 id="基于时间戳的并发控制："><a href="#基于时间戳的并发控制：" class="headerlink" title="基于时间戳的并发控制："></a>基于时间戳的并发控制：</h2><p>·     借助时间戳，强制使得一组并发事务交叉执行，等价于一个特定顺序的串行执行</p>
+<p>·     特定顺序：时间戳由小到大</p>
+<p>·     如何强制：执行时判断冲突</p>
+<p>o  如果没有冲突，允许执行</p>
+<p>o  如有冲突，则撤销事务，并重启该事务，此时该事务获得了一个更大时间戳，表明是后执行的事务。</p>
+<p>·     冲突类型：</p>
+<p>o  读-读：无冲突</p>
+<p>o  读-写或者写-读冲突</p>
+<p>o  写-写冲突</p>
+<h2 id="调度规则"><a href="#调度规则" class="headerlink" title="调度规则:"></a>调度规则:</h2><p><strong>核心规则：先执行的先操作</strong></p>
+<p>对DB中的每个数据元素x，系统个保留其上最大时间戳</p>
+<p>·     RT(X)：读过该数据事务中的最大时间戳，即最后读x的事务时间戳</p>
+<p>·     WT(X)：写过该数据事务中的最大时间戳，即最后写x的事务时间戳</p>
+<p>·     TS(T)：事务的时间线</p>
+<p><img src="clip_image806.jpg" alt="img"></p>
+<p><img src="clip_image808.jpg" alt="img"></p>
+<p><img src="clip_image810.jpg" alt="img"></p>
+<p><img src="clip_image812.jpg" alt="img"></p>
+<p>以上规则不能解决：</p>
+<p>·     脏读：读的数据被撤销</p>
+<p>·     托马斯写：先写的事务被后写的覆盖</p>
+<h2 id="调度规则2："><a href="#调度规则2：" class="headerlink" title="调度规则2："></a>调度规则2：</h2><p><img src="clip_image814.jpg" alt="img"></p>
+<p><img src="clip_image816.jpg" alt="img"></p>
+<p><img src="clip_image818.jpg" alt="img"></p>
+<p><img src="clip_image820.jpg" alt="img"></p>
+<h2 id="基于有效性确认的并发控制方法："><a href="#基于有效性确认的并发控制方法：" class="headerlink" title="基于有效性确认的并发控制方法："></a>基于有效性确认的并发控制方法：</h2><p>·     事务在启动时刻被赋予唯一的时间戳，以示其启动顺序</p>
+<p>·     为每一个活跃事务保存其读写数据的集合，RS(T)：事务T读数据集合，WS(T)：事务T写数据集合</p>
+<p>·     通过对多个事务的读写集合，判断是否有冲突，即有效性确认，来完成事务的提交和回滚，强制事务以可串行化的方式执行。</p>
+<h3 id="基于有效性确认的调度器："><a href="#基于有效性确认的调度器：" class="headerlink" title="基于有效性确认的调度器："></a>基于有效性确认的调度器：</h3><p>·     事务在启动时刻被赋予唯一的时间戳，以示其启动顺序</p>
+<p>·     为每一个活跃事务保存其读写数据的集合，RS(T)：事务T读数据集合，WS(T)：事务T写数据集合</p>
+<p>·     事务分为三个阶段：</p>
+<p>o  读阶段：事务从数据库中读取集合中所有的元素，事务还在局部地址空间计算它要写的所有值</p>
+<p>o  有效性确认：调度器通过比价该事务与其他事务的读写集合来确认该事务的有效性</p>
+<p>o  写阶段：事务往数据库中写入其集合中的元素的值</p>
+<p>·     调度器维护三个集合：</p>
+<p>o  START：已经开始但尚未完成有效性确认的事务集合。对此中的事务，调度器维护START（T），即事务的开始时间</p>
+<p>o  VAL：已经确认有效性但尚未完成第三阶段的写事务，对此中的事务，调度器维护START（T）和VAL（T），即T的确认时间</p>
+<p>o  FIN：已经完成第三阶段写任务的事务，对这样的事务T，调度器记录START（T）,VAL(T)，FIN（T），即T的完成时间。</p>
+<p><strong>冲突一：T启动之前，U没有完成，则需要检查U和T是否有读写交集</strong></p>
+<p><img src="clip_image822.jpg" alt="img"></p>
+<p><strong>冲突二：T有效确认之前，U没有完成，则需要检查是否有两个写的交集</strong></p>
+<p><img src="clip_image824.jpg" alt="img"></p>
+<h2 id="有效性确认："><a href="#有效性确认：" class="headerlink" title="有效性确认："></a>有效性确认：</h2><p><img src="clip_image826.jpg" alt="img"></p>
+<p><img src="clip_image828.jpg" alt="img"></p>
+<p>数据库故障类型及其影响</p>
+<p>2020年6月29日</p>
+<p>13:53</p>
+<h2 id="数据库的故障及其影响："><a href="#数据库的故障及其影响：" class="headerlink" title="数据库的故障及其影响："></a>数据库的故障及其影响：</h2><p>·     事务故障</p>
+<p>o  某一个程序自身故障</p>
+<p>o  影响该程序事务本身</p>
+<p>·     系统故障</p>
+<p>o  由于掉电、非正常关机所引起的故障</p>
+<p>o  影响正在运行的事务以及数据库缓存区</p>
+<p>·     介质故障</p>
+<p>o  由于介质损坏所引起的故障</p>
+<p>o  影响是全面的，即影响内存中的数据，又影响介质中存储的数据</p>
+<h2 id="数据库故障恢复"><a href="#数据库故障恢复" class="headerlink" title="数据库故障恢复"></a>数据库故障恢复</h2><p>·     把数据库由当前不正确状态恢复到正确状态</p>
+<p>·     需要保证事务的：</p>
+<p>o  原子性</p>
+<p>o  持久性</p>
+<h2 id="事务故障的恢复："><a href="#事务故障的恢复：" class="headerlink" title="事务故障的恢复："></a>事务故障的恢复：</h2><p>·     事务故障可通过重做事务，撤销事务来恢复</p>
+<h2 id="系统故障的恢复："><a href="#系统故障的恢复：" class="headerlink" title="系统故障的恢复："></a>系统故障的恢复：</h2><p>·     运行日志是DBMS维护的一个文件，该文件以流水的方式记录了每一个事务对数据库的每一层操作及其操作顺序</p>
+<p>·     运行日志直接写入介质存储</p>
+<p>·     当事务对数据进行操作时：先写运行日志，写成功之后再与数据库缓冲区进行数据交换。</p>
+<p>·     系统故障可以通过运行日志来恢复：</p>
+<p>o  按照运行日志记录的事务操作顺序来重做事务</p>
+<h3 id="检查点："><a href="#检查点：" class="headerlink" title="检查点："></a>检查点：</h3><p>·     在检查点时刻，DBMS强制使用内存DBBuffer中的内容与介质DB中的内容保持一致，即将DB Buffer更新的所有内容写回DB中</p>
+<p>·     检查点表征了：在检查点之前内存数据与介质中数据是保持一致的。</p>
+<h3 id="系统故障的恢复：-1"><a href="#系统故障的恢复：-1" class="headerlink" title="系统故障的恢复："></a>系统故障的恢复：</h3><p>·     检查点之前结束的事务不需要恢复</p>
+<p>·     检查点之后结束或发生的事务需要依据运行日志进行恢复（不能确定是否写回DB）：故障点前结束的重做，故障点时刻未结束的撤销。</p>
+<h2 id="介质故障的恢复："><a href="#介质故障的恢复：" class="headerlink" title="介质故障的恢复："></a>介质故障的恢复：</h2><p>·     副本：</p>
+<p>o  在某一时刻，对数据库在其他介质存储上产生另一份等同的记录，在问题发生时，用副本数据替换。</p>
+<p>·     构建转储点：</p>
+<p>o  用副本替换被破话的数据库</p>
+<p>o  由于介质故障影响全面，在用副本恢复之后还需要依据运行认知进行恢复。</p>
+<p>·     如何确认转储点：</p>
+<p>o  过频：影响系统工作效率，过疏，会造成运行日志过大 ，也影响系统运行性能</p>
+<p>o  备份转储周期与运行日志的大小密切相关，应注意防止衔接不畅而引起的漏洞。</p>
+<p><img src="clip_image830.jpg" alt="img"></p>
+<h2 id="日志："><a href="#日志：" class="headerlink" title="日志："></a>日志：</h2><p>·     每个事务都会写或者读一些元素</p>
+<p>·     <img src="clip_image832.jpg" alt="img"></p>
+<p>·     一个包含日志记录的只能追加的顺序文件，不同事务的日志记录交错存储，按发生时间存储</p>
+<p>·     发生系统故障，使用日志进行恢复</p>
+<p>o  故障时已提交的事务，重做</p>
+<p>o  故障时未提交的事务，撤销</p>
+<p>·     日志记录的信息：</p>
+<p>o  <img src="clip_image834.jpg" alt="img"></p>
+<p>·     DBMS需要保证事务的持久性、原子性：</p>
+<p>o  持久性：已提交的事务—在缓冲区里的内容要写回磁盘，未提交的事务—缓存区内容不能影响磁盘</p>
+<p>·     三种日志：Undo日志、Redo日志、Undo/Redo日志</p>
+<h3 id="缓冲区处理策略："><a href="#缓冲区处理策略：" class="headerlink" title="缓冲区处理策略："></a>缓冲区处理策略：</h3><p>·     Force：内存中的数据最晚在commit时候写入磁盘</p>
+<p>·     No steal：不允许事务在commit之前把内存中的数据写入磁盘</p>
+<p>·     No Force：内存中的数据可以一直保留，在commit之后过一段时间再写入磁盘</p>
+<p>·     Steal：允许事务在commit之前把内存的数据写入磁盘。</p>
+<h3 id="缓冲区处理策略与日志-恢复策略的关系："><a href="#缓冲区处理策略与日志-恢复策略的关系：" class="headerlink" title="缓冲区处理策略与日志/恢复策略的关系："></a>缓冲区处理策略与日志/恢复策略的关系：</h3><p><img src="clip_image836.jpg" alt="img"></p>
+<h2 id="Undo型日志和其故障恢复："><a href="#Undo型日志和其故障恢复：" class="headerlink" title="Undo型日志和其故障恢复："></a>Undo型日志和其故障恢复：</h2><p><img src="clip_image838.jpg" alt="img"></p>
+<p><img src="clip_image840.jpg" alt="img"></p>
+<p><strong>从后往前</strong></p>
+<p><img src="clip_image842.jpg" alt="img"></p>
+<h3 id="检查点：-1"><a href="#检查点：-1" class="headerlink" title="检查点："></a>检查点：</h3><p>·     静止检查点：周期性对日志设置检查点</p>
+<p>o  停止接受新的事务，等待所有当前活跃事务提交或终止，并在日志中写入了COMMIT或ABORT记录后</p>
+<p>o  将日志刷新到磁盘，写入日志记录<CKPT>，并再次刷新日志。</p>
+<p>o  <img src="clip_image844.jpg" alt="img"></p>
+<p>·     非静止检查点：</p>
+<p>o  在设置时不需要关闭系统个，运行新事务进入</p>
+<p>o  写入一条<START CKPT(T1,…Tk)>，其中T1,….Tk是所有活跃的未结束的事务</p>
+<p>o  继续正常的操作，知道T1,….Tk都完成时候，写入<END CKPT></p>
+<p>o  <img src="clip_image846.jpg" alt="img"></p>
+<h2 id="Redo型日志和其故障恢复："><a href="#Redo型日志和其故障恢复：" class="headerlink" title="Redo型日志和其故障恢复："></a>Redo型日志和其故障恢复：</h2><p><img src="clip_image848.jpg" alt="img"></p>
+<p><strong>先提交在输出，还是先输出再提交，就是Redo和Undo日志的区别**</strong>1<strong>**，Redo记录的更新后的新值，Undo记录的是更新前的值</strong></p>
+<p><img src="clip_image850.jpg" alt="img"></p>
+<p><img src="clip_image852.jpg" alt="img"></p>
+<p><strong>从前往后</strong></p>
+<p><img src="clip_image854.jpg" alt="img"></p>
+<h3 id="非静止检查点："><a href="#非静止检查点：" class="headerlink" title="非静止检查点："></a>非静止检查点：</h3><p>·     通过End CKPT找到找到START CKPT然后进行Redo</p>
+<p><img src="clip_image856.jpg" alt="img"></p>
+<h2 id="Undo-Redo结合型日志极其故障恢复："><a href="#Undo-Redo结合型日志极其故障恢复：" class="headerlink" title="Undo/Redo结合型日志极其故障恢复："></a>Undo/Redo结合型日志极其故障恢复：</h2><p><img src="clip_image858.jpg" alt="img"></p>
+<p><img src="clip_image860.jpg" alt="img"></p>
+<p><img src="clip_image862.jpg" alt="img"></p>
+<p><img src="clip_image864.jpg" alt="img"></p>
+<p><strong>先撤销再重做</strong></p>
+<p><img src="clip_image866.jpg" alt="img"></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Raymond Luo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.rman.top/2020/07/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/">https://www.rman.top/2020/07/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.rman.top" target="_blank">RMan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="http://image.rman.top/blog20201213153038.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/07/08/bioinfo/"><img class="prev_cover" src="https://images.pexels.com/photos/3689772/pexels-photo-3689772.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">生物信息学复习提纲</div></div></a></div><div class="next-post pull_right"><a href="/2020/06/23/Finally-Meet-My-Girl/"><img class="next_cover" src="http://image.rman.top/20200623214520.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Finally Meet My Girl</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: '8Wh5fbiJUnFviwNhxnzhodpz-9Nh9j0Va',
+  appKey: '0tzdCgIUr5gsLlSoPwrrKRXe',
+  notify: true,
+  verify: false,
+  placeholder: 'Please leave your footprints',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-CN',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: "",
+  enableQQ: false,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Raymond Luo</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>粤ICP备20032004号</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body></html>
