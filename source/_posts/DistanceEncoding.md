@@ -5,7 +5,7 @@ tags:
 	- 图神经网络
 categories:
 	- 论文笔记
-cover: http://image.rman.top/blogclip_image001.png
+cover: http://image.rman.top/blogimage-20201113224654272.png
 mathjax: false
 typora-copy-images-to: upload
 ---
@@ -14,11 +14,11 @@ typora-copy-images-to: upload
 
 - 传统GNN会被1-WL     test 所限制。因为节点都是以度进行区分的。
 - 核心问题：节点分类或者连接预测并不是同构问题，但是GNN是基于WL-test的所以必须要给节点引入特征。
-![(a)  (b)  WLGNN-p to S, A), S = p  Initialize: Forallu € V, = Aut,  For layersl = 0, 1, ...,L 1 andallt,' V, do:  h(l+l)  fl (hĺ,l) , , ))  Output F(T) = }ues) ](http://image.rman.top/blogclip_image001.png)
+![image-20210220115605821](https://image.rman.top/blog20210220115605.png)
 - 传统的WLtest会根据节点的度来区分节点，就会导致无法区分结构信息
-![Suppose we query these two red node. Can WL-GNNs  distinguish them within 2 layer? Forget about node attributes  first as we focus on distinguishing structures! ](http://image.rman.top/blogclip_image002.png)
+![image-20210220115734405](https://image.rman.top/blog20210220115734.png)
 - 在这里做两层卷积会导致节点信息都是相同，无法直接区分两个节点之间是否有连边。
-![Suppose we query two node-pairs uw and uv. Can WL-GNNs  distinguish them?  E_nmple from GNN ("L'lgl ](http://image.rman.top/blogclip_image003.png)
+![image-20210220115706653](https://image.rman.top/blog20210220115706.png)
 - 全图分类会有无法区分
 ![Suppose we query two entire graphs. Can WLGNNs distinguish them? ](http://image.rman.top/blogclip_image004.png)
 
@@ -28,7 +28,7 @@ typora-copy-images-to: upload
 
 ![Suppose we query these two red node. Can WL-GNNs  distinguish them within 2 layer? ](http://image.rman.top/blogclip_image005.png)
 
-![VI  DE-I  DE-I = 12)  layers are enough!  rooted at  the black ](http://image.rman.top/blogclip_image006.png)
+![image-20210220115813584](https://image.rman.top/blog20210220115813.png)
 
 - 同时也可以解决链接预测的问题。对每个pair都对图中的所有节点算最短距离。
 
