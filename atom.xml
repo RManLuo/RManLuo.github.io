@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rman.top/"/>
-  <updated>2021-02-06T17:57:10.324Z</updated>
+  <updated>2021-02-20T04:16:53.869Z</updated>
   <id>https://www.rman.top/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Happy New Year</title>
+    <link href="https://www.rman.top/2021/02/20/Happy-New-Year/"/>
+    <id>https://www.rman.top/2021/02/20/Happy-New-Year/</id>
+    <published>2021-02-20T04:09:34.000Z</published>
+    <updated>2021-02-20T04:16:53.869Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://image.rman.top/blog20210220121420.png" alt="image-20210220121313714"></p><p><img src="https://image.rman.top/blog20210220121421.png" alt="image-20210220121323019"></p><p><img src="https://image.rman.top/blog20210220121422.png" alt="image-20210220121330408"></p><p><img src="https://image.rman.top/blog20210220121423.png" alt="image-20210220121340419"></p><p><img src="https://image.rman.top/blog20210220121424.png" alt="image-20210220121345967"></p><p><img src="https://image.rman.top/blog20210220121425.png" alt="image-20210220121350877"></p><p><img src="https://image.rman.top/blog20210220121426.png" alt="image-20210220121357021"><br><img src="https://image.rman.top/blog20210220121427.png" alt="image-20210220121401704"></p><p><img src="https://image.rman.top/blog20210220121428.png" alt="image-20210220121404960"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://image.rman.top/blog20210220121420.png&quot; alt=&quot;image-20210220121313714&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.rman.top/blog20210
+      
+    
+    </summary>
+    
+    
+      <category term="杂记" scheme="https://www.rman.top/categories/%E6%9D%82%E8%AE%B0/"/>
+    
+    
+      <category term="Girl" scheme="https://www.rman.top/tags/Girl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Heterogeneous Graph Structure Learning for Graph Neural Networks</title>
+    <link href="https://www.rman.top/2021/02/20/HGSL/"/>
+    <id>https://www.rman.top/2021/02/20/HGSL/</id>
+    <published>2021-02-20T03:29:41.000Z</published>
+    <updated>2021-02-20T03:47:35.284Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="motivation"><a class="markdownIt-Anchor" href="#motivation"></a> Motivation：</h1><p>现有的异构图学习中一些图的结构是不好的，不利于下游任务，比如在user-item的异构图中，用户可能会点击一些无用的item，从而给异构图表示学习带来一些噪声。</p><p>现有有的一些图结构表示学习的方法，通过把邻接矩阵参数化，学习更好的邻接矩阵用于下游任务。但是他们都是用于同构图的方法。</p><p>本文提出了GSL框架，通过考虑三种不同的图结构：特征相似图，特征传播图，和语义图来学习更好的图结构用于下游任务。</p><h1 id="approach"><a class="markdownIt-Anchor" href="#approach"></a> Approach：</h1><p><img src="https://image.rman.top/blog20210220114030.png" alt="image-20210220114030632" /></p><h2 id="特征相似图"><a class="markdownIt-Anchor" href="#特征相似图"></a> 特征相似图：</h2><p>通过在节点之间的特征上用度量学习的方法，学习节点之间的相似度，构成相似度矩阵。</p><p><img src="https://image.rman.top/blog20210220114140.png" alt="image-20210220114140320" /></p><p><img src="https://image.rman.top/blog20210220114148.png" alt="image-20210220114148339" /></p><h2 id="特征传播图"><a class="markdownIt-Anchor" href="#特征传播图"></a> 特征传播图：</h2><p>特征转播图通过特征与拓扑之间的交互来生成图结构，特征之间的相似度是可以传播的。我们通过一个例子来更好的理解。例如，考虑生成用户和电影之间的潜在图结构，存在这样一种图结构生成方式：如果用户U1 看过电影M1，且M1和M2相似，那么用户U1可能对M2感兴趣即和节点存在潜在边。上述潜在的图结构可以分两步构建：得到特征相似的节点对（找到相似的电影M1和M2），随后用拓扑结构传播（通过U1的观影历史得到可能感兴趣的电影M2）。HGSL 也通过上述两步过程来得到特征传播图。</p><p>对于每个关系r，首先根据关系的头尾节点集合，根据特征相似矩阵的计算方法，生成相似度矩阵。</p><p><img src="https://image.rman.top/blog20210220114206.png" alt="image-20210220114206881" /></p><p>然后再和原始的关系r邻接矩阵相乘，进行相似度传播，得到头相似度矩阵和尾相似度矩阵。</p><p><img src="https://image.rman.top/blog20210220114231.png" alt="image-20210220114223781" /></p><h2 id="特征邻接矩阵"><a class="markdownIt-Anchor" href="#特征邻接矩阵"></a> 特征邻接矩阵</h2><p>然后对矩阵进行attention聚合，得到特征邻接矩阵。</p><p><img src="https://image.rman.top/blog20210220114305.png" alt="image-20210220114305801" /></p><h2 id="语义图"><a class="markdownIt-Anchor" href="#语义图"></a> 语义图：</h2><p>传统的metapath构成邻接矩阵忽视了中间节点，导致了信息丢失。于是本文先通过Metapath2vec学习不同metapath下节点的特征表示，然后根据不同的特征表示来生成不同metapath下的语义邻接矩阵。</p><p><img src="https://image.rman.top/blog20210220114326.png" alt="image-20210220114326039" /></p><p>对于多个metapath，进行一个加权聚合得到语义邻接矩阵。</p><p><img src="https://image.rman.top/blog20210220114340.png" alt="image-20210220114340950" /></p><h2 id="学习到的异构图邻接矩阵"><a class="markdownIt-Anchor" href="#学习到的异构图邻接矩阵"></a> 学习到的异构图邻接矩阵</h2><p>把特征邻接矩阵和语义邻接矩阵还有原始的不同关系的邻居矩阵进行attention聚合。</p><p><img src="https://image.rman.top/blog20210220114353.png" alt="image-20210220114353583" /></p><h2 id="优化过程"><a class="markdownIt-Anchor" href="#优化过程"></a> 优化过程</h2><p>把学习到的不同关系的邻接矩阵，进行合并，忽视节点的类型，转换成一个大的邻接矩阵。然后进行两层的信息传播并进行预测。</p><p><img src="https://image.rman.top/blog20210220114403.png" alt="image-20210220114403268" /></p><h1 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验</h1><p>在 DBLP、ACM 及 Yelp 数据集上行了丰富的实验来验证HGSL 的有效性。</p><h2 id="节点分类实验"><a class="markdownIt-Anchor" href="#节点分类实验"></a> 节点分类实验</h2><p><img src="https://image.rman.top/blog20210220114427.png" alt="image-20210220114427119" /></p><h2 id="频道注意力可视化实验"><a class="markdownIt-Anchor" href="#频道注意力可视化实验"></a> 频道注意力可视化实验</h2><p><img src="https://image.rman.top/blog20210220114443.png" alt="image-20210220114443304" /></p><h2 id="参数实验"><a class="markdownIt-Anchor" href="#参数实验"></a> 参数实验</h2><p><img src="https://image.rman.top/blog20210220114521.png" alt="image-20210220114521040" /></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;motivation&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#motivation&quot;&gt;&lt;/a&gt; Motivation：&lt;/h1&gt;
+&lt;p&gt;现有的异构图学习中一些图的结构是不好的，不利于下游任务，比如在user-item的异构图中，用
+      
+    
+    </summary>
+    
+    
+      <category term="论文笔记" scheme="https://www.rman.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="图神经网络" scheme="https://www.rman.top/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="异构图" scheme="https://www.rman.top/tags/%E5%BC%82%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="图结构学习" scheme="https://www.rman.top/tags/%E5%9B%BE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>How to crack a soga backend</title>
@@ -112,9 +170,9 @@
     <link href="https://www.rman.top/2020/11/13/DistanceEncoding/"/>
     <id>https://www.rman.top/2020/11/13/DistanceEncoding/</id>
     <published>2020-11-13T14:09:26.000Z</published>
-    <updated>2020-11-13T14:48:45.000Z</updated>
+    <updated>2021-02-20T04:00:09.580Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="the-problem-of-gnns"><a class="markdownIt-Anchor" href="#the-problem-of-gnns"></a> The problem of GNNs:</h1><ul><li>传统GNN会被1-WL     test 所限制。因为节点都是以度进行区分的。</li><li>核心问题：节点分类或者连接预测并不是同构问题，但是GNN是基于WL-test的所以必须要给节点引入特征。<br /><img src="http://image.rman.top/blogclip_image001.png" alt="(a)  (b)  WLGNN-p to S, A), S = p  Initialize: Forallu € V, = Aut,  For layersl = 0, 1, ...,L 1 andallt,' V, do:  h(l+l)  fl (hĺ,l) , , ))  Output F(T) = }ues) " /></li><li>传统的WLtest会根据节点的度来区分节点，就会导致无法区分结构信息<br /><img src="http://image.rman.top/blogclip_image002.png" alt="Suppose we query these two red node. Can WL-GNNs  distinguish them within 2 layer? Forget about node attributes  first as we focus on distinguishing structures! " /></li><li>在这里做两层卷积会导致节点信息都是相同，无法直接区分两个节点之间是否有连边。<br /><img src="http://image.rman.top/blogclip_image003.png" alt="Suppose we query two node-pairs uw and uv. Can WL-GNNs  distinguish them?  E_nmple from GNN (&quot;L'lgl " /></li><li>全图分类会有无法区分<br /><img src="http://image.rman.top/blogclip_image004.png" alt="Suppose we query two entire graphs. Can WLGNNs distinguish them? " /></li></ul><h1 id="distance-encoding"><a class="markdownIt-Anchor" href="#distance-encoding"></a> Distance Encoding:</h1><ul><li>采用最短路径作为特征，可以区分节点同构</li></ul><p><img src="http://image.rman.top/blogclip_image005.png" alt="Suppose we query these two red node. Can WL-GNNs  distinguish them within 2 layer? " /></p><p><img src="http://image.rman.top/blogclip_image006.png" alt="VI  DE-I  DE-I = 12)  layers are enough!  rooted at  the black " /></p><ul><li>同时也可以解决链接预测的问题。对每个pair都对图中的所有节点算最短距离。</li></ul><p><img src="http://image.rman.top/blogimage-20201113224654272.png" alt="image-20201113224654272" /></p><ul><li><p>对于全图的预测来说</p></li><li><p>对每个节点都进行标记，然后就能区分</p></li></ul><p><img src="http://image.rman.top/blogclip_image008.png" alt="Suppose we query two entire graphs. Can WLGNNs distinguish them?  blue nth distanæ while all paiß  Of green with distance " /></p><p><img src="http://image.rman.top/blogclip_image009.png" alt="Distance encoding  • A target node subset S, and a node u in V  • Distance Encoding:  where  - (Wuv, WK, ... , wk)  ((ulv) = ), I  uv uv  W is the random walk matrix: W = AD -l  Shortest-Path-Distance (SPD), personalized pageRank scores, Katz  similarity are all special cases.  In practice, k: 2—4. " /></p><p><img src="http://image.rman.top/blogclip_image010.png" alt="Take-away I:  1.  2.  3.  4.  5.  6.  A target node subset S, and a node u in V  Extract the ego-net around S.  Use BFS to compute shortest path distance (SPD) or random walk  matrix power WK between each node v in S and u in the ego-net.  You obtain ((ulv). If SPD&gt; threshold, set a default value.  Use one-hot encoding of  Concate &lt; (ulS) with the original node attributes and then use WL-  GNNs over this ego-net. " /></p><ul><li>采用one-hop标记，dimension最大是要卷积的距离，比如最大距离是4，则有4为0000，比如有两个节点到他的距离分布是2和3，则最后距离嵌入表示是0110，如何有两个节点是距离为4则是0002，以此类推。</li><li>得到feature就把它拼接到原始节点上进行卷积</li></ul><h3 id="证明"><a class="markdownIt-Anchor" href="#证明"></a> 证明：</h3><p><img src="http://image.rman.top/blogclip_image011.png" alt="The Power of DE-GNN for p-sized node-set  Theorem 3.3  • Two structures (SI,AI) and (S2,A2) with ISII= IS21 = p, p fixed:  1.  2.  3.  Al and AZ are only different in structures (features are all the same)  that are uniformly independently sampled from r-regular graphs (r &lt;  (210g n)AO.5)  DE-GNN (with some injective requirement) within layers L &lt;  (0.5+e) log  can distinguish (SI,AI) and (S2,A2) with probability 1-  O(l/n)  Distance encoding can be simply chosen as shortest-path-distance " /></p><ul><li>对于层数不断增加，则区分度更好。<br /><img src="http://image.rman.top/blogclip_image012.png" alt="Empirical evaluation  Simulation:  Uniformly sample 104/n many  n-sized 3-regular graphs.  Compare all pairs of nodes (u,v)  Use an untrained DE-GNN after  L layers with randkm  initialization.  The color of the points implies  the portion of pairs of u,v such  that — le — 12.  O  0.5 logn  simulation  1.0  0.8  0.6  0.4  0.2  0.0 " /></li></ul><h3 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验：</h3><ul><li>实验是在以节点周围结构为准的图来进行判断。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="the-problem-of-gnns"><a class="markdownIt-Anchor" href="#the-problem-of-gnns"></a> The problem of GNNs:</h1><ul><li>传统GNN会被1-WL     test 所限制。因为节点都是以度进行区分的。</li><li>核心问题：节点分类或者连接预测并不是同构问题，但是GNN是基于WL-test的所以必须要给节点引入特征。<br /><img src="https://image.rman.top/blog20210220115605.png" alt="image-20210220115605821" /></li><li>传统的WLtest会根据节点的度来区分节点，就会导致无法区分结构信息<br /><img src="https://image.rman.top/blog20210220115734.png" alt="image-20210220115734405" /></li><li>在这里做两层卷积会导致节点信息都是相同，无法直接区分两个节点之间是否有连边。<br /><img src="https://image.rman.top/blog20210220115706.png" alt="image-20210220115706653" /></li><li>全图分类会有无法区分<br /><img src="http://image.rman.top/blogclip_image004.png" alt="Suppose we query two entire graphs. Can WLGNNs distinguish them? " /></li></ul><h1 id="distance-encoding"><a class="markdownIt-Anchor" href="#distance-encoding"></a> Distance Encoding:</h1><ul><li>采用最短路径作为特征，可以区分节点同构</li></ul><p><img src="http://image.rman.top/blogclip_image005.png" alt="Suppose we query these two red node. Can WL-GNNs  distinguish them within 2 layer? " /></p><p><img src="https://image.rman.top/blog20210220115813.png" alt="image-20210220115813584" /></p><ul><li>同时也可以解决链接预测的问题。对每个pair都对图中的所有节点算最短距离。</li></ul><p><img src="http://image.rman.top/blogimage-20201113224654272.png" alt="image-20201113224654272" /></p><ul><li><p>对于全图的预测来说</p></li><li><p>对每个节点都进行标记，然后就能区分</p></li></ul><p><img src="http://image.rman.top/blogclip_image008.png" alt="Suppose we query two entire graphs. Can WLGNNs distinguish them?  blue nth distanæ while all paiß  Of green with distance " /></p><p><img src="http://image.rman.top/blogclip_image009.png" alt="Distance encoding  • A target node subset S, and a node u in V  • Distance Encoding:  where  - (Wuv, WK, ... , wk)  ((ulv) = ), I  uv uv  W is the random walk matrix: W = AD -l  Shortest-Path-Distance (SPD), personalized pageRank scores, Katz  similarity are all special cases.  In practice, k: 2—4. " /></p><p><img src="http://image.rman.top/blogclip_image010.png" alt="Take-away I:  1.  2.  3.  4.  5.  6.  A target node subset S, and a node u in V  Extract the ego-net around S.  Use BFS to compute shortest path distance (SPD) or random walk  matrix power WK between each node v in S and u in the ego-net.  You obtain ((ulv). If SPD&gt; threshold, set a default value.  Use one-hot encoding of  Concate &lt; (ulS) with the original node attributes and then use WL-  GNNs over this ego-net. " /></p><ul><li>采用one-hop标记，dimension最大是要卷积的距离，比如最大距离是4，则有4为0000，比如有两个节点到他的距离分布是2和3，则最后距离嵌入表示是0110，如何有两个节点是距离为4则是0002，以此类推。</li><li>得到feature就把它拼接到原始节点上进行卷积</li></ul><h3 id="证明"><a class="markdownIt-Anchor" href="#证明"></a> 证明：</h3><p><img src="http://image.rman.top/blogclip_image011.png" alt="The Power of DE-GNN for p-sized node-set  Theorem 3.3  • Two structures (SI,AI) and (S2,A2) with ISII= IS21 = p, p fixed:  1.  2.  3.  Al and AZ are only different in structures (features are all the same)  that are uniformly independently sampled from r-regular graphs (r &lt;  (210g n)AO.5)  DE-GNN (with some injective requirement) within layers L &lt;  (0.5+e) log  can distinguish (SI,AI) and (S2,A2) with probability 1-  O(l/n)  Distance encoding can be simply chosen as shortest-path-distance " /></p><ul><li>对于层数不断增加，则区分度更好。<br /><img src="http://image.rman.top/blogclip_image012.png" alt="Empirical evaluation  Simulation:  Uniformly sample 104/n many  n-sized 3-regular graphs.  Compare all pairs of nodes (u,v)  Use an untrained DE-GNN after  L layers with randkm  initialization.  The color of the points implies  the portion of pairs of u,v such  that — le — 12.  O  0.5 logn  simulation  1.0  0.8  0.6  0.4  0.2  0.0 " /></li></ul><h3 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验：</h3><ul><li>实验是在以节点周围结构为准的图来进行判断。</li></ul>]]></content>
     
     <summary type="html">
     
