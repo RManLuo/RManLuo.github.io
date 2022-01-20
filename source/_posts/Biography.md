@@ -1,0 +1,18 @@
+---
+title: Biography
+date: 2021-11-13 15:03:08
+tags:
+academia: true
+top: 999
+---
+
+# Biography
+
+Hello! I am Linhao Luo (罗林浩), a MPhil student of computer science in Monash University advised by Prof. [Shirui Pan](https://shiruipan.github.io/).
+
+My research interests mainly focus on the areas of artificial intelligence and data mining, especially for the graph neural network, recommendation, and security.
+
+Previously, I received my bachelor degree of computer science from Harbin Institute of Technology, Shenzhen. I have also worked at Tencent and Alibaba as an intern.
+
+**Contact**: [luolinhao1998@gmail.com](mailto:luolinhao1998@gmail.com)
+
