@@ -13,7 +13,7 @@ since: 2020
 menu:
   Biography: /#Biography
   Publications: /#Publications
-  #About: /
+  CV: /CV
   Blog: https://rman.top
 
 # flink picture will load if avator link calls on error
