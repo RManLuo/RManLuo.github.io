@@ -34,9 +34,16 @@ July 2020 - September 2020
 
 ## PUBLICATION
 
+**DAGNN: Demand-aware Graph Neural Networks for Session-based Recommendation**
+Liqi Yang, Linhao Luo, Xiaofeng Zhang, Fengxin Li, Xinni Zhang, Zelin Jiang and Shuai Tang, International Conference on Research and Development in Information Retrieval (SIGIR 2022)
+
 **DCRS: a deep contrast reciprocal recommender system to simultaneously capture user interest and attractiveness for online dating**
 
 Linhao Luo, Xiaofeng Zhang, Xiaoyun Chen, Kai Liu, Dan Peng, Xiaofei Yang, *Neural Comput & Applic* (2022). https://doi.org/10.1007/s00521-021-06749-2
+
+**CP-GNN: A Software for Community Detection in Heterogeneous Information Networks**
+
+Linhao Luo, Yixiang Fang, Xin Cao, Xiaofeng Zhang, Wenjie Zhang, Software Impacts, 2021, 10: 100169.
 
 **Detecting Communities from Heterogeneous Graphs: A Context Path-based Graph Neural Network Model.** 
 
@@ -49,6 +56,10 @@ Yinlin Yao, Jinbing Zhong, Xiaofeng, Zhang, Linhao Luo, In 2020 IEEE/WIC/ACM Int
 **A Motif-based Graph Neural Network to Reciprocal Recommendation for Online Dating**
 
 Linhao Luo, Kai Liu, Dan Peng, Yaolin Ying, and Xiaofeng Zhang 27th International Conference on Neural Information Processing (ICONIP 2020) 
+
+**Rrcn: A reinforced random convolutional network based reciprocal recommendation approach for online dating**
+
+Luo L, Yang L, Xin J, et al. arXiv preprint arXiv:2011.12586.
 
 **Structure Matters: Towards Generating Transferable Adversarial Images**
 
