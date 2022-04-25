@@ -8,8 +8,7 @@ top: 1
 
 # Publications
 
-1. **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on**
-Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He
+1. **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on** Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He
 IJCAI 2022 
 2.  **DAGNN: Demand-aware Graph Neural Networks for Session-based Recommendation** Liqi Yang, **Linhao Luo**, Xiaofeng Zhang, Fengxin Li, Xinni Zhang, Zelin Jiang and Shuai Tang, International Conference on Research and Development in Information Retrieval (SIGIR 2022)
 3. [\[Code&data\]](https://github.com/RManLuo/MAMDR) **MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation.** Luo, L., Li, Y., Gao, B., Tang, S., Wang, S., Li, J., ... & Pan, S. (2022).  arXiv preprint arXiv:2202.12524.
