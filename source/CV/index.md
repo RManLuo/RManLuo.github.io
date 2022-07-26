@@ -3,7 +3,7 @@ title: About Me
 date: 2022-02-07 11:45:27
 ---
 This is the Linhao Luo. I am interested in Deep Learning, Machine Learning, Graph Representation Learning, Recommender System, Security.
-**Email**: luolinhao1998@gmail.com
+**Email**: Linhao.Luo@monash.edu
 
 ## EDUCATION: 
 

@@ -14,5 +14,5 @@ My research interests mainly focus on the areas of artificial intelligence and d
 
 Previously, I received my bachelor degree of computer science from Harbin Institute of Technology, Shenzhen. I have also worked at Tencent and Alibaba as an intern.
 
-**Contact**: [luolinhao1998@gmail.com](mailto:luolinhao1998@gmail.com)
+**Contact**: [Linhao.Luo@monash.edu](mailto:Linhao.Luo@monash.edu)
 
