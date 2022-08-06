@@ -8,7 +8,7 @@ top: 1
 
 # Publications
 
-1. **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on.** Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He, IJCAI 2022 
+1. [\[Code&data\]](https://github.com/jokerlc/RMGN-VITON) **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on.** Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He, IJCAI 2022 
 2.  **Why do Semantically Unrelated Categories Appear in the Same Session? A Demand-aware Method.** Liqi Yang, **Linhao Luo**, Xiaofeng Zhang, Fengxin Li, Xinni Zhang, Zelin Jiang and Shuai Tang, Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2022).
 3. [\[Code&data\]](https://github.com/RManLuo/MAMDR) **MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation.** **Luo, L.**, Li, Y., Gao, B., Tang, S., Wang, S., Li, J., ... & Pan, S. (2022).  arXiv preprint arXiv:2202.12524.
 4. **DCRS: a deep contrast reciprocal recommender system to simultaneously capture user interest and attractiveness for online dating.** **Linhao Luo**, Xiaofeng Zhang, Xiaoyun Chen, Kai Liu, Dan Peng, Xiaofei Yang, *Neural Comput & Applic* (2022). https://doi.org/10.1007/s00521-021-06749-2
