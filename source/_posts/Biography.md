@@ -8,7 +8,7 @@ top: 999
 
 # Biography
 
-Hello! I am Linhao Luo (罗林浩), a MPhil student of computer science in Monash University advised by Prof. [Shirui Pan](https://shiruipan.github.io/).
+Hello! I am Linhao Luo (罗林浩), a MPhil student of computer science at Monash University advised by Prof. [Shirui Pan](https://shiruipan.github.io/).
 
 My research interests mainly focus on the areas of artificial intelligence and data mining, especially for the graph neural network, recommendation, and security.
 
