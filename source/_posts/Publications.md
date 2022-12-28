@@ -3,11 +3,11 @@ title: Publications
 date: 2021-11-13 16:04:08
 tags:
 academia: true
-top: 1
+top: 2
 ---
 
 # Publications
-
+----
 1. [\[Code&data\]](https://github.com/RManLuo/GSNOP) **Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs.** **Linhao Luo**, Reza Haffari, Shirui Pan, WSDM 2023
 1. [\[Code&data\]](https://github.com/jokerlc/RMGN-VITON) **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on.** Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He, IJCAI 2022 
 2.  **Why do Semantically Unrelated Categories Appear in the Same Session? A Demand-aware Method.** Liqi Yang, **Linhao Luo**, Xiaofeng Zhang, Fengxin Li, Xinni Zhang, Zelin Jiang and Shuai Tang, Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval, short (SIGIR 2022).
