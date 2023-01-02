@@ -71,7 +71,7 @@ top: 2
     
     Dan Peng, Zizhan Zheng, **Linhao Luo** and Xiaofeng Zhang.
     
-    24th European Conference on Artificial Intelligence (ECAI 2020)
+    24th European Conference on Artificial Intelligence (ECAI 2020).
 
 *  **Deepbot: A Deep Neural Network Based Approach for Detecting Twitter Bots.** 
     
