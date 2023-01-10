@@ -8,7 +8,7 @@ This is the Linhao Luo. I am interested in Deep Learning, Machine Learning, Grap
 ## EDUCATION: 
 
 * Bachelor, Harbin Institute of Technology, Shenzhen, China, 2016-2021
-* Master of Philosophy, Monash University, Melbourne, Australia, 2022 - Now
+* Doctor of Philosophy, Monash University, Melbourne, Australia, 2022 - Now
 
 ## WORK EXPERIENCE
 
