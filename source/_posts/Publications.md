@@ -11,22 +11,22 @@ top: 2
 
 * **MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation** . 
   **Linhao Luo**, Yumeng Li, Buyu Gao, Shuai Tang, Sinan Wang, Jiancheng Li, Tanchao Zhu, Jiancai Liu, Zhao Li4, and Shirui Pan.  
-  ICDE 2023, Industry and Applications Track.  
+  ICDE 2023, Industry and Applications Track (CCF-A, Core A*).  
   [\[Code&data\]](https://github.com/RManLuo/MAMDR) 
 
 * **Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs.**   
     **Linhao Luo**, Reza Haffari, Shirui Pan.  
-    WSDM 2023.  
+    WSDM 2023 (CCF-B, Core A*).  
     [\[Code&data\]](https://github.com/RManLuo/GSNOP) 
 
 * **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on.**   
   Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He.  
-  IJCAI 2022.  
+  IJCAI 2022 (CCF-A, Core A*).  
   [\[Code&data\]](https://github.com/jokerlc/RMGN-VITON)
 
 *  **Why do Semantically Unrelated Categories Appear in the Same Session? A Demand-aware Method.**  
     Liqi Yang, **Linhao Luo**, Xiaofeng Zhang, Fengxin Li, Xinni Zhang, Zelin Jiang and Shuai Tang.  
-    Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval, short (SIGIR 2022).
+    Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval, short paper (SIGIR 2022, CCF-A, Core A*).
 
 *  **DCRS: a deep contrast reciprocal recommender system to simultaneously capture user interest and attractiveness for online dating.**  
     **Linhao Luo**, Xiaofeng Zhang, Xiaoyun Chen, Kai Liu, Dan Peng, Xiaofei Yang.  
@@ -38,7 +38,7 @@ top: 2
 
 * **Detecting Communities from Heterogeneous Graphs: A Context Path-based Graph Neural Network Model.**  
   **Linhao Luo**, Yixiang Fang, Xin Cao, Xiaofeng Zhang, Wenjie Zhang.  
-  In Proceedings of the 30th ACM International Conference on Information & Knowledge Management (CIKM 2021), pp. 1170-1180.  
+  In Proceedings of the 30th ACM International Conference on Information & Knowledge Management (CIKM 2021, CCF-B, Core A), pp. 1170-1180.  
   [\[Code&data\]](https://github.com/RManLuo/CP-GNN) 
 
 * **Correlated Wasserstein Autoencoder for Implicit Data Recommendation.**  
