@@ -12,12 +12,12 @@ top: 2
 * **MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation** .  
   **Linhao Luo**, Yumeng Li, Buyu Gao, Shuai Tang, Sinan Wang, Jiancheng Li, Tanchao Zhu, Jiancai Liu, Zhao Li, and Shirui Pan.  
   ICDE 2023, Industry and Applications Track (CCF-A, Core A*).  
-  [\[Code&data\]](https://github.com/RManLuo/MAMDR) 
+  [\[Code&data\]](https://github.com/RManLuo/MAMDR)
 
 * **Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs.**   
     **Linhao Luo**, Reza Haffari, Shirui Pan.  
     WSDM 2023 (CCF-B, Core A*).  
-    [\[Code&data\]](https://github.com/RManLuo/GSNOP) 
+    [\[Code&data\]](https://github.com/RManLuo/GSNOP)  [\[Slides\]](https://github.com/RManLuo/GSNOP/blob/master/WSDM-23-GSNOP-Slides.pdf) [\[Poster\]](https://github.com/RManLuo/GSNOP/blob/master/WSDM-23-GSNOP-Poster.pdf)
 
 * **RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on.**   
   Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He.  
