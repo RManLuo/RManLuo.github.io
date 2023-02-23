@@ -17,6 +17,7 @@ top: 1
 * [Knowledge and Information Systems](https://www.springer.com/journal/10115) (KAIS, IF: 2.531)
 
 ## Conference Reviewer
+* PC Member, [The 2023 International Joint Conference on Neural Networks](https://2023.ijcnn.org/) (IJCNN 2023)
 * [The ACM Web Conference](https://www2023.thewebconf.org/) (WWW 2023)
 * [Thirty-Sixth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-22/) (AAAI 2022)
 * [31st ACM International Conference on Information and Knowledge Management](https://www.cikm2022.org/) (CIKM 2022)
