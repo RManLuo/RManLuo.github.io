@@ -15,6 +15,7 @@ top: 1
 * [IEEE Transactions on Neural Networks and Learning Systems](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385) (TNNLS, IF: 14.255)
 * [The International Journal on Very Large Data Bases](https://www.springer.com/journal/778/) (VLDB, IF: 4.243)
 * [Knowledge and Information Systems](https://www.springer.com/journal/10115) (KAIS, IF: 2.531)
+* [The Journal of Supercomputing](https://www.springer.com/journal/11227) (IF: 2.557)
 
 ## Conference Reviewer
 * PC Member, [The 2023 International Joint Conference on Neural Networks](https://2023.ijcnn.org/) (IJCNN 2023)
