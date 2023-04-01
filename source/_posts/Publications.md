@@ -12,7 +12,7 @@ top: 2
 * **MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation** .  
   **Linhao Luo**, Yumeng Li, Buyu Gao, Shuai Tang, Sinan Wang, Jiancheng Li, Tanchao Zhu, Jiancai Liu, Zhao Li, and Shirui Pan.  
   ICDE 2023, Industry and Applications Track (CCF-A, Core A*).  
-  [\[Code&data\]](https://github.com/RManLuo/MAMDR)
+  [\[Code&data\]](https://github.com/RManLuo/MAMDR)  [\[Slides\]](https://github.com/RManLuo/MAMDR/blob/master/ICDE-23-Slides-MAMDR.pdf)
 
 * **Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs.**   
     **Linhao Luo**, Reza Haffari, Shirui Pan.  
