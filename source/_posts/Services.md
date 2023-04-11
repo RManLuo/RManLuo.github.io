@@ -19,6 +19,7 @@ top: 1
 * [ACM Transactions on Knowledge Discovery from Data](https://dl.acm.org/journal/tkdd) (IF: 4.711)
 
 ## Conference Reviewer
+* [The 29th SIGKDD CONFERENCE ON KNOWLEDGE DISCOVERY AND DATA MINING](https://kdd.org/kdd2023/) (KDD 2023)
 * PC Member, [The 2023 International Joint Conference on Neural Networks](https://2023.ijcnn.org/) (IJCNN 2023)
 * [The ACM Web Conference](https://www2023.thewebconf.org/) (WWW 2023)
 * [Thirty-Sixth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-22/) (AAAI 2022)

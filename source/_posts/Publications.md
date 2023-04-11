@@ -9,12 +9,12 @@ top: 2
 # Publications
 ----
 
-* **MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation** .  
+* [**MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation.**](https://arxiv.org/abs/2202.12524)  
   **Linhao Luo**, Yumeng Li, Buyu Gao, Shuai Tang, Sinan Wang, Jiancheng Li, Tanchao Zhu, Jiancai Liu, Zhao Li, and Shirui Pan.  
   ICDE 2023, Industry and Applications Track (CCF-A, Core A*).  
   [\[Code&data\]](https://github.com/RManLuo/MAMDR)  [\[Slides\]](https://github.com/RManLuo/MAMDR/blob/master/ICDE-23-Slides-MAMDR.pdf)
 
-* **Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs.**   
+* [**Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs.**](https://arxiv.org/pdf/2211.08568.pdf)   
     **Linhao Luo**, Reza Haffari, Shirui Pan.  
     WSDM 2023 (CCF-B, Core A*).  
     [\[Code&data\]](https://github.com/RManLuo/GSNOP)  [\[Slides\]](https://github.com/RManLuo/GSNOP/blob/master/WSDM-23-GSNOP-Slides.pdf) [\[Poster\]](https://github.com/RManLuo/GSNOP/blob/master/WSDM-23-GSNOP-Poster.pdf)
@@ -36,7 +36,7 @@ top: 2
     Yixiang Fang, Xin Cao, Xiaofeng Zhang, Wenjie Zhang.  
     Software Impacts, 2021, 10: 100169.
 
-* **Detecting Communities from Heterogeneous Graphs: A Context Path-based Graph Neural Network Model.**  
+* [**Detecting Communities from Heterogeneous Graphs: A Context Path-based Graph Neural Network Model.**](https://dl.acm.org/doi/abs/10.1145/3459637.3482250)  
   **Linhao Luo**, Yixiang Fang, Xin Cao, Xiaofeng Zhang, Wenjie Zhang.  
   In Proceedings of the 30th ACM International Conference on Information & Knowledge Management (CIKM 2021, CCF-B, Core A), pp. 1170-1180.  
   [\[Code&data\]](https://github.com/RManLuo/CP-GNN) 
