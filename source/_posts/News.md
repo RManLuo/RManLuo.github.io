@@ -8,6 +8,7 @@ top: 3
 
 # News
 ----
+* <font color=purple>[Service]:</font> I will serve as a PC member of [IEEE BigData 2023](http://bigdataieee.org/BigData2023/). (Apr., 2023)
 * <font color=red>[Paper]:</font> Two papers have been accepted by [SIGIR 2023](https://sigir.org/sigir2023/). (Apr., 2023)
 * <font color=purple>[Service]:</font> I will serve as a TPC member of [IJCNN 2023](https://2023.ijcnn.org/). (Feb., 2023)
 * <font color=red>[Paper]:</font> Our paper "[MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation](https://arxiv.org/abs/2202.12524)" has been accepted by [ICDE 2023](https://icde2023.ics.uci.edu/), Industry and Applications Track. (Feb., 2023)
