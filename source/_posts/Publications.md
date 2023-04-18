@@ -8,7 +8,8 @@ top: 2
 
 # Selected Publications
 ----
-[\[Full Publications Lists\]](https://scholar.google.com.hk/citations?user=RO46HpcAAAAJ&hl=zh-CN)   
+[\[Full Publications Lists\]](https://scholar.google.com.hk/citations?user=RO46HpcAAAAJ&hl=zh-CN)  
+
 * [**Normalizing Flow-based Neural Process for Few-Shot Knowledge Graph Completion.**](https://arxiv.org/abs/2304.08183)  
   **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, and Shirui Pan.  
   SIGIR 2023 (CCF-A, Core A*).  
