@@ -12,6 +12,9 @@ top: 2
 
 <summary>Full Publications Lists</summary>
 
+>* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs**](https://arxiv.org/abs/2208.06144)   
+   **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
+   IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).
 >* **SocialDial: A Benchmark for Socially-Aware Dialogue Systems.**   
    Haolan Zhan, Zhuang Li, Yufei Wang, **Linhao Luo**, Tao Feng, Xiaoxi Kang, Yuncheng Hua, Lizhen Qu, Lay Ki Soon, Suraj Sharma, Ingrid Zukerman, Zhaleh Semnani-Azad and Gholamreza Haffari.   
    SIGIR 2023, Resource Papers Track (CCF-A, Core A*).   
@@ -66,7 +69,9 @@ top: 2
 
 </details>
 
-
+* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs**](https://arxiv.org/abs/2208.06144)   
+   **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
+   IEEE Transactions on Knowledge and Data Engineering,(TKDE, CCF-A, Core A).
 * [**Normalizing Flow-based Neural Process for Few-Shot Knowledge Graph Completion.**](https://arxiv.org/abs/2304.08183)  
   **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, and Shirui Pan.  
   SIGIR 2023 (CCF-A, Core A*).  
@@ -98,6 +103,6 @@ top: 2
 
 * [**A Motif-based Graph Neural Network to Reciprocal Recommendation for Online Dating.**](https://link.springer.com/chapter/10.1007/978-3-030-63833-7_9)  
   **Linhao Luo**, Kai Liu, Dan Peng, Yaolin Ying, and Xiaofeng Zhang.  
-  27th International Conference on Neural Information Processing (ICONIP 2020)  
+  27th International Conference on Neural Information Processing (ICONIP 2020, CCF-C)  
   [\[Code&data\]](https://github.com/RManLuo/MotifGNN) 
 
