@@ -71,7 +71,7 @@ top: 2
 
 * [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs**](https://arxiv.org/abs/2208.06144)   
    **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
-   IEEE Transactions on Knowledge and Data Engineering,(TKDE, CCF-A, Core A).
+   IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).
 * [**Normalizing Flow-based Neural Process for Few-Shot Knowledge Graph Completion.**](https://arxiv.org/abs/2304.08183)  
   **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, and Shirui Pan.  
   SIGIR 2023 (CCF-A, Core A*).  
