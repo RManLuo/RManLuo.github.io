@@ -7,4 +7,4 @@ top: 1
 ---
 # Awards
 ----
-* SIGIR 2023 Student Travel Award. (May., 2022)
+* SIGIR 2023 Student Travel Award. (May., 2023)
