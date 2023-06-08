@@ -74,7 +74,7 @@ top: 2
 
 * **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
-  ECML PKDD 2023.
+  ECML PKDD 2023 (CCF-B, Core A).
 * [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs.**](https://arxiv.org/abs/2208.06144)   
    **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
    IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).
