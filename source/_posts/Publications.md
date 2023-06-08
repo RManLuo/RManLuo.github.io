@@ -12,7 +12,10 @@ top: 2
 
 <summary>Full Publications Lists</summary>
 
->* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs**](https://arxiv.org/abs/2208.06144)   
+>* **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
+  Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
+  ECML PKDD 2023.
+>* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs.**](https://arxiv.org/abs/2208.06144)   
    **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
    IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).
 >* **SocialDial: A Benchmark for Socially-Aware Dialogue Systems.**   
@@ -69,7 +72,10 @@ top: 2
 
 </details>
 
-* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs**](https://arxiv.org/abs/2208.06144)   
+* **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
+  Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
+  ECML PKDD 2023.
+* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs.**](https://arxiv.org/abs/2208.06144)   
    **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
    IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).
 * [**Normalizing Flow-based Neural Process for Few-Shot Knowledge Graph Completion.**](https://arxiv.org/abs/2304.08183)  

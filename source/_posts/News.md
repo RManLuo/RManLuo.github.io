@@ -8,6 +8,7 @@ top: 3
 
 # News
 ----
+* <font color=red>[Paper]:</font> Our paper "Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach" has been accepted by [ECML PKDD 2023](https://2023.ecmlpkdd.org/). (Jun. 2023)
 * <font color=orange>[Award]:</font> I am honor to receive the SIGIR 2023 Student Travel Award. (May., 2023)
 * <font color=red>[Paper]:</font> Our paper "[GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs](https://arxiv.org/abs/2208.06144)" has been accepted by [TKDE](https://ieeexplore.ieee.org/). (Apr., 2023)
 * <font color=purple>[Service]:</font> I will serve as a PC member of [IEEE BigData 2023](http://bigdataieee.org/BigData2023/). (Apr., 2023)
