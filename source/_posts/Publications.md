@@ -12,6 +12,9 @@ top: 2
 
 <summary>Full Publications Lists</summary>
 
+>* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**   
+  Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.   
+  Arxiv 2023.
 >* **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
   ECML PKDD 2023.
@@ -72,6 +75,10 @@ top: 2
 
 </details>
 
+* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
+  Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  
+  Arxiv 2023.  
+  [\[Code&data\]](https://arxiv.org/abs/2306.08302)
 * **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
   ECML PKDD 2023 (CCF-B, Core A).
