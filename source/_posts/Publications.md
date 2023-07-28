@@ -15,7 +15,7 @@ top: 2
 >* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**   
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.   
   Arxiv 2023.
->* **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
+>* **[Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.](https://arxiv.org/abs/2307.01204)**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
   ECML PKDD 2023.
 >* [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs.**](https://arxiv.org/abs/2208.06144)   
@@ -78,13 +78,15 @@ top: 2
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  
   Arxiv 2023.  
-  [\[Code&data\]](https://arxiv.org/abs/2306.08302)
-* **Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.**   
+  [\[Code&data\]](https://github.com/RManLuo/Awesome-LLM-KG)
+* **[Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.](https://arxiv.org/abs/2307.01204)**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
-  ECML PKDD 2023 (CCF-B, Core A).
+  ECML PKDD 2023 (CCF-B, Core A).   
+  [\[Code&data\]](https://github.com/leapxcheng/RawNP)
 * [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs.**](https://arxiv.org/abs/2208.06144)   
    **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
-   IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).
+   IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).   
+   [\[Code&data\]](https://github.com/RManLuo/GSim)
 * [**Normalizing Flow-based Neural Process for Few-Shot Knowledge Graph Completion.**](https://arxiv.org/abs/2304.08183)  
   **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, and Shirui Pan.  
   SIGIR 2023 (CCF-A, Core A*).  

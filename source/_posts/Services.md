@@ -20,6 +20,7 @@ top: 1
 * [ACM Transactions on Knowledge Discovery from Data](https://dl.acm.org/journal/tkdd) (IF: 4.711)
 
 ## Conference Reviewer
+* PC Member, [The 38th AAAI Conference on Artificial Intelligence](https://aaai-24.aaai.org/) (AAAI 2024)
 * PC Member, [The 17th China Conference on Knowledge Graph and Semantic Computing](https://sigkg.cn/ccks2023/en/callpapers/) (CCKS 2023)
 * PC Member, [2023 IEEE International Conference on Big Data (IEEE BigData 2023)](http://bigdataieee.org/BigData2023/) (IEEE BigData 2023)
 * [The 29th SIGKDD CONFERENCE ON KNOWLEDGE DISCOVERY AND DATA MINING](https://kdd.org/kdd2023/) (KDD 2023)
