@@ -12,6 +12,13 @@ top: 2
 
 <summary>Full Publications Lists</summary>
 
+>* **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
+  Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  Arxiv 2023.   
+>* **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
+  Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  Arxiv 2023.   
+  [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 >* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**   
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.   
   Arxiv 2023.
@@ -75,6 +82,10 @@ top: 2
 
 </details>
 
+* **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
+  Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  Arxiv 2023.   
+  [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  
   Arxiv 2023.  
