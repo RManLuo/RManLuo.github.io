@@ -12,6 +12,9 @@ top: 2
 
 <summary>Full Publications Lists</summary>
 
+>* **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
+Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
+EMNLP 2023.
 >* **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
   Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   Arxiv 2023.   
@@ -82,6 +85,10 @@ top: 2
 
 </details>
 
+* **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
+Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
+EMNLP 2023.   
+[\[Code&data\]](https://github.com/RManLuo/llm-facteval)
 * **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
   Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   Arxiv 2023.   
