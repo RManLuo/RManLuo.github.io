@@ -8,6 +8,7 @@ top: 3
 
 # News
 ----
+* <font color=orange>[Award]:</font> I am honor to receive the Third Place Award of ICDM 2023 TuGraph Competition. (Dec., 2023)
 * <font color=purple>[Service]:</font> I will serve as a PC member of [AAAI 2024](https://aaai-24.aaai.org/). (Jul., 2023)
 * <font color=red>[Paper]:</font> Our paper "[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)" is now public. (Jun. 2023)
 * <font color=red>[Paper]:</font> Our paper "Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach" has been accepted by [ECML PKDD 2023](https://2023.ecmlpkdd.org/). (Jun. 2023)
