@@ -24,7 +24,7 @@ EMNLP 2023.
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 >* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**   
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.   
-  Arxiv 2023.
+  IEEE Transactions on Knowledge and Data Engineering.
 >* **[Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.](https://arxiv.org/abs/2307.01204)**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
   ECML PKDD 2023.
@@ -95,7 +95,7 @@ EMNLP 2023.
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  
-  Arxiv 2023.  
+  IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).   
   [\[Code&data\]](https://github.com/RManLuo/Awesome-LLM-KG)
 * **[Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.](https://arxiv.org/abs/2307.01204)**   
   Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
