@@ -14,13 +14,13 @@ top: 2
 
 >* **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
 Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
-EMNLP 2023.
+EMNLP 2023.   
 >* **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
   Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   Arxiv 2023.   
 >* **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
   Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
-  Arxiv 2023.   
+  ICLR 2024.   
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 >* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**   
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.   
@@ -91,7 +91,7 @@ EMNLP 2023.
 [\[Code&data\]](https://github.com/RManLuo/llm-facteval)
 * **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
   Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
-  Arxiv 2023.   
+  ICLR 2024.   
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  

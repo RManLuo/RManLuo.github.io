@@ -8,6 +8,7 @@ top: 3
 
 # News
 ----
+*  <font color=red>[Paper]:</font> Our paper "[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)" has been accepted by [ICLR 2024](https://iclr.cc/). (Jan., 2024)
 * <font color=orange>[Award]:</font> I am honor to receive the Third Place Award of ICDM 2023 TuGraph Competition. (Dec., 2023)
 * <font color=purple>[Service]:</font> I will serve as a PC member of [AAAI 2024](https://aaai-24.aaai.org/). (Jul., 2023)
 * <font color=red>[Paper]:</font> Our paper "[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)" is now public. (Jun. 2023)
