@@ -93,6 +93,10 @@ EMNLP 2023.
   Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   ICLR 2024.   
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
+* **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
+  Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  Arxiv 2023.   
+  [\[Code&data\]](https://github.com/rmanluo/chatrule)
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  
   IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).   
