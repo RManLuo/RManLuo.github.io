@@ -92,7 +92,7 @@ EMNLP 2023.
 * **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
   Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   ICLR 2024.   
-  [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
+  [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)  [\[Slides\]](https://github.com/RManLuo/reasoning-on-graphs/blob/master/Reasoning%20on%20Graphs-ICLR2024-slides.pdf) [\[Poster\]](https://github.com/RManLuo/reasoning-on-graphs/blob/master/poster.pdf)
 * **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
   Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   Arxiv 2023.   
