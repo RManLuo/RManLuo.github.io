@@ -12,6 +12,10 @@ top: 2
 
 <summary>Full Publications Lists</summary>
 
+> * **[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning
+with Knowledge Graphs](https://arxiv.org/abs/2402.11199)**   
+Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
+ACL 2024.   
 >* **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
 Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
 EMNLP 2023.   
@@ -85,6 +89,10 @@ EMNLP 2023.
 
 </details>
 
+* **[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning
+with Knowledge Graphs](https://arxiv.org/abs/2402.11199)**   
+Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
+ACL 2024.   
 * **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
 Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
 EMNLP 2023.   
