@@ -8,6 +8,7 @@ top: 998
 
 # News
 ----
+*  <font color=red>[Paper]:</font> Our paper "[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)" has been accepted by NeurIPS 2024! (Sep., 2024)
 *  <font color=red>[Paper]:</font> Our paper "[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)" has been accepted by [ACL 2024](https://2024.aclweb.org/). (May., 2024)
 *  <font color=red>[Paper]:</font> Our paper "[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)" has been accepted by [ICLR 2024](https://iclr.cc/). (Jan., 2024)
 * <font color=orange>[Award]:</font> I am honor to receive the Third Place Award of ICDM 2023 TuGraph Competition. (Dec., 2023)

@@ -12,6 +12,9 @@ top: 997
 
 <summary>Full Publications Lists</summary>
 
+> * **[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)**   
+Jiapu Wang, Kai Sun, **Linhao Luo**, Wei Wei, Yongli Hu, Alan Wee-Chung Liew, Shirui Pan, Baocai Yin   
+NeurIPS 2024.   
 > * **[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)**   
 Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
 ACL 2024.   
@@ -88,6 +91,9 @@ EMNLP 2023.
 
 </details>
 
+* **[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)**   
+Jiapu Wang, Kai Sun, **Linhao Luo**, Wei Wei, Yongli Hu, Alan Wee-Chung Liew, Shirui Pan, Baocai Yin   
+NeurIPS 2024.
 * **[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)**   
 Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
 ACL 2024.   
@@ -130,22 +136,8 @@ EMNLP 2023.
     WSDM 2023 (CCF-B, Core A*).  
     [\[Code&data\]](https://github.com/RManLuo/GSNOP)  [\[Slides\]](https://github.com/RManLuo/GSNOP/blob/master/WSDM-23-GSNOP-Slides.pdf) [\[Poster\]](https://github.com/RManLuo/GSNOP/blob/master/WSDM-23-GSNOP-Poster.pdf)
 
-* [**RMGN: A Regional Mask Guided Network for Parser-free Virtual Try-on.**](https://www.ijcai.org/proceedings/2022/0161.pdf)   
-  Chao Lin, Zhao Li, Sheng Zhou, Shichang Hu, Jialun Zhang, **Linhao Luo**, Jiarun Zhang, Longtao Huang and Yuan He.  
-  IJCAI 2022 (CCF-A, Core A*).  
-  [\[Code&data\]](https://github.com/jokerlc/RMGN-VITON)
-
-*  [**Why do Semantically Unrelated Categories Appear in the Same Session? A Demand-aware Method.**](https://dl.acm.org/doi/abs/10.1145/3477495.3531806)  
-    Liqi Yang, **Linhao Luo**, Xiaofeng Zhang, Fengxin Li, Xinni Zhang, Zelin Jiang and Shuai Tang.  
-    Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval, short paper (SIGIR 2022, CCF-A, Core A*).
-
 * [**Detecting Communities from Heterogeneous Graphs: A Context Path-based Graph Neural Network Model.**](https://arxiv.org/abs/2109.02058)  
   **Linhao Luo**, Yixiang Fang, Xin Cao, Xiaofeng Zhang, Wenjie Zhang.  
   In Proceedings of the 30th ACM International Conference on Information & Knowledge Management (CIKM 2021, CCF-B, Core A), pp. 1170-1180.  
   [\[Code&data\]](https://github.com/RManLuo/CP-GNN) 
-
-* [**A Motif-based Graph Neural Network to Reciprocal Recommendation for Online Dating.**](https://link.springer.com/chapter/10.1007/978-3-030-63833-7_9)  
-  **Linhao Luo**, Kai Liu, Dan Peng, Yaolin Ying, and Xiaofeng Zhang.  
-  27th International Conference on Neural Information Processing (ICONIP 2020, CCF-C)  
-  [\[Code&data\]](https://github.com/RManLuo/MotifGNN) 
 
