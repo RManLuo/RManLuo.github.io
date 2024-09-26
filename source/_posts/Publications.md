@@ -19,13 +19,13 @@ NeurIPS 2024.
 Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
 ACL 2024.   
 >* **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
-Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
+**Linhao Luo**, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
 EMNLP 2023.   
 >* **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
-  Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  **Linhao Luo**, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   Arxiv 2023.   
 >* **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
-  Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   ICLR 2024.   
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)
 >* **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**   
@@ -98,15 +98,15 @@ NeurIPS 2024.
 Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
 ACL 2024.   
 * **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
-Linhao Luo, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
+**Linhao Luo**, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
 EMNLP 2023.   
 [\[Code&data\]](https://github.com/RManLuo/llm-facteval)
 * **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
-  Linhao Luo, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   ICLR 2024.   
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)  [\[Slides\]](https://github.com/RManLuo/reasoning-on-graphs/blob/master/Reasoning%20on%20Graphs-ICLR2024-slides.pdf) [\[Poster\]](https://github.com/RManLuo/reasoning-on-graphs/blob/master/poster.pdf)
 * **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
-  Linhao Luo, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
+  **Linhao Luo**, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   Arxiv 2023.   
   [\[Code&data\]](https://github.com/rmanluo/chatrule)
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
