@@ -11,6 +11,7 @@ top: 998
 * <font color=red>[Paper]:</font> We are happy to release the first **graph foundation model**-powered RAG pipeline ([GFM-RAG](https://www.arxiv.org/abs/2502.01113)) that combines the power of GNNs with LLMs to enhance reasoning. [Code](https://github.com/RManLuo/gfm-rag) (Feb., 2025)
 * <font color=blue>[Progress]:</font> I have passed my PhD final review! 🎉 (Feb., 2025)
 * <font color=red>[Paper]:</font> Our tutorial on Integrating Large Language Models and Knowledge Graphs for Next-level AGI and one paper of GraphRAG for explainable recommendation has been accepted by WWW 2025. See you in Sydney! (Jan., 2025)
+
 <details>
   <summary>More News (2024)</summary>
 
