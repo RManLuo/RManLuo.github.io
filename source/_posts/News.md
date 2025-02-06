@@ -18,6 +18,7 @@ top: 998
   * <font color=red>[Paper]:</font> Our paper "[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)" has been accepted by [ACL 2024](https://2024.aclweb.org/). (May., 2024)
   * <font color=red>[Paper]:</font> Our paper "[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)" has been accepted by [ICLR 2024](https://iclr.cc/). (Jan., 2024)
 </details>
+
 <details>
   <summary>More News (2023 and before)</summary>
   
@@ -33,5 +34,4 @@ top: 998
   * <font color=red>[Paper]:</font> Our paper "[MAMDR: A Model Agnostic Learning Method for Multi-Domain Recommendation](https://arxiv.org/abs/2202.12524)" has been accepted by [ICDE 2023](https://icde2023.ics.uci.edu/), Industry and Applications Track. (Feb., 2023)
   * <font color=blue>[Progress]:</font> I have passed my MPhil confirmation milestone and will transfer to the PhD candidate. (Nov., 2022)
   * <font color=red>[Paper]:</font> Our paper "[Graph Sequential Neural ODE Process for Link Prediction on Dynamic and Sparse Graphs](https://arxiv.org/abs/2211.08568)" has been accepted by [WSDM 2023](https://www.wsdm-conference.org/2023/). (Oct., 2022)
-
 </details>
