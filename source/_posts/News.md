@@ -8,6 +8,7 @@ top: 998
 
 # News
 ----
+* <font color=red>[Paper]:</font> We are happy to release the first **graph foundation model**-powered RAG pipeline ([GFM-RAG](https://www.arxiv.org/abs/2502.01113)) that combines the power of GNNs with LLMs to enhance reasoning. [Code](https://github.com/RManLuo/gfm-rag).
 * <font color=red>[Paper]:</font> Our tutorial on Integrating Large Language Models and Knowledge Graphs for Next-level AGI and one paper of GraphRAG for explainable recommendation has been accepted by WWW 2025. See you in Sydney! (Jan., 2025) 
 * <font color=red>[Paper]:</font> Our paper "[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)" has been accepted by NeurIPS 2024! (Sep., 2024)
 * <font color=red>[Paper]:</font> Our paper "[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)" has been accepted by [ACL 2024](https://2024.aclweb.org/). (May., 2024)
