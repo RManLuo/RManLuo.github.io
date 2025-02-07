@@ -9,6 +9,11 @@ top: 997
 # Selected Publications
 ----
 [Full Publications Lists](https://scholar.google.com/citations?user=RO46HpcAAAAJ)
+* **[GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113)**   
+  **Linhao Luo**, Zicheng Zhao, Gholamreza Haffari, Dinh Phung, Chen Gong, Shirui Pan  
+  Arxiv 2025.   
+  [\[Code\]](https://github.com/RManLuo/gfm-rag)
+
 * **[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)**   
   Jiapu Wang, Kai Sun, **Linhao Luo**, Wei Wei, Yongli Hu, Alan Wee-Chung Liew, Shirui Pan, Baocai Yin   
   NeurIPS 2024.
@@ -19,8 +24,9 @@ top: 997
   
 * **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
   **Linhao Luo**, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
-  EMNLP 2023.
- [\[Code&data\]](https://github.com/RManLuo/llm-facteval)
+  EMNLP 2023.   
+  [\[Code&data\]](https://github.com/RManLuo/llm-facteval)
+  
 * **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
   **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
   ICLR 2024.   
@@ -35,11 +41,6 @@ top: 997
   Shirui Pan, **Linhao Luo** (Equal contribution), Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu.  
   IEEE Transactions on Knowledge and Data Engineering, (TKDE, CCF-A, Core A).   
   [\[Code&data\]](https://github.com/RManLuo/Awesome-LLM-KG)
-  
-* **[Towards Few-shot Inductive Link Prediction on Knowledge Graphs: A Relational Anonymous Walk-guided Neural Process Approach.](https://arxiv.org/abs/2307.01204)**   
-  Zicheng Zhao, **Linhao Luo** (Equal contribution), Shirui Pan,Quoc Viet Hung Nguyen, Chen Gong.   
-  ECML PKDD 2023 (CCF-B, Core A).   
-  [\[Code&data\]](https://github.com/leapxcheng/RawNP)
   
 * [**GSim: A Graph Neural Network based Relevance Measure for Heterogeneous Graphs.**](https://arxiv.org/abs/2208.06144)   
   **Linhao Luo**, Yixiang Fang, Moli Lu, Xin Cao, Xiaofeng Zhang, and Wenjie Zhang.   
