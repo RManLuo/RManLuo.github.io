@@ -34,7 +34,7 @@ top: 997
   
 * **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   
   **Linhao Luo**, Jiaxin Ju, Bo Xiong, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
-  Arxiv 2023.   
+  PAKDD 2025.   
   [\[Code&data\]](https://github.com/rmanluo/chatrule)
   
 * **[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)**  
