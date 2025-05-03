@@ -14,22 +14,27 @@ top: 997
   Arxiv 2025.   
   [\[Code\]](https://github.com/RManLuo/gfm-rag)
 
+* **[Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](https://arxiv.org/abs/2410.13080)**   
+  **Linhao Luo**, Zicheng Zhao, Chen Gong, Gholamreza Haffari, Shirui Pan   
+  ICML 2025 (CCF-A, Core A*).   
+  [\[Code\]](https://github.com/RManLuo/graph-constrained-reasoning)
+
 * **[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)**   
   Jiapu Wang, Kai Sun, **Linhao Luo**, Wei Wei, Yongli Hu, Alan Wee-Chung Liew, Shirui Pan, Baocai Yin   
-  NeurIPS 2024.
+  NeurIPS 2024 (CCF-A, Core A*).
   
 * **[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)**   
   Nguyen Minh-Vuong, **Linhao Luo**, Fatemeh Shiri, Dinh Phung, Yuan-Fang Li, Thuy-Trang Vu, Gholamreza Haffari   
-  ACL 2024.
+  ACL 2024 (CCF-A, Core A*).
   
 * **[Systematic Assessment of Factual Knowledge in Large Language Models](https://arxiv.org/abs/2310.11638)**   
   **Linhao Luo**, Thuy-Trang Vu, Dinh Phung, Gholamreza Haffari   
-  EMNLP 2023.   
+  EMNLP 2023 (CCF-B, Core A*).   
   [\[Code&data\]](https://github.com/RManLuo/llm-facteval)
   
 * **[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)**   
   **Linhao Luo**, Yuan-Fang Li, Gholamreza Haffari, Shirui Pan   
-  ICLR 2024.   
+  ICLR 2024 (Core A*).   
   [\[Code&data\]](https://github.com/rmanluo/reasoning-on-graphs)  [\[Slides\]](https://github.com/RManLuo/reasoning-on-graphs/blob/master/Reasoning%20on%20Graphs-ICLR2024-slides.pdf) [\[Poster\]](https://github.com/RManLuo/reasoning-on-graphs/blob/master/poster.pdf)
   
 * **[ChatRule: Mining Logical Rules with Large Language Models for Knowledge Graph Reasoning](https://arxiv.org/abs/2309.01538)**   

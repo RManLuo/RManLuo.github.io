@@ -16,7 +16,7 @@ menu:
   Services: /#Services
   Teaching: /#Teaching
   Talks: /#Talks
-  CV: /CV
+  # CV: /CV
   Blog: https://rman.top
 
 # flink picture will load if avator link calls on error
