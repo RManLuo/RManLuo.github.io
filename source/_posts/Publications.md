@@ -15,7 +15,7 @@ top: 997
   [\[Code\]](https://github.com/RManLuo/gfm-rag)
 
 * **[Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](https://arxiv.org/abs/2410.13080)**   
-  **Linhao Luo**, Zicheng Zhao, Chen Gong, Gholamreza Haffari, Shirui Pan   
+  **Linhao Luo**, Zicheng Zhao, Gholamreza Haffari, Yuan-Fang Li, Chen Gong, Shirui Pan 
   ICML 2025 (CCF-A, Core A*).   
   [\[Code\]](https://github.com/RManLuo/graph-constrained-reasoning)
 
