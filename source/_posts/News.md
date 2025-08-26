@@ -8,7 +8,7 @@ top: 998
 
 # News
 ----
-* <font color=red>[Paper]:</font> Our paper about foundation model on large lithium-ion battery: Large Lithium-ion Battery Model for Secure Shared Electric Bike Battery in Smart Cities has been accepted by [nature communications](https://www.nature.com/ncomms/).
+* <font color=red>[Paper]:</font> Our paper about foundation model on large lithium-ion battery: Large Lithium-ion Battery Model for Secure Shared Electric Bike Battery in Smart Cities has been accepted by [Nature Communications](https://www.nature.com/ncomms/).
 * <font color=red>[Paper]:</font> Our latest work on KG + LLM reasoning: [Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](https://arxiv.org/abs/2410.13080) has been accepted by ICML 2025. (May, 2025)
 * <font color=red>[Paper]:</font> We are happy to release the first **graph foundation model**-powered RAG pipeline ([GFM-RAG](https://www.arxiv.org/abs/2502.01113)) that combines the power of GNNs with LLMs to enhance reasoning. [Code](https://github.com/RManLuo/gfm-rag) (Feb., 2025)
 * <font color=blue>[Progress]:</font> I have passed my PhD final review! 🎉 (Feb., 2025)
