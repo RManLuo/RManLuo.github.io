@@ -11,7 +11,7 @@ top: 997
 [Full Publications Lists](https://scholar.google.com/citations?user=RO46HpcAAAAJ)
 * **[GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113)**   
   **Linhao Luo**, Zicheng Zhao, Gholamreza Haffari, Dinh Phung, Chen Gong, Shirui Pan  
-  Arxiv 2025.   
+  NeurIPS 2025 (CCF-A, Core A*).   
   [\[Code\]](https://github.com/RManLuo/gfm-rag)
 
 * **[Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](https://arxiv.org/abs/2410.13080)**   
