@@ -8,6 +8,7 @@ top: 998
 
 # News
 ----
+* <font color=orange>[Award]:</font> I am honor to receive Monash FIT 2025 Dean'S Award for Excellence by A Graduate Research Student. (Oct., 2025)
 * <font color=red>[Paper]:</font> Our latest work on Graph Foundation Model for RAG: [GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113) has been accepted by NeurIPS 2025. (Sep., 2025)
 * <font color=blue>[Progress]:</font> I am happy to start my new position as a Research Fellow at Monash University 🎉 (Sep., 2025)
 * <font color=red>[Paper]:</font> Our paper about foundation model on [Large lithium-ion battery model for secure shared electric bike battery in smart cities](https://www.nature.com/articles/s41467-025-63678-7) has been accepted by [Nature Communications](https://www.nature.com/ncomms/).
