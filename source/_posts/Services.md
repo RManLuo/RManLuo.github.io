@@ -8,6 +8,10 @@ top: 996
 
 # Services
 ----
+
+## Conference Organization
+* Special Session Chair: [Integrating Large Language Models and Knowledge Graphs](https://ijcnn-2026-kg-llm.github.io/), IJCNN 2026.
+
 ## Journal Reviewer
 * [IEEE Transactions on Cybernetics](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6221036) (IF: 19.11)
 * [IEEE Transactions on Knowledge and Data Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69) (TKDE, IF: 9.235)
