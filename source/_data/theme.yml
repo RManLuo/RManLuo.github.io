@@ -38,7 +38,7 @@ social_links:
   # fab fa-weibo: /
   # fab fa-weixin: /
   # fab fa-qq: /
-  fab fa-university: https://research.monash.edu/en/persons/linhao-luo/
+  fa fa-university: https://research.monash.edu/en/persons/linhao-luo/
   fas fa-rss: /atom.xml
 
 # Additional social_links，额外添加自定义链接，可显示链接名称
@@ -73,3 +73,4 @@ CDN_USE:
     - https://cdn.jsdelivr.net/npm/jquery-pjax@latest/jquery.pjax.min.js
 
     - /js/main.js
+
