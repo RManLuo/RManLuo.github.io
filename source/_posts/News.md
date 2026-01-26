@@ -13,14 +13,15 @@ top: 998
 
 <details>
   <summary>More News (2025)</summary>
-* <font color=orange>[Award]:</font> I am honor to receive Monash FIT 2025 Dean's Award for Excellence by A Graduate Research Student. (Oct., 2025)
-* <font color=red>[Paper]:</font> Our latest work on Graph Foundation Model for RAG: [GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113) has been accepted by NeurIPS 2025. (Sep., 2025)
-* <font color=blue>[Progress]:</font> I am happy to start my new position as a Research Fellow at Monash University 🎉 (Sep., 2025)
-* <font color=red>[Paper]:</font> Our paper about foundation model on [Large lithium-ion battery model for secure shared electric bike battery in smart cities](https://www.nature.com/articles/s41467-025-63678-7) has been accepted by [Nature Communications](https://www.nature.com/ncomms/).
-* <font color=red>[Paper]:</font> Our latest work on KG + LLM reasoning: [Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](https://arxiv.org/abs/2410.13080) has been accepted by ICML 2025. (May, 2025)
-* <font color=red>[Paper]:</font> We are happy to release the first **graph foundation model**-powered RAG pipeline ([GFM-RAG](https://www.arxiv.org/abs/2502.01113)) that combines the power of GNNs with LLMs to enhance reasoning. [Code](https://github.com/RManLuo/gfm-rag) (Feb., 2025)
-* <font color=blue>[Progress]:</font> I have passed my PhD final review! 🎉 (Feb., 2025)
-* <font color=red>[Paper]:</font> Our tutorial on Integrating Large Language Models and Knowledge Graphs for Next-level AGI and one paper of GraphRAG for explainable recommendation has been accepted by WWW 2025. See you in Sydney! (Jan., 2025)
+  
+  * <font color=orange>[Award]:</font> I am honor to receive Monash FIT 2025 Dean's Award for Excellence by A Graduate Research Student. (Oct., 2025)
+  * <font color=red>[Paper]:</font> Our latest work on Graph Foundation Model for RAG: [GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113) has been accepted by NeurIPS 2025. (Sep., 2025)
+  * <font color=blue>[Progress]:</font> I am happy to start my new position as a Research Fellow at Monash University 🎉 (Sep., 2025)
+  * <font color=red>[Paper]:</font> Our paper about foundation model on [Large lithium-ion battery model for secure shared electric bike battery in smart cities](https://www.nature.com/articles/s41467-025-63678-7) has been accepted by [Nature Communications](https://www.nature.com/ncomms/).
+  * <font color=red>[Paper]:</font> Our latest work on KG + LLM reasoning: [Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](https://arxiv.org/abs/2410.13080) has been accepted by ICML 2025. (May, 2025)
+  * <font color=red>[Paper]:</font> We are happy to release the first **graph foundation model**-powered RAG pipeline ([GFM-RAG](https://www.arxiv.org/abs/2502.01113)) that combines the power of GNNs with LLMs to enhance reasoning. [Code](https://github.com/RManLuo/gfm-rag) (Feb., 2025)
+  * <font color=blue>[Progress]:</font> I have passed my PhD final review! 🎉 (Feb., 2025)
+  * <font color=red>[Paper]:</font> Our tutorial on Integrating Large Language Models and Knowledge Graphs for Next-level AGI and one paper of GraphRAG for explainable recommendation has been accepted by WWW 2025. See you in Sydney! (Jan., 2025)
 </details>
 
 <details>
