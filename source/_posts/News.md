@@ -8,6 +8,11 @@ top: 998
 
 # News
 ----
+
+* <font color=red>[Paper]:</font> 3 papers (2 GraphRAG and 1 Multi-agent) has been accepted by ICLR 2026! (Jan., 2026)
+
+<details>
+  <summary>More News (2025)</summary>
 * <font color=orange>[Award]:</font> I am honor to receive Monash FIT 2025 Dean's Award for Excellence by A Graduate Research Student. (Oct., 2025)
 * <font color=red>[Paper]:</font> Our latest work on Graph Foundation Model for RAG: [GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113) has been accepted by NeurIPS 2025. (Sep., 2025)
 * <font color=blue>[Progress]:</font> I am happy to start my new position as a Research Fellow at Monash University 🎉 (Sep., 2025)
@@ -16,18 +21,14 @@ top: 998
 * <font color=red>[Paper]:</font> We are happy to release the first **graph foundation model**-powered RAG pipeline ([GFM-RAG](https://www.arxiv.org/abs/2502.01113)) that combines the power of GNNs with LLMs to enhance reasoning. [Code](https://github.com/RManLuo/gfm-rag) (Feb., 2025)
 * <font color=blue>[Progress]:</font> I have passed my PhD final review! 🎉 (Feb., 2025)
 * <font color=red>[Paper]:</font> Our tutorial on Integrating Large Language Models and Knowledge Graphs for Next-level AGI and one paper of GraphRAG for explainable recommendation has been accepted by WWW 2025. See you in Sydney! (Jan., 2025)
+</details>
 
 <details>
-  <summary>More News (2024)</summary>
+  <summary>More News (2024 and before)</summary>
 
   * <font color=red>[Paper]:</font> Our paper "[Large Language Models-guided Dynamic Adaptation for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2405.14170)" has been accepted by NeurIPS 2024! (Sep., 2024)
   * <font color=red>[Paper]:</font> Our paper "[Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs](https://arxiv.org/abs/2402.11199)" has been accepted by [ACL 2024](https://2024.aclweb.org/). (May., 2024)
   * <font color=red>[Paper]:</font> Our paper "[Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061)" has been accepted by [ICLR 2024](https://iclr.cc/). (Jan., 2024)
-</details>
-
-<details>
-  <summary>More News (2023 and before)</summary>
-  
   * <font color=orange>[Award]:</font> I am honor to receive the Third Place Award of ICDM 2023 TuGraph Competition. (Dec., 2023)
   * <font color=purple>[Service]:</font> I will serve as a PC member of [AAAI 2024](https://aaai-24.aaai.org/). (Jul., 2023)
   * <font color=red>[Paper]:</font> Our paper "[Unifying Large Language Models and Knowledge Graphs: A Roadmap.](https://arxiv.org/abs/2306.08302)" is now public. (Jun. 2023)

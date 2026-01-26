@@ -9,6 +9,11 @@ top: 997
 # Selected Publications
 ----
 [Full Publications Lists](https://scholar.google.com/citations?user=RO46HpcAAAAJ)
+* **[G-reasoner: Foundation Models for Unified Reasoning over Graph-structured Knowledge](https://arxiv.org/abs/2509.24276)**   
+  **Linhao Luo**, Zicheng Zhao, Junnan Liu, Zhangchi Qiu, Junnan Dong, Serge Panev, Chen Gong, Thuy-Trang Vu, Gholamreza Haffari, Dinh Phung, Alan Wee-Chung Liew, Shirui Pan   
+  ICLR 2026 (Core A*).   
+  [\[Code\]](https://github.com/RManLuo/gfm-rag)
+
 * **[GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](https://www.arxiv.org/abs/2502.01113)**   
   **Linhao Luo**, Zicheng Zhao, Gholamreza Haffari, Dinh Phung, Chen Gong, Shirui Pan  
   NeurIPS 2025 (CCF-A, Core A*).   
