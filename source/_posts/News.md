@@ -9,7 +9,7 @@ top: 998
 # News
 ----
 
-* <font color=red>[Paper]:</font> 3 papers (2 GraphRAG and 1 Multi-agent) has been accepted by ICLR 2026! (Jan., 2026)
+* <font color=red>[Paper]:</font> 3 papers (2 GraphRAG and 1 Multi-agent) have been accepted by ICLR 2026! (Jan., 2026)
 
 <details>
   <summary>More News (2025)</summary>
