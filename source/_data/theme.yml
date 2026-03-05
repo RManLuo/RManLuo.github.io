@@ -31,7 +31,7 @@ social:
 social_links:
   # fab fa-twitter: /
   # fab fa-facebook-square: /
-  fas fa-envelope: mailto:Linhao.Luo@monash.edu #E-mail
+  fas fa-envelope: mailto:Linhao.Luo1@monash.edu #E-mail
   fab fa-github: https://github.com/RManLuo
   # fab fa-stack-overflow: /
   fab fa-linkedin: https://www.linkedin.com/in/linhao-luo-36b489134/
@@ -73,4 +73,5 @@ CDN_USE:
     - https://cdn.jsdelivr.net/npm/jquery-pjax@latest/jquery.pjax.min.js
 
     - /js/main.js
+
 
