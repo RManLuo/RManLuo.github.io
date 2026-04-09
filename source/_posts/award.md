@@ -7,7 +7,7 @@ top: 1
 ---
 # Awards
 ----
-* [2025 Mollie Holman Award](https://www.intranet.monash/graduate-research/resources-staff/scholarship-opportunities/mollie), Monash’s highest academic honor for outstanding PhD researchers. (Mar., 2026)
+* [2025 Mollie Holman Award](https://www.monash.edu/graduate-research/support-and-resources/examination/prestigious-awardees), Monash’s highest academic honor for outstanding PhD researchers. (Mar., 2026)
 * Monash FIT 2025 Dean's Award for Excellence by A Graduate Research Student. (Oct., 2025)
 * ICDM 2023 TuGraph Competition: Pretrained Model-based Community Detection and Fraudulent Group Mining, Third Place Award (Dec., 2023)
 * SIGIR 2023 Student Travel Award. (May., 2023)
