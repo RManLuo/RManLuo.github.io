@@ -10,7 +10,7 @@ top: 998
 ----
 
 * <font color=orange>[Award]:</font> I am honored to receive the [2025 Mollie Holman Award](https://www.monash.edu/graduate-research/support-and-resources/examination/prestigious-awardees), Monash’s highest academic honor for outstanding PhD researchers. (Mar., 2026)
-* <font color=blue>[Progress]:</font> I have officially been awarded the degree of Doctor of Philosophy! 🎉 (Jan., 2025)
+* <font color=blue>[Progress]:</font> I have officially been awarded the degree of Doctor of Philosophy! 🎉 (Jan., 2026)
 * <font color=red>[Paper]:</font> 3 papers (2 GraphRAG and 1 Multi-agent) have been accepted by ICLR 2026! (Jan., 2026)
 
 <details>
