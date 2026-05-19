@@ -14,9 +14,15 @@ menu:
   Biography: /#Biography
   Publications: /#Selected-Publications
   Services: /#Services
+<<<<<<< HEAD
+  Teaching: /#Teaching
+  Talk: /#Talk
+  CV: /CV
+=======
   Teaching: /#Teaching
   Talks: /#Talks
   # CV: /CV
+>>>>>>> 29ffb60a0cd9e34a8ed3dc547051ea5ef43e84ed
   Blog: https://rman.top
 
 # flink picture will load if avator link calls on error
@@ -31,7 +37,7 @@ social:
 social_links:
   # fab fa-twitter: /
   # fab fa-facebook-square: /
-  fas fa-envelope: mailto:Linhao.Luo1@monash.edu #E-mail
+  fas fa-envelope: mailto:Linhao.Luo@monash.edu #E-mail
   fab fa-github: https://github.com/RManLuo
   # fab fa-stack-overflow: /
   fab fa-linkedin: https://www.linkedin.com/in/linhao-luo-36b489134/
