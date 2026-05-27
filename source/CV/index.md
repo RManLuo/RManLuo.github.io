@@ -8,7 +8,7 @@ This is the Linhao Luo. I am interested in Knowledge Graph, Large Language Model
 ## EDUCATION: 
 
 * Bachelor, Harbin Institute of Technology, Shenzhen, China, 2016-2021
-* Doctor of Philosophy, Monash University, Melbourne, Australia, 2022 - Now
+* Doctor of Philosophy, Monash University, Melbourne, Australia, 2022 - 2026
 
 ## WORK EXPERIENCE
 
