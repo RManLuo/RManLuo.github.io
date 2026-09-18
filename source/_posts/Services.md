@@ -13,7 +13,7 @@ top: 996
 * Special Session Chair: [Integrating Large Language Models and Knowledge Graphs](https://ijcnn-2026-kg-llm.github.io/), IJCNN 2026.
 
 ## Conference Reviewer
-* SPC Member: AAAI (2026)
+* SPC/AC Member: AAAI (2026), ICLR (2027)
 * PC Member: ICLR (2024-2026), ICML (2025-2026), NeurIPS (2023-2025), AAAI (2022, 2024-2026), IJCAI (2024-2026), KDD (2023-2026), TheWebConf (2023-2024, 2026), ICDE (2021, 2023), CIKM (2021-2022, 2024-2025)
 
 ## Journal Reviewer
