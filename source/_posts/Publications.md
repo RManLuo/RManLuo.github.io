@@ -9,6 +9,10 @@ top: 997
 # Selected Publications
 ----
 [Full Publications Lists](https://scholar.google.com/citations?user=RO46HpcAAAAJ)
+* **[MATO: Multi-objective Personalized Alignment with Test-time Optimization for Large Language Models](https://arxiv.org/abs/2605.25342)**   
+  **Linhao Luo**, Thuy-Trang Vu, Van-Anh Nguyen, Junae Kim, Gholamreza Haffari, Dinh Phung   
+  NeurIPS 2026 (CCF-A, Core A*).
+
 * **[G-reasoner: Foundation Models for Unified Reasoning over Graph-structured Knowledge](https://arxiv.org/abs/2509.24276)**   
   **Linhao Luo**, Zicheng Zhao, Junnan Liu, Zhangchi Qiu, Junnan Dong, Serge Panev, Chen Gong, Thuy-Trang Vu, Gholamreza Haffari, Dinh Phung, Alan Wee-Chung Liew, Shirui Pan   
   ICLR 2026 (Core A*).   
