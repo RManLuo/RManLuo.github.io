@@ -9,6 +9,7 @@ top: 998
 # News
 ----
 
+* <font color=orange>[Award]:</font> I am honored to receive the [2027 CORE Award for the Australasian Distinguished Doctoral Dissertation](https://www.core.edu.au/awards). (Oct., 2026)
 * <font color=orange>[Award]:</font> I have received research support through OpenAI’s [ChatGPT for Academic Researchers](https://openai.com/index/chatgpt-for-academic-researchers/) program. (Oct., 2026)
 * <font color=red>[Paper]:</font> 4 papers (MMGraph-Agent, MemPilot, [MATO](https://arxiv.org/abs/2605.25342), and TransMem) have been accepted by NeurIPS 2026! (Sep., 2026)
 * <font color=red>[Paper]:</font> 3 papers (1x [Multi-agent](https://arxiv.org/abs/2606.01755) (Main), 1x KG+LLM for healthcare (Main), 1x [Multimodal Reasoning](https://arxiv.org/abs/2605.25343) ) have been accepted by EMNLP 2026! (Aug., 2026)

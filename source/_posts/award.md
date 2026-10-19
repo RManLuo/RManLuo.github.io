@@ -7,6 +7,7 @@ top: 1
 ---
 # Awards
 ----
+* [2027 CORE Award for the Australasian Distinguished Doctoral Dissertation](https://www.core.edu.au/awards). (Oct., 2026)
 * [OpenAI ChatGPT for Academic Researchers](https://openai.com/index/chatgpt-for-academic-researchers/). (Oct., 2026)
 * [2025 Mollie Holman Award](https://www.monash.edu/graduate-research/support-and-resources/examination/prestigious-awardees), Monash’s highest academic honor for outstanding PhD researchers. (Mar., 2026)
 * Monash FIT 2025 Dean's Award for Excellence by A Graduate Research Student. (Oct., 2025)
