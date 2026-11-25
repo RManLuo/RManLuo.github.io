@@ -7,7 +7,7 @@ top: 1
 ---
 # Awards
 ----
-* [Australia’s leading researcher in Data Mining & Analysis](https://www.theaustralian.com.au/special-reports/research-magazine/welcome-to-the-2027-research-magazine/news-story/55705d0183460e738ba029c2cfa3bf50), The Australian’s 2027 Research magazine. (Nov., 2026)
+* [Australia’s Top 250 Researchers in Data Mining & Analysis](https://www.theaustralian.com.au/special-reports/research-magazine/welcome-to-the-2027-research-magazine/news-story/55705d0183460e738ba029c2cfa3bf50), The Australian’s 2027 Research magazine. (Nov., 2026)
 * [2027 CORE Award for the Australasian Distinguished Doctoral Dissertation](https://www.core.edu.au/awards). (Oct., 2026)
 * [OpenAI ChatGPT for Academic Researchers](https://openai.com/index/chatgpt-for-academic-researchers/). (Oct., 2026)
 * [2025 Mollie Holman Award](https://www.monash.edu/graduate-research/support-and-resources/examination/prestigious-awardees), Monash’s highest academic honor for outstanding PhD researchers. (Mar., 2026)

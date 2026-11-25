@@ -9,7 +9,7 @@ top: 998
 # News
 ----
 
-* <font color=orange>[Award]:</font> I am honored to be named [Australia’s leading researcher in Data Mining & Analysis](https://www.theaustralian.com.au/special-reports/research-magazine/welcome-to-the-2027-research-magazine/news-story/55705d0183460e738ba029c2cfa3bf50) in The Australian’s 2027 Research magazine. (Nov., 2026)
+* <font color=orange>[Award]:</font> I am honored to be named as [Australia’s Top 250 Researchers in Data Mining & Analysis (2027)](https://www.theaustralian.com.au/special-reports/research-magazine/welcome-to-the-2027-research-magazine/news-story/55705d0183460e738ba029c2cfa3bf50) by The Australian’s 2027 Research magazine. (Nov., 2026)
 * <font color=orange>[Award]:</font> I am honored to receive the [2027 CORE Award for the Australasian Distinguished Doctoral Dissertation](https://www.core.edu.au/awards). (Oct., 2026)
 * <font color=orange>[Award]:</font> I have received research support through OpenAI’s [ChatGPT for Academic Researchers](https://openai.com/index/chatgpt-for-academic-researchers/) program. (Oct., 2026)
 * <font color=red>[Paper]:</font> 4 papers (MMGraph-Agent, MemPilot, [MATO](https://arxiv.org/abs/2605.25342), and TransMem) have been accepted by NeurIPS 2026! (Sep., 2026)
